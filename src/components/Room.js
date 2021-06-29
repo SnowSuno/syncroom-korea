@@ -36,13 +36,13 @@ Room.propTypes = {
     creator_icon: PropTypes.shape({
         icon: PropTypes.string,
         iconurl: PropTypes.string
-    }).isRequired,
+    }),
     creator_mid: PropTypes.string.isRequired,
     creator_nick: PropTypes.string.isRequired,
     iconlist: PropTypes.arrayOf(PropTypes.shape({
-        icon: PropTypes.string.isRequired,
-        iconurl: PropTypes.string.isRequired
-    })).isRequired,
+        icon: PropTypes.string,
+        iconurl: PropTypes.string
+    })),
     index: PropTypes.number.isRequired,
     members: PropTypes.arrayOf(PropTypes.string).isRequired,
     need_passwd: PropTypes.bool.isRequired,
