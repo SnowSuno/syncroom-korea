@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import makeJoinURI from "../util/makeURI"
+import makeJoinURI from "../util/makeJoinURI"
 
 function Room(room) {
     const joinURI = makeJoinURI(room.room_name, "", 4, 2);
