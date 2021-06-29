@@ -1,32 +1,19 @@
 import React from "react";
-import './App.css';
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
-import useRooms from "./api/useRooms";
-import Room from "./components/Room";
+import Home from "./routes/Home";
+import Test from "./routes/Test";
 
 function App() {
-    const { rooms, loading, error, fetchRooms } = useRooms();
-
-    if (!loading) {
-        if (!error) {
-            console.log(rooms)
-        } else {
-            // console.error(error);
-        }
-    }
-
-    // const { rooms } = data;
-    // console.log(rooms)
-
     return (
-        <div>
-            <button onClick={fetchRooms}>reload</button>
-            <div>
-                {rooms.map((room, index) => <Room key={index} {...room}/>)}
-            </div>
-        </div>
+        <Router basename={process.env.PUBLIC_URL}>
+            <Switch>
+                <Route exact path="/" component={Home}/>
+                <Route exact path="/test" component={Test}/>
+            </Switch>
+        </Router>
+
     )
 }
-
 
 export default App;
