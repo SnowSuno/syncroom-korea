@@ -4,6 +4,9 @@ import makeJoinURI from "../util/makeURI"
 
 function Room(room) {
     const joinURI = makeJoinURI(room.room_name, "", 4, 2);
+    if (room.room_name === '1324') {
+        console.log(joinURI);
+    }
 
 
     return (
