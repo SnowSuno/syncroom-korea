@@ -1,47 +1,32 @@
 import React from "react";
-import axios from "axios";
 import './App.css';
 
-const ROOM_API = "https://webapi.syncroom.appservice.yamaha.com/ndroom/room_list.json?pagesize=500&realm=4";
+import useRooms from "./api/useRooms";
+import Room from "./components/Room";
 
+function App() {
+    const { rooms, loading, error, fetchRooms } = useRooms();
 
-class App extends React.Component {
-  state = {
-    rooms: []
-  }
-
-  async getRooms() {
-    try {
-      return await axios.get(ROOM_API);
-    } catch (error) {
-      console.error(error);
+    if (!loading) {
+        if (!error) {
+            console.log(rooms)
+        } else {
+            // console.error(error);
+        }
     }
-  };
 
-  async showData() {
-    console.log('getting data...');
-    const {
-      data: {
-        rooms
-      }
-    } = await this.getRooms();
+    // const { rooms } = data;
+    // console.log(rooms)
 
-    if (rooms) {
-      console.log(rooms);
-    }
-  }
-
-
-  componentDidMount() {
-    this.showData().then();
-
-  }
-
-  render() {
-    return <h1>hello</h1>
-  }
-
-
+    return (
+        <div>
+            <button onClick={fetchRooms}>reload</button>
+            <div>
+                {rooms.map(room => <Room {...room}/>)}
+            </div>
+        </div>
+    )
 }
+
 
 export default App;
