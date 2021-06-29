@@ -10,8 +10,8 @@ function Room(room) {
             <h1>{room.room_name}</h1>
             <h3>{room.room_desc}</h3>
             <ul>
-                {room.members.map(member => (
-                    <li>{member}</li>
+                {room.members.map((member, index) => (
+                    <li key={index}>{member}</li>
                 ))}
             </ul>
         </div>

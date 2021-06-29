@@ -22,7 +22,7 @@ function App() {
         <div>
             <button onClick={fetchRooms}>reload</button>
             <div>
-                {rooms.map(room => <Room {...room}/>)}
+                {rooms.map((room, index) => <Room key={index} {...room}/>)}
             </div>
         </div>
     )
