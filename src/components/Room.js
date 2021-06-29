@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+import makeJoinURI from "../util/makeURI"
 
 function Room(room) {
+    const joinURI = makeJoinURI(room.room_name, "", 4, 2);
 
 
     return (
@@ -14,6 +15,7 @@ function Room(room) {
                     <li key={index}>{member}</li>
                 ))}
             </ul>
+            <a href={joinURI}>입장</a>
         </div>
 
     )
@@ -23,9 +25,9 @@ function Room(room) {
 Room.propTypes = {
     create_time: PropTypes.string.isRequired,
     creator_icon: PropTypes.shape({
-        icon: PropTypes.string.isRequired,
-        iconurl: PropTypes.string.isRequired
-    }),
+        icon: PropTypes.string,
+        iconurl: PropTypes.string
+    }).isRequired,
     creator_mid: PropTypes.string.isRequired,
     creator_nick: PropTypes.string.isRequired,
     iconlist: PropTypes.arrayOf(PropTypes.shape({

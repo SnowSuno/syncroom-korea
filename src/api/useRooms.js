@@ -10,9 +10,7 @@ function useRooms() {
     // const [autoReload, setAutoReload] = useState(true);
 
     const fetchRooms = async () => {
-        /**
-         * @param response.data.rooms
-         */
+        /** @param response.data.rooms */
         try {
             setError(null);
             setRooms([]);
