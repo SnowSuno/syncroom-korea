@@ -1,25 +1,47 @@
-import logo from './logo.svg';
+import React from "react";
+import axios from "axios";
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const ROOM_API = "https://webapi.syncroom.appservice.yamaha.com/ndroom/room_list.json?pagesize=500&realm=4";
+
+
+class App extends React.Component {
+  state = {
+    rooms: []
+  }
+
+  async getRooms() {
+    try {
+      return await axios.get(ROOM_API);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  async showData() {
+    console.log('getting data...');
+    const {
+      data: {
+        rooms
+      }
+    } = await this.getRooms();
+
+    if (rooms) {
+      console.log(rooms);
+    }
+  }
+
+
+  componentDidMount() {
+    this.showData().then();
+
+  }
+
+  render() {
+    return <h1>hello</h1>
+  }
+
+
 }
 
 export default App;
