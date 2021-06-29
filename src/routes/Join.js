@@ -1,7 +1,8 @@
 import React from "react";
-import {Redirect} from "react-router-dom";
+
 
 import makeJoinURI from "../util/makeJoinURI";
+import {Redirect} from "react-router-dom";
 
 function Join({location:{search}, history}) {
     /**
@@ -11,13 +12,13 @@ function Join({location:{search}, history}) {
     const {room, pw = ""} = Object.fromEntries(
         decodeURI(search).slice(1).split('&').map(s => s.split('='))
     );
+    const joinURI = makeJoinURI(room, pw, 4, 2);
 
     if (!room) {
-        history.push('./notFound');
+        history.push('./notfound');
+    } else {
+        window.location.href = joinURI;
     }
-
-    const joinURI = makeJoinURI(room, pw, 4, 2);
-    window.location.href = joinURI;
 
     return (
         <div>
