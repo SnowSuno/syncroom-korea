@@ -1,17 +1,18 @@
 import React from "react";
 
-
 import makeJoinURI from "../util/makeJoinURI";
-import {Redirect} from "react-router-dom";
+import shareLink from "../util/shareLink";
 
 function Join({location:{search}, history}) {
-    /**
-     * @param params.room
-     * @param params.pw
-     */
-    const {room, pw = ""} = Object.fromEntries(
-        decodeURI(search).slice(1).split('&').map(s => s.split('='))
-    );
+    // /**
+    //  * @param params.room
+    //  * @param params.pw
+    //  */
+    // const {room, pw = ""} = Object.fromEntries(
+    //     decodeURI(search).slice(1).split('&').map(s => s.split('='))
+    // );
+    const [room, pw=""] = shareLink.decode(search.slice(1));
+
     const joinURI = makeJoinURI(room, pw, 4, 2);
 
     if (!room) {

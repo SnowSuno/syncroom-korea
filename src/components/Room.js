@@ -1,21 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 import makeJoinURI from "../util/makeJoinURI"
+import shareLink from "../util/shareLink";
 
 function Room(room) {
     const joinURI = makeJoinURI(room.room_name, "", 4, 2);
     const joinTestURI = makeJoinURI(room.room_name, "", 4, 3);
 
-    if (room.room_name === '1324') {
-        console.log(room);
-        console.log(joinURI);
-    }
-
+    const link = shareLink.encode([room.room_name]);
 
     return (
         <div style={{borderColor: 'red', borderStyle: 'solid', borderWidth: '1px'}}>
             <h1>{room.room_name}</h1>
-            <h5>{room.need_passwd ? 'Private' : 'public'}</h5>
+            <h5>[{room.need_passwd ? 'Private' : 'public'}]</h5>
             <h4>{room.room_desc}</h4>
             <ul>
                 {room.members.map((member, index) => (
@@ -25,8 +23,14 @@ function Room(room) {
             <a href={joinTestURI}>임시 입장</a>
             <br/>
             <a href={joinURI}>입장</a>
+            <br/><br/>
+            공유 링크:
+            {
+                room.need_passwd
+                    ? '잠긴방 링크는 나중에'
+                    : <a href={link}>https://syncroomkr.github.io/join?{link}</a>
+            }
         </div>
-
     )
 }
 

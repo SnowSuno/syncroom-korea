@@ -1465,6 +1465,13 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
+"@samwen/base62-util@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@samwen/base62-util/-/base62-util-1.0.4.tgz#e8fc6a8d888897533f77ed0d079f8a5a66c1a2ef"
+  integrity sha512-z8/YhcaxhoQicLtZ3wcynroaNZnntFCxS9dCd/oefC1ih9MI7adM/lriJIiJwFG/w4lM/NbwiL4yrqOmCYQozw==
+  dependencies:
+    base-x "^3.0.7"
+
 "@sinonjs/commons@^1.7.0":
   version "1.8.2"
   resolved "https://registry.npmjs.org/@sinonjs/commons/-/commons-1.8.2.tgz"
@@ -2674,6 +2681,13 @@ balanced-match@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.0.tgz"
   integrity sha1-ibTRmasr7kneFk6gK4nORi1xt2c=
+
+base-x@^3.0.7:
+  version "3.0.8"
+  resolved "https://registry.yarnpkg.com/base-x/-/base-x-3.0.8.tgz#1e1106c2537f0162e8b52474a557ebb09000018d"
+  integrity sha512-Rl/1AWP4J/zRrk54hhlxH4drNxPJXYUaKffODVI53/dAsV4t9fBxyxYKAVPU1XBHxYwOWP9h9H0hM2MVw4YfJA==
+  dependencies:
+    safe-buffer "^5.0.1"
 
 base64-js@^1.0.2:
   version "1.5.1"
