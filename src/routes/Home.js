@@ -1,15 +1,30 @@
-import React from "react";
+import React, {useEffect, useRef} from "react";
 import "./Home.css";
 
 import useRooms from "../api/useRooms";
 import Room from "../components/Room";
+
+
+function useResize() {
+    const element = useRef();
+
+    const resetColumns = () => {
+        console.log(element.current);
+    }
+
+    useEffect(() => {
+        resetColumns();
+    }, []);
+
+    return {ref: element, onresize: resetColumns}
+}
 
 function Home() {
     const { rooms, loading, error, fetchRooms } = useRooms();
 
     if (!loading) {
         if (!error) {
-            console.log(rooms)
+            // console.log(rooms)
         } else {
             // console.error(error);
         }
@@ -18,6 +33,13 @@ function Home() {
     // const { rooms } = data;
     // console.log(rooms)
 
+
+    // const body = useRef();
+    // setTimeout(() => console.log(body.current), 300);
+
+
+    const body = useResize();
+
     return (
         <div>
             <div className='header'>
@@ -25,6 +47,9 @@ function Home() {
             </div>
             <button onClick={fetchRooms}>reload</button>
             {loading ? ' Loading...' : ''}
+            <br/>
+            {/*<div className='body' {...body}>*/}
+            {/*</div>*/}
             <div className='room-container'>
                 {rooms.map((room, index) => <Room key={index} {...room}/>)}
             </div>

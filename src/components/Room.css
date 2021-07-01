@@ -1,7 +1,7 @@
 .room-tile {
     width: 388px;
     height: 470px;
-    margin: 13px;
+    /*margin: 13px;*/
     border-radius: 15px;
     overflow: hidden;
     background: #FFFFFF;
