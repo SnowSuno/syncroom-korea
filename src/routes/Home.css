@@ -1,0 +1,14 @@
+.header {
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+
+.room-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+
+    border: 2px red solid;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import "./Home.css";
 
 import useRooms from "../api/useRooms";
 import Room from "../components/Room";
@@ -19,9 +20,12 @@ function Home() {
 
     return (
         <div>
+            <div className='header'>
+                <h1>This is a 야무진 header</h1>
+            </div>
             <button onClick={fetchRooms}>reload</button>
             {loading ? ' Loading...' : ''}
-            <div>
+            <div className='room-container'>
                 {rooms.map((room, index) => <Room key={index} {...room}/>)}
             </div>
         </div>

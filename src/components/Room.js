@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./Room.css";
 
 import makeJoinURI from "../util/makeJoinURI"
 import shareLink from "../util/shareLink";
@@ -11,7 +12,7 @@ function Room(room) {
     const link = shareLink.encode([room.room_name]);
 
     return (
-        <div style={{borderColor: 'red', borderStyle: 'solid', borderWidth: '1px'}}>
+        <div className="room-tile">
             <h1>{room.room_name}</h1>
             <h5>[{room.need_passwd ? 'Private' : 'public'}]</h5>
             <h4>{room.room_desc}</h4>
