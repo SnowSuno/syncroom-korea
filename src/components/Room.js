@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./Room.css";
 
+import RoomHeader from "./RoomHeader";
+
 import makeJoinURI from "../util/makeJoinURI"
 import shareLink from "../util/shareLink";
 
@@ -11,9 +13,16 @@ function Room(room) {
 
     const link = shareLink.encode([room.room_name]);
 
+    const checkCountry = ({ room_name, room_desc, creator_nick}) => {
+
+    }
+
+
     return (
         <div className="room-tile">
-            <h1>{room.room_name}</h1>
+            <RoomHeader {...room}/>
+
+            {/*<h1>{room.room_name}</h1>*/}
             <h5>[{room.need_passwd ? 'Private' : 'public'}]</h5>
             <h4>{room.room_desc}</h4>
             <ul>

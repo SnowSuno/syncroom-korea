@@ -9,7 +9,7 @@ function Join({location:{search}, history}) {
     //  * @param params.pw
     //  */
     // const {room, pw = ""} = Object.fromEntries(
-    //     decodeURI(search).slice(1).split('&').map(s => s.split('='))
+    //     decodeURI(search).slice(img).split('&').map(s => s.split('='))
     // );
     const [room, pw=""] = shareLink.decode(search.slice(1));
 

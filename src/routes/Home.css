@@ -1,14 +1,18 @@
 .header {
     position: sticky;
     top: 0;
+    height: 90px;
     background-color: white;
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .room-container {
-    display: flex;
+    display: inline-flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
 
+    /*margin-inline: 5%;*/
 
     border: 2px red solid;
 }

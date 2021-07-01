@@ -21,7 +21,7 @@ function Home() {
     return (
         <div>
             <div className='header'>
-                <h1>This is a 야무진 header</h1>
+                This is a 야무진 header
             </div>
             <button onClick={fetchRooms}>reload</button>
             {loading ? ' Loading...' : ''}
