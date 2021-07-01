@@ -20,6 +20,7 @@ function Home() {
     return (
         <div>
             <button onClick={fetchRooms}>reload</button>
+            {loading ? ' Loading...' : ''}
             <div>
                 {rooms.map((room, index) => <Room key={index} {...room}/>)}
             </div>

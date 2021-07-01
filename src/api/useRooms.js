@@ -13,7 +13,7 @@ function useRooms() {
         /** @param response.data.rooms */
         try {
             setError(null);
-            setRooms([]);
+            // setRooms([]);
             setLoading(true);
             const response = await axios.get(ROOM_API);
 
