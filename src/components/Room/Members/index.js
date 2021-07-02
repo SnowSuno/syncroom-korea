@@ -1,5 +1,5 @@
 import React from "react";
-import "./RoomMembers.css"
+import "./style.css"
 
 function RoomMembers({ members, num_members }) {
     const MAX_MEMBERS = 5;

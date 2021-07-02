@@ -1,5 +1,5 @@
 import React from "react";
-import "./RoomHeader.css";
+import "./style.css";
 
 function RoomHeader({ room_name, need_passwd, num_members, country }) {
     const color = need_passwd

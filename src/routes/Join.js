@@ -1,7 +1,7 @@
 import React from "react";
 
-import makeJoinURI from "../util/makeJoinURI";
-import shareLink from "../util/shareLink";
+import makeJoinURI from "../util/joinURI";
+import shareURI from "../util/shareURI";
 
 function Join({location:{search}, history}) {
     // /**
@@ -11,7 +11,7 @@ function Join({location:{search}, history}) {
     // const {room, pw = ""} = Object.fromEntries(
     //     decodeURI(search).slice(img).split('&').map(s => s.split('='))
     // );
-    const [room, pw=""] = shareLink.decode(search.slice(1));
+    const [room, pw=""] = shareURI.decode(search.slice(1));
 
     const joinURI = makeJoinURI(room, pw, 4, 2);
 

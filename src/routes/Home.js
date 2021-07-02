@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from "react";
 import "./Home.css";
 
 import useRoomData from "../hooks/useRoomData";
-import Room from "../components/Room";
+import Room from "../components/Room/";
 
 
 

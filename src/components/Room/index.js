@@ -1,18 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./Room.css";
+import "./style.css";
 
-import RoomHeader from "./RoomHeader";
-import RoomMembers from "./RoomMembers";
+import RoomHeader from "./Header";
+import RoomMembers from "./Members";
 
-import makeJoinURI from "../util/makeJoinURI"
-import shareLink from "../util/shareLink";
+// import joinURI from "../../util/joinURI";
+// import shareURI from "../../util/shareURI";
 
 function Room(room) {
-    const joinURI = makeJoinURI(room.room_name, "", 4, 2);
-    const joinTestURI = makeJoinURI(room.room_name, "", 4, 3);
-
-    const link = shareLink.encode([room.room_name]);
+    // const join = joinURI.create(room.room_name, "", 4, 2);
+    // const tempJoin = joinURI.create(room.room_name, "", 4, 3)
+    // const share = shareURI.create([room.room_name]);
 
     const checkCountry = ({ room_name, room_desc, creator_nick }) => {
         const korean = /[ㄱ-ㅎㅏ-ㅣ가-힣]/;
