@@ -1,7 +1,12 @@
 .room-tile {
     width: 388px;
     height: 470px;
-    /*margin: 13px;*/
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
     border-radius: 15px;
     overflow: hidden;
     background: #FFFFFF;
@@ -9,4 +14,51 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 
     /*border: 1px blue solid;*/
+}
+
+.room-desc {
+    height: 45px;
+    padding-inline: 25px;
+    line-height: 22px;
+    font-size: 13px;
+
+    display: inline;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 15px;
+
+    height: 42px;
+
+}
+
+.share {
+    height: inherit;
+
+    border: 0;
+    background: #F0F0F0;
+}
+
+.join-buttons {
+    height: inherit;
+}
+
+.temp {
+    height: inherit;
+
+    border: 0;
+    background: #F0F0F0;
+}
+.join {
+    height: inherit;
+
+    border: 0;
+    background: #F0F0F0;
 }

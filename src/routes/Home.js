@@ -1,26 +1,13 @@
 import React, {useEffect, useRef} from "react";
 import "./Home.css";
 
-import useRooms from "../api/useRooms";
+import useRoomData from "../hooks/useRoomData";
 import Room from "../components/Room";
 
 
-function useResize() {
-    const element = useRef();
-
-    const resetColumns = () => {
-        console.log(element.current);
-    }
-
-    useEffect(() => {
-        resetColumns();
-    }, []);
-
-    return {ref: element, onresize: resetColumns}
-}
 
 function Home() {
-    const { rooms, loading, error, fetchRooms } = useRooms();
+    const { roomData, loading, error, fetchRooms } = useRoomData();
 
     if (!loading) {
         if (!error) {
@@ -30,28 +17,21 @@ function Home() {
         }
     }
 
-    // const { rooms } = data;
-    // console.log(rooms)
-
-
-    // const body = useRef();
-    // setTimeout(() => console.log(body.current), 300);
-
-
-    const body = useResize();
 
     return (
         <div>
             <div className='header'>
-                This is a 야무진 header
+                이 부분은 야무진 헤더가 될 예정입니다 ㅎㅎ
             </div>
             <button onClick={fetchRooms}>reload</button>
             {loading ? ' Loading...' : ''}
             <br/>
-            {/*<div className='body' {...body}>*/}
-            {/*</div>*/}
+            <div style={{height: '80px'}}>
+                검색기능이랑 필터기능 들어갈 자리입니다
+            </div>
             <div className='room-container'>
-                {rooms.map((room, index) => <Room key={index} {...room}/>)}
+                {roomData.map((room, index) => <Room key={index} {...room}/>)}
+                {/*{Array(2).fill(<div style={{width: '388px'}}/>)}*/}
             </div>
         </div>
     )

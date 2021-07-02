@@ -1,7 +1,32 @@
+
+
 .room-header {
+    display: flex;
+
     height: 53px;
-
-
     color: white;
+    font-size: 21px;
+
+    align-items: center;
+    padding-inline: 10px;
+
 }
 
+.country {
+    width: 50px;
+    /*vertical-align: 10px;*/
+
+    text-align: center;
+    font-size: 30px;
+
+
+}
+
+.room-name {
+    width: 318px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+
+}

@@ -3,8 +3,8 @@ import axios from "axios";
 
 const ROOM_API = "https://webapi.syncroom.appservice.yamaha.com/ndroom/room_list.json?pagesize=500&realm=4";
 
-function useRooms() {
-    const [rooms, setRooms] = useState([]);
+function useRoomData() {
+    const [roomData, setRoomData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     // const [autoReload, setAutoReload] = useState(true);
@@ -13,11 +13,11 @@ function useRooms() {
         /** @param response.data.rooms */
         try {
             setError(null);
-            // setRooms([]);
+            // setRoomData([]);
             setLoading(true);
             const response = await axios.get(ROOM_API);
 
-            setRooms(response.data.rooms);
+            setRoomData(response.data.rooms);
         } catch (error) {
             setError(error);
         } finally {
@@ -29,7 +29,7 @@ function useRooms() {
         fetchRooms().then();
     }, []);
 
-    return {rooms, loading, error, fetchRooms};
+    return {roomData, loading, error, fetchRooms};
 }
 
-export default useRooms;
+export default useRoomData;
