@@ -7,10 +7,6 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.body {
-    display: flex;
-    justify-content: center;
-}
 
 .room-container {
     display: flex;
@@ -19,5 +15,5 @@
     justify-content: center;
     width: fit-content;
     gap: 26px;
-
+    margin-inline: 5%;
 }
