@@ -1,17 +1,3 @@
-.header {
-    position: sticky;
-    top: 0;
-    height: 90px;
-    background-color: white;
-
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-.body {
-    display: flex;
-    justify-content: center;
-}
-
 .room-container {
     display: flex;
     flex-direction: row;
@@ -19,5 +5,5 @@
     justify-content: center;
     width: fit-content;
     gap: 26px;
-
+    margin-inline: 5%;
 }
