@@ -35,9 +35,12 @@ function Room(room) {
         return country
     }
 
+    // const color = room.need_passwd
+    //     ? (room.num_members === 5) ? '#4B4B4B' : '#000000'
+    //     : (room.num_members === 5) ? '#7680A2' : '#132F92';
     const color = room.need_passwd
-        ? (room.num_members === 5) ? '#4B4B4B' : '#000000'
-        : (room.num_members === 5) ? '#7680A2' : '#132F92';
+        ? (room.num_members === 5) ? '#c5c8cd' : '#191919'
+        : (room.num_members === 5) ? '#97a0be' : '#233D99';
 
 
     return (
