@@ -16,11 +16,15 @@
 .member {
     /*flex-basis: 100%;*/
     /*height: 57px;*/
-    line-height: 57px;
+    line-height: 56px;
     font-size: 15px;
 
-
+    border-bottom: 1px #dedede solid;
     /*border: rebeccapurple 1px solid;*/
+}
+
+.member:last-child {
+    border-bottom: 0;
 }
 
 .member span {

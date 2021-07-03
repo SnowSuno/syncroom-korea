@@ -4,13 +4,17 @@ import "./style.css";
 
 import RoomHeader from "./Header";
 import RoomMembers from "./Members";
+import Buttons from "./Buttons";
 
-// import joinURI from "../../util/joinURI";
+import joinURI from "../../util/joinURI";
 // import shareURI from "../../util/shareURI";
 
 function Room(room) {
-    // const join = joinURI.create(room.room_name, "", 4, 2);
-    // const tempJoin = joinURI.create(room.room_name, "", 4, 3)
+
+
+
+    const join = joinURI.create(room.room_name, "", 4, 2);
+    const tempJoin = joinURI.create(room.room_name, "", 4, 3)
     // const share = shareURI.create([room.room_name]);
 
     const checkCountry = ({ room_name, room_desc, creator_nick }) => {
@@ -28,14 +32,17 @@ function Room(room) {
             }
         });
 
-
         return country
     }
+
+    const color = room.need_passwd
+        ? (room.num_members === 5) ? '#4B4B4B' : '#000000'
+        : (room.num_members === 5) ? '#7680A2' : '#132F92';
 
 
     return (
         <div className="room-tile">
-            <RoomHeader {...room} country={checkCountry(room)}/>
+            <RoomHeader {...room} country={checkCountry(room)} color={color}/>
             <div className="room-desc">
                 <span>{
                     (room.room_desc) 
@@ -51,13 +58,7 @@ function Room(room) {
             {/*    ))}*/}
             {/*</ul>*/}
 
-            <div className="buttons">
-                <button className='share'>공유</button>
-                <div className='join-buttons'>
-                    <button className='temp'>임시 입장</button>
-                    <button className='join'>참여하기</button>
-                </div>
-            </div>
+            <Buttons color={color} tempJoin={tempJoin} join={join} />
 
                 {/*<a href={joinTestURI}>임시 입장</a>*/}
                 {/*{' '}*/}
