@@ -14,12 +14,19 @@
 }
 
 .menu {
-    background: #EAEAEA;
+    background: #e3e5e8;
     width: 215px;
+    border: 0;
+    padding: 0;
+    font: inherit;
+}
+.menu:hover {
+    background: #dde0e3;
 }
 
 .title {
-    font-size: 30px;
+    font-size: 32px;
+    font-weight: 300;
     /*font-weight: bold;*/
 }
 
@@ -27,4 +34,11 @@
     color: #FFFFFF;
     background: #49C5B6;
     width: 215px;
+    border: 0;
+    padding: 0;
+    font: inherit;
 }
+.settings:hover {
+    background: #46bdaf;
+}
+

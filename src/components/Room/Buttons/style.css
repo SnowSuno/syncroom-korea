@@ -17,6 +17,7 @@
     font-size: inherit;
 
     border: 0;
+    padding: 0;
     background: #F0F0F0;
 }
 .share:hover {
@@ -41,6 +42,7 @@
     font-size: inherit;
 
     border: 0;
+    padding: 0;
     background: #F0F0F0;
 }
 .temp:hover {
@@ -58,6 +60,7 @@
     color: white;
 
     border: 0;
+    padding: 0;
 }
 .join:hover {
     opacity: 0.8;

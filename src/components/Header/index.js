@@ -6,11 +6,11 @@ function Header() {
 
     return (
         <div className='header'>
-            <div className='menu'>
+            <button className='menu'>
                 <span>MENU</span>
-            </div>
+            </button>
             <div className='title'>SYNCROOM KOREA</div>
-            <div className='settings'>설정</div>
+            <button className='settings'>설정</button>
         </div>
     )
 }
