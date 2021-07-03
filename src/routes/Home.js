@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from "react";
+import React from "react";
 import "./Home.css";
 
 import useRoomData from "../hooks/useRoomData";
