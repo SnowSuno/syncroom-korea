@@ -1,4 +1,38 @@
 .toolbar {
     position: sticky;
-    top: 90px;
+    top: 5.8rem;
+    padding-block: 1rem;
+    /*padding-inline: 250px;*/
+    margin-bottom: 1rem;
+    /*background: #ECEEF2;*/
+    /*box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);*/
+    /*background: linear-gradient(to bottom, #ECEEF2, rgba(236, 238, 242, 0));*/
+
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.tool {
+    height: 2.6rem;
+
+
+    border-radius: 1.3rem;
+    background: #FFFFFF;
+
+    box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);
+}
+
+.search {
+    width: 30rem;
+}
+.country-filter {
+    width: 12rem;
+}
+.public-filter {
+    width: 12rem;
+}
+
+.refresh {
+    width: 2.6rem;
 }

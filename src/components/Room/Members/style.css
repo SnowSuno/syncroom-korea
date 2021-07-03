@@ -1,5 +1,5 @@
 .member-list {
-    height: 285px;
+    height: 15.4rem;
     background: #F6F6F6;
 
     display: flex;
@@ -7,20 +7,17 @@
     /*justify-content: space-around;*/
 
 
-    margin-inline: 15px;
-    border-radius: 15px;
-    padding-inline: 15px;
+    margin-inline: 0.85rem;
+    border-radius: 1rem;
+    padding-inline: 1rem;
 
 }
 
 .member {
-    /*flex-basis: 100%;*/
-    /*height: 57px;*/
-    line-height: 56px;
-    font-size: 15px;
+    line-height: 3rem;
+    font-size: 0.85rem;
 
-    border-bottom: 1px #dedede solid;
-
+    border-bottom: 0.1rem #dedede solid;
 }
 
 .member:last-child {

@@ -1,26 +1,26 @@
 .room-tile {
-    width: 388px;
-    height: 470px;
+    width: 21.5rem;
+    height: 26.3rem;
 
     display: flex;
     flex-direction: column;
 
-    gap: 10px;
+    gap: 0.85rem;
 
-    border-radius: 15px;
+    border-radius: 1rem;
     overflow: hidden;
     background: #FFFFFF;
 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);
 
     /*border: 1px blue solid;*/
 }
 
 .room-desc {
-    height: 45px;
-    padding-inline: 25px;
-    line-height: 22px;
-    font-size: 14px;
+    height: 2.3rem;
+    padding-inline: 1.3rem;
+    line-height: 1.15rem;
+    font-size: 0.76rem;
 
     display: inline;
     -webkit-line-clamp: 2;

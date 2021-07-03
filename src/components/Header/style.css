@@ -1,22 +1,24 @@
 .header {
     position: sticky;
     top: 0;
-    height: 90px;
+    height: 5.8rem;
     /*line-height: 90px;*/
     background: white;
-    font-size: 20px;
+    font-size: 1.2rem;
     /*text-align: center;*/
 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.15);
 
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    /*z-index: 2;*/
 }
 
 .menu {
     background: #e3e5e8;
-    width: 215px;
+    width: 13.5rem;
     height: 100%;
     border: 0;
     padding: 0;
@@ -24,23 +26,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 0.8rem;
 }
 
 .menu:hover {
     background: #dde0e3;
 }
 
-.title {
-    font-size: 32px;
-    font-weight: 300;
-    /*font-weight: bold;*/
-}
 
 .settings {
     color: #FFFFFF;
     background: #49C5B6;
-    width: 215px;
+    width: 13.5rem;
     height: 100%;
     border: 0;
     padding: 0;
@@ -48,7 +45,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 0.8rem;
 }
 .settings:hover {
     background: #46bdaf;

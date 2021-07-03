@@ -4,6 +4,6 @@
     flex-wrap: wrap;
     justify-content: center;
     width: fit-content;
-    gap: 26px;
-    margin-inline: 5%;
+    gap: 1.5rem;
+    margin-inline: 7%;
 }

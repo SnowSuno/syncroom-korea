@@ -9,11 +9,12 @@ function Toolbar({fetchRooms, loading}) {
             {/*<br/>*/}
             {/*검색기능이랑 필터기능 들어갈 자리입니다*/}
 
-            <div style={{
-                background: 'white',
-                width: 400,
-                margin: 15
-            }}>qwerqwer</div>
+            <div className='search tool' />
+            <div className='country-filter tool' />
+            <div className='public-filter tool' />
+            <div className='public-filter tool' />
+            <div className='refresh tool' />
+
         </div>
     )
 }
