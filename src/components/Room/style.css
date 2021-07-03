@@ -30,35 +30,4 @@
     -webkit-box-orient: vertical;
 }
 
-.buttons {
-    display: flex;
-    justify-content: space-between;
-    padding-inline: 15px;
 
-    height: 42px;
-
-}
-
-.share {
-    height: inherit;
-
-    border: 0;
-    background: #F0F0F0;
-}
-
-.join-buttons {
-    height: inherit;
-}
-
-.temp {
-    height: inherit;
-
-    border: 0;
-    background: #F0F0F0;
-}
-.join {
-    height: inherit;
-
-    border: 0;
-    background: #F0F0F0;
-}
