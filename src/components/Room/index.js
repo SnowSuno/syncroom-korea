@@ -42,7 +42,7 @@ function Room(room) {
 
     return (
         <div className="room-tile">
-            <RoomHeader {...room} country={checkCountry(room)} color={color}/>
+            <RoomHeader {...room} {...{country: checkCountry(room), color}}/>
             <div className="room-desc">
                 <span>{
                     (room.room_desc) 
