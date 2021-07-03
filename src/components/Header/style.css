@@ -2,7 +2,29 @@
     position: sticky;
     top: 0;
     height: 90px;
+    line-height: 90px;
     background-color: white;
+    font-size: 20px;
+    text-align: center;
 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu {
+    background: #EAEAEA;
+    width: 215px;
+}
+
+.title {
+    font-size: 30px;
+    /*font-weight: bold;*/
+}
+
+.settings {
+    color: #FFFFFF;
+    background: #49C5B6;
+    width: 215px;
 }

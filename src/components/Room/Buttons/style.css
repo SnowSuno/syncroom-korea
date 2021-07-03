@@ -60,8 +60,8 @@
     border: 0;
 }
 .join:hover {
-    opacity: 0.7;
+    opacity: 0.8;
 }
 .join:active {
-    opacity: 0.5;
+    opacity: 0.6;
 }
