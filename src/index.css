@@ -47,3 +47,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+text {
+  display: inline-block;
+  height: 1.6em;
+}

@@ -26,6 +26,7 @@
     align-items: center;
     gap: 10px;
 }
+
 .menu:hover {
     background: #dde0e3;
 }

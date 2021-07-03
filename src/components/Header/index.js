@@ -11,11 +11,11 @@ function Header() {
         <div className='header'>
             <button className='menu'>
                 <MenuIcon />
-                <span>MENU</span>
+                <text>MENU</text>
             </button>
             <Title height='80px'/>
             <button className='settings'>
-                <div>설정</div>
+                <text>설정</text>
                 <SettingsIcon />
             </button>
         </div>

@@ -7,14 +7,14 @@
     border-radius: 21px;
 
     font-size: 15px;
-
+    font-weight: 500;
 }
 
 .share {
     height: inherit;
     width: 80px;
     border-radius: inherit;
-    font-size: inherit;
+    font: inherit;
 
     border: 0;
     padding: 0;
@@ -33,13 +33,13 @@
     height: inherit;
     border-radius: inherit;
     overflow: hidden;
-    font-size: inherit;
+    font: inherit;
 }
 
 .temp {
     height: inherit;
     flex-grow: 1;
-    font-size: inherit;
+    font: inherit;
 
     border: 0;
     padding: 0;
@@ -56,7 +56,7 @@
     height: inherit;
     flex-grow: 1;
 
-    font-size: inherit;
+    font: inherit;
     color: white;
 
     border: 0;
