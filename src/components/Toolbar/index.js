@@ -1,9 +1,16 @@
 import React from "react";
 import "./style.css"
 
+import useScrollTransition from "../../hooks/useScrollTransition";
+
 function Toolbar({fetchRooms, loading}) {
+    const scroll = 5.8;
+
+    const paddingLeft = useScrollTransition(0, scroll, 20, 30);
+    const paddingRight = useScrollTransition(0, scroll, 20, 10);
+
     return (
-        <div className="toolbar">
+        <div className="toolbar" style={{paddingLeft: `${paddingLeft}%`, paddingRight: `${paddingRight}%`}}>
             {/*<button onClick={fetchRooms}>reload</button>*/}
             {/*{loading ? ' Loading...' : ''}*/}
             {/*<br/>*/}
@@ -12,7 +19,7 @@ function Toolbar({fetchRooms, loading}) {
             <div className='search tool' />
             <div className='country-filter tool' />
             <div className='public-filter tool' />
-            <div className='public-filter tool' />
+            <div className='session-filter tool' />
             <div className='refresh tool' />
 
         </div>

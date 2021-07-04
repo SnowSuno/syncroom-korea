@@ -1,12 +1,12 @@
 .toolbar {
     position: sticky;
-    top: 5.8rem;
+    top: 0;
     padding-block: 1rem;
     /*padding-inline: 250px;*/
-    margin-bottom: 1rem;
-    /*background: #ECEEF2;*/
-    /*box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);*/
-    /*background: linear-gradient(to bottom, #ECEEF2, rgba(236, 238, 242, 0));*/
+    margin-block: 0.7rem;
+
+    margin-inline: 6.1rem;
+
 
     display: flex;
     justify-content: center;
@@ -24,13 +24,16 @@
 }
 
 .search {
-    width: 30rem;
+    flex-grow: 1;
 }
 .country-filter {
-    width: 12rem;
+    width: 5rem;
 }
 .public-filter {
-    width: 12rem;
+    width: 4rem;
+}
+.session-filter {
+    width: 7rem;
 }
 
 .refresh {

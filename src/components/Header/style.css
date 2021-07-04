@@ -3,7 +3,7 @@
     top: 0;
     height: 5.8rem;
     /*line-height: 90px;*/
-    background: white;
+    /*background: hsl(220, 19%, 94%);*/
     font-size: 1.2rem;
     /*text-align: center;*/
 
@@ -11,14 +11,27 @@
 
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    /*align-items: center;*/
 
     /*z-index: 2;*/
 }
+.header>div{
+    flex-grow: 1;
+}
+.title {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    min-width: 16rem;
+    /*background: #FFFFFF;*/
+    /*border: red solid 1px;*/
+}
 
 .menu {
-    background: #e3e5e8;
-    width: 13.5rem;
+    background: #dbdce2;
+    /*width: 13.5rem;*/
     height: 100%;
     border: 0;
     padding: 0;
@@ -26,18 +39,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.8rem;
+    /*gap: 0.8rem;*/
+}
+
+.menu text {
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .menu:hover {
-    background: #dde0e3;
+    background: #d0d1d9;
 }
 
 
 .settings {
     color: #FFFFFF;
     background: #49C5B6;
-    width: 13.5rem;
+    /*width: 13.5rem;*/
     height: 100%;
     border: 0;
     padding: 0;
@@ -45,7 +63,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.8rem;
+    /*gap: 0.8rem;*/
+}
+.settings text {
+    overflow: hidden;
+    white-space: nowrap;
 }
 .settings:hover {
     background: #46bdaf;
