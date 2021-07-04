@@ -1,0 +1,59 @@
+.toolbar {
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+
+    padding-inline: 250px;
+    padding-block: 1rem;
+
+    /*margin-inline: 6.1rem;*/
+
+
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+
+    transition: padding-left .2s ease-out, padding-right .2s ease-out, top .2s ease-out;
+}
+.big .toolbar {
+    top: 6.3rem;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+.small .toolbar {
+    top: 0;
+    padding-left: 30%;
+    padding-right: 10%;
+}
+
+
+.tool {
+    height: 2.6rem;
+
+
+    border-radius: 1.3rem;
+    background: #FFFFFF;
+
+    box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);
+}
+
+
+
+
+
+.search {
+    flex-grow: 1;
+}
+.country-filter {
+    width: 5rem;
+}
+.public-filter {
+    width: 4rem;
+}
+.session-filter {
+    width: 7rem;
+}
+
+.refresh {
+    width: 2.6rem;
+}

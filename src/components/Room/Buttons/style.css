@@ -1,18 +1,18 @@
 .buttons {
     display: flex;
     justify-content: space-between;
-    padding-inline: 15px;
+    padding-inline: 0.85rem;
 
-    height: 42px;
-    border-radius: 21px;
+    height: 2.3rem;
+    border-radius: 1.15rem;
 
-    font-size: 15px;
+    font-size: 0.9rem;
     font-weight: 500;
 }
 
 .share {
     height: inherit;
-    width: 80px;
+    width: 5rem;
     border-radius: inherit;
     font: inherit;
 
@@ -29,7 +29,7 @@
 
 .join-buttons {
     display: flex;
-    width: 220px;
+    width: 12.5rem;
     height: inherit;
     border-radius: inherit;
     overflow: hidden;

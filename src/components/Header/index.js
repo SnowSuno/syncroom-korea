@@ -1,25 +1,21 @@
 import React from "react";
 import "./style.css"
-import {ReactComponent as Title} from "../../resource/img/logo/title.svg";
-import {ReactComponent as MenuIcon} from "../../resource/img/icon/menu.svg";
-import {ReactComponent as SettingsIcon} from "../../resource/img/icon/settings.svg";
+
+import Title from "./Title";
+import Toolbar from "./Toolbar";
+
+import useScroll from "../../hooks/useScroll";
 
 function Header() {
-
+    const y = useScroll();
+    const main = (y < 2);
 
     return (
-        <div className='header'>
-            <button className='menu'>
-                <MenuIcon />
-                <text>MENU</text>
-            </button>
-            <Title height='80px'/>
-            <button className='settings'>
-                <text>설정</text>
-                <SettingsIcon />
-            </button>
+        <div className={(main ? 'big' : 'small') + ' header'}>
+            <Title />
+            <Toolbar />
         </div>
     )
 }
 
-export default Header;
+export default Header

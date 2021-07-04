@@ -3,28 +3,28 @@
 .room-header {
     display: flex;
 
-    height: 53px;
+    height: 2.8rem;
     color: white;
-    font-size: 19px;
+    font-size: 1rem;
     font-weight: 400;
 
     align-items: center;
-    padding-inline: 10px;
+    padding-inline: 0.6rem;
 
 }
 
 .country {
-    width: 50px;
+    width: 2.7rem;
     /*vertical-align: 10px;*/
 
     text-align: center;
-    font-size: 30px;
+    font-size: 1.6rem;
 
 
 }
 
 .room-name {
-    width: 318px;
+    width: 17.5rem;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
