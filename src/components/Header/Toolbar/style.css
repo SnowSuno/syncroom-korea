@@ -1,17 +1,31 @@
 .toolbar {
-    position: sticky;
-    top: 0;
-    padding-block: 1rem;
-    /*padding-inline: 250px;*/
-    margin-block: 0.7rem;
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
 
-    margin-inline: 6.1rem;
+    padding-inline: 250px;
+    padding-block: 1rem;
+
+    /*margin-inline: 6.1rem;*/
 
 
     display: flex;
     justify-content: center;
     gap: 1.5rem;
+
+    transition: padding-left .2s ease-out, padding-right .2s ease-out, top .2s ease-out;
 }
+.big .toolbar {
+    top: 6.3rem;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+.small .toolbar {
+    top: 0;
+    padding-left: 30%;
+    padding-right: 10%;
+}
+
 
 .tool {
     height: 2.6rem;
@@ -22,6 +36,10 @@
 
     box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);
 }
+
+
+
+
 
 .search {
     flex-grow: 1;
