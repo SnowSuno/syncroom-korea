@@ -2,8 +2,8 @@ import React from "react";
 import "./Home.css";
 
 import useRoomData from "../hooks/useRoomData";
+
 import Header from "../components/Header";
-import Toolbar from "../components/Toolbar";
 import Room from "../components/Room/";
 
 import useModal from "../components/modals/useModal";
@@ -28,7 +28,8 @@ function Home() {
     return (
         <div>
             <Header />
-            <Toolbar {...{fetchRooms, loading}}/>
+            {/*<Title />*/}
+            {/*<Toolbar {...{fetchRooms, loading}}/>*/}
             <div className='room-container'>
                 {roomData.map((room, index) => <Room key={index} {...room}/>)}
                 {/*{Array(2).fill(<div style={{width: '388px'}}/>)}*/}
