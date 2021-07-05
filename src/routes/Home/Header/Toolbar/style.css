@@ -1,29 +1,36 @@
 .toolbar {
+
     position: absolute;
-    width: 100%;
+    /*width: 100%;*/
+    width: auto;
+
+    margin: auto;
     box-sizing: border-box;
 
-    padding-inline: 250px;
+    /*padding-inline: 250px;*/
     padding-block: 1rem;
 
     /*margin-inline: 6.1rem;*/
 
 
     display: flex;
-    justify-content: center;
-    gap: 1.5rem;
 
-    transition: padding-left .2s ease-out, padding-right .2s ease-out, top .2s ease-out;
+    gap: 1.5rem;
+    justify-content: center;
+    transition: left .2s ease-out, right .2s ease-out, top .2s ease-out;
+
 }
 .big .toolbar {
+
     top: 6.3rem;
-    padding-left: 20%;
-    padding-right: 20%;
+    left: 2rem;
+    right: 2rem;
 }
 .small .toolbar {
+
     top: 0;
-    padding-left: 30%;
-    padding-right: 10%;
+    left: 20.6rem;
+    right: 6.6rem;
 }
 
 
@@ -43,15 +50,16 @@
 
 .search {
     flex-grow: 1;
+    max-width: 22rem;
 }
 .country-filter {
-    width: 5rem;
+    width: 4rem;
 }
 .public-filter {
     width: 4rem;
 }
 .session-filter {
-    width: 7rem;
+    width: 4rem;
 }
 
 .refresh {

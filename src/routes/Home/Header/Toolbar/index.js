@@ -1,8 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 import "./style.css"
 
 
 function Toolbar({fetchRooms, loading}) {
+    const [searchString, setSearchString] = useState('');
+
+    const [countryFilter, setCountryFilter] = useState('all');
+    const [sessionFilter, setSessionFilter] = useState('all');
+    const [publicFilter, setPublicFilter] = useState('all');
+
     return (
         <div className="toolbar">
             {/*<button onClick={fetchRooms}>reload</button>*/}
@@ -12,8 +18,8 @@ function Toolbar({fetchRooms, loading}) {
 
             <div className='search tool' />
             <div className='country-filter tool' />
-            <div className='public-filter tool' />
             <div className='session-filter tool' />
+            <div className='public-filter tool' />
             <div className='refresh tool' />
 
         </div>
