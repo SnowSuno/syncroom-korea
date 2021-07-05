@@ -6,7 +6,7 @@ import RoomHeader from "./Header";
 import RoomMembers from "./Members";
 import Buttons from "./Buttons";
 
-import joinURI from "../../../util/joinURI";
+import joinURI from "../../../../util/joinURI";
 // import shareURI from "../../util/shareURI";
 
 function Room(room) {

@@ -1,7 +1,7 @@
 import React from "react";
 
-import makeJoinURI from "../../util/joinURI";
-import shareURI from "../../util/shareURI";
+import makeJoinURI from "../../../util/joinURI";
+import shareURI from "../../../util/shareURI";
 
 function Join({location:{search}, history}) {
     // /**

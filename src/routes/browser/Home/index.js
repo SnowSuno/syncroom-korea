@@ -1,13 +1,13 @@
 import React from "react";
 import "./style.css";
 
-import useRoomData from "../../hooks/useRoomData";
+import useRoomData from "../../../hooks/useRoomData";
 
 import Header from "./Header";
 import Room from "./Room";
 
-import useModal from "../../components/modals/useModal";
-import Modal from "../../components/modals/Modal";
+import useModal from "../../../components/modals/useModal";
+import Modal from "../../../components/modals/Modal";
 
 
 
