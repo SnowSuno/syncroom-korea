@@ -3,6 +3,12 @@ import "./style.css"
 
 
 function Toolbar({fetchRooms, loading}) {
+    const [searchString, setSearchString] = useState('');
+
+    const [countryFilter, setCountryFilter] = useState('all');
+    const [sessionFilter, setSessionFilter] = useState('all');
+    const [publicFilter, setPublicFilter] = useState('all');
+
     return (
         <div className="toolbar">
             {/*<button onClick={fetchRooms}>reload</button>*/}
