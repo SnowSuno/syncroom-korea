@@ -10,15 +10,26 @@
     font-weight: 500;
 }
 
-.share {
+.buttons button {
+    transition: background-color 50ms ease-out, opacity 50ms ease-out;
+
     height: inherit;
-    width: 5rem;
-    border-radius: inherit;
     font: inherit;
 
     border: 0;
     padding: 0;
     background: #F0F0F0;
+}
+
+.share {
+    /*height: inherit;*/
+    width: 5rem;
+    border-radius: inherit;
+    /*font: inherit;*/
+
+    /*border: 0;*/
+    /*padding: 0;*/
+    /*background: #F0F0F0;*/
 }
 .share:hover {
     background: #e0e0e0;
@@ -35,16 +46,19 @@
     overflow: hidden;
     font: inherit;
 }
-
-.temp {
-    height: inherit;
+.join-buttons button {
     flex-grow: 1;
-    font: inherit;
-
-    border: 0;
-    padding: 0;
-    background: #F0F0F0;
 }
+
+/*.temp {*/
+/*    height: inherit;*/
+/*    flex-grow: 1;*/
+/*    font: inherit;*/
+
+/*    border: 0;*/
+/*    padding: 0;*/
+/*    background: #F0F0F0;*/
+/*}*/
 .temp:hover {
     background: #e0e0e0;
 }
@@ -53,14 +67,14 @@
 }
 
 .join {
-    height: inherit;
-    flex-grow: 1;
+    /*height: inherit;*/
+    /*flex-grow: 1;*/
 
-    font: inherit;
+    /*font: inherit;*/
     color: white;
 
-    border: 0;
-    padding: 0;
+    /*border: 0;*/
+    /*padding: 0;*/
 }
 .join:hover {
     opacity: 0.8;
