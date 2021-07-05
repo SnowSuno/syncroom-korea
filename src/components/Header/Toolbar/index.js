@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "./style.css"
 
 
@@ -12,8 +12,8 @@ function Toolbar({fetchRooms, loading}) {
 
             <div className='search tool' />
             <div className='country-filter tool' />
-            <div className='public-filter tool' />
             <div className='session-filter tool' />
+            <div className='public-filter tool' />
             <div className='refresh tool' />
 
         </div>

@@ -6,6 +6,7 @@
     display: flex;
     justify-content: space-between;
 
+    width: 100%;
     transition: height .2s ease-out, background-color .2s ease-out;
 }
 .big .title {
