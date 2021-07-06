@@ -5,6 +5,7 @@ import useRoomData from "../../../hooks/useRoomData";
 
 import Header from "./Header";
 import Room from "./Room";
+import Footer from "./Footer";
 
 import useModal from "../../../components/modals/useModal";
 import Modal from "../../../components/modals/Modal";
@@ -39,6 +40,8 @@ function Home() {
                 this is a modal
             </Modal>
             <button onClick={openModal}>open</button>
+
+            <Footer />
 
         </div>
     )
