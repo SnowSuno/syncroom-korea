@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+
+
+import {BrowserView, MobileView} from "react-device-detect";
+import BrowserRoutes from "./routes/browser/Routes";
+import MobileRoutes from "./routes/mobile/Routes";
 
 ReactDOM.render(
-  <React.StrictMode>
-      <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <BrowserView>
+            <BrowserRoutes />
+        </BrowserView>
+        <MobileView>
+            <MobileRoutes />
+        </MobileView>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
