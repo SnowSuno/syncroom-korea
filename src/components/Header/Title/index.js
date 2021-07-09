@@ -2,9 +2,9 @@ import React from "react";
 import "./style.css"
 
 
-import {ReactComponent as Logo} from "../../../../../resource/img/logo/title.svg";
-import {ReactComponent as MenuIcon} from "../../../../../resource/img/icon/menu.svg";
-import {ReactComponent as SettingsIcon} from "../../../../../resource/img/icon/settings.svg";
+import {ReactComponent as Logo} from "../../../resource/img/logo/title.svg";
+import {ReactComponent as MenuIcon} from "../../../resource/img/icon/menu.svg";
+import {ReactComponent as SettingsIcon} from "../../../resource/img/icon/settings.svg";
 
 function Title() {
     return (

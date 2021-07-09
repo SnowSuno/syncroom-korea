@@ -4,7 +4,7 @@ import "./style.css"
 import Title from "./Title";
 import Toolbar from "./Toolbar";
 
-import useScrollTrigger from "../../../../hooks/useScrollTrigger";
+import useScrollTrigger from "../../common/hooks/useScrollTrigger";
 
 function Header() {
     const trigger = useScrollTrigger(2);
