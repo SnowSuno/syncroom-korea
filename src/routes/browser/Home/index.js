@@ -1,5 +1,8 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./style.css";
+
+import {useDispatch, useSelector} from "react-redux";
+import {getRooms} from "../../../store/rooms";
 
 import useRoomData from "../../../common/hooks/useRoomData";
 
@@ -13,17 +16,30 @@ import Modal from "../../../components/modals/Modal";
 
 
 function Home() {
-    const { roomData, loading, error, fetchRooms } = useRoomData();
+    // redux testing
+    const {data} = useSelector(state => ({
+        data: state.rooms.data
+    }));
+
+    const dispatch = useDispatch();
+    const reload = () => dispatch(getRooms());
+
+    useEffect(() => {
+        reload();
+        console.log(data);
+    }, []);
+
+    // const { roomData, loading, error, fetchRooms } = useRoomData();
 
     const [open, openModal, closeModal] = useModal();
 
-    if (!loading) {
-        if (!error) {
-            // console.log(rooms)
-        } else {
-            // console.error(error);
-        }
-    }
+    // if (!loading) {
+    //     if (!error) {
+    //         // console.log(rooms)
+    //     } else {
+    //         // console.error(error);
+    //     }
+    // }
 
 
     return (
@@ -31,8 +47,9 @@ function Home() {
             <Header />
             {/*<Title />*/}
             {/*<Toolbar {...{fetchRooms, loading}}/>*/}
+            <button onClick={reload}>reload</button>
             <div className='room-container'>
-                {roomData.map((room, index) => <Room key={index} {...room}/>)}
+                {data.map((room, index) => <Room key={index} {...room}/>)}
                 {/*{Array(2).fill(<div style={{width: '388px'}}/>)}*/}
             </div>
 

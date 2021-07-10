@@ -19,11 +19,9 @@ export const getRooms = () => async dispatch => {
 };
 
 const initialState = {
-    rooms: {
-        loading: false,
-        data: null,
-        error: null
-    }
+    loading: false,
+    data: [],
+    error: null
 };
 
 export default function rooms(state=initialState, action) {
@@ -31,27 +29,21 @@ export default function rooms(state=initialState, action) {
         case GET_ROOMS:
             return {
                 ...state,
-                rooms: {
-                    loading: true,
-                    data: state.rooms.data,
-                    error: null
-                }
+                loading: true,
+                error: null
             };
         case GET_ROOMS_SUCCESS:
             return {
                 ...state,
-                rooms: {
-                    loading: false,
-                    data: action.rooms,
-                    error: null
-                }
-            }
+                loading: false,
+                data: action.rooms,
+            };
         case GET_ROOMS_ERROR:
             return {
                 loading: false,
-                data: null,
+                data: [],
                 error: action.error
-            }
+            };
         default:
             return state;
     }
