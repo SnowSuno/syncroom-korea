@@ -1,6 +1,6 @@
 function member(nickname, icon, iconurl) {
     this.nickname = nickname;
-    this.icon = icon;
+    this.IconData = icon;
     this.iconurl = iconurl;
 }
 

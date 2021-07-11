@@ -4,7 +4,7 @@ import './index.css';
 
 import {createStore, applyMiddleware} from "redux";
 import {Provider} from "react-redux";
-import rootReducer from "./store";
+import rootReducer from "./modules";
 import ReduxThunk from "redux-thunk";
 
 import {BrowserView, MobileView} from "react-device-detect";

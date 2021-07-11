@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import "./style.css";
 
 import {useDispatch, useSelector} from "react-redux";
-import {getRooms} from "../../../store/rooms";
+import {getRooms} from "../../../modules/rooms";
 
 import useRoomData from "../../../common/hooks/useRoomData";
 

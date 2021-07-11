@@ -1,4 +1,4 @@
-import {country, inst, status} from "../../store/filter";
+import {country, inst, status} from "../../modules/filter";
 
 
 const filterCountry = country => {
