@@ -5,6 +5,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../modules";
 import {getRoomsThunk} from "../../modules/syncroom";
 
+import Header from "../../components/browser/Header/";
+
 
 
 function Home() {
@@ -18,6 +20,7 @@ function Home() {
 
     return (
         <>
+            <Header />
             <button onClick={getRooms}>load</button>
         </>
     );

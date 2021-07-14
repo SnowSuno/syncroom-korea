@@ -1,10 +1,10 @@
 import {useState, useEffect} from "react";
 
-const remToPx = rem => {
+const remToPx = (rem: number) => {
     return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
 }
 
-function useScrollTrigger(threshold) {
+function useScrollTrigger(threshold: number) {
     const [trigger, setTrigger] = useState(false);
     const thresholdPx = remToPx(threshold);
 

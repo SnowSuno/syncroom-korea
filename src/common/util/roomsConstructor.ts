@@ -1,6 +1,6 @@
 import {RoomData} from "../api/syncroom";
 import Room from "../classes/Room";
-import {Country, CountryType, Inst, InstType, Status, StatusType} from "../classes/types";
+import {Country, CountryType, Inst, Status, StatusType} from "../classes/types";
 import {Member, PrivateMember} from "../classes/Member";
 
 
