@@ -8,8 +8,8 @@ import rootReducer from "./modules";
 import ReduxThunk from "redux-thunk";
 
 import {BrowserView, MobileView} from "react-device-detect";
-import BrowserRoutes from "./routes/browser/Routes";
-import MobileRoutes from "./routes/mobile/Routes";
+import Browser from "./routes/browser";
+import Mobile from "./routes/mobile/Routes";
 
 const store = createStore(
     rootReducer,
@@ -20,10 +20,10 @@ ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
             <BrowserView>
-                <BrowserRoutes />
+                <Browser />
             </BrowserView>
             <MobileView>
-                <MobileRoutes />
+                <Mobile />
             </MobileView>
         </Provider>
     </React.StrictMode>,

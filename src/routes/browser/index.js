@@ -5,7 +5,7 @@ import Home from "./Home";
 import Join from "./Join";
 import NotFound from "./NotFound";
 
-function Routes() {
+function Index() {
     return (
         <Router>
             <Switch>
@@ -18,4 +18,4 @@ function Routes() {
     )
 }
 
-export default Routes;
+export default Index;

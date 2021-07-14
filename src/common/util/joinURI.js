@@ -56,4 +56,11 @@ const joinURI = {
 }
 
 
-export default joinURI;
+// export default joinURI;
+
+console.log(joinURI.create('qwer', '', 4, 2))
+const mode = 2;
+const roomName = 'qwer';
+const password = ''
+const uri = `joingroup?mode=${mode}&pid=4&nickname=&groupname=${encodeURIComponent(roomName)}&password=${encodeURIComponent(password)}`;
+console.log('syncroom:' + Buffer.from(uri, 'utf-8').toString('base64'));

@@ -1,7 +1,7 @@
 import {combineReducers} from "redux";
 
 // import rooms from "./rooms";
-import syncroom from "./syncroom/reducer";
+import syncroom from "./syncroom";
 import filter from "./filter";
 
 const rootReducer = combineReducers({
