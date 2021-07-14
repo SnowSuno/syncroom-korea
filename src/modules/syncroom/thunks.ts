@@ -1,16 +1,16 @@
 import {ThunkAction} from "redux-thunk";
 import {RootState} from "../index";
 import {SyncroomAction} from "./types";
-import {getRoomsData} from "../../common/api/syncroom";
-import {getRoomsDataAsync} from "./actions";
+import {getRooms} from "../../common/api/syncroom";
+import {getRoomsAsync} from "./actions";
 
-export function getRoomsDataThunk(): ThunkAction<Promise<void>, RootState, null, SyncroomAction> {
+export function getRoomsThunk(): ThunkAction<Promise<void>, RootState, null, SyncroomAction> {
     return async dispatch => {
-        const {request, success, failure} = getRoomsDataAsync;
+        const {request, success, failure} = getRoomsAsync;
         dispatch(request());
         try {
-            const roomsData = await getRoomsData();
-            dispatch(success(roomsData));
+            const rooms = await getRooms();
+            dispatch(success(rooms));
         } catch (e) {
             dispatch(failure(e));
         }

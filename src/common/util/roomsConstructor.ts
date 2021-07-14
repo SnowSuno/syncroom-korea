@@ -51,7 +51,6 @@ const RoomsConstructor = (roomsData: RoomData[]):Room[] => {
                     }
                 }
             )
-
             return {
                 name: roomData.room_name,
                 desc: roomData.room_desc,

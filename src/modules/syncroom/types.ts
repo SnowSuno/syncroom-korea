@@ -1,13 +1,13 @@
 import * as actions from './actions';
 import {ActionType} from "typesafe-actions";
-import {RoomData} from "../../common/api/syncroom";
+import Room from "../../common/classes/Room";
 
 export type SyncroomAction = ActionType<typeof actions>;
 
 export type SyncroomState = {
-    roomsData: {
+    rooms: {
         loading: boolean;
         error: Error | null;
-        data: RoomData[];
+        data: Room[];
     };
 };

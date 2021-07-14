@@ -1,9 +1,9 @@
 import {createReducer} from "typesafe-actions";
 import {SyncroomState, SyncroomAction} from "./types";
-import {GET_ROOMS_DATA, GET_ROOMS_DATA_SUCCESS, GET_ROOMS_DATA_ERROR} from "./actions";
+import {GET_ROOMS, GET_ROOMS_SUCCESS, GET_ROOMS_ERROR} from "./actions";
 
 const initialState: SyncroomState = {
-    roomsData: {
+    rooms: {
         loading: false,
         error: null,
         data: []
@@ -11,25 +11,25 @@ const initialState: SyncroomState = {
 };
 
 const syncroom = createReducer<SyncroomState, SyncroomAction>(initialState, {
-    [GET_ROOMS_DATA]: state => ({
+    [GET_ROOMS]: state => ({
         ...state,
-        roomsData: {
+        rooms: {
             loading: true,
             error: null,
-            data: state.roomsData.data
+            data: state.rooms.data
         }
     }),
-    [GET_ROOMS_DATA_SUCCESS]: (state, action) => ({
+    [GET_ROOMS_SUCCESS]: (state, action) => ({
         ...state,
-        roomsData: {
+        rooms: {
             loading: false,
             error: null,
             data: action.payload
         }
     }),
-    [GET_ROOMS_DATA_ERROR]: (state, action) => ({
+    [GET_ROOMS_ERROR]: (state, action) => ({
         ...state,
-        roomsData: {
+        rooms: {
             loading: false,
             error: action.payload,
             data: []

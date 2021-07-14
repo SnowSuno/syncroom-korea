@@ -3,16 +3,16 @@ import './Home.css';
 
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../modules";
-import {getRoomsDataThunk} from "../../modules/syncroom";
+import {getRoomsThunk} from "../../modules/syncroom";
 
 
 
 function Home() {
-    const {data, loading, error} = useSelector((state: RootState) => state.syncroom.roomsData);
+    const {data, loading, error} = useSelector((state: RootState) => state.syncroom.rooms);
     const dispatch = useDispatch();
 
     const getRooms = () => {
-        dispatch(getRoomsDataThunk());
+        dispatch(getRoomsThunk());
         console.log(data);
     }
 
