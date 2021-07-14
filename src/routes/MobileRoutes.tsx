@@ -1,16 +1,14 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
 
-import Home from "./Home";
-import Join from "./Join";
-import NotFound from "./NotFound";
+import Home from "../containers/mobile/Home";
+import NotFound from "../containers/mobile/NotFound";
 
-function Index() {
+function MobileRoutes() {
     return (
         <Router>
             <Switch>
                 <Route exact path="/" component={Home}/>
-                <Route path='/join' component={Join}/>
                 <Route exact path="/notfound" component={NotFound} />
                 <Route component={() => <Redirect to="/notfound"/>}/>
             </Switch>
@@ -18,4 +16,4 @@ function Index() {
     )
 }
 
-export default Index;
+export default MobileRoutes;
