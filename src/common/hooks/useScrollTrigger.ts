@@ -1,8 +1,5 @@
 import {useState, useEffect} from "react";
-
-const remToPx = (rem: number) => {
-    return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
-}
+import {remToPx} from "./unitConversion";
 
 function useScrollTrigger(threshold: number) {
     const [trigger, setTrigger] = useState(false);
