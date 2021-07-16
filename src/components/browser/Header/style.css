@@ -130,6 +130,8 @@ text {
 
     box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);
 }
+.tool:hover {background: #f6f7fa;}
+.tool:active {background: #f3f3f4;}
 
 .search {
     flex-grow: 1;
@@ -147,4 +149,10 @@ text {
 
 .refresh {
     width: 2.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.rotate {animation: rotate 0.5s linear infinite;}
+@keyframes rotate { 100% {transform: rotate(360deg);} }

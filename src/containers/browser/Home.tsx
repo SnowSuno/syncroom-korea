@@ -10,7 +10,7 @@ import Footer from "../../components/browser/Footer";
 
 
 function Home() {
-    const {data, loading, error} = useSelector((state: RootState) => state.syncroom.rooms);
+    const {data, error} = useSelector((state: RootState) => state.syncroom.rooms);
 
     if (error) {
         console.log(error);
