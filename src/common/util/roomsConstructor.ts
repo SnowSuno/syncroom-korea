@@ -35,9 +35,7 @@ const RoomsConstructor = (roomsData: RoomData[]):Room[] => {
 
             const members: Member[] = Array.from(
                 {length: roomData.num_members}, (_, i) => {
-                    if (!roomData.members[i] || !roomData.iconlist[i]) {
-                        return PrivateMember;
-                    } else {
+                    try {
                         const {icon: iconStr, iconurl} = roomData.iconlist[i];
                         const icon: string | number = iconurl
                             ? iconurl
@@ -48,6 +46,8 @@ const RoomsConstructor = (roomsData: RoomData[]):Room[] => {
                             icon: icon,
                             inst: Inst.BASS
                         };
+                    } catch (e) {
+                        return PrivateMember;
                     }
                 }
             )
