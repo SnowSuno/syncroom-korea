@@ -12,10 +12,13 @@ import Footer from "../../components/browser/Footer";
 function Home() {
     const {data, loading, error} = useSelector((state: RootState) => state.syncroom.rooms);
 
+    if (error) {
+        console.log(error);
+    }
+
     return (
         <>
             <Header />
-            {/*<button onClick={getRooms}>load</button>*/}
             <RoomGrid rooms={data}/>
             <Footer />
         </>
