@@ -1,0 +1,9 @@
+.room-tile {
+    background: #FFFFFF;
+
+    width: 21.5rem;
+    height: 26.3rem;
+    border-radius: 1rem;
+
+    z-index: 1;
+}

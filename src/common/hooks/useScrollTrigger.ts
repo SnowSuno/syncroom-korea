@@ -5,14 +5,13 @@ function useScrollTrigger(threshold: number) {
     const [trigger, setTrigger] = useState(false);
     const thresholdPx = remToPx(threshold);
 
-    const onScroll = () => {
-        setTrigger(window.scrollY > thresholdPx);
-    }
-
     useEffect(() => {
+        const onScroll = () => {
+            setTrigger(window.scrollY > thresholdPx);
+        }
         window.addEventListener("scroll", onScroll);
         return () => window.removeEventListener("scroll", onScroll);
-    }, []);
+    }, [thresholdPx]);
 
     return trigger;
 }

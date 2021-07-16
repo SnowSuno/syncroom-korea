@@ -21,7 +21,7 @@ export function useResponsiveCols({itemWidth, gridWidth}: props) {
         handleResize();
 
         return () => window.removeEventListener("resize", handleResize);
-    }, []);
+    }, [gridWidth, itemWidthPx]);
 
     return columns;
 }

@@ -6,7 +6,7 @@ import {RootState} from "../../modules";
 import {getRoomsThunk} from "../../modules/syncroom";
 
 import Header from "../../components/browser/Header/";
-
+import RoomGrid from "../../components/browser/RoomGrid";
 
 
 function Home() {
@@ -22,6 +22,7 @@ function Home() {
         <>
             <Header />
             <button onClick={getRooms}>load</button>
+            <RoomGrid rooms={data}/>
         </>
     );
 }
