@@ -6,3 +6,21 @@
     background: #FFFFFF;
     box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);
 }
+
+.room-header {
+    display: flex;
+    height: 2.8rem;
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 400;
+    align-items: center;
+    padding-inline: 0.9rem;
+}
+.room-header.public {background: #233D99}
+.room-header.private {background: #191919}
+.room-header.public.full {background: #97A0BE}
+.room-header.private.full {background: #C5C8CD}
+
+.room-header svg {
+    padding-right: 0.5rem;
+}

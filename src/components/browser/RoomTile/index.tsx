@@ -3,6 +3,7 @@ import "./style.css"
 
 import MemberDisplay from "./MemberDisplay";
 import Buttons from "./Buttons";
+import Flag from "../../../resource/img/icon/Flag";
 
 import Room from "../../../common/classes/Room";
 import {Status} from "../../../common/classes/types";
@@ -19,12 +20,13 @@ interface RoomTileProps {
 
 function RoomTile({room, size}: RoomTileProps) {
     const countryClass = (room.status === Status.PUBLIC) ? 'public' : 'private';
-    const fullClass = (room.members.length === 5) ? 'full' : 'notfull';
+    const fullClass = (room.members.length === 5) ? 'full' : '';
 
     return (
         <div className="room-tile" style={size}>
             <div className={`room-header ${countryClass} ${fullClass}`}>
-                Header contents will go here
+                <Flag country={room.country} />
+                <span className='room-name'>{room.name}</span>
             </div>
             <div className='room-desc'>
                 tags and room descriptions will go here
