@@ -1,6 +1,5 @@
 import axios from "axios";
 import RoomsConstructor from "../util/roomsConstructor";
-import Room from "../classes/Room";
 
 const SYNCROOM_API = "https://webapi.syncroom.appservice.yamaha.com/ndroom/room_list.json?pagesize=500&realm=4";
 
