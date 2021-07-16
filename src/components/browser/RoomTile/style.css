@@ -1,9 +1,8 @@
 .room-tile {
-    background: #FFFFFF;
-
-    width: 21.5rem;
-    height: 26.3rem;
+    display: flex;
+    flex-direction: column;
     border-radius: 1rem;
-
-    /*z-index: 1;*/
+    overflow: hidden;
+    background: #FFFFFF;
+    box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);
 }

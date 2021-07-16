@@ -7,17 +7,22 @@ import Buttons from "./Buttons";
 import Room from "../../../common/classes/Room";
 import {Status} from "../../../common/classes/types";
 
-type RoomTileProps = {
-    room: Room
-};
+interface Size {
+    width: string,
+    height: string
+}
 
-function RoomTile({room}: RoomTileProps) {
+interface RoomTileProps {
+    room: Room,
+    size: Size
+}
+
+function RoomTile({room, size}: RoomTileProps) {
     const countryClass = (room.status === Status.PUBLIC) ? 'public' : 'private';
     const fullClass = (room.members.length === 5) ? 'full' : 'notfull';
 
     return (
-        <div className="room-tile">
-            Hello Room!
+        <div className="room-tile" style={size}>
             <div className={`room-header ${countryClass} ${fullClass}`}>
                 Header contents will go here
             </div>

@@ -38,7 +38,13 @@ function RoomGrid({rooms}: RoomGridProps) {
             >
                 {rooms.map(room => (
                     <li key={room.name}>
-                        <RoomTile room={room}/>
+                        <RoomTile
+                            room={room}
+                            size={{
+                                width: `${style.tileWidth}rem`,
+                                height: `${style.tileHeight}rem`
+                            }}
+                        />
                     </li>
                 ))}
             </CSSGrid>
