@@ -118,6 +118,9 @@ text {
     left: 20.6rem;
     right: 6.6rem;
 }
+.toolbar button {
+    border: 0;
+}
 
 .tool {
     height: 2.6rem;

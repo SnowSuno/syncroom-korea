@@ -11,17 +11,17 @@ import RoomGrid from "../../components/browser/RoomGrid";
 
 function Home() {
     const {data, loading, error} = useSelector((state: RootState) => state.syncroom.rooms);
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
-    const getRooms = () => {
-        dispatch(getRoomsThunk());
-        console.log(data);
-    }
+    // const getRooms = () => {
+    //     dispatch(getRoomsThunk());
+    //     console.log(data);
+    // }
 
     return (
         <>
             <Header />
-            <button onClick={getRooms}>load</button>
+            {/*<button onClick={getRooms}>load</button>*/}
             <RoomGrid rooms={data}/>
         </>
     );
