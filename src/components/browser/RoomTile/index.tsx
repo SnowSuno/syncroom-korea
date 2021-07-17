@@ -29,9 +29,9 @@ function RoomTile({room, size}: RoomTileProps) {
                 <span className='room-name'>{room.name}</span>
             </div>
             <div className='room-desc'>
-                tags and room descriptions will go here
+                {room.desc}
             </div>
-            <MemberDisplay />
+            <MemberDisplay members={room.members}/>
             <Buttons />
         </div>
     );

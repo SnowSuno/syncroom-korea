@@ -1,6 +1,7 @@
 .room-tile {
     display: flex;
     flex-direction: column;
+    gap: 0.85rem;
     border-radius: 1rem;
     overflow: hidden;
     background: #FFFFFF;
@@ -23,4 +24,50 @@
 
 .room-header svg {
     padding-right: 0.5rem;
+}
+.room-name {
+    width: 17.5rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.room-desc {
+    height: 2.3rem;
+    padding-inline: 1.3rem;
+    line-height: 1.15rem;
+    font-size: 0.76rem;
+    display: inline;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+
+
+.member-display {
+    height: 15.4rem;
+    background: #F6F6F6;
+    display: flex;
+    flex-direction: column;
+    margin-inline: 0.85rem;
+    border-radius: 1rem;
+    padding-inline: 1rem;
+}
+
+.member {
+    line-height: 3rem;
+    font-size: 0.85rem;
+    border-bottom: 0.1rem #dedede solid;
+}
+
+.member:last-child {
+    border-bottom: 0;
+}
+
+.member span {
+    display: inline-block;
+    vertical-align: center;
+    line-height: normal;
 }
