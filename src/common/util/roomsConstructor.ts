@@ -36,10 +36,10 @@ const RoomsConstructor = (roomsData: RoomData[]):Room[] => {
             const members: Member[] = Array.from(
                 {length: roomData.num_members}, (_, i) => {
                     try {
-                        const {icon: iconStr, iconurl} = roomData.iconlist[i];
+                        const {icon: iconkey, iconurl} = roomData.iconlist[i];
                         const icon: string | number = iconurl
                             ? iconurl
-                            : parseInt(iconStr);
+                            : iconkey;
 
                         return {
                             nickname: roomData.members[i],
