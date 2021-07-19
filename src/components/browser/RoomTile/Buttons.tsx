@@ -23,12 +23,12 @@ function Buttons({name, status, isFull}: ButtonsProps) {
                     ? <div>
                         <button className="noti">
                             <Notification />
-                            <span>참여 가능 알림받기</span>
+                            <span>자리 나면 알림 받기</span>
                         </button>
                     </div>
                     : <div>
                         <button className="general">
-                            <span>임시 입장</span>
+                            <span>임시 참여</span>
                         </button>
                         <button className="join">
                             <span>참여하기</span>
