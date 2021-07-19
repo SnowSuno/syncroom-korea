@@ -73,7 +73,7 @@
 
 .members {
     position: absolute;
-    padding-inline: 1.2rem;
+    padding-inline: 1.3rem;
 }
 .member {
     display: flex;
@@ -83,14 +83,14 @@
     gap: 0.65rem;
 }
 .member .icon {
-    height: 2rem;
-    width: 2rem;
+    height: 1.9rem;
+    width: 1.9rem;
     /*border-radius: 0.3rem;*/
     overflow: hidden;
     /*border: red 1px solid;*/
 }
 .member .nickname {
-    width: 14.75rem;
+    width: 14.85rem;
     /*flex-grow: 1;*/
     text-overflow: ellipsis;
     overflow: hidden;

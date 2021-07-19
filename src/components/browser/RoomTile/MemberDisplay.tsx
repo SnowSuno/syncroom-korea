@@ -21,7 +21,7 @@ function MemberDisplay({members}: MemberDisplayProps) {
                     component="ul"
                     columns={1}
                     lengthUnit="rem"
-                    columnWidth={17.4}
+                    columnWidth={17.2}
                     itemHeight={3.08}
                     duration={300}
                 >
