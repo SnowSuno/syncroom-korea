@@ -9,7 +9,6 @@ interface MemberDisplayProps {
     members: Member[]
 }
 
-
 function MemberDisplay({members}: MemberDisplayProps) {
     return (
         <div className="member-display">
@@ -37,22 +36,8 @@ function MemberDisplay({members}: MemberDisplayProps) {
                             )
                         })
                     }
-                    {/*<li key="a">qwer</li>*/}
-                    {/*<li key="b">qasdfwef</li>*/}
-                    {/*<li key="c">qxcvr</li>*/}
-                    {/*<li key="d">qwdsver</li>*/}
-
                 </CSSGrid>
             </div>
-
-
-
-            {/*{members.map((member, index) => (*/}
-            {/*    <div className="member" key={index}>*/}
-            {/*        <span><Profile icon={member.icon}/></span>*/}
-            {/*        <span>{member.nickname}</span>*/}
-            {/*    </div>*/}
-            {/*))}*/}
         </div>
     );
 }

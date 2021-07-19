@@ -49,11 +49,8 @@
 .member-display {
     height: 15.4rem;
     background: #F6F6F6;
-    /*display: flex;*/
-    /*flex-direction: column;*/
     margin-inline: 0.85rem;
     border-radius: 1rem;
-    /*padding-inline: 1rem;*/
     position: relative;
 }
 .line {
@@ -85,31 +82,11 @@
 .member .icon {
     height: 1.9rem;
     width: 1.9rem;
-    /*border-radius: 0.3rem;*/
     overflow: hidden;
-    /*border: red 1px solid;*/
 }
 .member .nickname {
     width: 14.85rem;
-    /*flex-grow: 1;*/
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
 }
-
-
-/*.member {*/
-/*    line-height: 3rem;*/
-/*    font-size: 0.85rem;*/
-/*    border-bottom: 0.1rem #dedede solid;*/
-/*}*/
-
-/*.member:last-child {*/
-/*    border-bottom: 0;*/
-/*}*/
-
-/*.member span {*/
-/*    display: inline-block;*/
-/*    vertical-align: center;*/
-/*    line-height: normal;*/
-/*}*/
