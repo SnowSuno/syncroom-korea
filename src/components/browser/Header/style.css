@@ -1,0 +1,158 @@
+.header {
+    position: sticky;
+    top: 0;
+    height: 11.4rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 3;
+}
+
+/*title styling*/
+.title {
+    position: sticky;
+    top: 0;
+    font-size: 1.2rem;
+    box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.15);
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+    transition: height .2s ease-out, background-color .2s ease-out;
+}
+.big .title {
+    height: 5.8rem;
+    background-color: #FFFFFF;
+}
+.small .title {
+    height: 4.6rem;
+    background-color: #F3F4F7;
+}
+
+.title>div {
+    flex-grow: 1;
+}
+.logo-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    min-width: 16rem;
+
+    transition: width .17s ease-out;
+}
+.big .logo-container {
+    width: 100%;
+}
+.small .logo-container {
+    width: 0;
+}
+
+.side-btn {
+    height: 100%;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: width .2s ease-out;
+}
+.big .side-btn {
+    width: 13.6rem
+}
+.small .side-btn {
+    width: 4.6rem;
+}
+
+text {
+    overflow: hidden;
+    white-space: nowrap;
+    transition: width .2s ease-out, opacity .15s ease-out;
+}
+.big text {
+    width: 5rem;
+    opacity: 1;
+}
+.small text {
+    width: 0;
+    opacity: 0;
+}
+
+.menu {background: #dbdce2;}
+.menu:hover {background: #d0d1d9;}
+
+.settings {
+    color: #FFFFFF;
+    background: #49C5B6;
+}
+.settings:hover {
+    background: #46bdaf;
+}
+
+/*tools styling*/
+.toolbar {
+    position: absolute;
+    width: auto;
+
+    margin: auto;
+    box-sizing: border-box;
+
+    padding-block: 1rem;
+    display: flex;
+
+    gap: 1.5rem;
+    justify-content: center;
+    transition: left .2s ease-out, right .2s ease-out, top .2s ease-out;
+}
+.big .toolbar {
+    top: 6.3rem;
+    left: 2rem;
+    right: 2rem;
+}
+.small .toolbar {
+    top: 0;
+    left: 20.6rem;
+    right: 6.6rem;
+}
+.toolbar button {
+    border: 0;
+}
+
+.tool {
+    height: 2.6rem;
+
+    border-radius: 1.3rem;
+    background: #FFFFFF;
+
+    box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);
+}
+.tool:hover {background: #f6f7fa;}
+.tool:active {background: #f3f3f4;}
+
+.search {
+    flex-grow: 1;
+    max-width: 22rem;
+}
+.country-filter {
+    width: 4rem;
+}
+.public-filter {
+    width: 4rem;
+}
+.session-filter {
+    width: 4rem;
+}
+
+.refresh {
+    width: 2.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rotate {animation: rotate 0.5s linear infinite;}
+@keyframes rotate { 100% {transform: rotate(360deg);} }

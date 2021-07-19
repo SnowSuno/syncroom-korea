@@ -1,9 +1,0 @@
-.room-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: fit-content;
-    gap: 1.5rem;
-    margin-inline: 7%;
-}

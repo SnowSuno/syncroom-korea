@@ -1,0 +1,10 @@
+
+.icon svg {
+    width: inherit;
+    height: inherit;
+}
+.icon img {
+    width: inherit;
+    height: inherit;
+    border-radius: 0.3rem;
+}
