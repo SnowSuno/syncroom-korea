@@ -21,7 +21,7 @@
 .public .room-header {background: #233D99}
 .private .room-header {background: #191919}
 .public.full .room-header {background: #97A0BE}
-.private.full .room-header {background: #C5C8CD}
+.private.full .room-header {background: #A7A7A7}
 
 .room-name {
     width: 17.5rem;
@@ -120,19 +120,26 @@
 }
 .buttons > div > button {flex-grow: 1;}
 
-.share {
-    width: 5rem;
+.share {width: 5rem;}
+.share, .noti {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 0.3rem;
 }
-.join {color: #FFFFFF}
+.join, .noti {color: #FFFFFF}
 .public .join {background: #233D99}
 .public .join:hover {background: #4A62AF}
 .public .join:active {background: #3A4F92}
 .private .join {background: #191919}
 .private .join:hover {background: #454545}
 .private .join:active {background: #363636}
+
+.public .noti {background: #97A0BE}
+.public .noti:hover {background: #8A93B1}
+.public .noti:active {background: #747C9C}
+.private .noti {background: #A7A7A7}
+.private .noti:hover {background: #979797}
+.private .noti:active {background: #7F7F7F}
 

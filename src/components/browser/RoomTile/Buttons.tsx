@@ -3,6 +3,7 @@ import React from "react";
 import {StatusType} from "../../../common/classes/types";
 
 import {ReactComponent as Share} from "../../../resource/img/icon/share.svg";
+import {ReactComponent as Notification} from "../../../resource/img/icon/notification.svg";
 
 interface ButtonsProps {
     name: string,
@@ -20,8 +21,9 @@ function Buttons({name, status, isFull}: ButtonsProps) {
             {
                 isFull
                     ? <div>
-                        <button>
-                            <span>(종) 참여 가능 알림받기</span>
+                        <button className="noti">
+                            <Notification />
+                            <span>참여 가능 알림받기</span>
                         </button>
                     </div>
                     : <div>
