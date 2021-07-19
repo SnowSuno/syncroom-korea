@@ -20,7 +20,8 @@ interface RoomTileProps {
 
 function RoomTile({room, size}: RoomTileProps) {
     const countryClass = (room.status === Status.PUBLIC) ? 'public' : 'private';
-    const fullClass = (room.members.length === 5) ? 'full' : '';
+    const isFull: boolean = room.members.length === 5
+    const fullClass = isFull ? 'full' : '';
 
     return (
         <div className="room-tile" style={size}>
@@ -32,7 +33,7 @@ function RoomTile({room, size}: RoomTileProps) {
                 {room.desc}
             </div>
             <MemberDisplay members={room.members}/>
-            <Buttons />
+            <Buttons name={room.name} status={room.status} isFull={isFull}/>
         </div>
     );
 }

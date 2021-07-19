@@ -90,3 +90,34 @@
     overflow: hidden;
     white-space: nowrap;
 }
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 0.85rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+.buttons > * {border-radius: 1.15rem;}
+.buttons span {
+    display: inline-block;
+    height: 1.5em;
+}
+.buttons button {
+    transition: background-color 30ms ease-out;
+    height: 2.3rem;
+    border: 0;
+    padding: 0;
+    background: #F0F0F0;
+    font: inherit;
+}
+.buttons button:hover {background: #E0E0E0;}
+.buttons button:active {background: #D0D0D0;}
+
+.share {width: 5rem;}
+.buttons > div {
+    display: flex;
+    width: 12.5rem;
+    overflow: hidden;
+}
+.buttons > div > button {flex-grow: 1;}
