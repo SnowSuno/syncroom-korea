@@ -32,8 +32,8 @@ function RoomTile({room, size}: RoomTileProps) {
                 <span className='room-name'>{room.name}</span>
                 {isPublic ? <></> : <Lock />}
             </div>
-            <div className='room-desc'>
-                {room.desc}
+            <div className="room-desc">
+                {room.desc ? room.desc : "방 설명이 없습니다."}
             </div>
             <MemberDisplay members={room.members}/>
             <Buttons name={room.name} status={room.status} isFull={isFull}/>
