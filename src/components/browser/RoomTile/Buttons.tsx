@@ -2,6 +2,8 @@ import React from "react";
 
 import {StatusType} from "../../../common/classes/types";
 
+import {ReactComponent as Share} from "../../../resource/img/icon/share.svg";
+
 interface ButtonsProps {
     name: string,
     status: StatusType,
@@ -11,7 +13,8 @@ interface ButtonsProps {
 function Buttons({name, status, isFull}: ButtonsProps) {
     return (
         <div className="buttons">
-            <button className="share">
+            <button className="share general">
+                <Share/>
                 <span>공유</span>
             </button>
             {
@@ -22,7 +25,7 @@ function Buttons({name, status, isFull}: ButtonsProps) {
                         </button>
                     </div>
                     : <div>
-                        <button>
+                        <button className="general">
                             <span>임시 입장</span>
                         </button>
                         <button className="join">

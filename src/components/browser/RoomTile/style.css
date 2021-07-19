@@ -16,21 +16,20 @@
     font-weight: 400;
     align-items: center;
     padding-inline: 0.9rem;
+    gap: 0.5rem;
 }
-.room-header.public {background: #233D99}
-.room-header.private {background: #191919}
-.room-header.public.full {background: #97A0BE}
-.room-header.private.full {background: #C5C8CD}
+.public .room-header {background: #233D99}
+.private .room-header {background: #191919}
+.public.full .room-header {background: #97A0BE}
+.private.full .room-header {background: #C5C8CD}
 
-.room-header svg {
-    padding-right: 0.5rem;
-}
 .room-name {
     width: 17.5rem;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
 }
+.room-name.private {width: 15.15rem}
 .room-desc {
     height: 2.3rem;
     padding-inline: 1.3rem;
@@ -108,16 +107,32 @@
     height: 2.3rem;
     border: 0;
     padding: 0;
-    background: #F0F0F0;
     font: inherit;
 }
-.buttons button:hover {background: #E0E0E0;}
-.buttons button:active {background: #D0D0D0;}
+.buttons .general {background: #F0F0F0;}
+.buttons .general:hover {background: #E0E0E0;}
+.buttons .general:active {background: #D0D0D0;}
 
-.share {width: 5rem;}
 .buttons > div {
     display: flex;
     width: 12.5rem;
     overflow: hidden;
 }
 .buttons > div > button {flex-grow: 1;}
+
+.share {
+    width: 5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+}
+.join {color: #FFFFFF}
+.public .join {background: #233D99}
+.public .join:hover {background: #4A62AF}
+.public .join:active {background: #3A4F92}
+.private .join {background: #191919}
+.private .join:hover {background: #454545}
+.private .join:active {background: #363636}
+
