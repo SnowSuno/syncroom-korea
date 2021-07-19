@@ -1,4 +1,5 @@
 import React, {ReactElement} from "react";
+import "./style.css";
 
 import {ReactComponent as Drums} from "./drums.svg";
 import {ReactComponent as Bongos} from "./bongos.svg";
@@ -14,6 +15,7 @@ import {ReactComponent as Violin} from "./violin.svg";
 import {ReactComponent as DJ} from "./dj.svg";
 import {ReactComponent as Vocal} from "./vocal.svg";
 import {ReactComponent as Stage} from "./stage.svg";
+import {ReactComponent as Private} from "./user.svg";
 
 interface ProfileProps {
     icon: string
@@ -33,18 +35,19 @@ const iconMap: {[index: string]: ReactElement} = {
     "10": <Violin />,
     "11": <DJ />,
     "12": <Vocal />,
-    "13": <Stage />
+    "13": <Stage />,
+    "-1": <Private />
 }
 
 function Profile({icon}: ProfileProps) {
     return (
-        <div className="icon">
+        <>
             {
                 icon in iconMap
                     ? iconMap[icon]
                     : <img src={icon} alt=""/>
             }
-        </div>
+        </>
     )
 }
 
