@@ -2,6 +2,8 @@ import React from "react";
 
 import {StatusType} from "../../../common/classes/types";
 
+import {joinRoom} from "../../../common/util/joinRoom";
+
 import {ReactComponent as Share} from "../../../resource/img/icon/share.svg";
 import {ReactComponent as Notification} from "../../../resource/img/icon/notification.svg";
 
@@ -27,10 +29,16 @@ function Buttons({name, status, isFull}: ButtonsProps) {
                         </button>
                     </div>
                     : <div>
-                        <button className="general">
+                        <button
+                            className="general"
+                            onClick={() => joinRoom(name, "", true)}
+                        >
                             <span>임시 참여</span>
                         </button>
-                        <button className="join">
+                        <button
+                            className="join"
+                            onClick={() => joinRoom(name, "", false)}
+                        >
                             <span>참여하기</span>
                         </button>
                     </div>
