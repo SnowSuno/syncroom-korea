@@ -1,13 +1,19 @@
+import ReactDOM from "react-dom";
 import React from "react";
-import ReactModal from "react-modal";
+
 import "./style.css"
 
 function Modal() {
+    const modalElement: HTMLElement = document.getElementById("modal")!;
 
-    return (
-        <ReactModal isOpen={true} className="modal">
-            This is a Modal
-        </ReactModal>
+    return ReactDOM.createPortal(
+        <>
+            {
+
+            }
+
+        </>,
+        modalElement
     )
 }
 
