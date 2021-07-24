@@ -5,11 +5,16 @@ function useScrollTrigger(threshold: number) {
     const [trigger, setTrigger] = useState(false);
     const thresholdPx = remToPx(threshold);
 
+    let currentState = false;
     useEffect(() => {
         const onScroll = () => {
-            setTrigger(window.scrollY > thresholdPx);
+            const newState = window.scrollY > thresholdPx;
+            if (currentState !== newState) {
+                currentState = newState;
+                setTrigger(newState);
+            }
         }
-        window.addEventListener("scroll", onScroll);
+        window.addEventListener("wheel", onScroll, {capture: true, passive: true});
         return () => window.removeEventListener("scroll", onScroll);
     }, [thresholdPx]);
 
