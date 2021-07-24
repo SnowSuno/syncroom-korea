@@ -14,7 +14,7 @@ function useScrollTrigger(threshold: number) {
                 setTrigger(newState);
             }
         }
-        window.addEventListener("wheel", onScroll, {capture: true, passive: true});
+        window.addEventListener("scroll", onScroll, {capture: true, passive: true});
         return () => window.removeEventListener("scroll", onScroll);
     }, [thresholdPx]);
 
