@@ -5,8 +5,8 @@ function useScrollTrigger(threshold: number) {
     const [trigger, setTrigger] = useState(false);
     const thresholdPx = remToPx(threshold);
 
-    let currentState = false;
     useEffect(() => {
+        let currentState = false;
         const onScroll = () => {
             const newState = window.scrollY > thresholdPx;
             if (currentState !== newState) {
