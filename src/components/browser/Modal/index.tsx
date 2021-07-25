@@ -9,7 +9,7 @@ import {closeModal} from "../../../modules/modal";
 import PasswordModal from "./PasswordModal";
 
 function Modal() {
-    const {modalClass, roomName} = useSelector((state: RootState) => state.modal);
+    const {modalClass, roomName, temp} = useSelector((state: RootState) => state.modal);
     const dispatch = useDispatch();
 
     const [fade, setFade] = useState('');
@@ -24,7 +24,7 @@ function Modal() {
     switch (modalClass) {
         case ModalClass.PASSWORD:
             return (<div className={`password ${fade}`}>
-                <PasswordModal {...{close, roomName}}/>
+                <PasswordModal {...{close, roomName, temp}}/>
             </div>);
         case ModalClass.SHARE:
             return (<div className={fade}>

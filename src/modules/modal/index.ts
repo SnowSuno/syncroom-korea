@@ -3,11 +3,18 @@ import {ModalClass, ModalClassType} from "./modalClass";
 const OPEN = 'modal/OPEN' as const;
 const CLOSE = 'modal/CLOSE' as const;
 
-type openModalProps = {modalClass: ModalClassType, roomName: string}
-export const openModal = ({modalClass, roomName}: openModalProps) => ({
+type openModalProps = {
+    modalClass: ModalClassType,
+    roomName: string,
+    temp?: boolean
+}
+export const openModal = ({modalClass, roomName, temp=true}: openModalProps) => ({
     type: OPEN,
-    modalClass,
-    roomName
+    payload: {
+        modalClass,
+        roomName,
+        temp
+    }
 });
 export const closeModal = () => ({
     type: CLOSE
@@ -20,11 +27,13 @@ type ModalAction =
 type ModalState = {
     modalClass: ModalClassType;
     roomName: string;
+    temp: boolean;
 };
 
 const initialState: ModalState = {
     modalClass: null,
     roomName: '',
+    temp: false
 };
 
 function modal(
@@ -33,14 +42,12 @@ function modal(
 ): ModalState {
     switch (action.type) {
         case OPEN:
-            return {
-                modalClass: action.modalClass,
-                roomName: action.roomName,
-            };
+            return action.payload;
         case CLOSE:
             return {
                 modalClass: null,
                 roomName: '',
+                temp: false
             };
         default:
             return state;

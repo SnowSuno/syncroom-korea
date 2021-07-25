@@ -1,6 +1,6 @@
 import React from "react";
 
-import {StatusType} from "../../../common/classes/types";
+import {Status, StatusType} from "../../../common/classes/types";
 
 import {joinRoom} from "../../../common/util/joinRoom";
 
@@ -19,12 +19,17 @@ interface ButtonsProps {
 
 function Buttons({name, status, isFull}: ButtonsProps) {
     const dispatch = useDispatch();
-    const join = () => {
-        dispatch(openModal({
-            modalClass: ModalClass.PASSWORD,
-            roomName: name
-        }))
-    };
+    const join = (status === Status.PUBLIC)
+        ? (temp: boolean) => {
+            joinRoom(name, '', temp);
+        }
+        : (temp: boolean) => {
+            dispatch(openModal({
+                modalClass: ModalClass.PASSWORD,
+                roomName: name,
+                temp
+            }))
+        };
 
     return (
         <div className="buttons">
@@ -41,17 +46,10 @@ function Buttons({name, status, isFull}: ButtonsProps) {
                         </button>
                     </div>
                     : <div>
-                        <button
-                            // className="general"
-                            onClick={() => joinRoom(name, "", true)}
-                        >
+                        <button onClick={() => join(true)}>
                             <span>임시 참여</span>
                         </button>
-                        <button
-                            className="join"
-                            // onClick={() => joinRoom(name, "", false)}
-                            onClick={join}
-                        >
+                        <button className="join" onClick={() => join(false)}>
                             <span>참여하기</span>
                         </button>
                     </div>
