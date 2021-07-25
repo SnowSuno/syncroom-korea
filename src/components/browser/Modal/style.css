@@ -16,11 +16,14 @@
     left: 50%;
     transform: translateY(-50%) translateX(-50%);
     background: #FFFFFF;
-    width: 30rem;
-    height: 20rem;
+    width: 22rem;
+    height: 8rem;
     border-radius: 1rem;
-    padding: 0.85rem;
-
+    padding-inline: 1rem;
+    padding-block: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 
     box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);
     z-index: 999;
@@ -28,10 +31,41 @@
     transition: opacity .2s ease;
 }
 .modal .title {
-    font-size: 1rem;
-    font-weight: 400;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
 }
+.modal .title span {
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    width: 20rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.modal input {
+    box-sizing: border-box;
+    width: 22rem;
+    padding: 0;
+    padding-inline: 1rem;
+    border: 0;
+    background: #F6F6F6;
+    height: 2.3rem;
+    border-radius: 1.15rem;
+    font-size: 0.9rem;
 
+}
+.modal input:focus {
+    outline: none;
+    border: 0;
+    box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.3);
+}
+.modal input::placeholder {color: #AAAAAA}
+
+.modal .buttons {
+    display: flex;
+}
 
 .fade {opacity: 0;}
 @keyframes open {

@@ -27,12 +27,12 @@ function Modal() {
                 <div className={`modal ${fade}`}>
                     <div className="title">
                         <Lock fill="#000000"/>
-                        {roomName}
+                        <span>{roomName}</span>
                     </div>
-
-                    hello im a open modal
-                    <div>
-                        {roomName}
+                    <input type="text" placeholder="비밀번호를 입력하세요"/>
+                    <div className="buttons">
+                        <button>취소</button>
+                        <button>참여하기</button>
                     </div>
                 </div>
             </>
