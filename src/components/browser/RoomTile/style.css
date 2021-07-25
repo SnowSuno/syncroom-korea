@@ -96,14 +96,17 @@
     font-size: 0.9rem;
     font-weight: 400;
 }
-.room-tile .buttons > * {border-radius: 1.15rem;}
 
 .room-tile .buttons > div {
     display: flex;
     width: 12.5rem;
     overflow: hidden;
+    border-radius: 1.15rem;
 }
-.room-tile .buttons > div > button {flex-grow: 1;}
+.room-tile .buttons > div > button {
+    flex-grow: 1;
+    border-radius: 0;
+}
 
 .room-tile .share {width: 5rem;}
 .room-tile .share, .noti {

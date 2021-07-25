@@ -53,9 +53,8 @@ button {
   height: 2.3rem;
   border: 0;
   padding: 0;
+  border-radius: 1.15rem;
   font: inherit;
-  /*font-size: 0.9rem;*/
-  /*font-weight: 400;*/
   background: #F0F0F0;
 }
 button:hover {background: #E0E0E0;}
