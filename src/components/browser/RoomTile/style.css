@@ -43,8 +43,6 @@
     -webkit-box-orient: vertical;
 }
 
-
-
 .member-display {
     height: 15.4rem;
     background: #F6F6F6;
@@ -91,45 +89,31 @@
     white-space: nowrap;
 }
 
-.buttons {
+.room-tile .buttons {
     display: flex;
     justify-content: space-between;
     padding-inline: 0.85rem;
     font-size: 0.9rem;
     font-weight: 400;
 }
-.buttons > * {border-radius: 1.15rem;}
-.buttons span {
-    display: inline-block;
-    height: 1.5em;
-}
-.buttons button {
-    transition: background-color 30ms ease-out;
-    height: 2.3rem;
-    border: 0;
-    padding: 0;
-    font: inherit;
-}
-.buttons .general {background: #F0F0F0;}
-.buttons .general:hover {background: #E0E0E0;}
-.buttons .general:active {background: #D0D0D0;}
+.room-tile .buttons > * {border-radius: 1.15rem;}
 
-.buttons > div {
+.room-tile .buttons > div {
     display: flex;
     width: 12.5rem;
     overflow: hidden;
 }
-.buttons > div > button {flex-grow: 1;}
+.room-tile .buttons > div > button {flex-grow: 1;}
 
-.share {width: 5rem;}
-.share, .noti {
+.room-tile .share {width: 5rem;}
+.room-tile .share, .noti {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 0.3rem;
 }
-.join, .noti {color: #FFFFFF}
+.room-tile .join, .noti {color: #FFFFFF}
 .public .join {background: #233D99}
 .public .join:hover {background: #4A62AF}
 .public .join:active {background: #3A4F92}

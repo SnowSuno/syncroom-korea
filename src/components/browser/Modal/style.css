@@ -67,6 +67,11 @@
     display: flex;
 }
 
+.modal .join {color: #FFFFFF}
+.modal button.join {background: #191919}
+.modal button.join:hover {background: #454545}
+.modal button.join:active {background: #363636}
+
 .fade {opacity: 0;}
 @keyframes open {
     from {opacity: 0;}

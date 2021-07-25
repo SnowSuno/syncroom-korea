@@ -21,7 +21,7 @@ function Buttons({name, status, isFull}: ButtonsProps) {
 
     return (
         <div className="buttons">
-            <button className="share general">
+            <button className="share">
                 <Share/>
                 <span>공유</span>
             </button>
@@ -35,7 +35,7 @@ function Buttons({name, status, isFull}: ButtonsProps) {
                     </div>
                     : <div>
                         <button
-                            className="general"
+                            // className="general"
                             onClick={() => joinRoom(name, "", true)}
                         >
                             <span>임시 참여</span>

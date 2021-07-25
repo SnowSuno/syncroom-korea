@@ -48,7 +48,19 @@ code {
     monospace;
 }
 
-text {
+button {
+  transition: background-color 50ms ease-out;
+  height: 2.3rem;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  /*font-size: 0.9rem;*/
+  /*font-weight: 400;*/
+  background: #F0F0F0;
+}
+button:hover {background: #E0E0E0;}
+button:active {background: #D0D0D0;}
+button > span {
   display: inline-block;
-  height: 1.4em;
+  height: 1.5rem;
 }
