@@ -32,8 +32,12 @@ function Modal() {
                     </div>
                     <input type="text" placeholder="비밀번호를 입력하세요"/>
                     <div className="buttons">
-                        <button className="abort" onClick={close}>취소</button>
-                        <button className="join">참여하기</button>
+                        <button className="abort" onClick={close}>
+                            <span>취소</span>
+                        </button>
+                        <button className="join">
+                            <span>참여하기</span>
+                        </button>
                     </div>
                 </div>
             </>);
