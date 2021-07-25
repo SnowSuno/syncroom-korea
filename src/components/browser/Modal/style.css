@@ -17,10 +17,9 @@
     transform: translateY(-50%) translateX(-50%);
     background: #FFFFFF;
     width: 22rem;
-    height: 8rem;
+    /*height: 8rem;*/
     border-radius: 1rem;
-    padding-inline: 1rem;
-    padding-block: 1.5rem;
+    padding: 1.2rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -33,12 +32,13 @@
 .modal .title {
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 0.5rem;
 }
 .modal .title span {
     font-size: 1.4rem;
     font-weight: 400;
-    line-height: 1.5rem;
+    /*line-height: 1.5rem;*/
     width: 20rem;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -65,12 +65,18 @@
 
 .modal .buttons {
     display: flex;
+    justify-content: space-between;
 }
 
-.modal .join {color: #FFFFFF}
+.modal .join {
+    color: #FFFFFF;
+    width: 7rem;
+}
 .modal button.join {background: #191919}
 .modal button.join:hover {background: #454545}
 .modal button.join:active {background: #363636}
+
+.modal .abort {width: 4.5rem}
 
 .fade {opacity: 0;}
 @keyframes open {
