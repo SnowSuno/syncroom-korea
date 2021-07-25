@@ -21,6 +21,7 @@
     width: 100%;
     transition: height .2s ease-out, background-color .2s ease-out;
 }
+.header .title button {border-radius: 0}
 .header.big .title {
     height: 5.8rem;
     background-color: #FFFFFF;
