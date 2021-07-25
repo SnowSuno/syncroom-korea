@@ -23,7 +23,7 @@ function Modal() {
 
     switch (modalClass) {
         case ModalClass.PASSWORD:
-            return (<div className={fade}>
+            return (<div className={`password ${fade}`}>
                 <PasswordModal {...{close, roomName}}/>
             </div>);
         case ModalClass.SHARE:

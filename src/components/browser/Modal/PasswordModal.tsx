@@ -1,7 +1,9 @@
 import React from "react";
-import {ReactComponent as Lock} from "../../../resource/img/icon/lock.svg";
+import "./PasswordModal.css"
 
 import {ModalProps} from "./props";
+
+import {ReactComponent as Lock} from "../../../resource/img/icon/lock.svg";
 
 function PasswordModal({close, roomName}: ModalProps) {
     return (<>

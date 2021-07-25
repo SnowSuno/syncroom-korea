@@ -17,7 +17,6 @@
     transform: translateY(-50%) translateX(-50%);
     background: #FFFFFF;
     width: 22rem;
-    /*height: 8rem;*/
     border-radius: 1rem;
     padding: 1.2rem;
     display: flex;
@@ -29,55 +28,6 @@
     animation: open ease .2s;
     transition: opacity .2s ease;
 }
-.modal .title {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.5rem;
-}
-.modal .title span {
-    font-size: 1.4rem;
-    font-weight: 400;
-    /*line-height: 1.5rem;*/
-    width: 20rem;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-}
-.modal input {
-    box-sizing: border-box;
-    width: 22rem;
-    padding: 0;
-    padding-inline: 1rem;
-    border: 0;
-    background: #F0F0F0;
-    height: 2.3rem;
-    border-radius: 1.15rem;
-    font-size: 0.9rem;
-
-}
-.modal input:focus {
-    outline: none;
-    border: 0;
-    box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.3);
-}
-.modal input::placeholder {color: #AAAAAA}
-
-.modal .buttons {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-}
-
-.modal .join {
-    color: #FFFFFF;
-    width: 7rem;
-}
-.modal button.join {background: #191919}
-.modal button.join:hover {background: #454545}
-.modal button.join:active {background: #363636}
-
-.modal .abort {width: 4.5rem}
 
 .fade {opacity: 0;}
 @keyframes open {
