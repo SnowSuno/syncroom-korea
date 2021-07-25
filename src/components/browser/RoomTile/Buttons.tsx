@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 
 import {StatusType} from "../../../common/classes/types";
 
@@ -6,6 +6,7 @@ import {joinRoom} from "../../../common/util/joinRoom";
 
 import {useDispatch} from "react-redux";
 import {openModal} from "../../../modules/modal";
+import {ModalClass} from "../../../modules/modal/modalClass";
 
 import {ReactComponent as Share} from "../../../resource/img/icon/share.svg";
 import {ReactComponent as Notification} from "../../../resource/img/icon/notification.svg";
@@ -18,6 +19,12 @@ interface ButtonsProps {
 
 function Buttons({name, status, isFull}: ButtonsProps) {
     const dispatch = useDispatch();
+    const join = () => {
+        dispatch(openModal({
+            modalClass: ModalClass.PASSWORD,
+            roomName: name
+        }))
+    };
 
     return (
         <div className="buttons">
@@ -43,7 +50,7 @@ function Buttons({name, status, isFull}: ButtonsProps) {
                         <button
                             className="join"
                             // onClick={() => joinRoom(name, "", false)}
-                            onClick={() => dispatch(openModal(name))}
+                            onClick={join}
                         >
                             <span>참여하기</span>
                         </button>

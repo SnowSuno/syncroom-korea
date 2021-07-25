@@ -1,34 +1,30 @@
+import {ModalClass, ModalClassType} from "./modalClass";
+
 const OPEN = 'modal/OPEN' as const;
 const CLOSE = 'modal/CLOSE' as const;
-const SET_PASSWORD = 'modal/SET_PASSWORD' as const;
 
-export const openModal = (roomName: string) => ({
+type openModalProps = {modalClass: ModalClassType, roomName: string}
+export const openModal = ({modalClass, roomName}: openModalProps) => ({
     type: OPEN,
+    modalClass,
     roomName
 });
 export const closeModal = () => ({
     type: CLOSE
 });
-export const setPassword = (password: string) => ({
-    type: SET_PASSWORD,
-    password
-});
 
 type ModalAction =
     | ReturnType<typeof openModal>
-    | ReturnType<typeof closeModal>
-    | ReturnType<typeof setPassword>;
+    | ReturnType<typeof closeModal>;
 
 type ModalState = {
-    isOpen: boolean;
+    modalClass: ModalClassType;
     roomName: string;
-    password: string;
 };
 
 const initialState: ModalState = {
-    isOpen: false,
+    modalClass: null,
     roomName: '',
-    password: '',
 };
 
 function modal(
@@ -38,20 +34,13 @@ function modal(
     switch (action.type) {
         case OPEN:
             return {
-                isOpen: true,
+                modalClass: action.modalClass,
                 roomName: action.roomName,
-                password: ''
             };
         case CLOSE:
             return {
-                isOpen: false,
+                modalClass: null,
                 roomName: '',
-                password: ''
-            };
-        case SET_PASSWORD:
-            return {
-                ...state,
-                password: action.password
             };
         default:
             return state;

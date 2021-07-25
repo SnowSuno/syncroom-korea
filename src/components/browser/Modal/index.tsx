@@ -3,12 +3,13 @@ import "./style.css"
 
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../../modules";
+import {ModalClass} from "../../../modules/modal/modalClass";
 import {closeModal} from "../../../modules/modal";
 
 import {ReactComponent as Lock} from "../../../resource/img/icon/lock.svg";
 
 function Modal() {
-    const {isOpen, roomName} = useSelector((state: RootState) => state.modal);
+    const {modalClass, roomName} = useSelector((state: RootState) => state.modal);
     const dispatch = useDispatch();
 
     const [fade, setFade] = useState('');
@@ -20,9 +21,9 @@ function Modal() {
         }, 200);
     };
 
-    return (
-        isOpen
-            ? <>
+    switch (modalClass) {
+        case ModalClass.PASSWORD:
+            return (<>
                 <div className={`overlay ${fade}`} onClick={close} />
                 <div className={`modal ${fade}`}>
                     <div className="title">
@@ -35,9 +36,14 @@ function Modal() {
                         <button className="join">참여하기</button>
                     </div>
                 </div>
-            </>
-            : <></>
-    );
+            </>);
+        case ModalClass.SHARE:
+            return (
+                <></>
+            )
+        default:
+            return <></>
+    }
 }
 
 export default Modal;
