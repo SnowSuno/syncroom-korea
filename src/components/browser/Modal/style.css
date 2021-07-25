@@ -19,11 +19,20 @@
     width: 30rem;
     height: 20rem;
     border-radius: 1rem;
+    padding: 0.85rem;
+
+
     box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);
     z-index: 999;
     animation: open ease .2s;
     transition: opacity .2s ease;
 }
+.modal .title {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+
 .fade {opacity: 0;}
 @keyframes open {
     from {opacity: 0;}
