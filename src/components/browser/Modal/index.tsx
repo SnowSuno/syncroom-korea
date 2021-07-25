@@ -6,7 +6,7 @@ import {RootState} from "../../../modules";
 import {ModalClass} from "../../../modules/modal/modalClass";
 import {closeModal} from "../../../modules/modal";
 
-import {ReactComponent as Lock} from "../../../resource/img/icon/lock.svg";
+import PasswordModal from "./PasswordModal";
 
 function Modal() {
     const {modalClass, roomName} = useSelector((state: RootState) => state.modal);
@@ -23,30 +23,15 @@ function Modal() {
 
     switch (modalClass) {
         case ModalClass.PASSWORD:
-            return (<>
-                <div className={`overlay ${fade}`} onClick={close} />
-                <div className={`modal ${fade}`}>
-                    <div className="title">
-                        <Lock fill="#000000"/>
-                        <span>{roomName}</span>
-                    </div>
-                    <input type="text" placeholder="비밀번호를 입력하세요"/>
-                    <div className="buttons">
-                        <button className="abort" onClick={close}>
-                            <span>취소</span>
-                        </button>
-                        <button className="join">
-                            <span>참여하기</span>
-                        </button>
-                    </div>
-                </div>
-            </>);
+            return (<div className={fade}>
+                <PasswordModal {...{close, roomName}}/>
+            </div>);
         case ModalClass.SHARE:
-            return (
+            return (<div className={fade}>
                 <></>
-            )
+            </div>);
         default:
-            return <></>
+            return <></>;
     }
 }
 
