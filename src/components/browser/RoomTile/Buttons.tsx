@@ -1,8 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 
 import {StatusType} from "../../../common/classes/types";
 
 import {joinRoom} from "../../../common/util/joinRoom";
+
+import {useDispatch} from "react-redux";
+import {openModal} from "../../../modules/modal";
 
 import {ReactComponent as Share} from "../../../resource/img/icon/share.svg";
 import {ReactComponent as Notification} from "../../../resource/img/icon/notification.svg";
@@ -14,6 +17,8 @@ interface ButtonsProps {
 }
 
 function Buttons({name, status, isFull}: ButtonsProps) {
+    const dispatch = useDispatch();
+
     return (
         <div className="buttons">
             <button className="share general">
@@ -37,7 +42,8 @@ function Buttons({name, status, isFull}: ButtonsProps) {
                         </button>
                         <button
                             className="join"
-                            onClick={() => joinRoom(name, "", false)}
+                            // onClick={() => joinRoom(name, "", false)}
+                            onClick={() => dispatch(openModal(name))}
                         >
                             <span>참여하기</span>
                         </button>

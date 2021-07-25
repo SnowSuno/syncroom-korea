@@ -1,13 +1,31 @@
-#modal {
-
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 998;
+    animation: open ease .2s;
+    transition: opacity .2s ease;
 }
 
 .modal {
-    position: absolute;
-    top: 40px;
-    left: 40px;
-    right: 40px;
-    bottom: 40px;
-    background-color: papayawhip;
-    z-index: 100;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    background: #FFFFFF;
+    width: 30rem;
+    height: 20rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);
+    z-index: 999;
+    animation: open ease .2s;
+    transition: opacity .2s ease;
+}
+.fade {opacity: 0;}
+@keyframes open {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
