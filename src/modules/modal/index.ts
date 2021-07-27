@@ -1,4 +1,4 @@
-import {ModalClass, ModalClassType} from "./modalClass";
+import {ModalClassType} from "./modalClass";
 
 const OPEN = 'modal/OPEN' as const;
 const CLOSE = 'modal/CLOSE' as const;
@@ -45,9 +45,8 @@ function modal(
             return action.payload;
         case CLOSE:
             return {
+                ...state,
                 modalClass: null,
-                roomName: '',
-                temp: false
             };
         default:
             return state;

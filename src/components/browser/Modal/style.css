@@ -5,9 +5,6 @@
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.4);
-    z-index: 998;
-    animation: open ease .2s;
-    transition: opacity .2s ease;
 }
 
 .modal {
@@ -24,13 +21,29 @@
     gap: 1rem;
 
     box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);
+}
+.modal-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
     z-index: 999;
-    animation: open ease .2s;
     transition: opacity .2s ease;
 }
 
-.fade {opacity: 0;}
-@keyframes open {
-    from {opacity: 0;}
-    to {opacity: 1;}
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }

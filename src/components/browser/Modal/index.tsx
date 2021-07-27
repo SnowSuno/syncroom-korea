@@ -1,38 +1,19 @@
-import React, {useState} from "react";
+import React from "react";
 import "./style.css"
 
-import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../../../modules";
 import {ModalClass} from "../../../modules/modal/modalClass";
-import {closeModal} from "../../../modules/modal";
 
+import ModalRoute from "./ModalRoute";
 import PasswordModal from "./PasswordModal";
 
 function Modal() {
-    const {modalClass, roomName, temp} = useSelector((state: RootState) => state.modal);
-    const dispatch = useDispatch();
-
-    const [fade, setFade] = useState('');
-    const close = () => {
-        setFade('fade');
-        setTimeout(() => {
-            dispatch(closeModal());
-            setFade('');
-        }, 200);
-    };
-
-    switch (modalClass) {
-        case ModalClass.PASSWORD:
-            return (<div className={`password ${fade}`}>
-                <PasswordModal {...{close, roomName, temp}}/>
-            </div>);
-        case ModalClass.SHARE:
-            return (<div className={fade}>
-                <></>
-            </div>);
-        default:
-            return <></>;
-    }
+    return (
+        <div className='modal-wrap'>
+            <ModalRoute route={ModalClass.PASSWORD}>
+                <PasswordModal/>
+            </ModalRoute>
+        </div>
+    )
 }
 
 export default Modal;
