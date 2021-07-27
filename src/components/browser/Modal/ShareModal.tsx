@@ -2,7 +2,11 @@ import React from "react";
 
 
 function ShareModal() {
-    return <></>;
+    return (
+        <div className="share modal">
+
+        </div>
+    );
 }
 
 export default ShareModal;
