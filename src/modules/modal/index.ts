@@ -1,4 +1,5 @@
 import {ModalClassType} from "./modalClass";
+import {Status, StatusType} from "../../common/classes/types";
 
 const OPEN = 'modal/OPEN' as const;
 const CLOSE = 'modal/CLOSE' as const;
@@ -6,13 +7,21 @@ const CLOSE = 'modal/CLOSE' as const;
 type openModalProps = {
     modalClass: ModalClassType,
     roomName: string,
+    status?: StatusType,
     temp?: boolean
 }
-export const openModal = ({modalClass, roomName, temp=true}: openModalProps) => ({
+export const openModal = (
+    {
+        modalClass,
+        roomName,
+        status=Status.PRIVATE,
+        temp=true
+    }: openModalProps) => ({
     type: OPEN,
     payload: {
         modalClass,
         roomName,
+        status,
         temp
     }
 });
@@ -27,12 +36,14 @@ type ModalAction =
 type ModalState = {
     modalClass: ModalClassType;
     roomName: string;
+    status: StatusType;
     temp: boolean;
 };
 
 const initialState: ModalState = {
     modalClass: null,
     roomName: '',
+    status: Status.PRIVATE,
     temp: false
 };
 

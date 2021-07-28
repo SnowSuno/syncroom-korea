@@ -1,12 +1,13 @@
-const { base62_encode, base62_decode } = require('@samwen/base62-util');
+const {base62_encode, base62_decode} = require('@samwen/base62-util');
 
 export const shareLinkDomain = "https://syncroomkr.github.io/join?";
 
-interface encodeShareLinkProps {
+export interface roomInfoProps {
     roomName: string;
-    password? : string;
+    password?: string;
 }
-export const encodeShareLink = (roomInfo: encodeShareLinkProps) => {
+
+export const encodeShareLink = (roomInfo: roomInfoProps) => {
     return base62_encode(
         JSON.stringify(
             Object.values(roomInfo)
@@ -14,9 +15,8 @@ export const encodeShareLink = (roomInfo: encodeShareLinkProps) => {
     );
 };
 
-export const decodeShareLink = (shareLink: string) => {
-    const roomInfo = JSON.parse(`[${base62_decode(shareLink)}]`);
-
+export const decodeShareLink = (shareLink: string): roomInfoProps => {
+    const roomInfo: string[] = JSON.parse(`[${base62_decode(shareLink)}]`);
     return {
         roomName: roomInfo[0],
         password: roomInfo[1] || ""

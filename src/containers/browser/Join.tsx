@@ -1,7 +1,20 @@
 import React from "react";
+import {decodeShareLink} from "../../common/util/shareLink";
 
-function Join() {
-    return <></>
+interface Location {search: string}
+interface JoinProps {
+    location: Location;
+}
+
+function Join({location: {search}}: JoinProps) {
+    try {
+        const {roomName, password} = decodeShareLink(search.slice(1));
+    } catch (e) {
+        console.log(e);
+    }
+
+
+    return <div>{roomName}</div>
 }
 
 export default Join;
