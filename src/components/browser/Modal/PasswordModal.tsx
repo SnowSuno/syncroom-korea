@@ -33,6 +33,7 @@ function PasswordModal() {
                 </button>
                 <button
                     className="join"
+                    disabled={password.value.length === 0}
                     onClick={() => {
                         joinRoom(roomName, password.value, temp);
                         close();
