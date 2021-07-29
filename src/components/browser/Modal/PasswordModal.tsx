@@ -2,13 +2,12 @@ import React from "react";
 import "./PasswordModal.css";
 
 import {useDispatch, useSelector} from "react-redux";
+import {RootState} from "../../../modules";
 import {closeModal} from "../../../modules/modal";
 import {joinRoom} from "../../../common/util/joinRoom";
 import useInput from "../../../common/hooks/useInput";
 
 import {ReactComponent as Lock} from "../../../resource/img/icon/lock.svg";
-import {RootState} from "../../../modules";
-
 
 function PasswordModal() {
     const {roomName, temp} = useSelector((state: RootState) => state.modal);

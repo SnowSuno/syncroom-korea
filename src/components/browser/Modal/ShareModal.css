@@ -1,0 +1,77 @@
+.share.modal {width: 22rem;}
+.share.modal .title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+.share.modal .title span {
+    font-size: 1.4rem;
+    font-weight: 400;
+    width: 20.2rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.share.modal input {
+    box-sizing: border-box;
+    width: 22rem;
+    padding: 0;
+    padding-inline: 1rem;
+    border: 0;
+    background: #F0F0F0;
+    height: 2.3rem;
+    border-radius: 1.15rem;
+    font-size: 0.9rem;
+}
+.share.modal input:focus {
+    outline: none;
+    border: 0;
+    box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.3);
+}
+.share.modal input::placeholder {color: #AAAAAA}
+
+.share .link {
+    display: flex;
+    flex-direction: row;
+    font-size: 0.9rem;
+}
+
+.share .link input {
+    border-radius: 1.15rem 0 0 1.15rem;
+}
+.share .link button {
+    width: 5rem;
+    border-radius: 0 1.15rem 1.15rem 0;
+    color: #FFFFFF;
+    background: #191919;
+}
+
+.share .checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.3rem;
+    border-color: #9B9DA8;
+    width: fit-content;
+    margin-left: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.share .checkbox:hover {
+    border-color: black;
+}
+.share .checkbox .box {
+    height: 0.8rem;
+    width: 0.8rem;
+    /*border: 0.13rem solid inherit;*/
+    border-width: 0.13rem;
+    border-style: solid;
+    border-color: inherit;
+    border-radius: 0.2rem;
+}
+.share .checkbox .desc {
+    font-size: 0.9rem;
+    display: inline-block;
+    height: 1.4rem;
+    cursor: default;
+}

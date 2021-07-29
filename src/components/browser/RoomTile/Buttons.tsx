@@ -30,10 +30,17 @@ function Buttons({name, status, isFull}: ButtonsProps) {
                 temp
             }))
         };
+    const share = () => {dispatch(
+        openModal({
+            modalClass: ModalClass.SHARE,
+            roomName: name,
+            status
+        })
+    )};
 
     return (
         <div className="buttons">
-            <button className="share">
+            <button className="share" onClick={share}>
                 <Share/>
                 <span>공유</span>
             </button>
