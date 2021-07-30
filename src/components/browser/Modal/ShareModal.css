@@ -1,12 +1,20 @@
-.share.modal {width: 22rem;}
+.share.modal {
+    width: 22rem;
+    gap: 0;
+}
 .share.modal .title {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+.share.modal .title svg {
+    margin-top: 0.4rem;
 }
 .share.modal .title span {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    /*line-height: 1.3rem;*/
     font-weight: 400;
     width: 20.2rem;
     text-overflow: ellipsis;
@@ -25,6 +33,7 @@
     display: flex;
     flex-direction: row;
     font-size: 0.9rem;
+    margin-top: 0.5rem;
 }
 
 .share.modal .link input[type="text"] {
@@ -40,6 +49,24 @@
 .share.modal .link button:active {background: #363636}
 .share.modal .link button:disabled {background: #A7A7A7}
 
+.share.modal .copied {
+    display: flex;
+    gap: 0.2rem;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+
+    color: #49C5B6;
+    font-size: 0.8rem;
+    line-height: 0.8rem;
+    height: 1rem;
+
+    overflow: hidden;
+    transition: height ease .15s;
+}
+.share.modal .copied.hide {
+    height: 0;
+}
+
 .share.modal .checkbox {
     display: flex;
     flex-direction: row;
@@ -49,6 +76,7 @@
     width: fit-content;
     margin-left: 0.5rem;
     margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
 }
 .share.modal .checkbox:hover {
     border-color: black;
@@ -56,7 +84,6 @@
 .share.modal .checkbox .box {
     height: 0.8rem;
     width: 0.8rem;
-    /*border: 0.13rem solid inherit;*/
     border-width: 0.13rem;
     border-style: solid;
     border-color: inherit;
@@ -79,31 +106,16 @@
     background: #233D99;
     border-color: #233D99;
 }
-/*.share .unchecked.box {background: white}*/
-.share.modal .checked.password {
-    height: 2.3rem;
-    /*overflow: hidden;*/
-}
-.share.modal .unchecked.password {
-    height: 0;
-    /*overflow: hidden;*/
-}
+
+.share.modal .checked.password {height: 2.3rem;}
+.share.modal .unchecked.password {height: 0;}
 
 .share.modal .checkbox svg {
-
     pointer-events: none;
     fill: none;
     stroke: #FFFFFF;
     stroke-width: 0.2rem;
     stroke-linecap: round;
     stroke-linejoin: round;
-    /*position: absolute;*/
-    /*top: 0;*/
-    /*left: 0;*/
-    /*width: 21px;*/
-    /*height: 21px;*/
-
-    /*transform: scale(var(--scale, 1)) translateZ(0);*/
 }
-
 

@@ -14,7 +14,7 @@
     transform: translateY(-50%) translateX(-50%);
     background: #FFFFFF;
     border-radius: 1rem;
-    padding: 1.2rem;
+    padding: 1rem 1.2rem 1.2rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
