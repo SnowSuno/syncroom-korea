@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useRef, useState} from "react";
 import "./ShareModal.css";
 
 import {useSelector} from "react-redux";
@@ -14,6 +14,7 @@ import {ReactComponent as Link} from "../../../resource/img/icon/link.svg";
 
 function ShareModal() {
     const {roomName, status} = useSelector((state: RootState) => state.modal);
+    const linkField = useRef<HTMLInputElement>(null);
 
     const password = useInput('');
     const [checked, setChecked] = useState(status === Status.PRIVATE);
@@ -27,6 +28,10 @@ function ShareModal() {
         {roomName, password: password.value}
     );
     const handleFocus = (event: React.ChangeEvent<HTMLInputElement>) => event.target.select();
+    const copy = () => {
+        linkField.current?.select();
+        document.execCommand('copy');
+    };
 
     return (
         <div className="share modal">
@@ -39,8 +44,10 @@ function ShareModal() {
                     type="text"
                     value={shareLinkDomain + shareLink}
                     onFocus={handleFocus}
+                    ref={linkField}
                 />
                 <button
+                    onClick={copy}
                     disabled={(checked && (password.value.length === 0))}
                 >
                     <span>복사</span>
