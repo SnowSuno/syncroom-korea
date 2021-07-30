@@ -1,5 +1,6 @@
 import React from "react";
 import {decodeShareLink} from "../../common/util/shareLink";
+import {joinRoom} from "../../common/util/joinRoom";
 
 interface Location {search: string}
 interface JoinProps {
@@ -9,12 +10,22 @@ interface JoinProps {
 function Join({location: {search}}: JoinProps) {
     try {
         const {roomName, password} = decodeShareLink(search.slice(1));
+        // console.log(decodeShareLink(search.slice(1)))
+        joinRoom(roomName, password, false);
+        return (
+            <div>
+                리디렉트 중
+            </div>
+        );
+
     } catch (e) {
-        console.log(e);
+        // console.log(e);
+        return (
+            <div>
+                링크가 잘못되었습니다
+            </div>
+        );
     }
-
-
-    return <div>{roomName}</div>
 }
 
 export default Join;

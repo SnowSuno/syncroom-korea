@@ -4,14 +4,15 @@ export const shareLinkDomain = "https://syncroomkr.github.io/join?";
 
 export interface roomInfoProps {
     roomName: string;
-    password?: string;
+    password: string;
 }
 
-export const encodeShareLink = (roomInfo: roomInfoProps) => {
+export const encodeShareLink = ({roomName, password}: roomInfoProps) => {
+    const roomInfo: string[] = [roomName];
+    if (password) roomInfo.push(password);
+
     return base62_encode(
-        JSON.stringify(
-            Object.values(roomInfo)
-        ).slice(1, -1)
+        JSON.stringify(roomInfo).slice(1, -1)
     );
 };
 
