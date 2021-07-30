@@ -13,41 +13,34 @@
     overflow: hidden;
     white-space: nowrap;
 }
-.share.modal input {
+.share.modal input[type="text"] {
     box-sizing: border-box;
     width: 22rem;
-    padding: 0;
     padding-inline: 1rem;
-    border: 0;
-    background: #F0F0F0;
-    height: 2.3rem;
-    border-radius: 1.15rem;
-    font-size: 0.9rem;
 }
-.share.modal input:focus {
-    outline: none;
-    border: 0;
-    box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.3);
-}
+
 .share.modal input::placeholder {color: #AAAAAA}
 
-.share .link {
+.share.modal .link {
     display: flex;
     flex-direction: row;
     font-size: 0.9rem;
 }
 
-.share .link input {
+.share.modal .link input[type="text"] {
     border-radius: 1.15rem 0 0 1.15rem;
 }
-.share .link button {
+.share.modal .link button {
     width: 5rem;
     border-radius: 0 1.15rem 1.15rem 0;
     color: #FFFFFF;
     background: #191919;
 }
+.share.modal .link button:hover {background: #454545}
+.share.modal .link button:active {background: #363636}
+.share.modal .link button:disabled {background: #A7A7A7}
 
-.share .checkbox {
+.share.modal .checkbox {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -57,10 +50,10 @@
     margin-left: 0.5rem;
     margin-bottom: 0.5rem;
 }
-.share .checkbox:hover {
+.share.modal .checkbox:hover {
     border-color: black;
 }
-.share .checkbox .box {
+.share.modal .checkbox .box {
     height: 0.8rem;
     width: 0.8rem;
     /*border: 0.13rem solid inherit;*/
@@ -68,10 +61,49 @@
     border-style: solid;
     border-color: inherit;
     border-radius: 0.2rem;
+
+    line-height: 0.8rem;
+    transition: background-color .1s ease-out;
 }
-.share .checkbox .desc {
-    font-size: 0.9rem;
-    display: inline-block;
-    height: 1.4rem;
-    cursor: default;
+
+.share.modal .password input[type="text"] {
+    height: 2.3rem;
+    position: relative;
 }
+.share.modal .password {
+    overflow: hidden;
+    position: relative;
+    transition: height ease .3s;
+}
+.share.modal .checked.box {
+    background: #233D99;
+    border-color: #233D99;
+}
+/*.share .unchecked.box {background: white}*/
+.share.modal .checked.password {
+    height: 2.3rem;
+    /*overflow: hidden;*/
+}
+.share.modal .unchecked.password {
+    height: 0;
+    /*overflow: hidden;*/
+}
+
+.share.modal .checkbox svg {
+
+    pointer-events: none;
+    fill: none;
+    stroke: #FFFFFF;
+    stroke-width: 0.2rem;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*width: 21px;*/
+    /*height: 21px;*/
+
+    /*transform: scale(var(--scale, 1)) translateZ(0);*/
+}
+
+
