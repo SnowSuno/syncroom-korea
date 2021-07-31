@@ -3,8 +3,3 @@ export class ModalClass {
     public static readonly SHARE = 'modal/class/SHARE';
 }
 export type ModalClassType = typeof ModalClass[keyof typeof ModalClass] | null;
-
-type PasswordModalDataProps = {
-    roomName: string,
-    temp: boolean
-}
