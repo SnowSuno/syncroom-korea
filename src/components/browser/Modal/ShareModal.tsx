@@ -19,7 +19,8 @@ function ShareModal() {
     const linkField = useRef<HTMLInputElement>(null);
 
     const password = useInput('');
-    const [checked, setChecked] = useState(status === Status.PRIVATE);
+    const isPrivate = status === Status.PRIVATE;
+    const [checked, setChecked] = useState(true);
     const checkedClass = checked ? 'checked' : 'unchecked';
     const onClick = () => {
         password.set('');
@@ -27,7 +28,10 @@ function ShareModal() {
     };
 
     const shareLink: string = encodeShareLink(
-        {roomName, password: password.value}
+        {
+            roomName: roomName,
+            password: checked ? password.value : undefined
+        }
     );
     const handleFocus = (event: React.ChangeEvent<HTMLInputElement>) => event.target.select();
     const [copied, setCopied] = useState(false);
@@ -48,7 +52,7 @@ function ShareModal() {
                 <CopyToClipboard text={shareLinkDomain + shareLink}>
                     <button
                         onClick={() => setCopied(true)}
-                        disabled={(checked && (password.value.length === 0))}
+                        disabled={(isPrivate && checked && (password.value.length === 0))}
                     >
                         <span>복사</span>
                     </button>

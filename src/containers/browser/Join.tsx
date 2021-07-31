@@ -1,23 +1,48 @@
 import React from "react";
+import "./Join.css";
+
 import {decodeShareLink} from "../../common/util/shareLink";
 import {joinRoom} from "../../common/util/joinRoom";
 
-interface Location {search: string}
+import {ReactComponent as SyncroomLogo} from "../../resource/img/logo/syncroom.svg";
+
 interface JoinProps {
-    location: Location;
+    location: JoinInfoProps;
+}
+interface JoinInfoProps {
+    search: string;
 }
 
 function Join({location: {search}}: JoinProps) {
+    return (
+        <div className="join-page">
+
+            <SyncroomLogo />
+            <div className="info">
+                <JoinInfo search={search}/>
+            </div>
+        </div>
+    );
+}
+function JoinInfo({search}: JoinInfoProps) {
     try {
         const {roomName, password} = decodeShareLink(search.slice(1));
-        // console.log(decodeShareLink(search.slice(1)))
-        joinRoom(roomName, password, false);
-        return (
-            <div>
-                리디렉트 중
-            </div>
-        );
+        console.log({roomName, password});
+        if (password !== undefined) {
+            joinRoom(roomName, password, false);
+            return (
+                <div>
+                    리디렉트 중
+                </div>
+            )
+        } else {
 
+            return (
+                <div>
+                    비밀번호를 입력하세요
+                </div>
+            );
+        }
     } catch (e) {
         // console.log(e);
         return (

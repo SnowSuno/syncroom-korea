@@ -4,12 +4,14 @@ export const shareLinkDomain = "https://syncroomkr.github.io/join?";
 
 export interface roomInfoProps {
     roomName: string;
-    password: string;
+    password?: string;
 }
 
 export const encodeShareLink = ({roomName, password}: roomInfoProps) => {
-    const roomInfo: string[] = [roomName];
-    if (password) roomInfo.push(password);
+    const payload: string | number = (typeof password === 'string') ? password : 1;
+
+    const roomInfo: (string | number)[] = [roomName];
+    if (payload) roomInfo.push(payload);
 
     return base62_encode(
         JSON.stringify(roomInfo).slice(1, -1)
@@ -17,9 +19,18 @@ export const encodeShareLink = ({roomName, password}: roomInfoProps) => {
 };
 
 export const decodeShareLink = (shareLink: string): roomInfoProps => {
-    const roomInfo: string[] = JSON.parse(`[${base62_decode(shareLink)}]`);
+    const roomInfo = JSON.parse(`[${base62_decode(shareLink)}]`);
+    if (![1, 2].includes(roomInfo.length)) {
+        throw new Error("parse error");
+    }
+    const roomName: string = roomInfo[0];
+    const payload: string | undefined | 1 = roomInfo[1];
+
+    let password: string | undefined = undefined;
+    if (payload !== 1) password = payload || "";
+
     return {
-        roomName: roomInfo[0],
-        password: roomInfo[1] || ""
+        roomName,
+        password
     };
 };
