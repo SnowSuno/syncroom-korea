@@ -5,7 +5,6 @@ import Home from "../containers/browser/Home";
 import Join from "../containers/browser/Join";
 import NotFound from "../containers/browser/NotFound";
 
-import Modal from "../components/browser/Modal";
 
 function BrowserRoutes() {
     return (
@@ -18,7 +17,6 @@ function BrowserRoutes() {
                     <Route component={() => <Redirect to="/notfound"/>}/>
                 </Switch>
             </Router>
-            <Modal />
         </>
     )
 }

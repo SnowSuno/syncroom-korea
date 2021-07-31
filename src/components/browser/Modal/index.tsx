@@ -1,13 +1,22 @@
 import React from "react";
-import ReactModal from "react-modal";
 import "./style.css"
 
-function Modal() {
+import {ModalClass} from "../../../modules/modal/modalClass";
 
+import ModalRoute from "./ModalRoute";
+import PasswordModal from "./PasswordModal";
+import ShareModal from "./ShareModal";
+
+function Modal() {
     return (
-        <ReactModal isOpen={true} className="modal">
-            This is a Modal
-        </ReactModal>
+        <div className='modal-wrap'>
+            <ModalRoute route={ModalClass.PASSWORD}>
+                <PasswordModal/>
+            </ModalRoute>
+            <ModalRoute route={ModalClass.SHARE}>
+                <ShareModal />
+            </ModalRoute>
+        </div>
     )
 }
 

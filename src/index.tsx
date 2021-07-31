@@ -11,7 +11,7 @@ import {BrowserView, MobileView} from "react-device-detect";
 import BrowserRoutes from "./routes/BrowserRoutes";
 import MobileRoutes from "./routes/MobileRoutes";
 
-import Modal from "react-modal";
+import Modal from "./components/browser/Modal";
 
 const store = createStore(
     rootReducer,
@@ -27,8 +27,8 @@ ReactDOM.render(
             <MobileView>
                 <MobileRoutes />
             </MobileView>
+            <Modal />
         </Provider>
     </React.StrictMode>,
     document.getElementById('root')
 );
-Modal.setAppElement('#root');

@@ -1,0 +1,100 @@
+.join-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.join-page .return {
+    color: #686a6e;
+    text-decoration: none;
+    cursor: default;
+    position: absolute;
+    height: 2.3rem;
+    line-height: 2.3rem;
+    border-radius: 0.6rem;
+    width: 9.5rem;
+    margin: 1rem;
+    padding-left: 1rem;
+    background: #DCE0E8;
+    display: flex;
+    align-items: center;
+}
+.join-page .return:hover {background: #d1d5dc;}
+.join-page .return:active {background: #c4c7ce;}
+
+.join-page .body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.7rem;
+    height: 100%;
+}
+
+.join-page .body > svg {
+    height: 35vh;
+}
+
+.join-page .title {
+    display: flex;
+    gap: 0.2rem;
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: 400;
+}
+
+.join-page .title > svg {
+    width: 2rem;
+    height: 2rem;
+    padding-top: 0.1rem;
+}
+
+.join-page .prompt {
+    display: flex;
+    height: 2.6rem;
+    border-radius: 1.3rem;
+    overflow: hidden;
+}
+
+.join-page .prompt button {
+    height: 100%;
+    border-radius: 0;
+    width: 15rem;
+    background: #49C5B6;
+    color: #FFFFFF;
+}
+.join-page .prompt button:hover {background: #46bdaf;}
+.join-page .prompt button:active {background: #40b0a3;}
+
+.join-page .prompt button span {
+    height: 1.6rem;
+}
+.join-page .prompt input {
+    height: 100%;
+    border-radius: 0;
+    width: 20rem;
+    padding-inline: 1rem;
+    background: #FFFFFF;
+}
+.join-page .prompt input::placeholder {color: #AAAAAA}
+.join-page .prompt input:focus {
+    outline: none;
+    background: #fafafa;
+}
+.join-page .prompt button.password {
+    width: 7rem;
+}
+
+.join-page .install {
+    font-size: 0.9rem;
+    color: #BABBBF;
+}
+.join-page .install .link {
+    color: #BABBBF;
+}
+
+.join-page .desc {
+    font-size: 1.3rem;
+    color: #a6a8ad;
+}

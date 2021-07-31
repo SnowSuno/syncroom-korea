@@ -1,0 +1,121 @@
+.share.modal {
+    width: 22rem;
+    gap: 0;
+}
+.share.modal .title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+.share.modal .title svg {
+    margin-top: 0.4rem;
+}
+.share.modal .title span {
+    font-size: 1.3rem;
+    /*line-height: 1.3rem;*/
+    font-weight: 400;
+    width: 20.2rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.share.modal input[type="text"] {
+    box-sizing: border-box;
+    width: 22rem;
+    padding-inline: 1rem;
+}
+
+.share.modal input::placeholder {color: #AAAAAA}
+
+.share.modal .link {
+    display: flex;
+    flex-direction: row;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.share.modal .link input[type="text"] {
+    border-radius: 1.15rem 0 0 1.15rem;
+}
+.share.modal .link button {
+    width: 5rem;
+    border-radius: 0 1.15rem 1.15rem 0;
+    color: #FFFFFF;
+    background: #191919;
+}
+.share.modal .link button:hover {background: #454545}
+.share.modal .link button:active {background: #363636}
+.share.modal .link button:disabled {background: #A7A7A7}
+
+.share.modal .copied {
+    display: flex;
+    gap: 0.2rem;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+
+    color: #49C5B6;
+    font-size: 0.8rem;
+    line-height: 0.8rem;
+    height: 1rem;
+
+    overflow: hidden;
+    transition: height ease .15s;
+}
+.share.modal .copied.hide {
+    height: 0;
+}
+
+.share.modal .checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.3rem;
+    border-color: #9B9DA8;
+    width: fit-content;
+    margin-left: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+.share.modal .checkbox:hover {
+    border-color: black;
+}
+.share.modal .checkbox .box {
+    height: 0.8rem;
+    width: 0.8rem;
+    border-width: 0.13rem;
+    border-style: solid;
+    border-color: inherit;
+    border-radius: 0.2rem;
+
+    line-height: 0.8rem;
+    transition: background-color .1s ease-out;
+}
+
+.share.modal .password input[type="text"] {
+    height: 2.3rem;
+    position: relative;
+}
+.share.modal .password {
+    overflow: hidden;
+    position: relative;
+    transition: height ease .3s;
+}
+.share.modal .checked.box {
+    background: #233D99;
+    border-color: #233D99;
+}
+
+.share.modal .checked.password {height: 2.3rem;}
+.share.modal .unchecked.password {height: 0;}
+
+.share.modal .checkbox svg {
+    pointer-events: none;
+    fill: none;
+    stroke: #FFFFFF;
+    stroke-width: 0.2rem;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
