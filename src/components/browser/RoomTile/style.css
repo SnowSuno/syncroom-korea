@@ -84,6 +84,7 @@
     overflow: hidden;
 }
 .member .nickname {
+    font-size: 0.85rem;
     width: 14.85rem;
     text-overflow: ellipsis;
     overflow: hidden;
