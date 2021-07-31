@@ -10,7 +10,7 @@
 }
 
 /*title styling*/
-.title {
+.header .title {
     position: sticky;
     top: 0;
     font-size: 1.2rem;
@@ -21,16 +21,17 @@
     width: 100%;
     transition: height .2s ease-out, background-color .2s ease-out;
 }
-.big .title {
+.header .title button {border-radius: 0}
+.header.big .title {
     height: 5.8rem;
     background-color: #FFFFFF;
 }
-.small .title {
+.header.small .title {
     height: 4.6rem;
     background-color: #F3F4F7;
 }
 
-.title>div {
+.header .title>div {
     flex-grow: 1;
 }
 .logo-container {
@@ -82,14 +83,14 @@ text {
     opacity: 0;
 }
 
-.menu {background: #dbdce2;}
-.menu:hover {background: #d0d1d9;}
+.header .menu {background: #dbdce2;}
+.header .menu:hover {background: #d0d1d9;}
 
-.settings {
+.header .settings {
     color: #FFFFFF;
     background: #49C5B6;
 }
-.settings:hover {
+.header .settings:hover {
     background: #46bdaf;
 }
 
@@ -154,5 +155,5 @@ text {
     justify-content: center;
 }
 
-.rotate {animation: rotate 0.5s linear infinite;}
+.rotate {animation: rotate 0.5s ease-in-out infinite;}
 @keyframes rotate { 100% {transform: rotate(360deg);} }

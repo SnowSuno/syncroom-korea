@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./style.css"
 
 import {getRoomsThunk} from "../../../modules/syncroom";
@@ -11,9 +11,17 @@ function Toolbar() {
     const {loading} = useSelector((state: RootState) => state.syncroom.rooms);
     const dispatch = useDispatch();
 
+    const [rotate, setRotate] = useState('');
+    useEffect(() => {
+        if (loading) setRotate('rotate');
+    }, [loading]);
+    const stopRotate = () => {
+        if (!loading) setRotate('');
+    };
+
     const getRooms = () => {
         dispatch(getRoomsThunk());
-    }
+    };
     return (
         <div className="toolbar">
             <div className='search tool' />
@@ -21,7 +29,11 @@ function Toolbar() {
             <div className='session-filter tool' />
             <div className='public-filter tool' />
             <button className='refresh tool' onClick={getRooms}>
-                <Refresh height={20} width={20} className={loading ? 'rotate' : ''}/>
+                <Refresh
+                    height={20} width={20}
+                    className={rotate}
+                    onAnimationIteration={stopRotate}
+                />
             </button>
         </div>
     )

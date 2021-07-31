@@ -2,10 +2,12 @@ import {combineReducers} from "redux";
 
 // import rooms from "./rooms";
 import syncroom from "./syncroom";
+import modal from "./modal";
 import filter from "./filter";
 
 const rootReducer = combineReducers({
     syncroom,
+    modal,
     filter
 });
 

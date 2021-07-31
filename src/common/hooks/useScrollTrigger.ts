@@ -6,10 +6,15 @@ function useScrollTrigger(threshold: number) {
     const thresholdPx = remToPx(threshold);
 
     useEffect(() => {
+        let currentState = false;
         const onScroll = () => {
-            setTrigger(window.scrollY > thresholdPx);
+            const newState = window.scrollY > thresholdPx;
+            if (currentState !== newState) {
+                currentState = newState;
+                setTrigger(newState);
+            }
         }
-        window.addEventListener("scroll", onScroll);
+        window.addEventListener("scroll", onScroll, {capture: true, passive: true});
         return () => window.removeEventListener("scroll", onScroll);
     }, [thresholdPx]);
 
