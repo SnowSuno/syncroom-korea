@@ -42,9 +42,20 @@ function Filter() {
                 menuItems={countryFilter}
                 handleActiveClass={handleActiveClass}
             />
-            {/*<FilterMenu/>*/}
-            {/*<FilterMenu/>*/}
-            {/*<FilterMenu/>*/}
+            <FilterMenu
+                filterClass={FilterClass.inst}
+                activeClass={activeClass}
+                menuItems={instFilter}
+                handleActiveClass={handleActiveClass}
+            />
+            <FilterMenu
+                filterClass={FilterClass.status}
+                activeClass={activeClass}
+                menuItems={statusFilter}
+                handleActiveClass={handleActiveClass}
+            />
         </div>
     )
 }
+
+export default Filter;
