@@ -7,6 +7,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {ReactComponent as Refresh} from "../../../resource/img/graphics/reload.svg";
 import {RootState} from "../../../modules";
 
+import Filter from "../Filter";
+
 function Toolbar() {
     const {loading} = useSelector((state: RootState) => state.syncroom.rooms);
     const dispatch = useDispatch();
@@ -24,10 +26,11 @@ function Toolbar() {
     };
     return (
         <div className="toolbar">
-            <div className='search tool' />
-            <div className='country-filter tool' />
-            <div className='session-filter tool' />
-            <div className='public-filter tool' />
+            {/*<div className='search tool' />*/}
+            {/*<div className='country-filter tool' />*/}
+            {/*<div className='session-filter tool' />*/}
+            {/*<div className='public-filter tool' />*/}
+            <Filter />
             <button className='refresh tool' onClick={getRooms}>
                 <Refresh
                     height={20} width={20}

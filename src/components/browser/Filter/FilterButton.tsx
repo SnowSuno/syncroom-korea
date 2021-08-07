@@ -29,8 +29,12 @@ function FilterButton({filter, filterClass, icon, activeClass, handleActiveClass
         }
         : () => {handleActiveClass(filterClass)};
 
+
     return (
-        <button disabled>
+        <button
+            style={{width: isSelected || isActive ? "5rem" : "0"}}
+            onClick={onClick}
+        >
             {icon}
         </button>
     )

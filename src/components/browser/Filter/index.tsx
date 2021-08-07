@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import "./style.css";
 
 import FilterMenu, {MenuItemProps} from "./FilterMenu";
 
