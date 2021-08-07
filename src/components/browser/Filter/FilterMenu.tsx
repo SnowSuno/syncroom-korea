@@ -1,25 +1,36 @@
 import React, {useState} from "react";
 
-import {Country, CountryType, Inst, InstType, Status, StatusType} from "../../../common/classes/types";
+import FilterButton from "./FilterButton";
 
-interface FilterMenuProps<FilterType> {
-    menuItems: MenuItemProps<FilterType>[];
+// import {FilterClassType} from "./types";
+import {FilterClassType} from "../../../modules/filter/types";
+import {CountryType, InstType, StatusType} from "../../../common/classes/types";
+
+interface FilterMenuProps {
+    filterClass: FilterClassType;
+    menuItems: MenuItemProps[];
+    activeClass: FilterClassType | null;
+    handleActiveClass: (state: FilterClassType | null) => void;
 }
 
-interface MenuItemProps<FilterType> {
-    type: FilterType;
-    icon: JSX.Element;
+export interface MenuItemProps {
+    filter: CountryType | InstType | StatusType | null;
+    // icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+    icon: string;
 }
 
-function FilterMenu<FilterType>({menuItems}: FilterMenuProps<FilterType>) {
-    const [active, useActive] = useState<boolean>(false);
-
-
+function FilterMenu({filterClass, menuItems, activeClass, handleActiveClass}: FilterMenuProps) {
     return (
         <div className="filter">
-            {menuItems.map(() => {
-                }
-            )}
+            {menuItems.map(({filter, icon}) => (
+                <FilterButton
+                    filter={filter}
+                    filterClass={filterClass}
+                    icon={icon}
+                    activeClass={activeClass}
+                    handleActiveClass={handleActiveClass}
+                />
+            ))}
         </div>
     )
 }

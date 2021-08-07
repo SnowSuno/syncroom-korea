@@ -1,32 +1,25 @@
 import {CountryType, InstType, StatusType} from "../../common/classes/types";
+import {FilterClassType} from "./types";
 
 const SET_SEARCH = 'filter/SET_SEARCH' as const;
-const SET_COUNTRY = 'filter/SET_COUNTRY' as const;
-const SET_INST = 'filter/SET_INST' as const;
-const SET_STATUS = 'filter/SET_STATUS' as const;
+const SET_FILTER = 'filter/SET_FILTER' as const;
 
 export const setSearch = (search: string) => ({
     type: SET_SEARCH,
     filter: search
 });
-export const setCountry = (country: CountryType) => ({
-    type: SET_COUNTRY,
-    filter: country
-});
-export const setInst = (inst: InstType) => ({
-    type: SET_INST,
-    filter: inst
-});
-export const setStatus = (status: StatusType) => ({
-    type: SET_STATUS,
-    filter: status
+export const setFilter = (
+    filterClass: FilterClassType,
+    filter: CountryType | InstType | StatusType | null
+) => ({
+    type: SET_FILTER,
+    filterClass: filterClass,
+    filter: filter
 });
 
 type FilterAction =
     | ReturnType<typeof setSearch>
-    | ReturnType<typeof setCountry>
-    | ReturnType<typeof setInst>
-    | ReturnType<typeof setStatus>;
+    | ReturnType<typeof setFilter>;
 
 type FilterState = {
     search: string,
@@ -52,21 +45,11 @@ function filter(
                 ...state,
                 search: action.filter
             };
-        case SET_COUNTRY:
+        case SET_FILTER:
             return {
                 ...state,
-                country: action.filter
-            };
-        case SET_INST:
-            return {
-                ...state,
-                inst: action.filter
-            };
-        case SET_STATUS:
-            return {
-                ...state,
-                status: action.filter
-            };
+                [action.filterClass]: action.filter
+            }
         default:
             return state;
     }
