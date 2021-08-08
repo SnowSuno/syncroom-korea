@@ -4,7 +4,7 @@ import "./style.css";
 import FilterMenu, {MenuItemProps} from "./FilterMenu";
 
 
-import {Country, CountryType, Inst, InstType, Status, StatusType} from "../../../common/classes/types";
+import {Country, Inst, Status} from "../../../common/classes/types";
 
 import {FilterClass, FilterClassType} from "../../../modules/filter/types";
 
