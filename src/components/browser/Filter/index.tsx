@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import "./style.css";
 
+import SearchInput from "./SearchInput";
 import FilterMenu, {MenuItemProps} from "./FilterMenu";
-
 
 import {Country, Inst, Status} from "../../../common/classes/types";
 
@@ -37,6 +37,7 @@ function Filter() {
 
     return (
         <div className="filter-container">
+            <SearchInput />
             <FilterMenu
                 filterClass={FilterClass.country}
                 activeClass={activeClass}
