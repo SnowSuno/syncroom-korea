@@ -15,24 +15,24 @@ function Filter() {
     };
 
     const countryFilter: MenuItemProps[] = [
-        {filter: null, icon: 'all'},
-        {filter: Country.KOREA, icon: 'korea'},
-        {filter: Country.JAPAN, icon: 'japan'}
+        {filter: null, icon: '🌐'},
+        {filter: Country.KOREA, icon: '🇰🇷'},
+        {filter: Country.JAPAN, icon: '🇯🇵'}
     ];
 
     const instFilter: MenuItemProps[] = [
-        {filter: null, icon: 'all'},
-        {filter: Inst.VOCAL, icon: 'vocal'},
-        {filter: Inst.GUITAR, icon: 'guitar'},
-        {filter: Inst.BASS, icon: 'bass'},
-        {filter: Inst.KEYS, icon: 'keys'},
-        {filter: Inst.DRUMS, icon: 'drums'}
+        {filter: null, icon: '🎵'},
+        {filter: Inst.VOCAL, icon: '🎤'},
+        {filter: Inst.GUITAR, icon: '🎸'},
+        {filter: Inst.BASS, icon: 'B'},
+        {filter: Inst.KEYS, icon: '🎹'},
+        {filter: Inst.DRUMS, icon: '🥁'}
     ];
 
     const statusFilter: MenuItemProps[] = [
-        {filter: null, icon: 'all'},
-        {filter: Status.PUBLIC, icon: 'public'},
-        {filter: Status.PRIVATE, icon: 'private'}
+        {filter: null, icon: 'L'},
+        {filter: Status.PUBLIC, icon: '🔓'},
+        {filter: Status.PRIVATE, icon: '🔒'}
     ];
 
     return (
