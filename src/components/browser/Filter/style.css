@@ -3,7 +3,7 @@
     gap: 1rem;
 }
 
-.filter-container input, button {
+.filter-container input, .filter-container button {
     height: 2.6rem;
     /*border-radius: 1.3rem;*/
     background: #FFFFFF;
@@ -12,8 +12,10 @@
     overflow: hidden;
     transition: width ease .15s;
 }
-.filter-container input:hover ,button:hover {background: #f6f7fa;}
-.filter-container input:active, button:active {background: #f3f3f4;}
+.filter-container input:hover,
+.filter-container button:hover {background: #fafafe;}
+.filter-container input:active,
+.filter-container button:active {background: #f3f3f4;}
 .filter-container input:focus {background: #fafafe;}
 
 .filter-container button {
