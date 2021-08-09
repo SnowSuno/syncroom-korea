@@ -10,8 +10,8 @@ import {CountryType, InstType, StatusType} from "../../../common/classes/types";
 interface FilterButtonProps {
     filter: CountryType | InstType | StatusType | null;
     filterClass: FilterClassType;
-    // icon: JSX.Element;
-    icon: string;
+    icon: JSX.Element;
+    // icon: string;
     activeClass: FilterClassType | null;
     handleActiveClass: (state: FilterClassType | null) => void;
 }
@@ -32,7 +32,7 @@ function FilterButton({filter, filterClass, icon, activeClass, handleActiveClass
 
     return (
         <button
-            style={{width: isSelected || isActive ? "4rem" : "0"}}
+            style={{width: isSelected || isActive ? "3.5rem" : "0"}}
             onClick={onClick}
         >
             {icon}

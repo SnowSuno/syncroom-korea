@@ -21,6 +21,8 @@
 .filter-container button {
     border-radius: 0;
     box-shadow: none;
+    /*display: flex;*/
+    /*align-items: center;*/
 }
 
 .filter-container .filter-menu {
@@ -32,4 +34,10 @@
     width: auto;
     flex-grow: 1;
     max-width: 22rem;
+}
+
+.filter-container svg {
+    height: 1.5rem;
+    width: 1.5rem;
+    vertical-align: middle;
 }

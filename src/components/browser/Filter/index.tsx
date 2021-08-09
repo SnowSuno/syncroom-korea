@@ -8,6 +8,13 @@ import {Country, Inst, Status} from "../../../common/classes/types";
 
 import {FilterClass, FilterClassType} from "../../../modules/filter/types";
 
+
+import {ReactComponent as Vocal} from "../../../resource/img/icon/Profile/vocal.svg";
+import {ReactComponent as Guitar} from "../../../resource/img/icon/Profile/electric.svg";
+import {ReactComponent as Bass} from "../../../resource/img/icon/Profile/bass.svg";
+import {ReactComponent as Keys} from "../../../resource/img/icon/Profile/keyboard.svg";
+import {ReactComponent as Drums} from "../../../resource/img/icon/Profile/drums.svg";
+
 function Filter() {
     const [activeClass, setActiveClass] = useState<FilterClassType | null>(null);
     const handleActiveClass = (state: FilterClassType | null) => {
@@ -15,24 +22,24 @@ function Filter() {
     };
 
     const countryFilter: MenuItemProps[] = [
-        {filter: null, icon: '🌐'},
-        {filter: Country.KOREA, icon: '🇰🇷'},
-        {filter: Country.JAPAN, icon: '🇯🇵'}
+        {filter: null, icon: <Bass />},
+        {filter: Country.KOREA, icon: <Bass />},
+        {filter: Country.JAPAN, icon: <Bass />}
     ];
 
     const instFilter: MenuItemProps[] = [
-        {filter: null, icon: '🎵'},
-        {filter: Inst.VOCAL, icon: '🎤'},
-        {filter: Inst.GUITAR, icon: '🎸'},
-        {filter: Inst.BASS, icon: 'B'},
-        {filter: Inst.KEYS, icon: '🎹'},
-        {filter: Inst.DRUMS, icon: '🥁'}
+        {filter: null, icon: <Bass />},
+        {filter: Inst.VOCAL, icon: <Vocal />},
+        {filter: Inst.GUITAR, icon: <Guitar />},
+        {filter: Inst.BASS, icon: <Bass />},
+        {filter: Inst.KEYS, icon: <Keys />},
+        {filter: Inst.DRUMS, icon: <Drums />}
     ];
 
     const statusFilter: MenuItemProps[] = [
-        {filter: null, icon: 'L'},
-        {filter: Status.PUBLIC, icon: '🔓'},
-        {filter: Status.PRIVATE, icon: '🔒'}
+        {filter: null, icon: <Bass />},
+        {filter: Status.PUBLIC, icon: <Bass />},
+        {filter: Status.PRIVATE, icon: <Bass />}
     ];
 
     return (

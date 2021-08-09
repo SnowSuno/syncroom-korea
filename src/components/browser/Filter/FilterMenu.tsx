@@ -14,8 +14,8 @@ interface FilterMenuProps {
 
 export interface MenuItemProps {
     filter: CountryType | InstType | StatusType | null;
-    // icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
-    icon: string;
+    icon: JSX.Element;
+    // icon: string;
 }
 
 function FilterMenu({filterClass, menuItems, activeClass, handleActiveClass}: FilterMenuProps) {
