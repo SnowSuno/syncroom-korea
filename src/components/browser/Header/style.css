@@ -105,7 +105,7 @@ text {
     padding-block: 1rem;
     display: flex;
 
-    gap: 1.5rem;
+    gap: 1rem;
     justify-content: center;
     transition: left .2s ease-out, right .2s ease-out, top .2s ease-out;
 }

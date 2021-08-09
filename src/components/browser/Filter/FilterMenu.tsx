@@ -21,7 +21,7 @@ export interface MenuItemProps {
 
 function FilterMenu({filterClass, menuItems, activeClass, handleActiveClass}: FilterMenuProps) {
     return (
-        <div className="filter">
+        <div className="filter-menu">
             {menuItems.map(({filter, icon}) => (
                 <FilterButton
                     filter={filter}

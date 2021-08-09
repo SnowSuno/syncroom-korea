@@ -1,0 +1,33 @@
+.filter-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.filter-container input, button {
+    height: 2.6rem;
+    /*border-radius: 1.3rem;*/
+    background: #FFFFFF;
+    box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);
+
+    overflow: hidden;
+    transition: width ease .15s;
+}
+.filter-container input:hover ,button:hover {background: #f6f7fa;}
+.filter-container input:active, button:active {background: #f3f3f4;}
+.filter-container input:focus {background: #fafafe;}
+
+.filter-container button {
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.filter-container .filter-menu {
+    border-radius: 1.3rem;
+    overflow: hidden;
+}
+
+.filter-container input {
+    width: auto;
+    flex-grow: 1;
+    max-width: 22rem;
+}
