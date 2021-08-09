@@ -3,8 +3,6 @@ import React, {FormEvent, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../../modules";
 import {setSearch} from "../../../modules/filter";
-import {number} from "prop-types";
-
 
 function SearchInput() {
     const search = useSelector((state: RootState) => state.filter.search);

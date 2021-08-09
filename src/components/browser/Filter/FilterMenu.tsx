@@ -1,8 +1,7 @@
-import React, {useState} from "react";
+import React from "react";
 
 import FilterButton from "./FilterButton";
 
-// import {FilterClassType} from "./types";
 import {FilterClassType} from "../../../modules/filter/types";
 import {CountryType, InstType, StatusType} from "../../../common/classes/types";
 
