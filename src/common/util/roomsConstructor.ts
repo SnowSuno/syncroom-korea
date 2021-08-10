@@ -46,19 +46,13 @@ const RoomsConstructor = (roomsData: RoomData[]):Room[] => {
             const members: Member[] = Array.from(
                 {length: roomData.num_members}, (_, i) => {
                     try {
+                        const nickname: string = roomData.members[i] || "임시 참여 중";
                         const {icon: iconkey, iconurl} = roomData.iconlist[i];
-                        const icon: string = iconurl
-                            ? iconurl
-                            : iconkey;
+                        const icon: string = iconurl || iconkey;
                         const inst: InstType = iconurl
                             ? Inst.OTHER
                             : instMap[iconkey];
-
-                        return {
-                            nickname: roomData.members[i],
-                            icon: icon,
-                            inst: inst
-                        };
+                        return {nickname, icon, inst};
                     } catch (e) {
                         return PrivateMember;
                     }
