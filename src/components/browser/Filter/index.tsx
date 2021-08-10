@@ -8,6 +8,8 @@ import {Country, Inst, Status} from "../../../common/classes/types";
 
 import {FilterClass, FilterClassType} from "../../../modules/filter/types";
 
+import {ReactComponent as Korea} from "../../../resource/img/icon/Flag/korea-noborder.svg";
+import {ReactComponent as Japan} from "../../../resource/img/icon/Flag/japan-noborder.svg";
 
 import {ReactComponent as Vocal} from "../../../resource/img/icon/Profile/vocal.svg";
 import {ReactComponent as Guitar} from "../../../resource/img/icon/Profile/electric.svg";
@@ -23,8 +25,8 @@ function Filter() {
 
     const countryFilter: MenuItemProps[] = [
         {filter: null, icon: <Bass />},
-        {filter: Country.KOREA, icon: <Bass />},
-        {filter: Country.JAPAN, icon: <Bass />}
+        {filter: Country.KOREA, icon: <Korea />},
+        {filter: Country.JAPAN, icon: <Japan />}
     ];
 
     const instFilter: MenuItemProps[] = [
