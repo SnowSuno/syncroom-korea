@@ -19,8 +19,8 @@ const instMap: {[index: string]: InstType} = {
     "8": Inst.OTHER,
     "9": Inst.OTHER,
     "10": Inst.OTHER,
-    "11": Inst.VOCAL,
-    "12": Inst.OTHER,
+    "11": Inst.OTHER,
+    "12": Inst.VOCAL,
     "13": Inst.OTHER
 };
 
