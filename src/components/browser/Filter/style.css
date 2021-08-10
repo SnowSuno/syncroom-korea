@@ -28,6 +28,7 @@
 .filter-container .filter-menu {
     border-radius: 1.3rem;
     overflow: hidden;
+    display: flex;
 }
 
 .filter-container input {
