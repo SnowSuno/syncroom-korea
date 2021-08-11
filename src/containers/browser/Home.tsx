@@ -45,11 +45,11 @@ function Home() {
     const visibleData = data.filter(roomFilter);
 
     return (
-        <>
+        <div id="home">
             <Header />
             <RoomGrid rooms={visibleData}/>
             <Footer />
-        </>
+        </div>
     );
 }
 

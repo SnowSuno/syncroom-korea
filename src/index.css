@@ -47,6 +47,10 @@ body {
     background: #ECEEF2;
 }
 
+#browser {
+    min-width: 50rem;
+}
+
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
