@@ -32,7 +32,7 @@ function FilterButton({filter, filterClass, icon, activeClass, handleActiveClass
 
     return (
         <button
-            style={{width: isSelected || isActive ? "3.5rem" : "0"}}
+            style={{width: isSelected || isActive ? "2.6rem" : "0"}}
             onClick={onClick}
         >
             {icon}
