@@ -29,8 +29,8 @@ function FilterButton({filter, filterClass, icon, activeClass, handleActiveClass
 
     const onClick: () => void = isActive
         ? () => {
+            if (!isSelected) dispatch(setFilter(filterClass, filter));
             handleActiveClass(null);
-            dispatch(setFilter(filterClass, filter));
         }
         : () => {handleActiveClass(filterClass)};
 
