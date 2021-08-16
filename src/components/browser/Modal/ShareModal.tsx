@@ -16,7 +16,6 @@ import {ReactComponent as Link} from "../../../resource/img/icon/link.svg";
 
 function ShareModal() {
     const {roomName, status} = useSelector((state: RootState) => state.modal);
-    const linkField = useRef<HTMLInputElement>(null);
 
     const password = useInput('');
     const isPrivate = status === Status.PRIVATE;
@@ -47,7 +46,6 @@ function ShareModal() {
                     type="text"
                     value={shareLinkDomain + shareLink}
                     onFocus={handleFocus}
-                    ref={linkField}
                 />
                 <CopyToClipboard text={shareLinkDomain + shareLink}>
                     <button

@@ -1,4 +1,4 @@
-import React, {FormEvent, useState} from "react";
+import React, {FormEvent, useRef, useState} from "react";
 
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../../modules";
@@ -18,6 +18,7 @@ function SearchInput({activeClass, handleActiveClass}: SearchInputProps) {
     const [timer, setTimer] = useState<NodeJS.Timer | null>(null);
     const [value, setValue] = useState<string>(search);
     const isActive: boolean = activeClass === FilterClass.search;
+    const inputField = useRef<HTMLInputElement>(null);
 
     const onChange = async (e: FormEvent<HTMLInputElement>) => {
         const {currentTarget: {value}} = e;
@@ -31,13 +32,17 @@ function SearchInput({activeClass, handleActiveClass}: SearchInputProps) {
     };
 
     return (
-        <div className={`search ${isActive ? "active" : ""}`}>
+        <div
+            className={`search ${isActive ? "active" : ""}`}
+            onClick={() => inputField.current?.select()}
+        >
             <input
                 type="text"
                 value={value}
                 onChange={onChange}
                 onFocus={() => handleActiveClass(FilterClass.search)}
                 onBlur={() => handleActiveClass(null)}
+                ref={inputField}
             />
             <Search />
         </div>
