@@ -45,8 +45,11 @@ function Filter() {
     ];
 
     return (
-        <div className="filter-container">
-            <SearchInput />
+        <>
+            <SearchInput
+                activeClass={activeClass}
+                handleActiveClass={handleActiveClass}
+            />
             <FilterMenu
                 filterClass={FilterClass.country}
                 activeClass={activeClass}
@@ -65,7 +68,7 @@ function Filter() {
                 menuItems={statusFilter}
                 handleActiveClass={handleActiveClass}
             />
-        </div>
+        </>
     )
 }
 

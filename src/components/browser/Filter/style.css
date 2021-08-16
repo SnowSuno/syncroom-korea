@@ -1,43 +1,51 @@
-.filter-container {
-    display: flex;
-    gap: 1rem;
+/*.filter-container {*/
+/*    display: flex;*/
+/*    gap: 1rem;*/
+/*}*/
+.toolbar .filter-menu {
+    box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);
 }
-
-.filter-container input, .filter-container button {
+.toolbar input, .toolbar button {
     height: 2.6rem;
     /*border-radius: 1.3rem;*/
     background: #FFFFFF;
-    box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);
+
 
     overflow: hidden;
     transition: width ease .15s;
 }
-.filter-container input:hover,
-.filter-container button:hover {background: #fafafe;}
-.filter-container input:active,
-.filter-container button:active {background: #f3f3f4;}
-.filter-container input:focus {background: #fafafe;}
+.toolbar input:hover,
+.toolbar button:hover {background: #fafafe;}
+.toolbar input:active,
+.toolbar button:active {background: #f3f3f4;}
+.toolbar input:focus {background: #FFFFFF;}
 
-.filter-container button {
+.toolbar button.filter-button {
     border-radius: 0;
     box-shadow: none;
     /*display: flex;*/
     /*align-items: center;*/
 }
 
-.filter-container .filter-menu {
+.toolbar .filter-menu {
     border-radius: 1.3rem;
     overflow: hidden;
     display: flex;
 }
 
-.filter-container input {
-    width: auto;
+.toolbar input {
+    width: 2.6rem;
     flex-grow: 1;
+    flex-shrink: 0;
+    max-width: 18rem;
+    transition: max-width ease .15s;
+}
+.toolbar input.active {
     max-width: 22rem;
+    /*max-width: 90%;*/
 }
 
-.filter-container svg {
+.filter-menu svg {
     height: 1.5rem;
     width: 2.5rem;
     vertical-align: middle;

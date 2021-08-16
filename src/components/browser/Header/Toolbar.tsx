@@ -31,7 +31,7 @@ function Toolbar() {
             {/*<div className='session-filter tool' />*/}
             {/*<div className='public-filter tool' />*/}
             <Filter />
-            <button className='refresh tool' onClick={getRooms}>
+            <button className='refresh' onClick={getRooms}>
                 <Refresh
                     height={20} width={20}
                     className={rotate}

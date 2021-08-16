@@ -20,7 +20,12 @@ function FilterButton({filter, filterClass, icon, activeClass, handleActiveClass
     const current = useSelector((state: RootState) => state.filter[filterClass]);
     const dispatch = useDispatch();
     const isActive: boolean = filterClass === activeClass;
+    // const otherIsActive: boolean = !isActive && filterClass !== null;
     const isSelected: boolean = filter === current;
+
+    // const className = isSelected
+    //     ? (otherIsActive ? "shrink" : "expand")
+    //     : (isActive ? "expand" : "shrink");
 
     const onClick: () => void = isActive
         ? () => {
@@ -32,7 +37,8 @@ function FilterButton({filter, filterClass, icon, activeClass, handleActiveClass
 
     return (
         <button
-            style={{width: isSelected || isActive ? "2.6rem" : "0"}}
+            className="filter-button"
+            style={{width: isSelected || isActive ? "3.2rem" : "0"}}
             onClick={onClick}
         >
             {icon}
