@@ -5,6 +5,8 @@ import {RootState} from "../../../modules";
 import {setSearch} from "../../../modules/filter";
 import {FilterClass, FilterClassType} from "../../../modules/filter/types";
 
+import {ReactComponent as Search} from "../../../resource/img/icon/search.svg";
+
 interface SearchInputProps {
     activeClass: FilterClassType | null;
     handleActiveClass: (state: FilterClassType | null) => void;
@@ -29,14 +31,16 @@ function SearchInput({activeClass, handleActiveClass}: SearchInputProps) {
     };
 
     return (
-        <input
-            className={isActive ? "active" : ""}
-            type="text"
-            value={value}
-            onChange={onChange}
-            onFocus={() => handleActiveClass(FilterClass.search)}
-            onBlur={() => handleActiveClass(null)}
-        />
+        <div className={`search ${isActive ? "active" : ""}`}>
+            <input
+                type="text"
+                value={value}
+                onChange={onChange}
+                onFocus={() => handleActiveClass(FilterClass.search)}
+                onBlur={() => handleActiveClass(null)}
+            />
+            <Search />
+        </div>
     );
 }
 
