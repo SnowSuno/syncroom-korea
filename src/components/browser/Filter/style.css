@@ -27,8 +27,9 @@
 .toolbar button.filter-button {
     border-radius: 0;
     box-shadow: none;
-    /*display: flex;*/
-    /*align-items: center;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .toolbar .filter-menu {
@@ -41,7 +42,7 @@
 .filter-menu svg {
     height: 1.5rem;
     width: 2.5rem;
-    vertical-align: middle;
+    /*vertical-align: middle;*/
 }
 
 .toolbar .search {
@@ -70,3 +71,12 @@
     height: 1.6rem;
     width: 1.6rem;
 }
+
+
+
+
+
+/*.toolbar .status svg:nth-child(even) {*/
+/*    fill: #000000;*/
+/*    height: 1rem;*/
+/*}*/
