@@ -65,6 +65,7 @@
     width: 0;
     flex-grow: 1;
     height: 2.6rem;
+    padding-left: 0.3rem;
 }
 
 .toolbar .search svg {
