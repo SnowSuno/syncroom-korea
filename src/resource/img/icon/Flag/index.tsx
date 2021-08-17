@@ -10,14 +10,14 @@ interface FlagProps {
 }
 
 function Flag({country}: FlagProps) {
-    const height: string = '2rem';
+    const style = {height: "2rem", width: "2rem"}
     switch (country) {
         case Country.KOREA:
-            return <KoreaFlag height={height}/>
+            return <KoreaFlag style={style}/>
         case Country.JAPAN:
-            return <JapanFlag height={height}/>
+            return <JapanFlag style={style}/>
         default:
-            return <OtherFlag height={height}/>
+            return <OtherFlag style={style}/>
     }
 }
 

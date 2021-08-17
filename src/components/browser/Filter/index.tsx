@@ -12,6 +12,7 @@ import {ReactComponent as CountryIcon} from "../../../resource/img/icon/country.
 import {ReactComponent as Korea} from "../../../resource/img/icon/Flag/korea-noborder.svg";
 import {ReactComponent as Japan} from "../../../resource/img/icon/Flag/japan-noborder.svg";
 
+import {ReactComponent as InstIcon} from "../../../resource/img/icon/instrument.svg";
 import {ReactComponent as Vocal} from "../../../resource/img/icon/Profile/vocal.svg";
 import {ReactComponent as Guitar} from "../../../resource/img/icon/Profile/electric.svg";
 import {ReactComponent as Bass} from "../../../resource/img/icon/Profile/bass.svg";
@@ -35,7 +36,7 @@ function Filter() {
     ];
 
     const instFilter: MenuItemProps[] = [
-        {filter: null, icon: <Bass />},
+        {filter: null, icon: <InstIcon />},
         {filter: Inst.VOCAL, icon: <Vocal />},
         {filter: Inst.GUITAR, icon: <Guitar />},
         {filter: Inst.BASS, icon: <Bass />},
