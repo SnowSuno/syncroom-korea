@@ -1,18 +1,28 @@
 import {RoomData} from "../api/syncroom";
 import Room from "../classes/Room";
-import {Country, CountryType, Inst, Status, StatusType} from "../classes/types";
+import {Country, CountryType, Inst, InstType, Status, StatusType} from "../classes/types";
 import {Member, PrivateMember} from "../classes/Member";
 
 
 const korean: RegExp = /[ㄱ-ㅎㅏ-ㅣ가-힣]/;
 const japanese: RegExp = /[ぁ-んァ-ン一-龯]/;
 
-
-
-// const getInst = (icon: number): InstType => {
-//
-// }
-
+const instMap: {[index: string]: InstType} = {
+    "0": Inst.DRUMS,
+    "1": Inst.DRUMS,
+    "2": Inst.BASS,
+    "3": Inst.GUITAR,
+    "4": Inst.GUITAR,
+    "5": Inst.KEYS,
+    "6": Inst.KEYS,
+    "7": Inst.OTHER,
+    "8": Inst.OTHER,
+    "9": Inst.OTHER,
+    "10": Inst.OTHER,
+    "11": Inst.OTHER,
+    "12": Inst.VOCAL,
+    "13": Inst.OTHER
+};
 
 const RoomsConstructor = (roomsData: RoomData[]):Room[] => {
     return roomsData.map(roomData => {
@@ -36,16 +46,13 @@ const RoomsConstructor = (roomsData: RoomData[]):Room[] => {
             const members: Member[] = Array.from(
                 {length: roomData.num_members}, (_, i) => {
                     try {
+                        const nickname: string = roomData.members[i] || "임시 참여 중";
                         const {icon: iconkey, iconurl} = roomData.iconlist[i];
-                        const icon: string | number = iconurl
-                            ? iconurl
-                            : iconkey;
-
-                        return {
-                            nickname: roomData.members[i],
-                            icon: icon,
-                            inst: Inst.BASS
-                        };
+                        const icon: string = iconurl || iconkey;
+                        const inst: InstType = iconurl
+                            ? Inst.OTHER
+                            : instMap[iconkey];
+                        return {nickname, icon, inst};
                     } catch (e) {
                         return PrivateMember;
                     }

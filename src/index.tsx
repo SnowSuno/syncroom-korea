@@ -22,10 +22,14 @@ ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
             <BrowserView>
-                <BrowserRoutes />
+                <div id="browser">
+                    <BrowserRoutes />
+                </div>
             </BrowserView>
             <MobileView>
-                <MobileRoutes />
+                <div id="mobile">
+                    <MobileRoutes />
+                </div>
             </MobileView>
             <Modal />
         </Provider>

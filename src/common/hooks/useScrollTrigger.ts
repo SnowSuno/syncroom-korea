@@ -1,23 +1,20 @@
-import {useState, useEffect} from "react";
-import {remToPx} from "./unitConversion";
+import {useState, useEffect, useRef} from "react";
 
 function useScrollTrigger(threshold: number) {
     const [trigger, setTrigger] = useState(false);
-    const thresholdPx = remToPx(threshold);
+    const localState = useRef<boolean>(false);
 
     useEffect(() => {
-        let currentState = false;
         const onScroll = () => {
-            const newState = window.scrollY > thresholdPx;
-            if (currentState !== newState) {
-                currentState = newState;
+            const newState = window.scrollY > threshold;
+            if (localState.current !== newState) {
+                localState.current = newState;
                 setTrigger(newState);
             }
         }
         window.addEventListener("scroll", onScroll, {capture: true, passive: true});
         return () => window.removeEventListener("scroll", onScroll);
-    }, [thresholdPx]);
-
+    });
     return trigger;
 }
 

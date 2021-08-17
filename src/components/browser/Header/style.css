@@ -105,7 +105,7 @@ text {
     padding-block: 1rem;
     display: flex;
 
-    gap: 1.5rem;
+    gap: 1rem;
     justify-content: center;
     transition: left .2s ease-out, right .2s ease-out, top .2s ease-out;
 }
@@ -116,40 +116,17 @@ text {
 }
 .small .toolbar {
     top: 0;
-    left: 20.6rem;
+    left: max(20.6rem, calc(70% - 30rem));
     right: 6.6rem;
 }
-.toolbar button {
-    border: 0;
-}
 
-.tool {
+.toolbar button.refresh {
     height: 2.6rem;
-
+    width: 2.6rem;
+    flex-shrink: 0;
     border-radius: 1.3rem;
     background: #FFFFFF;
-
     box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);
-}
-.tool:hover {background: #f6f7fa;}
-.tool:active {background: #f3f3f4;}
-
-.search {
-    flex-grow: 1;
-    max-width: 22rem;
-}
-.country-filter {
-    width: 4rem;
-}
-.public-filter {
-    width: 4rem;
-}
-.session-filter {
-    width: 4rem;
-}
-
-.refresh {
-    width: 2.6rem;
     display: flex;
     align-items: center;
     justify-content: center;

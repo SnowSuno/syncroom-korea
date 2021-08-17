@@ -1,6 +1,6 @@
 import React from "react";
 
-import {CSSGrid} from "react-stonecutter";
+import {CSSGrid, enterExitStyle} from "react-stonecutter";
 
 import {Member} from "../../../common/classes/Member";
 import MemberProfile from "./MemberProfile";
@@ -10,6 +10,8 @@ interface MemberDisplayProps {
 }
 
 function MemberDisplay({members}: MemberDisplayProps) {
+    const animationStyle = enterExitStyle.fromTop;
+
     return (
         <div className="member-display">
             <div className="line">
@@ -23,6 +25,7 @@ function MemberDisplay({members}: MemberDisplayProps) {
                     columnWidth={17.2}
                     itemHeight={3.08}
                     duration={300}
+                    {...animationStyle}
                 >
                     {
                         members.map((member, index) => {
