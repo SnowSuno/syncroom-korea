@@ -38,6 +38,7 @@
     display: inline;
     -webkit-line-clamp: 2;
     text-overflow: ellipsis;
+    word-break: break-all;
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
