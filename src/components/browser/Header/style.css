@@ -119,25 +119,6 @@ text {
     left: max(20.6rem, calc(70% - 30rem));
     right: 6.6rem;
 }
-/*.toolbar button {*/
-/*    box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);*/
-/*}*/
-
-/*.tool {*/
-/*    height: 2.6rem;*/
-
-/*    border-radius: 1.3rem;*/
-/*    background: #FFFFFF;*/
-
-/*    box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);*/
-/*}*/
-/*.tool:hover {background: #f6f7fa;}*/
-/*.tool:active {background: #f3f3f4;}*/
-
-/*.search {*/
-/*    flex-grow: 1;*/
-/*    max-width: 22rem;*/
-/*}*/
 
 .toolbar button.refresh {
     height: 2.6rem;

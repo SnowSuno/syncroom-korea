@@ -16,7 +16,6 @@ interface FilterMenuProps {
 export interface MenuItemProps {
     filter: CountryType | InstType | StatusType | null;
     icon: JSX.Element;
-    // icon: string;
 }
 
 function FilterMenu({className, filterClass, menuItems, activeClass, handleActiveClass}: FilterMenuProps) {

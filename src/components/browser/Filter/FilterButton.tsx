@@ -11,7 +11,6 @@ interface FilterButtonProps {
     filter: CountryType | InstType | StatusType | null;
     filterClass: FilterClassType;
     icon: JSX.Element;
-    // icon: string;
     activeClass: FilterClassType | null;
     handleActiveClass: (state: FilterClassType | null) => void;
 }
@@ -20,12 +19,7 @@ function FilterButton({filter, filterClass, icon, activeClass, handleActiveClass
     const current = useSelector((state: RootState) => state.filter[filterClass]);
     const dispatch = useDispatch();
     const isActive: boolean = filterClass === activeClass;
-    // const otherIsActive: boolean = !isActive && filterClass !== null;
     const isSelected: boolean = filter === current;
-
-    // const className = isSelected
-    //     ? (otherIsActive ? "shrink" : "expand")
-    //     : (isActive ? "expand" : "shrink");
 
     const onClick: () => void = isActive
         ? () => {
