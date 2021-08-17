@@ -46,6 +46,7 @@
 }
 
 .toolbar .search {
+    cursor: text;
     width: 2.6rem;
     border-radius: 1.3rem;
     padding-inline: 0.7rem;

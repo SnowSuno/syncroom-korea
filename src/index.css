@@ -57,6 +57,7 @@ code {
 }
 
 button {
+    cursor: pointer;
     transition: background-color 50ms ease-out;
     height: 2.3rem;
     border: 0;
