@@ -45,7 +45,7 @@ function Profile({icon}: ProfileProps) {
             {
                 icon in iconMap
                     ? iconMap[icon]
-                    : <img src={icon} alt=""/>
+                    : <img src={icon.replace("http://", "https://")} alt=""/>
             }
         </>
     )
