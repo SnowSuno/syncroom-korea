@@ -116,7 +116,7 @@ text {
 }
 .small .toolbar {
     top: 0;
-    left: 35%;
+    left: max(20.6rem, calc(70% - 30rem));
     right: 6.6rem;
 }
 /*.toolbar button {*/
