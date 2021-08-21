@@ -28,7 +28,12 @@ function Title() {
                     <Logo height='87%'/>
                 </div>
             </div>
-            <button className='settings side-btn'>
+            <button
+                className='settings side-btn'
+                onClick={() => dispatch(
+                    openSidebar({sidebarClass: SidebarClass.SETTINGS})
+                )}
+            >
                 <text>설정</text>
                 <SettingsIcon />
             </button>

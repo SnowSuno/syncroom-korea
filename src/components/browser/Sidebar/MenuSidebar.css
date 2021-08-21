@@ -1,9 +1,9 @@
 .menu.sidebar {
 
 
-    background: #8A93B1;
+    background: #dbdce2;
 
-    transition: left .3s ease-out;
+    transition: left .2s cubic-bezier(0.2, 0.5, 0.2, 1);
 }
 
 .open .menu.sidebar {

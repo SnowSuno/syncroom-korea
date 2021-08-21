@@ -1,0 +1,15 @@
+.settings.sidebar {
+
+
+    background: #49C5B6;
+
+    transition: right .2s cubic-bezier(0.2, 0.5, 0.2, 1);
+}
+
+.open .settings.sidebar {
+    right: 0;
+}
+
+.closed .settings.sidebar {
+    right: -35rem
+}

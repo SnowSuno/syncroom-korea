@@ -19,7 +19,7 @@ function SidebarRoute({route, children}: SidebarRouteProps) {
 
     return (
         <div className={isOpen ? "open" : "closed"}>
-            {isOpen ? <div className="overlay" onClick={close} /> : null}
+            <div className="overlay" onClick={close} />
             {children}
         </div>
     );
