@@ -10,7 +10,7 @@ function useInput(initialValue: string) {
         setValue(value);
     };
 
-    return { value, set: setValue, onChange };
+    return { value, onChange };
 }
 
 export default useInput;
