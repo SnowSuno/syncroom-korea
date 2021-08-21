@@ -13,12 +13,12 @@ import {getRoomsThunk} from "../../modules/syncroom";
 import {roomFilter} from "../../common/util/roomFilter";
 
 function Home() {
-    const {data, error} = useSelector((state: RootState) => state.syncroom.rooms);
+    const {data, error, loading} = useSelector((state: RootState) => state.syncroom.rooms);
 
     const dispatch = useDispatch();
     useEffect(() => {
         const getRooms = () => {
-            dispatch(getRoomsThunk());
+            if (!loading) dispatch(getRoomsThunk());
             setTimeout(getRooms, 5000);
         };
         getRooms();
