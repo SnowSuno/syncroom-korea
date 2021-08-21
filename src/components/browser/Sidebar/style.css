@@ -20,6 +20,9 @@
     height: 100vh;
     width: 35rem;
 
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .sidebar-wrap {
