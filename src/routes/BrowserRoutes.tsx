@@ -6,6 +6,7 @@ import Join from "../containers/browser/Join";
 import NotFound from "../containers/browser/NotFound";
 
 import Modal from "../components/browser/Modal";
+import Sidebar from "../components/browser/Sidebar";
 
 function BrowserRoutes() {
     return (
@@ -19,6 +20,7 @@ function BrowserRoutes() {
                 </Switch>
             </Router>
             <Modal />
+            <Sidebar />
         </>
     );
 }

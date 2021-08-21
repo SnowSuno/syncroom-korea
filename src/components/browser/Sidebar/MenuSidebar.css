@@ -1,3 +1,15 @@
 .menu.sidebar {
-    left: 0
+
+
+    background: #8A93B1;
+
+    transition: left .3s ease-out;
+}
+
+.open .menu.sidebar {
+    left: 0;
+}
+
+.closed .menu.sidebar {
+    left: -35rem
 }
