@@ -1,0 +1,23 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+
+
+}
+
+.sidebar-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    transition: opacity .2s ease;
+}
