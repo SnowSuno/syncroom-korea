@@ -14,14 +14,15 @@ function MenuSidebar() {
 
     return (
         <div className="menu sidebar">
-            <div className="header">
+            <div className="header-container">
                 <button onClick={close}>
                     -
                 </button>
                 <Logo />
             </div>
-
-
+            qwerqwer
+            qwerqwer
+            qwerqwer
         </div>
     );
 }
