@@ -1,0 +1,64 @@
+.menu.sidebar {
+
+
+    background: #dbdce2;
+
+    transition: left .2s cubic-bezier(0.2, 0.5, 0.2, 1);
+}
+
+.open .menu.sidebar {
+    left: 0;
+}
+
+.closed .menu.sidebar {
+    left: -35rem
+}
+
+
+.menu.sidebar .header-container {
+    display: flex;
+    flex-direction: row;
+    height: 4.8rem;
+    align-items: center;
+    padding-inline: 1rem;
+    padding-top: 0.5rem;
+}
+.menu.sidebar .header-container > svg {
+    width: 17rem;
+}
+.menu.sidebar .header-container > button {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 0.8rem;
+    background: #dbdce2;
+    /*background: white;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu.sidebar .header-container > button:hover {background: #c3c5cd;}
+.menu.sidebar .header-container > button:active {background: #b7b9c2;}
+.menu.sidebar .header-container > button > svg {
+    width: 2rem;
+    height: 2rem;
+}
+
+.menu.sidebar .button-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding-inline: 1.5rem;
+}
+.menu.sidebar .button-container button {
+    flex-grow: 1;
+}
+.menu.sidebar .button-container button:first-child {
+    background: #49C5B6;
+    color: #FFFFFF;
+}
+.menu.sidebar .button-container button:first-child:hover {
+    background: #46bdaf;
+}
+.menu.sidebar .button-container button:last-child:hover {
+    background: #ececf1;
+}

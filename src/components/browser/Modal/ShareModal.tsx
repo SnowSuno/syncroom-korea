@@ -7,7 +7,7 @@ import useInput from "../../../common/hooks/useInput";
 
 import {Status} from "../../../common/classes/types";
 
-import {shareLinkDomain, encodeShareLink} from "../../../common/util/shareLink";
+import {encodeShareLink} from "../../../common/util/shareLink";
 
 import {CopyToClipboard} from "react-copy-to-clipboard";
 
@@ -44,10 +44,10 @@ function ShareModal() {
             <div className="link">
                 <input
                     type="text"
-                    value={shareLinkDomain + shareLink}
+                    value={shareLink}
                     onFocus={handleFocus}
                 />
-                <CopyToClipboard text={shareLinkDomain + shareLink}>
+                <CopyToClipboard text={shareLink}>
                     <button
                         onClick={() => setCopied(true)}
                         disabled={(isPrivate && checked && (password.value.length === 0))}
