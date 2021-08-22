@@ -12,6 +12,9 @@ import {getRoomsThunk} from "../../modules/syncroom";
 
 import {roomFilter} from "../../common/util/roomFilter";
 
+// temp
+import BetaNotiModal from "../../components/temp/BetaNotiModal";
+
 function Home() {
     const {data, error} = useSelector((state: RootState) => state.syncroom.rooms);
 
@@ -38,6 +41,9 @@ function Home() {
             <Header />
             <RoomGrid rooms={visibleData}/>
             <Footer />
+
+            {/*temp*/}
+            <BetaNotiModal />
         </>
     );
 }
