@@ -1,0 +1,27 @@
+#temp-mobile-page {
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+#temp-mobile-page .title {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+#temp-mobile-page svg {
+    height: 35vh;
+}
+
+#temp-mobile-page p {
+    color: #939393;
+}
+
+#temp-mobile-page button {
+    background: #d1d5dc;
+}
