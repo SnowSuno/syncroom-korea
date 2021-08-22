@@ -4,4 +4,36 @@
     left: 0;
     z-index: 999;
     /*transition: opacity .2s ease;*/
+    opacity: 0;
+    animation: fade-in ease .2s;
+    animation-delay: .5s;
+    animation-fill-mode: forwards;
 }
+
+#beta-noti-modal .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    transition: opacity .2s ease-out;
+}
+
+#beta-noti-modal .temp-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    background: #FFFFFF;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);
+}
+ #beta-noti-modal .title {
+     font-size: 1.8rem;
+     font-weight: 500;
+ }
