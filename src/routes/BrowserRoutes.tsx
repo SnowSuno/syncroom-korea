@@ -8,6 +8,9 @@ import NotFound from "../containers/browser/NotFound";
 import Modal from "../components/browser/Modal";
 import Sidebar from "../components/browser/Sidebar";
 
+// beta-temp
+import BetaNotiModal from "../components/temp/BetaNotiModal";
+
 function BrowserRoutes() {
     return (
         <>
@@ -21,6 +24,9 @@ function BrowserRoutes() {
             </Router>
             <Modal />
             <Sidebar />
+
+            {/*temp*/}
+            <BetaNotiModal />
         </>
     );
 }
