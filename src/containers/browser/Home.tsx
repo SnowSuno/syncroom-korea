@@ -34,11 +34,11 @@ function Home() {
     );
 
     return (
-        <div id="home">
+        <>
             <Header />
             <RoomGrid rooms={visibleData}/>
             <Footer />
-        </div>
+        </>
     );
 }
 
