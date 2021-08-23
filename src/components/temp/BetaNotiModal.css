@@ -36,7 +36,32 @@
     width: 48rem;
     word-break: break-all;
 }
- #beta-noti-modal .title {
-     font-size: 1.8rem;
-     font-weight: 500;
- }
+
+#beta-noti-modal .title {
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+#beta-noti-modal .issues {
+    /*margin-inline: 0.5rem;*/
+    background: #ECEEF2;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+#beta-noti-modal .issues ul {
+    list-style: " - ";
+    margin: 0;
+    padding: 0.5rem 1rem 0;
+}
+
+#beta-noti-modal .issues li {
+    line-height: 2rem;
+}
+
+#beta-noti-modal .contact {
+    font-size: 0.9rem;
+    color: #505050;
+    text-align: right;
+}
+
