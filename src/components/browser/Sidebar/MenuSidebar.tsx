@@ -1,6 +1,8 @@
 import React from "react";
 import "./MenuSidebar.css";
 
+import UserList from "../UserList";
+
 import {closeSidebar} from "../../../modules/sidebar";
 import {useDispatch} from "react-redux";
 
@@ -37,7 +39,8 @@ function MenuSidebar() {
                     Original Website
                 </button>
             </div>
-            
+
+            <UserList />
         </div>
     );
 }
