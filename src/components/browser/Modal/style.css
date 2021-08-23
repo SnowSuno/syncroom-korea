@@ -1,4 +1,12 @@
-.overlay {
+.modal-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    transition: opacity .2s ease;
+}
+
+.modal-wrap .overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -7,7 +15,7 @@
     background: rgba(0, 0, 0, 0.4);
 }
 
-.modal {
+.modal-wrap .modal {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -20,13 +28,7 @@
     gap: 1rem;
     box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);
 }
-.modal-wrap {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    transition: opacity .2s ease;
-}
+
 
 @keyframes fade-in {
     from {

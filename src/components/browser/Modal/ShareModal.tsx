@@ -21,10 +21,7 @@ function ShareModal() {
     const isPrivate = status === Status.PRIVATE;
     const [checked, setChecked] = useState(true);
     const checkedClass = checked ? 'checked' : 'unchecked';
-    const onClick = () => {
-        password.set('');
-        setChecked(!checked);
-    };
+    const onClick = () => setChecked(!checked);
 
     const shareLink: string = encodeShareLink(
         {
@@ -46,6 +43,7 @@ function ShareModal() {
                     type="text"
                     value={shareLink}
                     onFocus={handleFocus}
+                    readOnly={true}
                 />
                 <CopyToClipboard text={shareLink}>
                     <button

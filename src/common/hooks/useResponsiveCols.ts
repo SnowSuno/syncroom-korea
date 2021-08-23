@@ -13,7 +13,7 @@ export function useResponsiveCols({itemWidth, gridWidth}: props) {
 
     useEffect(() => {
         function handleResize() {
-            const frameWidth: number = document.getElementById("home")?.clientWidth || 0;
+            const frameWidth: number = document.getElementById("browser")?.clientWidth || 0;
             setColumns(
                 Math.floor((frameWidth * (gridWidth / 100)) / itemWidthPx)
             );
