@@ -24,8 +24,14 @@ const instMap: {[index: string]: InstType} = {
     "13": Inst.OTHER
 };
 
-const RoomsConstructor = (roomsData: RoomData[]):Room[] => {
-    return roomsData.map(roomData => {
+interface returnType {
+    rooms: Room[];
+    users: Set<string>;
+}
+
+const apiDataHandler = (roomsData: RoomData[]):returnType => {
+    const users = new Set<string>();
+    const rooms: Room[] = roomsData.map(roomData => {
             let country: CountryType = Country.OTHER;
             [
                 roomData.creator_nick,
@@ -46,7 +52,9 @@ const RoomsConstructor = (roomsData: RoomData[]):Room[] => {
             const members: Member[] = Array.from(
                 {length: roomData.num_members}, (_, i) => {
                     try {
-                        const nickname: string = roomData.members[i] || "임시 참여 중";
+                        const member = roomData.members[i];
+                        if (member) users.add(member);
+                        const nickname: string = member || "임시 참여 중";
                         const {icon: iconkey, iconurl} = roomData.iconlist[i];
                         const icon: string = iconurl || iconkey;
                         const inst: InstType = iconurl
@@ -67,8 +75,9 @@ const RoomsConstructor = (roomsData: RoomData[]):Room[] => {
             }
         }
     )
+    return {rooms, users};
 }
 
-export default RoomsConstructor;
+export default apiDataHandler;
 // const a = new Date("2021-07-10 07:05:44 GMT").getTime();
 // console.log(a);

@@ -1,39 +1,31 @@
 import {createReducer} from "typesafe-actions";
 import {SyncroomState, SyncroomAction} from "./types";
-import {GET_ROOMS, GET_ROOMS_SUCCESS, GET_ROOMS_ERROR} from "./actions";
+import {GET_DATA, GET_DATA_SUCCESS, GET_DATA_ERROR} from "./actions";
 
 const initialState: SyncroomState = {
-    rooms: {
-        loading: false,
-        error: null,
-        data: []
-    }
+    loading: false,
+    error: null,
+    rooms: [],
+    users: new Set<string>()
 };
 
 const syncroom = createReducer<SyncroomState, SyncroomAction>(initialState, {
-    [GET_ROOMS]: state => ({
+    [GET_DATA]: state => ({
         ...state,
-        rooms: {
-            loading: true,
-            error: null,
-            data: state.rooms.data
-        }
+        loading: true,
+        error: null,
     }),
-    [GET_ROOMS_SUCCESS]: (state, action) => ({
-        ...state,
-        rooms: {
-            loading: false,
-            error: null,
-            data: action.payload
-        }
+    [GET_DATA_SUCCESS]: (state, action) => ({
+        loading: false,
+        error: null,
+        rooms: action.payload.rooms,
+        users: action.payload.users
     }),
-    [GET_ROOMS_ERROR]: (state, action) => ({
-        ...state,
-        rooms: {
-            loading: false,
-            error: action.payload,
-            data: []
-        }
+    [GET_DATA_ERROR]: (state, action) => ({
+        loading: false,
+        error: action.payload,
+        rooms: [],
+        users: new Set<string>()
     })
 });
 
