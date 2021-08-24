@@ -16,7 +16,7 @@ import {roomFilter} from "../../common/util/roomFilter";
 import BetaNotiModal from "../../components/temp/BetaNotiModal";
 
 function Home() {
-    const {data, error} = useSelector((state: RootState) => state.syncroom.rooms);
+    const {rooms, error} = useSelector((state: RootState) => state.syncroom);
 
     const dispatch = useDispatch();
     useEffect(() => {
@@ -32,7 +32,7 @@ function Home() {
     const {search, country, inst, status} = useSelector(
         (state: RootState) => state.filter);
 
-    const visibleData = data.filter(
+    const visibleData = rooms.filter(
         roomFilter(search, country, inst, status)
     );
 

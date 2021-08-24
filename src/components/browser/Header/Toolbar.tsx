@@ -10,7 +10,7 @@ import {RootState} from "../../../modules";
 import Filter from "../Filter";
 
 function Toolbar() {
-    const {loading} = useSelector((state: RootState) => state.syncroom.rooms);
+    const {loading} = useSelector((state: RootState) => state.syncroom);
     const dispatch = useDispatch();
 
     const [rotate, setRotate] = useState('');
