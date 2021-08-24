@@ -31,7 +31,7 @@ function friend(
         case ADD:
             return state.userList.includes(action.payload.nickname)
                 ? state
-                : {userList: state.userList.concat(action.payload.nickname)};
+                : {userList: state.userList.concat(action.payload.nickname).sort()};
         case DELETE:
             return {
                 userList: state.userList.filter(nickname => nickname !== action.payload.nickname)

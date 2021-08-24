@@ -62,9 +62,6 @@ const handleUsers = (userList: string[], users: string[]): handleUserReturn => {
             offlineUsers.push(user);
         }
     })
-    onlineUsers.sort();
-    offlineUsers.sort();
-
     return {onlineUsers, offlineUsers};
 }
 
