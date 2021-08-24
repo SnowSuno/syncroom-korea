@@ -12,7 +12,7 @@ import {ReactComponent as Lock} from "../../../resource/img/icon/lock.svg";
 function PasswordModal() {
     const {roomName, temp} = useSelector((state: RootState) => state.modal);
     const dispatch = useDispatch();
-    const password = useInput('');
+    const {input: password} = useInput('');
     const close = () => dispatch(closeModal());
 
     return (

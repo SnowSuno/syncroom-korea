@@ -17,7 +17,7 @@ import {ReactComponent as Link} from "../../../resource/img/icon/link.svg";
 function ShareModal() {
     const {roomName, status} = useSelector((state: RootState) => state.modal);
 
-    const password = useInput('');
+    const {input: password} = useInput('');
     const isPrivate = status === Status.PRIVATE;
     const [checked, setChecked] = useState(true);
     const checkedClass = checked ? 'checked' : 'unchecked';

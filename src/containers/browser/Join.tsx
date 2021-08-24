@@ -41,7 +41,7 @@ function Join({location: {search}}: JoinProps) {
 }
 
 function JoinInfo({search}: JoinInfoProps) {
-    const inputPassword = useInput('');
+    const {input: inputPassword} = useInput('');
     const Install: JSX.Element = (
         <div className="install">
             싱크룸이 설치되어 있지 않다면 <Link to="/" className="link">설치하기</Link>

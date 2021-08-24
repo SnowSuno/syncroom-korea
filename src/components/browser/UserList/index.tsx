@@ -14,10 +14,11 @@ function UserList() {
     const dispatch = useDispatch();
 
 
-    const input = useInput('');
+    const {input, setValue} = useInput('');
 
     const add = () => {
         dispatch(addUser(input.value));
+        setValue("");
     };
 
     const {onlineUsers, offlineUsers} = useMemo(
