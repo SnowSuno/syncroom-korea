@@ -15,10 +15,6 @@ function MenuSidebar() {
     const dispatch = useDispatch();
     const close = () => dispatch(closeSidebar());
 
-    const linkTo = (url: string) => () => {
-        window.open(url, '_blank')?.focus();
-    };
-
     return (
         <div className="menu sidebar">
             <div className="header-container">
@@ -44,6 +40,9 @@ function MenuSidebar() {
         </div>
     );
 }
+const linkTo = (url: string) => () => {
+    window.open(url, '_blank')?.focus();
+};
 
 export default MenuSidebar;
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useCallback} from "react";
 
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../../modules";
@@ -21,12 +21,14 @@ function FilterButton({filter, filterClass, icon, activeClass, handleActiveClass
     const isActive: boolean = filterClass === activeClass;
     const isSelected: boolean = filter === current;
 
-    const onClick: () => void = isActive
-        ? () => {
+    const onClick = useCallback(() => {
+        if (isActive) {
             if (!isSelected) dispatch(setFilter(filterClass, filter));
             handleActiveClass(null);
+        } else {
+            handleActiveClass(filterClass)
         }
-        : () => {handleActiveClass(filterClass)};
+    }, [dispatch, filter, filterClass, handleActiveClass, isActive, isSelected]);
 
 
     return (
@@ -40,4 +42,4 @@ function FilterButton({filter, filterClass, icon, activeClass, handleActiveClass
     )
 }
 
-export default FilterButton;
+export default React.memo(FilterButton);

@@ -34,4 +34,4 @@ function FilterMenu({className, filterClass, menuItems, activeClass, handleActiv
     )
 }
 
-export default FilterMenu;
+export default React.memo(FilterMenu);

@@ -52,4 +52,4 @@ function RoomGrid({rooms}: RoomGridProps) {
     );
 }
 
-export default RoomGrid;
+export default React.memo(RoomGrid);

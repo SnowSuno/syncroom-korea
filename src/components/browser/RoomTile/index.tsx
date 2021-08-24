@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useMemo} from "react";
 import "./style.css";
 
 import MemberDisplay from "./MemberDisplay";
@@ -10,19 +10,19 @@ import Room from "../../../common/classes/Room";
 import {Status} from "../../../common/classes/types";
 
 interface Size {
-    width: string,
-    height: string
+    width: string;
+    height: string;
 }
 
 interface RoomTileProps {
-    room: Room,
-    size: Size
+    room: Room;
+    size: Size;
 }
 
 function RoomTile({room, size}: RoomTileProps) {
-    const isPublic: boolean = room.status === Status.PUBLIC
-    const isFull: boolean = room.members.length === 5
-    const statusClass = isPublic ? 'public' : 'private';
+    const isPublic: boolean = useMemo(() => room.status === Status.PUBLIC, [room.status]);
+    const isFull: boolean = room.members.length === 5;
+    const statusClass = useMemo(() => isPublic ? 'public' : 'private', [isPublic]);
     const fullClass = isFull ? 'full' : '';
 
     return (

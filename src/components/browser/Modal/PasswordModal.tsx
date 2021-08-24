@@ -45,4 +45,4 @@ function PasswordModal() {
     );
 }
 
-export default PasswordModal;
+export default React.memo(PasswordModal);

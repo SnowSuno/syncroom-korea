@@ -1,4 +1,4 @@
-import React, {FormEvent, useRef, useState} from "react";
+import React, {FormEvent, useCallback, useRef, useState} from "react";
 
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../../modules";
@@ -20,7 +20,7 @@ function SearchInput({activeClass, handleActiveClass}: SearchInputProps) {
     const isActive: boolean = activeClass === FilterClass.search;
     const inputField = useRef<HTMLInputElement>(null);
 
-    const onChange = async (e: FormEvent<HTMLInputElement>) => {
+    const onChange = useCallback(async (e: FormEvent<HTMLInputElement>) => {
         const {currentTarget: {value}} = e;
         setValue(value);
 
@@ -29,7 +29,7 @@ function SearchInput({activeClass, handleActiveClass}: SearchInputProps) {
             dispatch(setSearch(value));
         }, 200);
         setTimer(newTimer);
-    };
+    }, [dispatch, timer]);
 
     return (
         <div
@@ -49,4 +49,4 @@ function SearchInput({activeClass, handleActiveClass}: SearchInputProps) {
     );
 }
 
-export default SearchInput;
+export default React.memo(SearchInput);

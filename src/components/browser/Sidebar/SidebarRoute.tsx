@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useMemo} from "react";
 
 import {SidebarClassType} from "../../../modules/sidebar/sidebarClass";
 import {useDispatch, useSelector} from "react-redux";
@@ -15,7 +15,7 @@ function SidebarRoute({route, children}: SidebarRouteProps) {
     const dispatch = useDispatch();
     const close = () => dispatch(closeSidebar());
 
-    const isOpen: boolean = (route === sidebarClass);
+    const isOpen: boolean = useMemo(() => route === sidebarClass, [route, sidebarClass]);
 
     return (
         <div className={isOpen ? "open" : "closed"}>

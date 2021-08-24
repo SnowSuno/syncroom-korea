@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useCallback, useState} from "react";
 import "./style.css";
 
 import SearchInput from "./SearchInput";
@@ -25,30 +25,7 @@ import {ReactComponent as Private} from "../../../resource/img/icon/private.svg"
 
 function Filter() {
     const [activeClass, setActiveClass] = useState<FilterClassType | null>(null);
-    const handleActiveClass = (state: FilterClassType | null) => {
-        setActiveClass(state);
-    };
-
-    const countryFilter: MenuItemProps[] = [
-        {filter: null, icon: <CountryIcon />},
-        {filter: Country.KOREA, icon: <Korea />},
-        {filter: Country.JAPAN, icon: <Japan />}
-    ];
-
-    const instFilter: MenuItemProps[] = [
-        {filter: null, icon: <InstIcon />},
-        {filter: Inst.VOCAL, icon: <Vocal />},
-        {filter: Inst.GUITAR, icon: <Guitar />},
-        {filter: Inst.BASS, icon: <Bass />},
-        {filter: Inst.KEYS, icon: <Keys />},
-        {filter: Inst.DRUMS, icon: <Drums />}
-    ];
-
-    const statusFilter: MenuItemProps[] = [
-        {filter: null, icon: <StatusIcon />},
-        {filter: Status.PUBLIC, icon: <Public />},
-        {filter: Status.PRIVATE, icon: <Private />}
-    ];
+    const handleActiveClass = useCallback((state: FilterClassType | null) => setActiveClass(state), []);
 
     return (
         <>
@@ -80,5 +57,26 @@ function Filter() {
         </>
     )
 }
+
+const countryFilter: MenuItemProps[] = [
+    {filter: null, icon: <CountryIcon/>},
+    {filter: Country.KOREA, icon: <Korea/>},
+    {filter: Country.JAPAN, icon: <Japan/>}
+];
+
+const instFilter: MenuItemProps[] = [
+    {filter: null, icon: <InstIcon/>},
+    {filter: Inst.VOCAL, icon: <Vocal/>},
+    {filter: Inst.GUITAR, icon: <Guitar/>},
+    {filter: Inst.BASS, icon: <Bass/>},
+    {filter: Inst.KEYS, icon: <Keys/>},
+    {filter: Inst.DRUMS, icon: <Drums/>}
+];
+
+const statusFilter: MenuItemProps[] = [
+    {filter: null, icon: <StatusIcon/>},
+    {filter: Status.PUBLIC, icon: <Public/>},
+    {filter: Status.PRIVATE, icon: <Private/>}
+];
 
 export default Filter;

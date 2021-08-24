@@ -16,4 +16,4 @@ function MemberProfile({member}: MemberProfileProps) {
     );
 }
 
-export default MemberProfile;
+export default React.memo(MemberProfile);

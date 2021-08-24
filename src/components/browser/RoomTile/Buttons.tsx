@@ -65,4 +65,4 @@ function Buttons({name, status, isFull}: ButtonsProps) {
     )
 }
 
-export default Buttons;
+export default React.memo(Buttons);

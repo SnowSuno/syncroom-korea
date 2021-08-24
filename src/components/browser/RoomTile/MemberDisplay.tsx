@@ -45,4 +45,4 @@ function MemberDisplay({members}: MemberDisplayProps) {
     );
 }
 
-export default MemberDisplay;
+export default React.memo(MemberDisplay);

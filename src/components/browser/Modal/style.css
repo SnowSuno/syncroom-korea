@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     z-index: 999;
-    transition: opacity .2s ease;
+    /*transition: opacity .2s ease;*/
 }
 
 .modal-wrap .overlay {

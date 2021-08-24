@@ -94,4 +94,4 @@ function ShareModal() {
     );
 }
 
-export default ShareModal;
+export default React.memo(ShareModal);
