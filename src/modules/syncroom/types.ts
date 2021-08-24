@@ -8,5 +8,5 @@ export type SyncroomState = {
     loading: boolean;
     error: Error | null;
     rooms: Room[];
-    users: Set<string>;
+    users: string[];
 };

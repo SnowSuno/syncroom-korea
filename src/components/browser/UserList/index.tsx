@@ -51,12 +51,12 @@ interface handleUserReturn {
     offlineUsers: string[];
 }
 
-const handleUsers = (userList: Set<string>, users: Set<string>): handleUserReturn => {
+const handleUsers = (userList: string[], users: string[]): handleUserReturn => {
     const onlineUsers: string[] = [];
     const offlineUsers: string[] = [];
 
     userList.forEach((user) => {
-        if (users.has(user)) {
+        if (users.includes(user)) {
             onlineUsers.push(user);
         } else {
             offlineUsers.push(user);

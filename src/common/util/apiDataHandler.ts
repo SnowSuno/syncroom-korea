@@ -26,11 +26,11 @@ const instMap: {[index: string]: InstType} = {
 
 interface returnType {
     rooms: Room[];
-    users: Set<string>;
+    users: string[];
 }
 
 const apiDataHandler = (roomsData: RoomData[]):returnType => {
-    const users = new Set<string>();
+    const users: string[] = [];
     const rooms: Room[] = roomsData.map(roomData => {
             let country: CountryType = Country.OTHER;
             [
@@ -53,7 +53,7 @@ const apiDataHandler = (roomsData: RoomData[]):returnType => {
                 {length: roomData.num_members}, (_, i) => {
                     try {
                         const member = roomData.members[i];
-                        if (member) users.add(member);
+                        if (member) users.push(member);
                         const nickname: string = member || "임시 참여 중";
                         const {icon: iconkey, iconurl} = roomData.iconlist[i];
                         const icon: string = iconurl || iconkey;

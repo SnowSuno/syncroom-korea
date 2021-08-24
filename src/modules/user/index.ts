@@ -16,25 +16,26 @@ type FriendAction =
     | ReturnType<typeof deleteUser>;
 
 type FriendState = {
-    userList: Set<string>
+    userList: string[]
 };
 
 const initialState: FriendState = {
-    userList: new Set<string>()
+    userList: []
 };
 
 function friend(
     state: FriendState = initialState,
     action: FriendAction
 ): FriendState {
-    const userList = new Set(state.userList);
     switch (action.type) {
         case ADD:
-            userList.add(action.payload.nickname)
-            return {userList};
+            return state.userList.includes(action.payload.nickname)
+                ? state
+                : {userList: state.userList.concat(action.payload.nickname)};
         case DELETE:
-            userList.delete(action.payload.nickname)
-            return {userList};
+            return {
+                userList: state.userList.filter(nickname => nickname !== action.payload.nickname)
+            };
         default:
             return state;
     }

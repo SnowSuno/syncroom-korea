@@ -7,8 +7,8 @@ export const GET_DATA_SUCCESS = 'syncroom/GET_DATA_SUCCESS';
 export const GET_DATA_ERROR = 'syncroom/GET_DATA_ERROR';
 
 interface successProps {
-    rooms: Room[],
-    users: Set<string>
+    rooms: Room[];
+    users: string[];
 }
 
 export const getDataAsync = createAsyncAction(

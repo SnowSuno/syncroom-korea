@@ -6,7 +6,7 @@ const initialState: SyncroomState = {
     loading: false,
     error: null,
     rooms: [],
-    users: new Set<string>()
+    users: []
 };
 
 const syncroom = createReducer<SyncroomState, SyncroomAction>(initialState, {
@@ -25,7 +25,7 @@ const syncroom = createReducer<SyncroomState, SyncroomAction>(initialState, {
         loading: false,
         error: action.payload,
         rooms: [],
-        users: new Set<string>()
+        users: []
     })
 });
 
