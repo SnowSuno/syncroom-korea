@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useMemo} from "react";
 
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../../modules";
@@ -9,11 +9,10 @@ import useInput from "../../../common/hooks/useInput";
 
 function UserList() {
     const {userList} = useSelector((state: RootState) => state.user);
-    const {rooms} = useSelector((state: RootState) => state.syncroom);
+    const {users} = useSelector((state: RootState) => state.syncroom);
 
     const dispatch = useDispatch();
-    const userArray = Array.from(userList);
-    userArray.sort();
+
 
     const input = useInput('');
 
@@ -21,18 +20,52 @@ function UserList() {
         dispatch(addUser(input.value));
     };
 
+    const {onlineUsers, offlineUsers} = useMemo(
+        () => handleUsers(userList, users),
+        [userList, users]);
+
     return (
         <div>
             <input type="text" {...input}/>
             <button onClick={add}>추가</button>
 
+            <div>온라인 - {onlineUsers.length}</div>
             <ul>
-                {userArray.map((nickname) => {
+                {onlineUsers.map((nickname) => {
+                    return <li>{nickname}</li>
+                })}
+            </ul>
+
+            <div>오프라인 - {offlineUsers.length}</div>
+            <ul>
+                {offlineUsers.map((nickname) => {
                     return <li>{nickname}</li>
                 })}
             </ul>
         </div>
     );
+}
+
+interface handleUserReturn {
+    onlineUsers: string[];
+    offlineUsers: string[];
+}
+
+const handleUsers = (userList: Set<string>, users: Set<string>): handleUserReturn => {
+    const onlineUsers: string[] = [];
+    const offlineUsers: string[] = [];
+
+    userList.forEach((user) => {
+        if (users.has(user)) {
+            onlineUsers.push(user);
+        } else {
+            offlineUsers.push(user);
+        }
+    })
+    onlineUsers.sort();
+    offlineUsers.sort();
+
+    return {onlineUsers, offlineUsers};
 }
 
 export default UserList;
