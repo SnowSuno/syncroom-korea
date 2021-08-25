@@ -1,7 +1,7 @@
 import {RoomData} from "../api/syncroom";
-import Room from "../classes/Room";
-import {Country, CountryType, Inst, InstType, Status, StatusType} from "../classes/types";
-import {Member, PrivateMember} from "../classes/Member";
+import RoomType from "../classes/Room";
+import {Country, CountryType, Inst, InstType, Status, StatusType} from "../classes/properties";
+import {MemberType, PrivateMember} from "../classes/Member";
 
 
 const korean: RegExp = /[ㄱ-ㅎㅏ-ㅣ가-힣]/;
@@ -25,13 +25,13 @@ const instMap: {[index: string]: InstType} = {
 };
 
 interface returnType {
-    rooms: Room[];
+    rooms: RoomType[];
     users: string[];
 }
 
 const apiDataHandler = (roomsData: RoomData[]):returnType => {
     const users: string[] = [];
-    const rooms: Room[] = roomsData.map(roomData => {
+    const rooms: RoomType[] = roomsData.map(roomData => {
             let country: CountryType = Country.OTHER;
             [
                 roomData.creator_nick,
@@ -49,7 +49,7 @@ const apiDataHandler = (roomsData: RoomData[]):returnType => {
                 ? Status.PRIVATE
                 : Status.PUBLIC;
 
-            const members: Member[] = Array.from(
+            const members: MemberType[] = Array.from(
                 {length: roomData.num_members}, (_, i) => {
                     try {
                         const member = roomData.members[i];

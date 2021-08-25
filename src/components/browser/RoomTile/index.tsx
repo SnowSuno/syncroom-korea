@@ -1,13 +1,13 @@
 import React, {useMemo} from "react";
-import "./style.css";
+import "./style.scss";
 
-import MemberDisplay from "./MemberDisplay";
+import MemberDisplay from "./MemberList";
 import Buttons from "./Buttons";
 import Flag from "../../../resource/img/icon/Flag";
 import {ReactComponent as Lock} from "../../../resource/img/icon/lock.svg";
 
-import Room from "../../../common/classes/Room";
-import {Status} from "../../../common/classes/types";
+import RoomType from "../../../common/classes/Room";
+import {Status} from "../../../common/classes/properties";
 
 interface Size {
     width: string;
@@ -15,7 +15,7 @@ interface Size {
 }
 
 interface RoomTileProps {
-    room: Room;
+    room: RoomType;
     size: Size;
 }
 
@@ -26,13 +26,13 @@ function RoomTile({room, size}: RoomTileProps) {
     const fullClass = isFull ? 'full' : '';
 
     return (
-        <div className={`room-tile ${statusClass} ${fullClass}`} style={size}>
-            <div className="room-header">
+        <div className={`RoomTile ${statusClass} ${fullClass}`} style={size}>
+            <div className="RoomHeader">
                 <Flag country={room.country} />
-                <span className='room-name'>{room.name}</span>
+                <span className='RoomName'>{room.name}</span>
                 {isPublic ? <></> : <Lock />}
             </div>
-            <div className="room-desc">
+            <div className="RoomDesc">
                 {room.desc ? room.desc : "방 설명이 없습니다."}
             </div>
             <MemberDisplay members={room.members}/>

@@ -3,7 +3,7 @@ import React from "react";
 import FilterButton from "./FilterButton";
 
 import {FilterClassType} from "../../../modules/filter/types";
-import {CountryType, InstType, StatusType} from "../../../common/classes/types";
+import {CountryType, InstType, StatusType} from "../../../common/classes/properties";
 
 interface FilterMenuProps {
     className: string;

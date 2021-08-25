@@ -1,5 +1,5 @@
 import React from "react";
-import {Country, CountryType} from "../../../../common/classes/types";
+import {Country, CountryType} from "../../../../common/classes/properties";
 
 import {ReactComponent as KoreaFlag} from "./korea.svg";
 import {ReactComponent as JapanFlag} from "./japan.svg";

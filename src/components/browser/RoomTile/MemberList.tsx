@@ -2,22 +2,22 @@ import React from "react";
 
 import {CSSGrid, enterExitStyle} from "react-stonecutter";
 
-import {Member} from "../../../common/classes/Member";
-import MemberProfile from "./MemberProfile";
+import {MemberType} from "../../../common/classes/Member";
+import MemberProfile from "./Member";
 
-interface MemberDisplayProps {
-    members: Member[]
+interface MemberListProps {
+    members: MemberType[]
 }
 
-function MemberDisplay({members}: MemberDisplayProps) {
+function MemberList({members}: MemberListProps) {
     const animationStyle = enterExitStyle.fromTop;
 
     return (
-        <div className="member-display">
+        <div className="MemberList">
             <div className="line">
                 <div/><div/><div/><div/><div/>
             </div>
-            <div className="members">
+            <div className="MemberContainer">
                 <CSSGrid
                     component="ul"
                     columns={1}
@@ -45,4 +45,4 @@ function MemberDisplay({members}: MemberDisplayProps) {
     );
 }
 
-export default React.memo(MemberDisplay);
+export default React.memo(MemberList);
