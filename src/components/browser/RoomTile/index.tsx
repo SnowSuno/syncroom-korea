@@ -8,6 +8,7 @@ import {ReactComponent as Lock} from "../../../resource/img/icon/lock.svg";
 
 import RoomType from "../../../common/classes/Room";
 import {Status} from "../../../common/classes/properties";
+import classNames from "classnames/bind";
 
 interface Size {
     width: string;
@@ -22,11 +23,13 @@ interface RoomTileProps {
 function RoomTile({room, size}: RoomTileProps) {
     const isPublic: boolean = useMemo(() => room.status === Status.PUBLIC, [room.status]);
     const isFull: boolean = room.members.length === 5;
-    const statusClass = useMemo(() => isPublic ? 'public' : 'private', [isPublic]);
-    const fullClass = isFull ? 'full' : '';
 
     return (
-        <div className={`RoomTile ${statusClass} ${fullClass}`} style={size}>
+        <div className={classNames(
+            "RoomTile",
+            {"public": isPublic, "private": !isPublic},
+            {"full": isFull})}
+             style={size}>
             <div className="RoomHeader">
                 <Flag country={room.country} />
                 <span className='RoomName'>{room.name}</span>

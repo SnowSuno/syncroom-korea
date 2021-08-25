@@ -1,3 +1,8 @@
+$public-color: #233D99;
+$private-color: #191919;
+$public-color-full: #97A0BE;
+$private-color-full: #A7A7A7;
+
 .RoomTile {
     display: flex;
     flex-direction: column;
@@ -106,39 +111,34 @@
         }
         .joinBtn, .notiBtn {color: #FFFFFF}
     }
-}
 
-$public-color: #233D99;
-$private-color: #191919;
-$public-color-full: #97A0BE;
-$private-color-full: #A7A7A7;
 
-.public {
-    .RoomHeader {background: $public-color}
-    &.full .RoomHeader {background: $public-color-full;}
-    .joinBtn {
-        background: $public-color;
-        &:hover {background: #4A62AF;}
-        &:active {background: #3A4F92}
+    &.public {
+        .RoomHeader {background: $public-color}
+        &.full .RoomHeader {background: $public-color-full;}
+        .joinBtn {
+            background: $public-color;
+            &:hover {background: #4A62AF;}
+            &:active {background: #3A4F92}
+        }
+        .notiBtn {
+            background: $public-color-full;
+            &:hover {background: #8A93B1;}
+            &:active {background: #747C9C;}
+        }
     }
-    .notiBtn {
-        background: $public-color-full;
-        &:hover {background: #8A93B1;}
-        &:active {background: #747C9C;}
-    }
-}
-
-.private {
-    .RoomHeader {background: $private-color}
-    &.full .RoomHeader {background: $private-color-full;}
-    .joinBtn {
-        background: #191919;
-        &:hover {background: #454545}
-        &:active {background: #363636}
-    }
-    .notiBtn {
-        background: $private-color-full;
-        &:hover {background: #979797;}
-        &:active {background: #7F7F7F;}
+    &.private {
+        .RoomHeader {background: $private-color}
+        &.full .RoomHeader {background: $private-color-full;}
+        .joinBtn {
+            background: #191919;
+            &:hover {background: #454545}
+            &:active {background: #363636}
+        }
+        .notiBtn {
+            background: $private-color-full;
+            &:hover {background: #979797;}
+            &:active {background: #7F7F7F;}
+        }
     }
 }
