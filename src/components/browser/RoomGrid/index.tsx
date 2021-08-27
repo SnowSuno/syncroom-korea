@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css"
+import "./style.scss"
 
 import RoomTile from "../RoomTile";
 
@@ -25,7 +25,7 @@ function RoomGrid({rooms}: RoomGridProps) {
     });
 
     return (
-        <div className="room-grid">
+        <div className="RoomGrid">
             <CSSGrid
                 component="ul"
                 columns={column}

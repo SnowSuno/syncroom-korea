@@ -1,9 +1,0 @@
-.room-grid {
-    padding-bottom: 4rem;
-    min-height: calc(100vh - 23.4rem);
-}
-.room-grid ul {
-    margin: auto;
-    list-style-type: none;
-    padding: 0;
-}
