@@ -7,7 +7,7 @@ import {MemberType, PrivateMember} from "../classes/Member";
 const korean: RegExp = /[ㄱ-ㅎㅏ-ㅣ가-힣]/;
 const japanese: RegExp = /[ぁ-んァ-ン一-龯]/;
 
-const instMap: {[index: string]: InstType} = {
+const instMap: { [index: string]: InstType } = {
     "0": Inst.DRUMS,
     "1": Inst.DRUMS,
     "2": Inst.BASS,
@@ -29,52 +29,56 @@ interface returnType {
     users: string[];
 }
 
-const apiDataHandler = (roomsData: RoomData[]):returnType => {
+const apiDataHandler = (roomsData: RoomData[]): returnType => {
     const users: string[] = [];
     const rooms: RoomType[] = roomsData.map(roomData => {
-            let country: CountryType = Country.OTHER;
-            [
-                roomData.creator_nick,
-                roomData.room_desc,
-                roomData.room_name
-            ].forEach(text => {
-                if (korean.test(text)) {
-                    country = Country.KOREA;
-                } else if (japanese.test(text)) {
-                    country = Country.JAPAN;
-                }
-            });
+        const id = (new Date(roomData.create_time)
+                .getTime() % 21600000 * 1000)
+            + parseInt(roomData.creator_mid);
 
-            const status: StatusType = roomData.need_passwd
-                ? Status.PRIVATE
-                : Status.PUBLIC;
-
-            const members: MemberType[] = Array.from(
-                {length: roomData.num_members}, (_, i) => {
-                    try {
-                        const member = roomData.members[i];
-                        if (member) users.push(member);
-                        const nickname: string = member || "임시 참여 중";
-                        const {icon: iconkey, iconurl} = roomData.iconlist[i];
-                        const icon: string = iconurl || iconkey;
-                        const inst: InstType = iconurl
-                            ? Inst.OTHER
-                            : instMap[iconkey];
-                        return {nickname, icon, inst};
-                    } catch (e) {
-                        return PrivateMember;
-                    }
-                }
-            )
-            return {
-                name: roomData.room_name,
-                desc: roomData.room_desc,
-                members: members,
-                country: country,
-                status: status
+        let country: CountryType = Country.OTHER;
+        [
+            roomData.creator_nick,
+            roomData.room_desc,
+            roomData.room_name
+        ].forEach(text => {
+            if (korean.test(text)) {
+                country = Country.KOREA;
+            } else if (japanese.test(text)) {
+                country = Country.JAPAN;
             }
+        });
+
+        const status: StatusType = roomData.need_passwd
+            ? Status.PRIVATE
+            : Status.PUBLIC;
+
+        const members: MemberType[] = Array.from(
+            {length: roomData.num_members}, (_, i) => {
+                try {
+                    const member = roomData.members[i];
+                    if (member) users.push(member);
+                    const nickname: string = member || "임시 참여 중";
+                    const {icon: iconkey, iconurl} = roomData.iconlist[i];
+                    const icon: string = iconurl || iconkey;
+                    const inst: InstType = iconurl
+                        ? Inst.OTHER
+                        : instMap[iconkey];
+                    return {nickname, icon, inst};
+                } catch (e) {
+                    return PrivateMember;
+                }
+            }
+        )
+        return {
+            name: roomData.room_name,
+            id: id,
+            desc: roomData.room_desc,
+            members: members,
+            country: country,
+            status: status
         }
-    )
+    });
     return {rooms, users};
 }
 

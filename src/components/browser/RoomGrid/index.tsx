@@ -37,7 +37,7 @@ function RoomGrid({rooms}: RoomGridProps) {
                 duration={300}
             >
                 {rooms.map(room => (
-                    <li key={room.name}>
+                    <li key={room.id}>
                         <RoomTile
                             room={room}
                             size={{
