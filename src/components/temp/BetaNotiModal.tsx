@@ -26,6 +26,13 @@ function BetaNotiModal() {
                         </ul>
 
                     </div>
+                    <div className="issues">
+                        <div style={{fontSize: "1.1rem", fontWeight: 500}}>업데이트 사항 (2021.08.30)</div>
+                        <ul>
+                            <li>검색 시 대소문자 무시</li>
+                        </ul>
+
+                    </div>
 
                     <div className="contact">
                         버그 제보 또는 기능 제안은 <a href="mailto:kr.syncroom@gmail.com" color="#505050">
