@@ -36,7 +36,7 @@
     height: 35vh;
 }
 
-.join-page .title {
+.join-page .Title {
     display: flex;
     gap: 0.2rem;
     font-size: 2rem;
@@ -44,7 +44,7 @@
     font-weight: 400;
 }
 
-.join-page .title > svg {
+.join-page .Title > svg {
     width: 2rem;
     height: 2rem;
     padding-top: 0.1rem;

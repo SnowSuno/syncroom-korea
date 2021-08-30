@@ -1,5 +1,6 @@
 import React from "react";
-import "./style.css"
+import classNames from "classnames";
+import "./style.scss"
 
 import Title from "./Title";
 import Toolbar from "./Toolbar";
@@ -11,7 +12,10 @@ function Header() {
     const trigger = useScrollTrigger(remToPx(2));
 
     return (
-        <div className={(trigger ? 'small' : 'big') + ' header'}>
+        <div className={classNames(
+            'Header',
+            {small: trigger, big: !trigger}
+        )}>
             <Title />
             <Toolbar />
         </div>

@@ -55,7 +55,7 @@ function JoinInfo({search}: JoinInfoProps) {
             joinRoom(roomName, password, false);
             return (
                 <>
-                    <div className="title">
+                    <div className="Title">
                         {roomName} 방 참가 중…
                     </div>
                     <div className="prompt">
@@ -70,7 +70,7 @@ function JoinInfo({search}: JoinInfoProps) {
 
             return (
                 <>
-                    <div className="title">
+                    <div className="Title">
                         <Lock fill="#000000" />
                         {roomName} 방 참가
                     </div>
@@ -94,7 +94,7 @@ function JoinInfo({search}: JoinInfoProps) {
     } catch (e) {
         return (
             <>
-                <div className="title">
+                <div className="Title">
                     잘못된 참가 링크입니다
                 </div>
                 <div className="desc">
