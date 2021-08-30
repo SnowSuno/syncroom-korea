@@ -8,7 +8,7 @@ export const roomFilter = (
     inst: InstType | null,
     status: StatusType | null
 ) => (room: Room) => {
-    if (!room.name.includes(search)
+    if (!room.name.toLowerCase().includes(search.toLowerCase())
         && room.members.filter(
             (member: Member) => member.nickname.includes(search)
         ).length === 0) return false;
