@@ -1,5 +1,5 @@
 import React from "react";
-import "./Join.css";
+import "./Join.scss";
 import {Link} from "react-router-dom"
 
 import {decodeShareLink} from "../../common/util/shareLink";
@@ -18,7 +18,7 @@ interface JoinInfoProps {
 
 function Join({location: {search}}: JoinProps) {
     return (
-        <div className="join-page">
+        <div className="Join">
             <Link to="/" className="return">
                 <svg viewBox="0 0 2 2" height="1.2rem">
                     <polyline
@@ -55,7 +55,7 @@ function JoinInfo({search}: JoinInfoProps) {
             joinRoom(roomName, password, false);
             return (
                 <>
-                    <div className="Title">
+                    <div className="title">
                         {roomName} 방 참가 중…
                     </div>
                     <div className="prompt">
@@ -70,7 +70,7 @@ function JoinInfo({search}: JoinInfoProps) {
 
             return (
                 <>
-                    <div className="Title">
+                    <div className="title">
                         <Lock fill="#000000" />
                         {roomName} 방 참가
                     </div>
@@ -94,7 +94,7 @@ function JoinInfo({search}: JoinInfoProps) {
     } catch (e) {
         return (
             <>
-                <div className="Title">
+                <div className="title">
                     잘못된 참가 링크입니다
                 </div>
                 <div className="desc">
