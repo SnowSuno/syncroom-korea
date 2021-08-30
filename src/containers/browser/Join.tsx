@@ -44,7 +44,7 @@ function JoinInfo({search}: JoinInfoProps) {
     const {input: inputPassword} = useInput('');
     const Install: JSX.Element = (
         <div className="install">
-            싱크룸이 설치되어 있지 않다면 <Link to="/" className="link">설치하기</Link>
+            싱크룸이 설치되어 있지 않다면 <a href="https://syncroom.yamaha.com/play/dl/" target="_blank">설치하기</a>
         </div>
     );
 
