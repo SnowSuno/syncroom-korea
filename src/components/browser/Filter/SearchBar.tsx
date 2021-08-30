@@ -1,4 +1,5 @@
 import React, {FormEvent, useCallback, useRef, useState} from "react";
+import classNames from "classnames";
 
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../../modules";
@@ -7,12 +8,12 @@ import {FilterClass, FilterClassType} from "../../../modules/filter/types";
 
 import {ReactComponent as Search} from "../../../resource/img/icon/search.svg";
 
-interface SearchInputProps {
+interface SearchBarProps {
     activeClass: FilterClassType | null;
     handleActiveClass: (state: FilterClassType | null) => void;
 }
 
-function SearchInput({activeClass, handleActiveClass}: SearchInputProps) {
+function SearchBar({activeClass, handleActiveClass}: SearchBarProps) {
     const search = useSelector((state: RootState) => state.filter.search);
     const dispatch = useDispatch();
     const [timer, setTimer] = useState<NodeJS.Timer | null>(null);
@@ -33,7 +34,7 @@ function SearchInput({activeClass, handleActiveClass}: SearchInputProps) {
 
     return (
         <div
-            className={`search ${isActive ? "active" : ""}`}
+            className={classNames("SearchBar", {active: isActive})}
             onClick={() => inputField.current?.select()}
         >
             <input
@@ -49,4 +50,4 @@ function SearchInput({activeClass, handleActiveClass}: SearchInputProps) {
     );
 }
 
-export default React.memo(SearchInput);
+export default React.memo(SearchBar);

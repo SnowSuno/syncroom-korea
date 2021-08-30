@@ -1,7 +1,7 @@
 import React, {useCallback, useState} from "react";
-import "./style.css";
+import "./style.scss";
 
-import SearchInput from "./SearchInput";
+import SearchInput from "./SearchBar";
 import FilterMenu, {MenuItemProps} from "./FilterMenu";
 
 import {Country, Inst, Status} from "../../../common/classes/properties";
@@ -34,21 +34,18 @@ function Filter() {
                 handleActiveClass={handleActiveClass}
             />
             <FilterMenu
-                className="country"
                 filterClass={FilterClass.country}
                 activeClass={activeClass}
                 menuItems={countryFilter}
                 handleActiveClass={handleActiveClass}
             />
             <FilterMenu
-                className="inst"
                 filterClass={FilterClass.inst}
                 activeClass={activeClass}
                 menuItems={instFilter}
                 handleActiveClass={handleActiveClass}
             />
             <FilterMenu
-                className="status"
                 filterClass={FilterClass.status}
                 activeClass={activeClass}
                 menuItems={statusFilter}

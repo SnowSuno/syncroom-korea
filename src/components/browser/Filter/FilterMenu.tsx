@@ -6,7 +6,6 @@ import {FilterClassType} from "../../../modules/filter/types";
 import {CountryType, InstType, StatusType} from "../../../common/classes/properties";
 
 interface FilterMenuProps {
-    className: string;
     filterClass: FilterClassType;
     menuItems: MenuItemProps[];
     activeClass: FilterClassType | null;
@@ -18,9 +17,9 @@ export interface MenuItemProps {
     icon: JSX.Element;
 }
 
-function FilterMenu({className, filterClass, menuItems, activeClass, handleActiveClass}: FilterMenuProps) {
+function FilterMenu({filterClass, menuItems, activeClass, handleActiveClass}: FilterMenuProps) {
     return (
-        <div className={`${className} filter-menu`}>
+        <div className="FilterMenu">
             {menuItems.map(({filter, icon}) => (
                 <FilterButton
                     filter={filter}
