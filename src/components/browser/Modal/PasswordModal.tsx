@@ -1,5 +1,5 @@
 import React from "react";
-import "./PasswordModal.css";
+import "./PasswordModal.scss";
 
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../../modules";

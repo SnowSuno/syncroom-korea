@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "./ShareModal.css";
+import "./ShareModal.scss";
 
 import {useSelector} from "react-redux";
 import {RootState} from "../../../modules";
