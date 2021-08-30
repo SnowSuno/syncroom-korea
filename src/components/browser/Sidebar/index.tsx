@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css";
+import "./style.scss";
 
 import {SidebarClass} from "../../../modules/sidebar/sidebarClass";
 
@@ -9,7 +9,7 @@ import SettingsSidebar from "./SettingsSidebar";
 
 function Sidebar() {
     return (
-        <div className="sidebar-wrap">
+        <div className="SidebarContainer">
             <SidebarRoute route={SidebarClass.MENU}>
                 <MenuSidebar />
             </SidebarRoute>

@@ -1,0 +1,89 @@
+.Join {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    .return {
+        color: #686a6e;
+        text-decoration: none;
+        cursor: default;
+        position: absolute;
+        height: 2.3rem;
+        line-height: 2.3rem;
+        border-radius: 0.6rem;
+        width: 9.5rem;
+        margin: 1rem;
+        padding-left: 1rem;
+        background: #DCE0E8;
+        display: flex;
+        align-items: center;
+        &:hover {background: #d1d5dc;}
+        &:active {background: #c4c7ce;}
+    }
+    .body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.7rem;
+        height: 100%;
+        > svg {
+            height: 35vh;
+        }
+        .title {
+            display: flex;
+            gap: 0.2rem;
+            font-size: 2rem;
+            line-height: 2rem;
+            font-weight: 400;
+            > svg {
+                width: 2rem;
+                height: 2rem;
+                padding-top: 0.1rem;
+            }
+        }
+        .prompt {
+            display: flex;
+            height: 2.6rem;
+            border-radius: 1.3rem;
+            overflow: hidden;
+            button {
+                height: 100%;
+                border-radius: 0;
+                width: 15rem;
+                background: #49C5B6;
+                color: #FFFFFF;
+                &:hover {background: #46bdaf;}
+                &:active {background: #40b0a3;}
+                span {
+                    height: 1.6rem;
+                }
+                &.password {
+                    width: 7rem;
+                }
+            }
+            input {
+                height: 100%;
+                border-radius: 0;
+                width: 20rem;
+                padding-inline: 1rem;
+                background: #FFFFFF;
+                &::placeholder {color: #AAAAAA;}
+                &:focus {
+                    outline: none;
+                    background: #fafafa;
+                }
+            }
+        }
+        .install {
+            font-size: 0.9rem;
+            color: #BABBBF;
+            a {
+                color: #BABBBF;
+            }
+        }
+        .desc {
+            font-size: 1.3rem;
+            color: #a6a8ad;
+        }
+    }
+}

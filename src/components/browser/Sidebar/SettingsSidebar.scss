@@ -1,0 +1,53 @@
+.SidebarContainer .settings.sidebar {
+    background: #49C5B6;
+    transition: right .2s cubic-bezier(0.2, 0.5, 0.2, 1);
+    .header-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 4.8rem;
+        align-items: center;
+        padding-inline: 1rem;
+        padding-top: 0.5rem;
+        > div {
+            display: flex;
+            align-items: center;
+            margin-left: 1rem;
+            gap: 0.9rem;
+            > svg {
+                height: 2.5rem;
+                width: 2.5rem;
+            }
+            > span {
+                font-size: 1.7rem;
+                line-height: 2.5rem;
+                font-weight: 400;
+                color: #FFFFFF;
+                padding-bottom: 0.3rem;
+            }
+        }
+        > button {
+            height: 3rem;
+            width: 3rem;
+            border-radius: 0.8rem;
+            background: #49C5B6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &:hover {background: #46bdaf;}
+            &:active {background: #3eab9e;}
+            > svg {
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+    }
+}
+
+.open .settings.sidebar {
+    right: 0;
+}
+
+.closed .settings.sidebar {
+    right: -35rem
+}

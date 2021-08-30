@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import "./style.css"
 
 import {getRoomsThunk} from "../../../modules/syncroom";
 import {useDispatch, useSelector} from "react-redux";
@@ -25,9 +24,9 @@ function Toolbar() {
         dispatch(getRoomsThunk());
     };
     return (
-        <div className="toolbar">
+        <div className="Toolbar">
             <Filter />
-            <button className='refresh' onClick={getRooms}>
+            <button className="refresh" onClick={getRooms}>
                 <Refresh
                     height={20} width={20}
                     className={rotate}

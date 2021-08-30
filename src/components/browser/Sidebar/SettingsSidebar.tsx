@@ -1,5 +1,5 @@
 import React from "react";
-import "./SettingsSidebar.css";
+import "./SettingsSidebar.scss";
 
 import {useDispatch} from "react-redux";
 import {closeSidebar} from "../../../modules/sidebar";

@@ -1,5 +1,4 @@
 import React, {useEffect, useMemo, useRef} from 'react';
-import './Home.css';
 
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../modules";

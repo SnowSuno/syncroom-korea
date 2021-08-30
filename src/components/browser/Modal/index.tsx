@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css"
+import "./style.scss"
 
 import {ModalClass} from "../../../modules/modal/modalClass";
 
@@ -9,7 +9,7 @@ import ShareModal from "./ShareModal";
 
 function Modal() {
     return (
-        <div className='modal-wrap'>
+        <div className='ModalContainer'>
             <ModalRoute route={ModalClass.PASSWORD}>
                 <PasswordModal/>
             </ModalRoute>

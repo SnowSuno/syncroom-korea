@@ -1,9 +1,9 @@
 import React from "react";
-import "./style.css"
+import "./style.scss"
 
 function Footer() {
     return (
-        <div className="footer">
+        <div className="Footer">
             <br/>
             SYNCROOM KOREA WEBSITE<br/>
             WEB DEVELOPMENT : 늅늅이  |  WEB DESIGN : 파나<br/>
@@ -14,4 +14,4 @@ function Footer() {
     )
 }
 
-export default React.memo(Footer);
+export default Footer;

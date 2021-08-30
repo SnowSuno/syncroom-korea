@@ -1,11 +1,11 @@
 import React, {useState} from "react";
-import "./ShareModal.css";
+import "./ShareModal.scss";
 
 import {useSelector} from "react-redux";
 import {RootState} from "../../../modules";
 import useInput from "../../../common/hooks/useInput";
 
-import {Status} from "../../../common/classes/types";
+import {Status} from "../../../common/classes/properties";
 
 import {encodeShareLink} from "../../../common/util/shareLink";
 

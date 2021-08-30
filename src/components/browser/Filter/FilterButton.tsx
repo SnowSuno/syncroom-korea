@@ -5,7 +5,7 @@ import {RootState} from "../../../modules";
 import {setFilter} from "../../../modules/filter";
 
 import {FilterClassType} from "../../../modules/filter/types";
-import {CountryType, InstType, StatusType} from "../../../common/classes/types";
+import {CountryType, InstType, StatusType} from "../../../common/classes/properties";
 
 interface FilterButtonProps {
     filter: CountryType | InstType | StatusType | null;
@@ -33,7 +33,7 @@ function FilterButton({filter, filterClass, icon, activeClass, handleActiveClass
 
     return (
         <button
-            className="filter-button"
+            className="FilterButton"
             style={{width: isSelected || isActive ? "3.2rem" : "0"}}
             onClick={onClick}
         >

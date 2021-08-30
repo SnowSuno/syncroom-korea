@@ -1,19 +1,19 @@
 import React from "react";
 
-import {Member} from "../../../common/classes/Member";
+import {MemberType} from "../../../common/classes/Member";
 import Profile from "../../../resource/img/icon/Profile";
 
-interface MemberProfileProps {
-    member: Member
+interface MemberProps {
+    member: MemberType
 }
 
-function MemberProfile({member}: MemberProfileProps) {
+function Member({member}: MemberProps) {
     return (
-        <div className="member">
+        <div className="Member">
             <div className="icon"><Profile icon={member.icon}/></div>
             <div className="nickname">{member.nickname}</div>
         </div>
     );
 }
 
-export default React.memo(MemberProfile);
+export default React.memo(Member);

@@ -1,5 +1,5 @@
 import React from "react";
-import "./MenuSidebar.css";
+import "./MenuSidebar.scss";
 
 import UserList from "../UserList";
 

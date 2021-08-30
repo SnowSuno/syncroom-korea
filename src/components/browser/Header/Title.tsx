@@ -1,5 +1,4 @@
 import React from "react";
-import "./style.css"
 
 import {ReactComponent as Logo} from "../../../resource/img/logo/title.svg";
 import {ReactComponent as MenuIcon} from "../../../resource/img/icon/menu.svg";
@@ -13,7 +12,7 @@ function Title() {
     const dispatch = useDispatch();
 
     return (
-        <div className='title'>
+        <div className='Title'>
             <button
                 className='menu side-btn'
                 onClick={() => dispatch(
@@ -21,7 +20,7 @@ function Title() {
                 )}
             >
                 <MenuIcon />
-                <text>MENU</text>
+                <div>MENU</div>
             </button>
             <div>
                 <div className='logo-container'>
@@ -34,7 +33,7 @@ function Title() {
                     openSidebar({sidebarClass: SidebarClass.SETTINGS})
                 )}
             >
-                <text>설정</text>
+                <div>설정</div>
                 <SettingsIcon />
             </button>
         </div>
