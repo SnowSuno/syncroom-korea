@@ -4,6 +4,9 @@ import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../../modules";
 import {addUser, deleteUser} from "../../../modules/user";
 
+import OnlineUser from "./OnlineUser";
+import OfflineUser from "./OfflineUser";
+
 
 import useInput from "../../../common/hooks/useInput";
 
@@ -31,18 +34,18 @@ function UserList() {
             <button onClick={add}>추가</button>
 
             <div>온라인 - {onlineUsers.length}</div>
-            <ul>
-                {onlineUsers.map((nickname) => {
-                    return <li>{nickname}</li>
-                })}
-            </ul>
+            <div>
+                {onlineUsers.map((userName) => (
+                    <OnlineUser userName={userName} roomId={users[userName]}/>
+                ))}
+            </div>
 
             <div>오프라인 - {offlineUsers.length}</div>
-            <ul>
-                {offlineUsers.map((nickname) => {
-                    return <li>{nickname}</li>
-                })}
-            </ul>
+            <div>
+                {offlineUsers.map((userName) => (
+                    <OfflineUser userName={userName}/>
+                ))}
+            </div>
         </div>
     );
 }
