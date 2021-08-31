@@ -4,7 +4,7 @@ import apiDataHandler from "../util/apiDataHandler";
 const SYNCROOM_API = "https://webapi.syncroom.appservice.yamaha.com/ndroom/room_list.json?pagesize=500&realm=4";
 
 export const getApiData = async () => {
-    const response = await axios.get<Response>(SYNCROOM_API);
+    const response = await axios.get<Response>(SYNCROOM_API, {timeout: 5000});
     return apiDataHandler(response.data.rooms);
 }
 
