@@ -83,5 +83,3 @@ const apiDataHandler = (roomsData: RoomData[]): returnType => {
 }
 
 export default apiDataHandler;
-// const a = new Date("2021-07-10 07:05:44 GMT").getTime();
-// console.log(a);
