@@ -8,7 +8,7 @@ export const GET_DATA_ERROR = 'syncroom/GET_DATA_ERROR';
 
 interface successProps {
     rooms: RoomType[];
-    users: string[];
+    users: {[name: string]: number};
 }
 
 export const getDataAsync = createAsyncAction(

@@ -52,12 +52,12 @@ interface handleUserReturn {
     offlineUsers: string[];
 }
 
-const handleUsers = (userList: string[], users: string[]): handleUserReturn => {
+const handleUsers = (userList: string[], users: {[name: string]: number}): handleUserReturn => {
     const onlineUsers: string[] = [];
     const offlineUsers: string[] = [];
 
     userList.forEach((user) => {
-        if (users.includes(user)) {
+        if (users.hasOwnProperty(user)) {
             onlineUsers.push(user);
         } else {
             offlineUsers.push(user);

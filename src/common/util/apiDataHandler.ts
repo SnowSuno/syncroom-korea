@@ -26,11 +26,11 @@ const instMap: { [index: string]: InstType } = {
 
 interface returnType {
     rooms: RoomType[];
-    users: string[];
+    users: {[name: string]: number};
 }
 
 const apiDataHandler = (roomsData: RoomData[]): returnType => {
-    const users: string[] = [];
+    const users: {[name: string]: number} = {};
     const rooms: RoomType[] = roomsData.map(roomData => {
         const id = (new Date(roomData.create_time)
                 .getTime() % 21600000 * 1000)
@@ -57,7 +57,7 @@ const apiDataHandler = (roomsData: RoomData[]): returnType => {
             {length: roomData.num_members}, (_, i) => {
                 try {
                     const member = roomData.members[i];
-                    if (member) users.push(member);
+                    if (member) users[member] = id;
                     const nickname: string = member || "임시 참여 중";
                     const {icon: iconkey, iconurl} = roomData.iconlist[i];
                     const icon: string = iconurl || iconkey;
