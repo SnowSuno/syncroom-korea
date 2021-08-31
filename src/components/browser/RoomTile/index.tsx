@@ -25,11 +25,14 @@ function RoomTile({room, size}: RoomTileProps) {
     const isFull: boolean = room.members.length === 5;
 
     return (
-        <div className={classNames(
+        <div
+            id={room.id.toString()}
+            className={classNames(
             "RoomTile",
             {"public": isPublic, "private": !isPublic},
             {"full": isFull})}
-             style={size}>
+             style={size}
+        >
             <div className="RoomHeader">
                 <Flag country={room.country} />
                 <span className='RoomName'>{room.name}</span>
