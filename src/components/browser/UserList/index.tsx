@@ -20,7 +20,7 @@ function UserList() {
     const {input, setValue} = useInput('');
 
     const add = () => {
-        dispatch(addUser(input.value));
+        dispatch(addUser(input.value.trim()));
         setValue("");
     };
 

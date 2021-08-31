@@ -57,7 +57,7 @@ const apiDataHandler = (roomsData: RoomData[]): returnType => {
             {length: roomData.num_members}, (_, i) => {
                 try {
                     const member = roomData.members[i];
-                    if (member) users[member] = id;
+                    if (member) users[member.trim()] = id;
                     const nickname: string = member || "임시 참여 중";
                     const {icon: iconkey, iconurl} = roomData.iconlist[i];
                     const icon: string = iconurl || iconkey;
