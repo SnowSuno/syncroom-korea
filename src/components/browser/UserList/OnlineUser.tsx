@@ -29,9 +29,17 @@ function OnlineUser({userName, roomId}: OnlineUserProps) {
 const moveTo = (roomId: number) => {
     const roomTile = document.getElementById(roomId.toString());
 
+    if (roomTile) {
+        roomTile.scrollIntoView({behavior: "smooth", block: "center"});
+        roomTile.animate([
+            {boxShadow: "0 0 0.8rem rgba(127, 127, 127, 0.1)"},
+            {boxShadow: "0 0 0.8rem rgba(20, 20, 20, 1)", offset: 0.1},
+            {boxShadow: "0 0 0.8rem rgba(20, 20, 20, 1)", offset: 0.8},
+            {boxShadow: "0 0 0.8rem rgba(127, 127, 127, 0.1)"},
+        ], 2000);
+    }
 
 
-    roomTile?.scrollIntoView({behavior: "smooth", block: "center"});
 
 
 }
