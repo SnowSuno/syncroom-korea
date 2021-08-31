@@ -32,8 +32,9 @@ interface returnType {
 const apiDataHandler = (roomsData: RoomData[]): returnType => {
     const users: {[name: string]: number} = {};
     const rooms: RoomType[] = roomsData.map(roomData => {
-        const id = (new Date(roomData.create_time)
-                .getTime() % 21600000 * 1000)
+        const [date, time] = roomData.create_time.split(' ');
+        const id = new Date(`${date}T${time}-00:00`)
+                .getTime() % 21600000 * 1000
             + parseInt(roomData.creator_mid);
 
         let country: CountryType = Country.OTHER;
@@ -79,6 +80,7 @@ const apiDataHandler = (roomsData: RoomData[]): returnType => {
             status: status
         }
     });
+    console.log(rooms)
     return {rooms, users};
 }
 
