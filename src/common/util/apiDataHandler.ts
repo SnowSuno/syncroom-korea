@@ -80,7 +80,6 @@ const apiDataHandler = (roomsData: RoomData[]): returnType => {
             status: status
         }
     });
-    console.log(rooms)
     return {rooms, users};
 }
 
