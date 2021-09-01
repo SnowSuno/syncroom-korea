@@ -7,6 +7,8 @@ import {joinRoom} from "../../common/util/joinRoom";
 
 import {ReactComponent as SyncroomLogo} from "../../resource/img/logo/syncroom.svg";
 import {ReactComponent as Lock} from "../../resource/img/icon/lock.svg";
+import {ReactComponent as Return} from "../../resource/img/icon/return.svg";
+
 import useInput from "../../common/hooks/useInput";
 
 interface JoinProps {
@@ -20,16 +22,7 @@ function Join({location: {search}}: JoinProps) {
     return (
         <div className="Join">
             <Link to="/" className="return">
-                <svg viewBox="0 0 2 2" height="1.2rem">
-                    <polyline
-                        points="1,0.5 0.5,1 1,1.5"
-                        stroke="#686a6e"
-                        strokeWidth="0.01rem"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        fill="none"
-                    />
-                </svg>
+                <Return />
                 홈으로 돌아가기
             </Link>
             <div className="body">

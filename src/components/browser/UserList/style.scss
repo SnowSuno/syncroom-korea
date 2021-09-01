@@ -4,5 +4,107 @@
 
   .Manage {
     background: #CECFD8;
+    height: 2.8rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-inline: 1.5rem;
+    transition: height .2s ease;
+
+    span {
+      font-size: 1.1rem;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 26rem;
+      transition: width .2s ease;
+    }
+
+    button {
+      height: 1.6rem;
+      font-size: 0.9rem;
+      color: #85858B;
+
+      background: #DBDCE2;
+      &.multi {
+        width: 6rem;
+        transition: width .2s ease;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      &.background {
+        background: #CECFD8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:hover {background: #bebfcb;}
+
+      }
+      &.return {
+        width: 0;
+        height: 2.3rem;
+        opacity: 0;
+      }
+
+      &.plus {
+        position: absolute;
+        right: 1rem;
+        height: 2rem;
+        width: 2rem;
+        font-size: 1rem;
+        opacity: 0;
+        pointer-events: none;
+
+        overflow: hidden;
+        justify-self: end;
+        transition: opacity .2s ease;
+        svg {
+          width: 1rem;
+          height: 1rem;
+          fill: #686a6e;
+        }
+      }
+    }
+    input {
+      position: absolute;
+      right: 4rem;
+      width: 0;
+      transition: width .2s ease, padding-inline .2s ease;
+      background: #dfe0e7;
+      padding-inline: 0;
+      box-sizing: border-box;
+    }
+
+  }
+  .Manage.active {
+    span {
+      width: 0;
+    }
+    button {
+      &.return {
+        width: 2.3rem;
+      }
+      &.plus {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+  }
+  .Manage.add {
+    height: 3.5rem;
+
+    button {
+      &.multi {
+        width: 0;
+      }
+      &.return {
+        opacity: 1;
+      }
+    }
+
+    input {
+      width: 26.5rem;
+      padding-inline: 1rem;
+    }
   }
 }
