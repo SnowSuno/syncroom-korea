@@ -25,6 +25,7 @@
       color: #85858B;
 
       background: #DBDCE2;
+
       &.multi {
         width: 6rem;
         transition: width .2s ease;
@@ -37,9 +38,13 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        &:hover {background: #bebfcb;}
+
+        &:hover {
+          background: #bebfcb;
+        }
 
       }
+
       &.return {
         width: 0;
         height: 2.3rem;
@@ -58,6 +63,7 @@
         overflow: hidden;
         justify-self: end;
         transition: opacity .2s ease;
+
         svg {
           width: 1rem;
           height: 1rem;
@@ -65,6 +71,7 @@
         }
       }
     }
+
     input {
       position: absolute;
       right: 4rem;
@@ -76,20 +83,24 @@
     }
 
   }
+
   .Manage.active {
     span {
       width: 0;
     }
+
     button {
       &.return {
         width: 2.3rem;
       }
+
       &.plus {
         opacity: 1;
         pointer-events: auto;
       }
     }
   }
+
   .Manage.add {
     height: 3.5rem;
 
@@ -97,6 +108,7 @@
       &.multi {
         width: 0;
       }
+
       &.return {
         opacity: 1;
       }

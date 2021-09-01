@@ -1,135 +1,163 @@
 .Header {
+  position: sticky;
+  top: 0;
+  height: 11.4rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+
+  .Title {
     position: sticky;
     top: 0;
-    height: 11.4rem;
-
+    font-size: 1.2rem;
+    box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.15);
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 3;
+    justify-content: space-between;
 
-    .Title {
-        position: sticky;
-        top: 0;
-        font-size: 1.2rem;
-        box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.15);
-        display: flex;
-        justify-content: space-between;
+    width: 100%;
+    transition: height .2s ease-out, background-color .2s ease-out;
 
-        width: 100%;
-        transition: height .2s ease-out, background-color .2s ease-out;
-        button {
-            border-radius: 0;
-        }
-        >div {
-            flex-grow: 1;
-        }
-        .logo-container {
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: visible;
-            min-width: 16rem;
-            transition: width .17s ease-out;
-        }
-        .side-btn {
-            height: 100%;
-            border: 0;
-            padding: 0;
-            font: inherit;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: width .2s ease-out;
-            &.menu {
-                background: #dbdce2;
-                &:hover {background: #d0d1d9;}
-            }
-            &.settings {
-                color: #FFFFFF;
-                background: #49C5B6;
-                &:hover {
-                    background: #46bdaf;
-                }
-            }
-            div {
-                overflow: hidden;
-                white-space: nowrap;
-                transition: width .2s ease-out, opacity .15s ease-out;
-            }
-        }
+    button {
+      border-radius: 0;
     }
-    .Toolbar {
-        position: absolute;
-        width: auto;
 
-        margin: auto;
-        box-sizing: border-box;
-
-        padding-block: 1rem;
-        display: flex;
-
-        gap: 1rem;
-        justify-content: center;
-        transition: left .2s ease-out, right .2s ease-out, top .2s ease-out;
-        button.refresh {
-            height: 2.6rem;
-            width: 2.6rem;
-            flex-shrink: 0;
-            border-radius: 1.3rem;
-            background: #FFFFFF;
-            box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    > div {
+      flex-grow: 1;
     }
+
+    .logo-container {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: visible;
+      min-width: 16rem;
+      transition: width .17s ease-out;
+    }
+
+    .side-btn {
+      height: 100%;
+      border: 0;
+      padding: 0;
+      font: inherit;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: width .2s ease-out;
+
+      &.menu {
+        background: #dbdce2;
+
+        &:hover {
+          background: #d0d1d9;
+        }
+      }
+
+      &.settings {
+        color: #FFFFFF;
+        background: #49C5B6;
+
+        &:hover {
+          background: #46bdaf;
+        }
+      }
+
+      div {
+        overflow: hidden;
+        white-space: nowrap;
+        transition: width .2s ease-out, opacity .15s ease-out;
+      }
+    }
+  }
+
+  .Toolbar {
+    position: absolute;
+    width: auto;
+
+    margin: auto;
+    box-sizing: border-box;
+
+    padding-block: 1rem;
+    display: flex;
+
+    gap: 1rem;
+    justify-content: center;
+    transition: left .2s ease-out, right .2s ease-out, top .2s ease-out;
+
+    button.refresh {
+      height: 2.6rem;
+      width: 2.6rem;
+      flex-shrink: 0;
+      border-radius: 1.3rem;
+      background: #FFFFFF;
+      box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
 }
 
 .big.Header {
-    .Title {
-        height: 5.8rem;
-        background-color: #FFFFFF;
-        .logo-container {
-            width: 100%;
-        }
-        .side-btn {
-            width: 13.6rem;
-            div {
-                width: 5rem;
-                opacity: 1;
-            }
-        }
+  .Title {
+    height: 5.8rem;
+    background-color: #FFFFFF;
+
+    .logo-container {
+      width: 100%;
     }
-    .Toolbar {
-        top: 6.3rem;
-        left: 2rem;
-        right: 2rem;
+
+    .side-btn {
+      width: 13.6rem;
+
+      div {
+        width: 5rem;
+        opacity: 1;
+      }
     }
+  }
+
+  .Toolbar {
+    top: 6.3rem;
+    left: 2rem;
+    right: 2rem;
+  }
 }
 
 .small.Header {
-    .Title {
-        height: 4.6rem;
-        background-color: #F3F4F7;
-        .logo-container {
-            width: 0;
-        }
-        .side-btn {
-            width: 4.6rem;
-            div {
-                width: 0;
-                opacity: 0;
-            }
-        }
+  .Title {
+    height: 4.6rem;
+    background-color: #F3F4F7;
+
+    .logo-container {
+      width: 0;
     }
-    .Toolbar {
-        top: 0;
-        left: calc(max(70%, 50.6rem) - 30rem);
-        right: 6.6rem;
+
+    .side-btn {
+      width: 4.6rem;
+
+      div {
+        width: 0;
+        opacity: 0;
+      }
     }
+  }
+
+  .Toolbar {
+    top: 0;
+    left: calc(max(70%, 50.6rem) - 30rem);
+    right: 6.6rem;
+  }
 }
 
-.Header .rotate {animation: rotate 0.5s ease-in-out infinite;}
-@keyframes rotate { 100% {transform: rotate(360deg);} }
+.Header .rotate {
+  animation: rotate 0.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,111 +1,145 @@
 .share.modal {
+  width: 22rem;
+  gap: 0;
+
+  .title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+
+    svg {
+      margin-top: 0.4rem;
+    }
+
+    span {
+      font-size: 1.3rem;
+      font-weight: 400;
+      width: 20.2rem;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  }
+
+  input[type="text"] {
+    box-sizing: border-box;
     width: 22rem;
-    gap: 0;
-    .title {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 0.5rem;
-        padding-bottom: 0.5rem;
-        svg {
-            margin-top: 0.4rem;
-        }
-        span {
-            font-size: 1.3rem;
-            font-weight: 400;
-            width: 20.2rem;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            white-space: nowrap;
-        }
+    padding-inline: 1rem;
+
+    &::placeholder {
+      color: #AAAAAA
     }
+  }
+
+  .link {
+    display: flex;
+    flex-direction: row;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+
     input[type="text"] {
-        box-sizing: border-box;
-        width: 22rem;
-        padding-inline: 1rem;
-        &::placeholder {color: #AAAAAA}
+      border-radius: 1.15rem 0 0 1.15rem;
     }
-    .link {
-        display: flex;
-        flex-direction: row;
-        font-size: 0.9rem;
-        margin-top: 0.5rem;
-        input[type="text"] {
-            border-radius: 1.15rem 0 0 1.15rem;
-        }
-        button {
-            width: 5rem;
-            border-radius: 0 1.15rem 1.15rem 0;
-            color: #FFFFFF;
-            background: #191919;
-            &:hover {background: #454545;}
-            &:active {background: #363636;}
-            &:disabled {background: #A7A7A7;}
-        }
-    }
-    .copied {
-        display: flex;
-        gap: 0.2rem;
-        margin-left: 0.5rem;
-        margin-top: 0.5rem;
 
-        color: #49C5B6;
-        font-size: 0.8rem;
-        line-height: 0.8rem;
-        height: 1rem;
+    button {
+      width: 5rem;
+      border-radius: 0 1.15rem 1.15rem 0;
+      color: #FFFFFF;
+      background: #191919;
 
-        overflow: hidden;
-        transition: height ease .15s;
-        &.hide {
-            height: 0;
-        }
-    }
-    .checkbox {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 0.3rem;
-        border-color: #9B9DA8;
-        width: fit-content;
-        margin-left: 0.5rem;
-        margin-bottom: 0.5rem;
-        margin-top: 0.5rem;
-        &:hover {
-            border-color: black;
-        }
-        svg {
-            pointer-events: none;
-            fill: none;
-            stroke: #FFFFFF;
-            stroke-width: 0.2rem;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-    }
-    .box {
-        height: 0.8rem;
-        width: 0.8rem;
-        border-width: 0.13rem;
-        border-style: solid;
-        border-color: inherit;
-        border-radius: 0.2rem;
+      &:hover {
+        background: #454545;
+      }
 
-        line-height: 0.8rem;
-        transition: background-color .1s ease-out;
-        &.checked {
-            background: #233D99;
-            border-color: #233D99;
-        }
+      &:active {
+        background: #363636;
+      }
+
+      &:disabled {
+        background: #A7A7A7;
+      }
     }
-    .password {
-        overflow: hidden;
-        position: relative;
-        transition: height ease .3s;
-        input[type="text"] {
-            height: 2.3rem;
-            position: relative;
-        }
-        &.checked {height: 2.3rem;}
-        &.unchecked {height: 0;}
+  }
+
+  .copied {
+    display: flex;
+    gap: 0.2rem;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+
+    color: #49C5B6;
+    font-size: 0.8rem;
+    line-height: 0.8rem;
+    height: 1rem;
+
+    overflow: hidden;
+    transition: height ease .15s;
+
+    &.hide {
+      height: 0;
     }
+  }
+
+  .checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.3rem;
+    border-color: #9B9DA8;
+    width: fit-content;
+    margin-left: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+
+    &:hover {
+      border-color: black;
+    }
+
+    svg {
+      pointer-events: none;
+      fill: none;
+      stroke: #FFFFFF;
+      stroke-width: 0.2rem;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  }
+
+  .box {
+    height: 0.8rem;
+    width: 0.8rem;
+    border-width: 0.13rem;
+    border-style: solid;
+    border-color: inherit;
+    border-radius: 0.2rem;
+
+    line-height: 0.8rem;
+    transition: background-color .1s ease-out;
+
+    &.checked {
+      background: #233D99;
+      border-color: #233D99;
+    }
+  }
+
+  .password {
+    overflow: hidden;
+    position: relative;
+    transition: height ease .3s;
+
+    input[type="text"] {
+      height: 2.3rem;
+      position: relative;
+    }
+
+    &.checked {
+      height: 2.3rem;
+    }
+
+    &.unchecked {
+      height: 0;
+    }
+  }
 }

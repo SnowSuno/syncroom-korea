@@ -1,46 +1,48 @@
 .ModalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+
+  .overlay {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 999;
-    .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.4);
-    }
-    .modal {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translateY(-50%) translateX(-50%);
-        background: #FFFFFF;
-        border-radius: 1rem;
-        padding: 1rem 1.2rem 1.2rem;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);
-    }
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    background: #FFFFFF;
+    border-radius: 1rem;
+    padding: 1rem 1.2rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);
+  }
 }
 
 
 @keyframes fade-in {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fade-out {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

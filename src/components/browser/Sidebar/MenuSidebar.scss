@@ -1,59 +1,74 @@
 .SidebarContainer .menu.sidebar {
-    background: #dbdce2;
-    transition: left .2s cubic-bezier(0.2, 0.5, 0.2, 1);
-    .header-container {
-        display: flex;
-        flex-direction: row;
-        height: 4.8rem;
-        align-items: center;
-        padding-inline: 1rem;
-        padding-top: 0.5rem;
-        > svg {
-            width: 17rem;
-        }
-        > button {
-            height: 3rem;
-            width: 3rem;
-            border-radius: 0.8rem;
-            background: #dbdce2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            &:hover {background: #c3c5cd;}
-            &:active {background: #b7b9c2;}
-            > svg {
-                width: 2rem;
-                height: 2rem;
-            }
-        }
+  background: #dbdce2;
+  transition: left .2s cubic-bezier(0.2, 0.5, 0.2, 1);
+
+  .header-container {
+    display: flex;
+    flex-direction: row;
+    height: 4.8rem;
+    align-items: center;
+    padding-inline: 1rem;
+    padding-top: 0.5rem;
+
+    > svg {
+      width: 17rem;
     }
-    .button-container {
-        display: flex;
-        flex-direction: row;
-        gap: 1rem;
-        padding-inline: 1.5rem;
-        button {
-            flex-grow: 1;
-            &:first-child {
-                background: #49C5B6;
-                color: #FFFFFF;
-                &:hover {
-                    background: #46bdaf;
-                }
-            }
-            &:last-child {
-                &:hover {
-                    background: #ececf1;
-                }
-            }
-        }
+
+    > button {
+      height: 3rem;
+      width: 3rem;
+      border-radius: 0.8rem;
+      background: #dbdce2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:hover {
+        background: #c3c5cd;
+      }
+
+      &:active {
+        background: #b7b9c2;
+      }
+
+      > svg {
+        width: 2rem;
+        height: 2rem;
+      }
     }
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding-inline: 1.5rem;
+
+    button {
+      flex-grow: 1;
+
+      &:first-child {
+        background: #49C5B6;
+        color: #FFFFFF;
+
+        &:hover {
+          background: #46bdaf;
+        }
+      }
+
+      &:last-child {
+        &:hover {
+          background: #ececf1;
+        }
+      }
+    }
+  }
 }
 
 .open .menu.sidebar {
-    left: 0;
+  left: 0;
 }
 
 .closed .menu.sidebar {
-    left: -35rem
+  left: -35rem
 }
