@@ -1,9 +1,11 @@
 import React, {useMemo} from "react";
+import "./style.scss";
 
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../../modules";
 import {addUser, deleteUser} from "../../../modules/user";
 
+import Manage from "./Manage";
 import OnlineUser from "./OnlineUser";
 import OfflineUser from "./OfflineUser";
 
@@ -14,25 +16,25 @@ function UserList() {
     const {userList} = useSelector((state: RootState) => state.user);
     const {users} = useSelector((state: RootState) => state.syncroom);
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
 
-    const {input, setValue} = useInput('');
+    // const {input, setValue} = useInput('');
 
-    const add = () => {
-        dispatch(addUser(input.value.trim()));
-        setValue("");
-    };
+    // const add = () => {
+    //     dispatch(addUser(input.value.trim()));
+    //     setValue("");
+    // };
 
     const {onlineUsers, offlineUsers} = useMemo(
         () => handleUsers(userList, users),
         [userList, users]);
 
     return (
-        <div>
-            <input type="text" {...input}/>
-            <button onClick={add}>추가</button>
-
+        <div className="UserList">
+            {/*<input type="text" {...input}/>*/}
+            {/*<button onClick={add}>추가</button>*/}
+            <Manage />
             <div>온라인 - {onlineUsers.length}</div>
             <div>
                 {onlineUsers.map((userName) => (
