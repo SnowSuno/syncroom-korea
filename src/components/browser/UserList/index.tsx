@@ -35,22 +35,6 @@ function UserList() {
             {add: isAdd}
         )}>
             <Manage {...{isActive, handleActive, isAdd, handleAdd}}/>
-            {/*<div className="users">*/}
-            {/*    <div className="status-tag">온라인 ― {onlineUsers.length}</div>*/}
-            {/*    <div>*/}
-            {/*        {onlineUsers.map((userName) => (*/}
-            {/*            <OnlineUser userName={userName} roomId={users[userName]}/>*/}
-            {/*        ))}*/}
-            {/*    </div>*/}
-
-            {/*    <div className="status-tag">오프라인 ― {offlineUsers.length}</div>*/}
-            {/*    <div>*/}
-            {/*        {offlineUsers.map((userName) => (*/}
-            {/*            <OfflineUser userName={userName}/>*/}
-            {/*        ))}*/}
-            {/*    </div>*/}
-            {/*    <div className="padding" />*/}
-            {/*</div>*/}
 
             <SimpleBar className="users">
                 <div className="status-tag">온라인 ― {onlineUsers.length}</div>
