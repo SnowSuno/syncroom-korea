@@ -54,7 +54,10 @@ interface handleUserReturn {
     offlineUsers: string[];
 }
 
-const handleUsers = (userList: string[], users: {[name: string]: number}): handleUserReturn => {
+const handleUsers = (
+    userList: string[],
+    users: {[name: string]: number}
+): handleUserReturn => {
     const onlineUsers: string[] = [];
     const offlineUsers: string[] = [];
 
