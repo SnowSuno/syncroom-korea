@@ -2,6 +2,9 @@ import React, {useMemo, useState} from "react";
 import classNames from "classnames";
 import "./style.scss";
 
+import SimpleBar from "simplebar-react";
+import "simplebar/dist/simplebar.min.css";
+
 import {useSelector} from "react-redux";
 import {RootState} from "../../../modules";
 
@@ -32,7 +35,24 @@ function UserList() {
             {add: isAdd}
         )}>
             <Manage {...{isActive, handleActive, isAdd, handleAdd}}/>
-            <div className="users">
+            {/*<div className="users">*/}
+            {/*    <div className="status-tag">온라인 ― {onlineUsers.length}</div>*/}
+            {/*    <div>*/}
+            {/*        {onlineUsers.map((userName) => (*/}
+            {/*            <OnlineUser userName={userName} roomId={users[userName]}/>*/}
+            {/*        ))}*/}
+            {/*    </div>*/}
+
+            {/*    <div className="status-tag">오프라인 ― {offlineUsers.length}</div>*/}
+            {/*    <div>*/}
+            {/*        {offlineUsers.map((userName) => (*/}
+            {/*            <OfflineUser userName={userName}/>*/}
+            {/*        ))}*/}
+            {/*    </div>*/}
+            {/*    <div className="padding" />*/}
+            {/*</div>*/}
+
+            <SimpleBar className="users">
                 <div className="status-tag">온라인 ― {onlineUsers.length}</div>
                 <div>
                     {onlineUsers.map((userName) => (
@@ -47,7 +67,7 @@ function UserList() {
                     ))}
                 </div>
                 <div className="padding" />
-            </div>
+            </SimpleBar>
         </div>
     );
 }

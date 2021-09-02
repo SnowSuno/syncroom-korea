@@ -84,11 +84,8 @@
     }
   }
   .users {
-    overflow-y: scroll;
     overscroll-behavior: contain;
-    flex-grow: 1;
     height: calc(100vh - 12rem);
-
 
     .status-tag {
       padding: 1rem 1.5rem 0.5rem;
@@ -126,9 +123,14 @@
       }
     }
     .padding {
-        height: 2rem;
-      }
+      height: 2rem;
+    }
+    .simplebar-scrollbar:before {
+      background: #9D9EA4;
+    }
   }
+
+
 
 
   &.active {
