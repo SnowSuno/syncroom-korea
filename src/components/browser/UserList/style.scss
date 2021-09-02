@@ -150,6 +150,13 @@
         }
       }
     }
+
+    .User {
+      background: #E5E6EA;
+      &:hover {
+        background: #dee1e7;
+      }
+    }
   }
 
   &.add {
