@@ -1,4 +1,4 @@
-import React, {useCallback} from "react";
+import React, {useCallback, useRef} from "react";
 
 import {useDispatch} from "react-redux";
 import useInput from "../../../common/hooks/useInput";
@@ -16,21 +16,27 @@ interface ManageProps {
 
 function Manage({isActive, handleActive, isAdd, handleAdd}: ManageProps) {
     const dispatch = useDispatch();
-
+    const inputRef = useRef<HTMLInputElement>(null);
 
     const {input, setValue} = useInput('');
 
     const onClickPlus = useCallback(() => {
-        if (input.value || !isAdd) {
-            if (isAdd) {
+        if (isAdd) {
+            if (input.value) {
                 dispatch(addUser(input.value.trim()));
-                console.log(input.value);
                 setValue("");
+                handleAdd(false)
             }
-            handleAdd(!isAdd);
+        } else {
+            handleAdd(true);
+            inputRef.current?.focus();
         }
 
     }, [isAdd, handleAdd, dispatch, input.value, setValue]);
+
+    const onKeyPress = useCallback((e) => {
+        if (e.key === 'Enter') onClickPlus()
+    }, [onClickPlus]);
 
     return (
         <div className="Manage">
@@ -48,6 +54,7 @@ function Manage({isActive, handleActive, isAdd, handleAdd}: ManageProps) {
 
             <button
                 className="background return"
+                onClick={() => handleAdd(false)}
             >
                 <Return />
             </button>
@@ -55,6 +62,8 @@ function Manage({isActive, handleActive, isAdd, handleAdd}: ManageProps) {
             <input 
                 type="text"
                 placeholder="닉네임을 입력하세요"
+                onKeyPress={onKeyPress}
+                ref={inputRef}
                 {...input}
             />
             
