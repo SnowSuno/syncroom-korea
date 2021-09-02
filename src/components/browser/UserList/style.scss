@@ -59,10 +59,11 @@
         font-size: 1rem;
         opacity: 0;
         pointer-events: none;
+        margin-right: 0.15rem;
 
         overflow: hidden;
         justify-self: end;
-        transition: opacity .2s ease;
+        transition: opacity .2s ease,  background .2s ease, width .2s ease, height .2s ease, margin-right .2s ease;
 
         svg {
           width: 1rem;
@@ -107,6 +108,13 @@
     button {
       &.multi {
         width: 0;
+      }
+
+      &.plus {
+        width: 2.3rem;
+        height: 2.3rem;
+        background: #dfe0e7;
+        margin-right: 0;
       }
 
       &.return {

@@ -13,7 +13,7 @@ function Manage() {
     const onClickPlus = useCallback(() => {
         // if (addFriendOpen) {}
         setAddFriendOpen(!addFriendOpen);
-        console.log("qwer");
+
     }, [addFriendOpen, setAddFriendOpen]);
 
     return (
