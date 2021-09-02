@@ -12,7 +12,7 @@ function OfflineUser({userName}: OfflineUserProps) {
 
     return (
         <div>
-            {userName}
+            - {userName}
         </div>
     );
 }

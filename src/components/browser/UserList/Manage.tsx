@@ -1,20 +1,35 @@
 import React, {useCallback, useMemo, useState} from "react";
 import classNames from "classnames";
 
+import {useDispatch} from "react-redux";
+import useInput from "../../../common/hooks/useInput";
+import {addUser} from "../../../modules/user";
 
 import {ReactComponent as Plus} from "../../../resource/img/icon/plus.svg";
 import {ReactComponent as Return} from "../../../resource/img/icon/return.svg";
+
 
 function Manage() {
     const [isActive, setActive] = useState<boolean>(false);
     const [addFriendOpen, setAddFriendOpen] = useState<boolean>(false);
     const stateClass = isActive ? (addFriendOpen ? "add" : "active") : ""
 
-    const onClickPlus = useCallback(() => {
-        // if (addFriendOpen) {}
-        setAddFriendOpen(!addFriendOpen);
+    const dispatch = useDispatch();
 
-    }, [addFriendOpen, setAddFriendOpen]);
+
+    const {input, setValue} = useInput('');
+
+    const onClickPlus = useCallback(() => {
+        if (input.value || !addFriendOpen) {
+            if (addFriendOpen) {
+                dispatch(addUser(input.value.trim()));
+                console.log(input.value);
+                setValue("");
+            }
+            setAddFriendOpen(!addFriendOpen);
+        }
+
+    }, [addFriendOpen, setAddFriendOpen, dispatch, input.value]);
 
     return (
         <div className={classNames(
@@ -43,6 +58,7 @@ function Manage() {
             <input 
                 type="text"
                 placeholder="닉네임을 입력하세요"
+                {...input}
             />
             
             <button

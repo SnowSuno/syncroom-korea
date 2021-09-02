@@ -15,12 +15,12 @@ function OnlineUser({userName, roomId}: OnlineUserProps) {
     const findUserRoom = useCallback(() => {
         dispatch(closeSidebar());
         moveTo(roomId);
-    }, [roomId])
+    }, [roomId, dispatch])
 
 
     return (
         <div>
-            {userName} - {roomId}
+            - {userName} - {roomId}
             <button onClick={findUserRoom}>go</button>
         </div>
     );

@@ -16,15 +16,7 @@ function UserList() {
     const {userList} = useSelector((state: RootState) => state.user);
     const {users} = useSelector((state: RootState) => state.syncroom);
 
-    // const dispatch = useDispatch();
 
-
-    // const {input, setValue} = useInput('');
-
-    // const add = () => {
-    //     dispatch(addUser(input.value.trim()));
-    //     setValue("");
-    // };
 
     const {onlineUsers, offlineUsers} = useMemo(
         () => handleUsers(userList, users),
