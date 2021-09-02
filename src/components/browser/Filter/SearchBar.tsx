@@ -43,6 +43,7 @@ function SearchBar({activeClass, handleActiveClass}: SearchBarProps) {
                 onChange={onChange}
                 onFocus={() => handleActiveClass(FilterClass.search)}
                 onBlur={() => handleActiveClass(null)}
+                onKeyPress={e => {if (e.key === "Enter") inputField.current?.blur()}}
                 ref={inputField}
             />
             <Search />
