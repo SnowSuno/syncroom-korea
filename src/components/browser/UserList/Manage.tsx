@@ -21,10 +21,10 @@ function Manage({isActive, handleActive, isAdd, handleAdd}: ManageProps) {
     const {input, setValue} = useInput('');
 
     const onClickPlus = useCallback(() => {
+        setValue("");
         if (isAdd) {
             if (input.value) {
                 dispatch(addUser(input.value.trim()));
-                setValue("");
                 handleAdd(false)
             }
         } else {

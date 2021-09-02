@@ -19,8 +19,11 @@ function OnlineUser({userName, roomId}: OnlineUserProps) {
 
 
     return (
-        <div>
-            - {userName} - {roomId}
+        <div className="Online User">
+            <svg viewBox="0 0 2 2">
+                <circle cx="1" cy="1" r="1"/>
+            </svg>
+            {userName}
             <button onClick={findUserRoom}>go</button>
         </div>
     );

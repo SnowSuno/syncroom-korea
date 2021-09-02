@@ -1,5 +1,5 @@
 .UserList {
-  margin-block: 0.5rem;
+  margin-top: 0.5rem;
 
 
   .Manage {
@@ -82,8 +82,54 @@
       padding-inline: 0;
       box-sizing: border-box;
     }
-
   }
+  .users {
+    overflow-y: scroll;
+    overscroll-behavior: contain;
+    flex-grow: 1;
+    height: calc(100vh - 12rem);
+
+
+    .status-tag {
+      padding: 1rem 1.5rem 0.5rem;
+    }
+
+    .User {
+      height: 3.5rem;
+      padding-inline: 1.5rem;
+      font-size: 1.2rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
+      &:hover {
+        background: #CECFD8;
+      }
+
+      svg {
+        height: 0.63rem;
+        width: 0.63rem;
+        margin-inline: 0.5rem;
+      }
+
+      &.Online {
+        svg {
+          fill: #50be73;
+        }
+      }
+
+      &.Offline {
+        color: #A7A7A7;
+        svg {
+          fill: #BFBFBF;
+        }
+      }
+    }
+    .padding {
+        height: 2rem;
+      }
+  }
+
 
   &.active {
     .Manage {
