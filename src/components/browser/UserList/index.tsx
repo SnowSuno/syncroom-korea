@@ -1,21 +1,24 @@
-import React, {useMemo} from "react";
+import React, {useMemo, useState} from "react";
+import classNames from "classnames";
 import "./style.scss";
 
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {RootState} from "../../../modules";
-import {addUser, deleteUser} from "../../../modules/user";
 
 import Manage from "./Manage";
 import OnlineUser from "./OnlineUser";
 import OfflineUser from "./OfflineUser";
 
 
-import useInput from "../../../common/hooks/useInput";
-
 function UserList() {
     const {userList} = useSelector((state: RootState) => state.user);
     const {users} = useSelector((state: RootState) => state.syncroom);
 
+    const [isActive, setActive] = useState<boolean>(false);
+    const [isAdd, setAdd] = useState<boolean>(false);
+
+    const handleActive = (state: boolean) => setActive(state);
+    const handleAdd = (state: boolean) => setAdd(state);
 
 
     const {onlineUsers, offlineUsers} = useMemo(
@@ -23,10 +26,12 @@ function UserList() {
         [userList, users]);
 
     return (
-        <div className="UserList">
-            {/*<input type="text" {...input}/>*/}
-            {/*<button onClick={add}>추가</button>*/}
-            <Manage />
+        <div className={classNames(
+            "UserList",
+            {active: isActive},
+            {add: isAdd}
+        )}>
+            <Manage {...{isActive, handleActive, isAdd, handleAdd}}/>
             <div>온라인 - {onlineUsers.length}</div>
             <div>
                 {onlineUsers.map((userName) => (

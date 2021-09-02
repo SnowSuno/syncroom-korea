@@ -85,46 +85,51 @@
 
   }
 
-  .Manage.active {
-    span {
-      width: 0;
-    }
-
-    button {
-      &.return {
-        width: 2.3rem;
-      }
-
-      &.plus {
-        opacity: 1;
-        pointer-events: auto;
-      }
-    }
-  }
-
-  .Manage.add {
-    height: 3.5rem;
-
-    button {
-      &.multi {
+  &.active {
+    .Manage {
+      span {
         width: 0;
       }
 
-      &.plus {
-        width: 2.3rem;
-        height: 2.3rem;
-        background: #dfe0e7;
-        margin-right: 0;
-      }
+      button {
+        &.return {
+          width: 2.3rem;
+        }
 
-      &.return {
-        opacity: 1;
+        &.plus {
+          opacity: 1;
+          pointer-events: auto;
+        }
       }
-    }
-
-    input {
-      width: 26.8rem;
-      padding-inline: 1rem;
     }
   }
+
+  &.add {
+    .Manage {
+      height: 3.5rem;
+
+      button {
+        &.multi {
+          width: 0;
+        }
+
+        &.plus {
+          width: 2.3rem;
+          height: 2.3rem;
+          background: #dfe0e7;
+          margin-right: 0;
+        }
+
+        &.return {
+          opacity: 1;
+        }
+      }
+
+      input {
+        width: 26.8rem;
+        padding-inline: 1rem;
+      }
+    }
+  }
+
 }
