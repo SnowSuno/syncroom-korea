@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useCallback} from "react";
 import "./PasswordModal.scss";
 
 import {useDispatch, useSelector} from "react-redux";
@@ -13,7 +13,15 @@ function PasswordModal() {
     const {roomName, temp} = useSelector((state: RootState) => state.modal);
     const dispatch = useDispatch();
     const {input: password} = useInput('');
-    const close = () => dispatch(closeModal());
+
+    const onClick = useCallback(() => {
+        joinRoom(roomName, password.value, temp);
+        dispatch(closeModal());
+    }, [dispatch, password.value, roomName, temp]);
+
+    const onKeyPress = useCallback((e) => {
+        if (e.key === 'Enter') onClick()
+    }, [onClick]);
 
     return (
         <div className="password modal">
@@ -24,19 +32,17 @@ function PasswordModal() {
             <input
                 type="text"
                 placeholder="비밀번호를 입력하세요"
+                onKeyPress={onKeyPress}
                 {...password}
             />
             <div className="buttons">
-                <button className="abort" onClick={close}>
+                <button className="abort" onClick={() => dispatch(closeModal())}>
                     <span>취소</span>
                 </button>
                 <button
                     className="join"
                     disabled={password.value.length === 0}
-                    onClick={() => {
-                        joinRoom(roomName, password.value, temp);
-                        close();
-                    }}
+                    onClick={onClick}
                 >
                     <span>{temp ? '임시 참여' : '참여하기'}</span>
                 </button>
