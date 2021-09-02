@@ -76,6 +76,9 @@ function JoinInfo({search}: JoinInfoProps) {
                             type="text"
                             placeholder="비밀번호를 입력하세요"
                             {...inputPassword}
+                            onKeyPress={(e) => {
+                                if (e.key === 'Enter') joinRoom(roomName, inputPassword.value, false)
+                            }}
                         />
                         <button
                             className="password"
