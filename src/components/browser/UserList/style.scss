@@ -102,7 +102,7 @@
       align-items: center;
       gap: 0.5rem;
       overflow: hidden;
-      transition: background-color .2s ease;
+      transition: background-color .1s ease-out;
 
       svg.indicator {
         height: 0.63rem;
