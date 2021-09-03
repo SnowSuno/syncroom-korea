@@ -3,7 +3,7 @@ import React from "react";
 import {TransitionGroup, CSSTransition} from "react-transition-group";
 
 import {MemberType} from "../../../common/classes/Member";
-import MemberProfile from "./Member";
+import Member from "./Member";
 
 interface MemberListProps {
     members: MemberType[]
@@ -23,7 +23,7 @@ function MemberList({members}: MemberListProps) {
                             : member.nickname + member.icon;
                         return (
                             <CSSTransition key={key} timeout={200} classNames="wrap">
-                                <MemberProfile member={member}/>
+                                <Member member={member}/>
                             </CSSTransition>
                         )
                     })}
