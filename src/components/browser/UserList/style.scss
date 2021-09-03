@@ -89,6 +89,8 @@
 
     .status-tag {
       padding: 1rem 1.5rem 0.5rem;
+      overflow: hidden;
+      transition: height .2s ease, padding-top .2s ease, padding-bottom .2s ease;
     }
 
     .User {
@@ -99,6 +101,9 @@
       flex-direction: row;
       align-items: center;
       gap: 0.5rem;
+
+      animation: enter .2s ease-out;
+
       &:hover {
         background: #CECFD8;
       }
@@ -150,13 +155,19 @@
         }
       }
     }
-
-    .User {
-      background: #E5E6EA;
-      &:hover {
-        background: #dee1e7;
+    .users {
+      .status-tag {
+        height: 0;
+        padding-block: 0;
+      }
+      .User {
+        background: #E5E6EA;
+        &:hover {
+          background: #dee1e7;
+        }
       }
     }
+
   }
 
   &.add {
@@ -187,4 +198,13 @@
     }
   }
 
+}
+
+@keyframes enter {
+  from {
+    height: 0;
+  }
+  to {
+    height: 3.5rem;
+  }
 }
