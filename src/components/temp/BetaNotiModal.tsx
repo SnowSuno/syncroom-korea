@@ -4,7 +4,7 @@
 import React, {useState} from "react";
 import "./BetaNotiModal.css";
 
-const TEST_VERSION = document.URL === "https://syncroomkr.github.io"
+const TEST_VERSION = document.URL === "https://syncroomkr.github.io/"
     ? "ALPHA"
     : "BETA";
 
