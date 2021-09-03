@@ -5,6 +5,7 @@ import {closeSidebar} from "../../../modules/sidebar";
 import {deleteUser} from "../../../modules/user";
 
 import {ReactComponent as Delete} from "../../../resource/img/icon/x.svg";
+import {ReactComponent as Arrow} from "../../../resource/img/icon/right-arrow.svg";
 
 interface OnlineUserProps {
     userName: string;
@@ -41,6 +42,7 @@ function OnlineUser({userName, roomId, isActive}: OnlineUserProps) {
             >
                 <Delete />
             </button>
+            <Arrow className="arrow"/>
         </div>
     );
 }
