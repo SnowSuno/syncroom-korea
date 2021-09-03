@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import classNames from "classnames";
 import "./style.scss";
 
@@ -9,6 +9,7 @@ import "simplebar/dist/simplebar.min.css";
 
 import {useSelector} from "react-redux";
 import {RootState} from "../../../modules";
+import {SidebarClass} from "../../../modules/sidebar/sidebarClass";
 
 import Manage from "./Manage";
 import OnlineUser from "./OnlineUser";
@@ -17,10 +18,18 @@ import OfflineUser from "./OfflineUser";
 
 function UserList() {
     const {userList} = useSelector((state: RootState) => state.user);
-    const {users} = useSelector((state: RootState) => state.syncroom);
+    const {users} = useSelector((state: RootState) => state.syncroom)
+    const {sidebarClass} = useSelector((state: RootState) => state.sidebar)
 
     const [isActive, setActive] = useState<boolean>(false);
     const [isAdd, setAdd] = useState<boolean>(false);
+
+    useEffect(() => {
+        if (sidebarClass !== SidebarClass.MENU) {
+            setActive(false);
+            setAdd(false);
+        }
+    }, [sidebarClass])
 
     const handleActive = (state: boolean) => setActive(state);
     const handleAdd = (state: boolean) => setAdd(state);
