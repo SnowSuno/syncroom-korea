@@ -77,4 +77,4 @@ const handleUsers = (
     return {onlineUsers, offlineUsers};
 }
 
-export default UserList;
+export default React.memo(UserList);
