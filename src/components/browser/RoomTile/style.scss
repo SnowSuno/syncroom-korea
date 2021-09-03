@@ -76,6 +76,8 @@ $private-color-full: #A7A7A7;
     padding-inline: 1.3rem;
 
     .Member {
+      position: relative;
+      overflow: hidden;
       display: flex;
       flex-direction: row;
       height: 3.08rem;
@@ -94,6 +96,25 @@ $private-color-full: #A7A7A7;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
+      }
+    }
+
+    .wrap {
+      &-enter{
+        height: 0;
+
+        &-active {
+          height: 3.08rem;
+          transition: height .2s ease;
+        }
+      }
+      &-exit {
+        height: 3.08rem;
+
+        &-active {
+          height: 0;
+          transition: height .2s ease;
+        }
       }
     }
   }
