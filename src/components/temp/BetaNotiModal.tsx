@@ -21,15 +21,15 @@ function BetaNotiModal() {
                         <div style={{fontSize: "1.1rem", fontWeight: 500}}>미구현 기능 / 발견된 버그</div>
                         <ul>
                             <li>알림 기능은 아직 구현되지 않음</li>
-                            <li>메뉴, 설정 사이드바에 기능들이 추가되지 않음</li>
+                            <li>설정 사이드바에 기능들이 추가되지 않음</li>
                             <li>IOS Safari 14.0 이하의 버전에서 레아아웃 깨짐 발생</li>
                         </ul>
 
                     </div>
                     <div className="issues">
-                        <div style={{fontSize: "1.1rem", fontWeight: 500}}>업데이트 사항 (2021.08.30)</div>
+                        <div style={{fontSize: "1.1rem", fontWeight: 500}}>업데이트 사항 (2021.09.04)</div>
                         <ul>
-                            <li>검색 시 대소문자 무시</li>
+                            <li>"즐겨찾기 멤버" 기능 업데이트!</li>
                         </ul>
 
                     </div>
