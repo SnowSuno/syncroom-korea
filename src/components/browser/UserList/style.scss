@@ -95,7 +95,8 @@
 
     .User {
       height: 3.5rem;
-      padding-inline: 1.5rem;
+      padding-left: 1.5rem;
+      padding-right: 1.15rem;
       font-size: 1.2rem;
       display: flex;
       flex-direction: row;
@@ -110,6 +111,28 @@
         margin-inline: 0.5rem;
         opacity: 1;
         transition: opacity .2s ease;
+      }
+
+      span {
+        flex-grow: 1;
+      }
+
+      button.delete {
+        height: 2rem;
+        width: 2rem;
+        border-radius: 1rem;
+        background: none;
+        cursor: default;
+        opacity: 0;
+        transition: opacity .1s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg {
+          height: 0.85rem;
+          width: 0.85rem;
+        }
       }
 
       &.Online {
@@ -179,6 +202,7 @@
         padding-block: 0;
       }
       .User {
+        color: #8c8c8c;
         background: #E5E6EA;
         &:hover {
           background: #E5E6EA;
@@ -186,6 +210,15 @@
 
         svg.indicator {
           opacity: 0;
+        }
+
+        button.delete {
+          opacity: 1;
+          cursor: pointer;
+
+          &:hover {
+            background: #DBDCE2;
+          }
         }
       }
     }
