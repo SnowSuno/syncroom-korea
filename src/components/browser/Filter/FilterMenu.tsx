@@ -28,8 +28,9 @@ function FilterMenu({filterClass, menuItems, activeClass, handleActiveClass}: Fi
             "FilterMenu",
             {selected: current !== null}
         )}>
-            {menuItems.map(({filter, icon}) => (
+            {menuItems.map(({filter, icon}, index) => (
                 <FilterButton
+                    key={index}
                     filter={filter}
                     current={current}
                     filterClass={filterClass}
