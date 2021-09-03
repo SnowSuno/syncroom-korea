@@ -18,7 +18,7 @@ function MemberList({members}: MemberListProps) {
             <div className="MemberContainer">
                 <TransitionGroup>
                     {members.map((member, index) => {
-                        const key = (member.icon === "-1")
+                        const key = (member.type === "private")
                             ? index
                             : member.nickname + member.icon;
                         return (

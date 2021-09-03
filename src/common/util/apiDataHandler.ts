@@ -1,7 +1,7 @@
 import {RoomData} from "../api/syncroom";
 import RoomType from "../classes/Room";
 import {Country, CountryType, Inst, InstType, Status, StatusType} from "../classes/properties";
-import {MemberType, PrivateMember} from "../classes/Member";
+import {MemberType, MemberTypeType, PrivateMember} from "../classes/Member";
 
 
 const korean: RegExp = /[ㄱ-ㅎㅏ-ㅣ가-힣]/;
@@ -59,13 +59,17 @@ const apiDataHandler = (roomsData: RoomData[]): returnType => {
                 try {
                     const member = roomData.members[i];
                     if (member) users[member.trim()] = id;
-                    const nickname: string = member ? member.trim() : "임시 참여 중";
+
+                    const [type, nickname]: [MemberTypeType, string] = member
+                        ? ["general", member.trim()]
+                        : ["temp", "임시 참여 중"];
+
                     const {icon: iconkey, iconurl} = roomData.iconlist[i];
                     const icon: string = iconurl || iconkey;
                     const inst: InstType = iconurl
                         ? Inst.OTHER
                         : instMap[iconkey];
-                    return {nickname, icon, inst};
+                    return {type, nickname, icon, inst};
                 } catch (e) {
                     return PrivateMember;
                 }

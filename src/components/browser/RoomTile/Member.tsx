@@ -14,7 +14,7 @@ interface MemberProps {
     member: MemberType;
 }
 
-function Member({member: {icon, nickname}}: MemberProps) {
+function Member({member: {type, icon, nickname}}: MemberProps) {
     const userList = useSelector((state: RootState) => state.user.userList);
     const dispatch = useDispatch();
 
@@ -33,13 +33,14 @@ function Member({member: {icon, nickname}}: MemberProps) {
         <div className="Member">
             <div className="icon"><Profile icon={icon}/></div>
             <div className="nickname">{nickname}</div>
-            <Star
+            {type === "general" ? <Star
                 className={classNames(
                     "star",
                     {starred: starred}
                 )}
                 onClick={onClick}
-            />
+            /> : null
+            }
         </div>
     );
 }
