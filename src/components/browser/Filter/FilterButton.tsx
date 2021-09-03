@@ -1,7 +1,6 @@
 import React, {useCallback} from "react";
 
-import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../../../modules";
+import {useDispatch} from "react-redux";
 import {setFilter} from "../../../modules/filter";
 
 import {FilterClassType} from "../../../modules/filter/types";
