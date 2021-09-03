@@ -34,4 +34,4 @@ function OfflineUser({userName, isActive}: OfflineUserProps) {
     );
 }
 
-export default OfflineUser;
+export default React.memo(OfflineUser);

@@ -59,4 +59,4 @@ const moveTo = (roomId: number) => {
     }
 }
 
-export default OnlineUser;
+export default React.memo(OnlineUser);
