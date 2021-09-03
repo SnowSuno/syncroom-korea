@@ -136,6 +136,7 @@
       }
 
       &.Online {
+        cursor: pointer;
         svg.indicator {
           fill: #50be73;
         }
@@ -159,6 +160,7 @@
 
       &.Offline {
         color: #A7A7A7;
+        cursor: default;
         svg.indicator {
           fill: #BFBFBF;
         }
@@ -231,6 +233,14 @@
 
           &:hover {
             background: #DBDCE2;
+          }
+        }
+
+        &.Online {
+          cursor: default;
+          svg.arrow {
+            opacity: 0;
+            pointer-events: none;
           }
         }
       }
