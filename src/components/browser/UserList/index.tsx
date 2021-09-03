@@ -46,7 +46,11 @@ function UserList() {
                 <TransitionGroup component="div">
                     {onlineUsers.map((userName) => (
                         <CSSTransition key={userName} timeout={200} classNames="wrap">
-                            <OnlineUser userName={userName} roomId={users[userName]}/>
+                            <OnlineUser
+                                userName={userName}
+                                roomId={users[userName]}
+                                isActive={isActive}
+                            />
                         </CSSTransition>
                     ))}
                 </TransitionGroup>
@@ -58,7 +62,10 @@ function UserList() {
                 <TransitionGroup component="div">
                     {offlineUsers.map((userName) => (
                         <CSSTransition key={userName} timeout={200} classNames="wrap">
-                            <OfflineUser userName={userName}/>
+                            <OfflineUser
+                                userName={userName}
+                                isActive={isActive}
+                            />
                         </CSSTransition>
                     ))}
                 </TransitionGroup>

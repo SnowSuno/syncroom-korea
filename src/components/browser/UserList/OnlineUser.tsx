@@ -6,25 +6,27 @@ import {closeSidebar} from "../../../modules/sidebar";
 interface OnlineUserProps {
     userName: string;
     roomId: number;
+    isActive: boolean;
 }
 
 
-function OnlineUser({userName, roomId}: OnlineUserProps) {
+function OnlineUser({userName, roomId, isActive}: OnlineUserProps) {
     const dispatch = useDispatch();
 
     const findUserRoom = useCallback(() => {
-        dispatch(closeSidebar());
-        moveTo(roomId);
-    }, [roomId, dispatch])
+        if (!isActive) {
+            dispatch(closeSidebar());
+            moveTo(roomId);
+        }
+    }, [roomId, dispatch, isActive]);
 
 
     return (
-        <div className="Online User">
+        <div className="Online User" onClick={findUserRoom}>
             <svg viewBox="0 0 2 2">
                 <circle cx="1" cy="1" r="1"/>
             </svg>
             {userName}
-            <button onClick={findUserRoom}>go</button>
         </div>
     );
 }

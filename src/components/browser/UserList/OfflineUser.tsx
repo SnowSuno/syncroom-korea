@@ -1,13 +1,11 @@
 import React from "react";
 
-
-
 interface OfflineUserProps {
     userName: string;
+    isActive: boolean;
 }
 
-
-function OfflineUser({userName}: OfflineUserProps) {
+function OfflineUser({userName, isActive}: OfflineUserProps) {
 
 
     return (
