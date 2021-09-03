@@ -102,7 +102,8 @@
       align-items: center;
       gap: 0.5rem;
 
-      animation: enter .2s ease-out;
+      //animation: enter .2s ease-out;
+
 
       &:hover {
         background: #CECFD8;
@@ -132,6 +133,23 @@
     }
     .simplebar-scrollbar:before {
       background: #9D9EA4;
+    }
+
+    .wrap {
+      &-enter{
+        height: 0;
+        &-active {
+          height: 3.5rem;
+          transition: height .2s ease;
+        }
+      }
+      &-exit {
+        height: 3.5rem;
+        &-active {
+          height: 0;
+          transition: height .2s ease;
+        }
+      }
     }
   }
 

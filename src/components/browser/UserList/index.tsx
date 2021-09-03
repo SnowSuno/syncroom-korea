@@ -2,6 +2,8 @@ import React, {useMemo, useState} from "react";
 import classNames from "classnames";
 import "./style.scss";
 
+import {TransitionGroup, CSSTransition} from "react-transition-group";
+
 import SimpleBar from "simplebar-react";
 import "simplebar/dist/simplebar.min.css";
 
@@ -40,15 +42,27 @@ function UserList() {
                 <div className="status-tag">
                     온라인 ― {onlineUsers.length}
                 </div>
-                {onlineUsers.map((userName) => (
-                    <OnlineUser userName={userName} roomId={users[userName]}/>
-                ))}
+
+                <TransitionGroup component="div">
+                    {onlineUsers.map((userName) => (
+                        <CSSTransition key={userName} timeout={200} classNames="wrap">
+                            <OnlineUser userName={userName} roomId={users[userName]}/>
+                        </CSSTransition>
+                    ))}
+                </TransitionGroup>
+
                 <div className="status-tag">
                     오프라인 ― {offlineUsers.length}
                 </div>
-                {offlineUsers.map((userName) => (
-                    <OfflineUser userName={userName} key={userName}/>
-                ))}
+
+                <TransitionGroup component="div">
+                    {offlineUsers.map((userName) => (
+                        <CSSTransition key={userName} timeout={200} classNames="wrap">
+                            <OfflineUser userName={userName}/>
+                        </CSSTransition>
+                    ))}
+                </TransitionGroup>
+
                 <div className="padding" />
             </SimpleBar>
         </div>
