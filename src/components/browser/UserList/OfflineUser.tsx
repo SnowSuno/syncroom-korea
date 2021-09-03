@@ -10,7 +10,7 @@ function OfflineUser({userName, isActive}: OfflineUserProps) {
 
     return (
         <div className="Offline User">
-            <svg viewBox="0 0 2 2">
+            <svg className="indicator" viewBox="0 0 2 2">
                 <circle cx="1" cy="1" r="1"/>
             </svg>
             {userName}

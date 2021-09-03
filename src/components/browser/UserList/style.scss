@@ -101,29 +101,28 @@
       flex-direction: row;
       align-items: center;
       gap: 0.5rem;
+      transition: background-color .2s ease;
 
-      //animation: enter .2s ease-out;
-
-
-      &:hover {
-        background: #CECFD8;
-      }
-
-      svg {
+      svg.indicator {
         height: 0.63rem;
         width: 0.63rem;
         margin-inline: 0.5rem;
+        opacity: 1;
+        transition: opacity .2s ease;
       }
 
       &.Online {
-        svg {
+        svg.indicator {
           fill: #50be73;
+        }
+        &:hover {
+          background: #CECFD8;
         }
       }
 
       &.Offline {
         color: #A7A7A7;
-        svg {
+        svg.indicator {
           fill: #BFBFBF;
         }
       }
@@ -182,6 +181,10 @@
         background: #E5E6EA;
         &:hover {
           background: #E5E6EA;
+        }
+
+        svg.indicator {
+          opacity: 0;
         }
       }
     }
