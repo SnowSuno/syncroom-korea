@@ -34,7 +34,11 @@ function SearchBar({activeClass, handleActiveClass}: SearchBarProps) {
 
     return (
         <div
-            className={classNames("SearchBar", {active: isActive})}
+            className={classNames(
+                "SearchBar",
+                {active: isActive},
+                {selected: value}
+            )}
             onClick={() => inputField.current?.select()}
         >
             <input

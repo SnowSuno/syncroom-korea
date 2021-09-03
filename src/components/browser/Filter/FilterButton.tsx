@@ -9,14 +9,15 @@ import {CountryType, InstType, StatusType} from "../../../common/classes/propert
 
 interface FilterButtonProps {
     filter: CountryType | InstType | StatusType | null;
+    current: CountryType | InstType | StatusType | null;
     filterClass: FilterClassType;
     icon: JSX.Element;
     activeClass: FilterClassType | null;
     handleActiveClass: (state: FilterClassType | null) => void;
 }
 
-function FilterButton({filter, filterClass, icon, activeClass, handleActiveClass}: FilterButtonProps) {
-    const current = useSelector((state: RootState) => state.filter[filterClass]);
+function FilterButton(
+    {filter, current, filterClass, icon, activeClass, handleActiveClass}: FilterButtonProps) {
     const dispatch = useDispatch();
     const isActive: boolean = filterClass === activeClass;
     const isSelected: boolean = filter === current;
