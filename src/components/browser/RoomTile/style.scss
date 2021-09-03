@@ -92,10 +92,25 @@ $private-color-full: #A7A7A7;
 
       .nickname {
         font-size: 0.85rem;
-        width: 14.85rem;
+        width: 13rem;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
+      }
+
+      svg.star {
+        height: 1.1rem;
+        width: 1.1rem;
+        fill: #d2d2d2;
+        cursor: pointer;
+
+        &:hover {
+          fill: #C3C3C3;
+        }
+
+        &.starred {
+          fill: #FFC107;
+        }
       }
     }
 
