@@ -42,7 +42,7 @@ function RoomTile({room, size}: RoomTileProps) {
             </div>
             <SimpleBar className="room-desc-wrap">
                 <div className="room-desc">
-                    {room.desc ? room.desc : "방 설명이 없습니다."}
+                    {room.desc ? room.desc.trim() : "방 설명이 없습니다."}
                 </div>
             </SimpleBar>
             <MemberDisplay members={room.members}/>
