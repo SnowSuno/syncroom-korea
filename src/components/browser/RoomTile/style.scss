@@ -12,7 +12,7 @@ $private-color-full: #A7A7A7;
   background: #FFFFFF;
   box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);
 
-  .RoomHeader {
+  .room-header {
     display: flex;
     height: 2.8rem;
     color: #FFFFFF;
@@ -23,25 +23,25 @@ $private-color-full: #A7A7A7;
     gap: 0.5rem;
   }
 
-  .RoomName {
+  .room-name {
     width: 17.5rem;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
   }
 
-  .RoomDesc {
+  .room-desc-wrap {
     height: 2.3rem;
-    padding-inline: 1.3rem;
+    margin-inline: 0.85rem;
+    padding-inline: 0.45rem;
     line-height: 1.15rem;
     font-size: 0.76rem;
     display: inline;
-    -webkit-line-clamp: 2;
-    text-overflow: ellipsis;
-    word-break: break-all;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
+
+    .room-desc {
+      word-break: break-all;
+      white-space: pre-wrap;
+    }
   }
 
   .MemberList {
@@ -172,11 +172,11 @@ $private-color-full: #A7A7A7;
 
 
   &.public {
-    .RoomHeader {
+    .room-header {
       background: $public-color
     }
 
-    &.full .RoomHeader {
+    &.full .room-header {
       background: $public-color-full;
     }
 
@@ -206,11 +206,11 @@ $private-color-full: #A7A7A7;
   }
 
   &.private {
-    .RoomHeader {
+    .room-header {
       background: $private-color
     }
 
-    &.full .RoomHeader {
+    &.full .room-header {
       background: $private-color-full;
     }
 
