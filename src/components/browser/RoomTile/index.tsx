@@ -1,6 +1,8 @@
 import React, {useMemo} from "react";
 import "./style.scss";
 
+import SimpleBar from "simplebar-react";
+
 import MemberDisplay from "./MemberList";
 import Buttons from "./Buttons";
 import Flag from "../../../resource/img/icon/Flag";
@@ -33,14 +35,16 @@ function RoomTile({room, size}: RoomTileProps) {
             {"full": isFull})}
              style={size}
         >
-            <div className="RoomHeader">
+            <div className="room-header">
                 <Flag country={room.country} />
-                <span className='RoomName'>{room.name}</span>
+                <span className='room-name'>{room.name}</span>
                 {isPublic ? <></> : <Lock />}
             </div>
-            <div className="RoomDesc">
-                {room.desc ? room.desc : "방 설명이 없습니다."}
-            </div>
+            <SimpleBar className="room-desc-wrap">
+                <div className="room-desc">
+                    {room.desc ? room.desc : "방 설명이 없습니다."}
+                </div>
+            </SimpleBar>
             <MemberDisplay members={room.members}/>
             <Buttons name={room.name} status={room.status} isFull={isFull}/>
         </div>
