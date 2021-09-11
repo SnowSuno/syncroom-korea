@@ -24,7 +24,7 @@ function Title() {
             </button>
             <div>
                 <div className='logo-container'>
-                    <Logo height='87%'/>
+                    <Logo />
                 </div>
             </div>
             <button

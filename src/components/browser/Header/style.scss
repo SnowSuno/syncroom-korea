@@ -35,6 +35,11 @@
       overflow: visible;
       min-width: 16rem;
       transition: width .17s ease-out;
+
+      svg {
+        width: 100%;
+        height: 87%;
+      }
     }
 
     .side-btn {
