@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import "./style.css"
 
 import {getRoomsThunk} from "../../../modules/syncroom";
 import {useDispatch, useSelector} from "react-redux";
@@ -10,7 +9,7 @@ import {RootState} from "../../../modules";
 import Filter from "../Filter";
 
 function Toolbar() {
-    const {loading} = useSelector((state: RootState) => state.syncroom.rooms);
+    const {loading} = useSelector((state: RootState) => state.syncroom);
     const dispatch = useDispatch();
 
     const [rotate, setRotate] = useState('');
@@ -25,9 +24,9 @@ function Toolbar() {
         dispatch(getRoomsThunk());
     };
     return (
-        <div className="toolbar">
+        <div className="Toolbar">
             <Filter />
-            <button className='refresh' onClick={getRooms}>
+            <button className="refresh" onClick={getRooms}>
                 <Refresh
                     height={20} width={20}
                     className={rotate}
@@ -38,4 +37,4 @@ function Toolbar() {
     )
 }
 
-export default Toolbar;
+export default React.memo(Toolbar);

@@ -1,0 +1,288 @@
+.UserList {
+  margin-top: 0.5rem;
+
+
+  .Manage {
+    background: #CECFD8;
+    height: 2.8rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-inline: 1.5rem;
+    transition: height .2s ease;
+
+    span {
+      font-size: 1.1rem;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 26rem;
+      transition: width .2s ease;
+    }
+
+    button {
+      height: 1.6rem;
+      font-size: 0.9rem;
+      color: #85858B;
+
+      background: #DBDCE2;
+
+      &.multi {
+        width: 6rem;
+        transition: width .2s ease;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      &.background {
+        background: #CECFD8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+          background: #bebfcb;
+        }
+
+      }
+
+      &.return {
+        width: 0;
+        height: 2.3rem;
+        opacity: 0;
+      }
+
+      &.plus {
+        position: absolute;
+        right: 1rem;
+        height: 2rem;
+        width: 2rem;
+        font-size: 1rem;
+        opacity: 0;
+        pointer-events: none;
+        margin-right: 0.15rem;
+
+        overflow: hidden;
+        justify-self: end;
+        transition: opacity .2s ease,  background .2s ease, width .2s ease, height .2s ease, margin-right .2s ease;
+
+        svg {
+          width: 1rem;
+          height: 1rem;
+          fill: #686a6e;
+        }
+      }
+    }
+
+    input {
+      position: absolute;
+      right: 4rem;
+      width: 0;
+      transition: width .2s ease, padding-inline .2s ease;
+      background: #dfe0e7;
+      padding-inline: 0;
+      box-sizing: border-box;
+    }
+  }
+  .users {
+    overscroll-behavior: contain;
+    height: calc(100vh - 12rem);
+
+    .status-tag {
+      padding: 1rem 1.5rem 0.5rem;
+      overflow: hidden;
+      transition: height .2s ease, padding-top .2s ease, padding-bottom .2s ease;
+    }
+
+    .User {
+      height: 3.5rem;
+      padding-left: 1.5rem;
+      padding-right: 1.15rem;
+      font-size: 1.2rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
+      overflow: hidden;
+      transition: background-color .1s ease-out;
+
+      svg.indicator {
+        height: 0.63rem;
+        width: 0.63rem;
+        margin-inline: 0.5rem;
+        opacity: 1;
+        transition: opacity .2s ease;
+      }
+
+      span {
+        flex-grow: 1;
+      }
+
+      button.delete {
+        height: 2rem;
+        width: 2rem;
+        border-radius: 1rem;
+        background: none;
+        cursor: default;
+        opacity: 0;
+        transition: opacity .1s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg {
+          height: 0.85rem;
+          width: 0.85rem;
+        }
+      }
+
+      &.Online {
+        cursor: pointer;
+        svg.indicator {
+          fill: #50be73;
+        }
+        &:hover {
+          background: #CECFD8;
+          svg.arrow {
+            opacity: 1;
+            right: 1.5rem;
+          }
+        }
+        svg.arrow {
+          position: absolute;
+          right: 3rem;
+          height: 1.8rem;
+          width: 1.8rem;
+          fill: #9D9EA4;
+          opacity: 0;
+          transition: opacity .1s ease-out, right .1s ease-out;
+        }
+      }
+
+      &.Offline {
+        color: #A7A7A7;
+        cursor: default;
+        svg.indicator {
+          fill: #BFBFBF;
+        }
+      }
+    }
+    .padding {
+      height: 2rem;
+    }
+    .simplebar-scrollbar:before {
+      background: #9D9EA4;
+    }
+
+    .wrap {
+      &-enter{
+        height: 0;
+        &-active {
+          height: 3.5rem;
+          transition: height .2s ease;
+        }
+      }
+      &-exit {
+        height: 3.5rem;
+        &-active {
+          height: 0;
+          transition: height .2s ease;
+        }
+      }
+    }
+  }
+
+
+
+
+  &.active {
+    .Manage {
+      span {
+        width: 0;
+      }
+
+      button {
+        &.return {
+          width: 2.3rem;
+        }
+
+        &.plus {
+          opacity: 1;
+          pointer-events: auto;
+        }
+      }
+    }
+    .users {
+      .status-tag {
+        height: 0;
+        padding-block: 0;
+      }
+      .User {
+        color: #8c8c8c;
+        background: #E5E6EA;
+        &:hover {
+          background: #E5E6EA;
+        }
+
+        svg.indicator {
+          opacity: 0;
+        }
+
+        button.delete {
+          opacity: 1;
+          cursor: pointer;
+
+          &:hover {
+            background: #DBDCE2;
+          }
+        }
+
+        &.Online {
+          cursor: default;
+          svg.arrow {
+            opacity: 0;
+            pointer-events: none;
+          }
+        }
+      }
+    }
+
+  }
+
+  &.add {
+    .Manage {
+      height: 3.5rem;
+
+      button {
+        &.multi {
+          width: 0;
+        }
+
+        &.plus {
+          width: 2.3rem;
+          height: 2.3rem;
+          background: #dfe0e7;
+          margin-right: 0;
+        }
+
+        &.return {
+          opacity: 1;
+        }
+      }
+
+      input {
+        width: 26.8rem;
+        padding-inline: 1rem;
+      }
+    }
+  }
+
+}
+
+@keyframes enter {
+  from {
+    height: 0;
+  }
+  to {
+    height: 3.5rem;
+  }
+}

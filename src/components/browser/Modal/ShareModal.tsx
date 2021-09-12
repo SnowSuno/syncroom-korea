@@ -1,11 +1,11 @@
 import React, {useState} from "react";
-import "./ShareModal.css";
+import "./ShareModal.scss";
 
 import {useSelector} from "react-redux";
 import {RootState} from "../../../modules";
 import useInput from "../../../common/hooks/useInput";
 
-import {Status} from "../../../common/classes/types";
+import {Status} from "../../../common/classes/properties";
 
 import {encodeShareLink} from "../../../common/util/shareLink";
 
@@ -17,7 +17,7 @@ import {ReactComponent as Link} from "../../../resource/img/icon/link.svg";
 function ShareModal() {
     const {roomName, status} = useSelector((state: RootState) => state.modal);
 
-    const password = useInput('');
+    const {input: password} = useInput('');
     const isPrivate = status === Status.PRIVATE;
     const [checked, setChecked] = useState(true);
     const checkedClass = checked ? 'checked' : 'unchecked';
@@ -94,4 +94,4 @@ function ShareModal() {
     );
 }
 
-export default ShareModal;
+export default React.memo(ShareModal);

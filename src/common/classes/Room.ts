@@ -1,13 +1,14 @@
-import {Member} from "./Member";
-import {CountryType, StatusType} from "./types";
+import {MemberType} from "./Member";
+import {CountryType, StatusType} from "./properties";
 
-export interface Room {
+export interface RoomType {
     name: string,
+    id: number,
     desc: string,
-    members: Member[],
+    members: MemberType[],
     country: CountryType,
     status: StatusType,
 }
 
 
-export default Room;
+export default RoomType;

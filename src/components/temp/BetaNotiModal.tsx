@@ -4,6 +4,9 @@
 import React, {useState} from "react";
 import "./BetaNotiModal.css";
 
+const TEST_VERSION = document.URL === "https://syncroomkr.github.io/"
+    ? "ALPHA"
+    : "BETA";
 
 function BetaNotiModal() {
     const [open, setOpen] = useState<boolean>(true);
@@ -13,23 +16,23 @@ function BetaNotiModal() {
             ? <div id="beta-noti-modal">
                 <div className="overlay" onClick={() => setOpen(false)}/>
                 <div className="temp-modal">
-                    <div className="title">SYNCROOM KOREA BETA TEST에 오신 것을 환영합니다!</div>
+                    <div className="title">SYNCROOM KOREA {TEST_VERSION} TEST에 오신 것을 환영합니다!</div>
                     Syncroom Korea는 한국 사용자들이 더 편하게 싱크룸 방 입장 페이지를 이용할 수 있도록 만들어진 웹사이트입니다.
                     <br/>
-                    <div style={{color: 'red'}}>* 베타 버전이라 구현되지 않은 기능 및 일부 버그가 존재합니다!!</div>
+                    <div style={{color: 'red'}}>* {TEST_VERSION} 버전이라 구현되지 않은 기능 및 일부 버그가 존재합니다!!</div>
                     <div className="issues">
                         <div style={{fontSize: "1.1rem", fontWeight: 500}}>미구현 기능 / 발견된 버그</div>
                         <ul>
                             <li>알림 기능은 아직 구현되지 않음</li>
-                            <li>메뉴, 설정 사이드바에 기능들이 추가되지 않음</li>
+                            <li>설정 사이드바에 기능들이 추가되지 않음</li>
                             <li>IOS Safari 14.0 이하의 버전에서 레아아웃 깨짐 발생</li>
                         </ul>
 
                     </div>
                     <div className="issues">
-                        <div style={{fontSize: "1.1rem", fontWeight: 500}}>업데이트 사항 (2021.08.30)</div>
+                        <div style={{fontSize: "1.1rem", fontWeight: 500}}>업데이트 사항 (2021.09.04)</div>
                         <ul>
-                            <li>검색 시 대소문자 무시</li>
+                            <li>"즐겨찾기 멤버" 기능 업데이트!</li>
                         </ul>
 
                     </div>

@@ -39,4 +39,4 @@ function ModalRoute({route, children}: ModalRouteProps) {
     );
 }
 
-export default ModalRoute;
+export default React.memo(ModalRoute);

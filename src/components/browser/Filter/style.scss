@@ -1,0 +1,70 @@
+.Toolbar {
+  .SearchBar, .FilterButton {
+    height: 2.6rem;
+    background: #FFFFFF;
+    overflow: hidden;
+    transition: width ease .15s;
+
+    &:hover {
+      background: #fafafe;
+    }
+
+    &:active {
+      background: #f6f6fa;
+    }
+  }
+
+  .FilterMenu {
+    border-radius: 1.3rem;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);
+
+    .FilterButton {
+      border-radius: 0;
+      box-shadow: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    svg {
+      height: 1.5rem;
+      width: 2.5rem;
+    }
+  }
+
+  .SearchBar {
+    cursor: text;
+    width: 2.6rem;
+    border-radius: 1.3rem;
+    padding-inline: 0.7rem;
+    gap: 0.5rem;
+    flex-grow: 1;
+    flex-shrink: 0;
+    max-width: 18rem;
+    transition: max-width ease .15s;
+    display: flex;
+    align-items: center;
+
+    input {
+      width: 0;
+      flex-grow: 1;
+      height: 2.6rem;
+      padding-left: 0.3rem;
+
+      &, &:hover, &:active, &:focus {
+        background: none;
+      }
+    }
+
+    &.active {
+      max-width: 22rem;
+    }
+
+    svg {
+      height: 1.6rem;
+      width: 1.6rem;
+    }
+  }
+}

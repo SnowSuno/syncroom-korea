@@ -1,11 +1,11 @@
 import axios from "axios";
-import RoomsConstructor from "../util/roomsConstructor";
+import apiDataHandler from "../util/apiDataHandler";
 
 const SYNCROOM_API = "https://webapi.syncroom.appservice.yamaha.com/ndroom/room_list.json?pagesize=500&realm=4";
 
-export const getRooms = async () => {
-    const response = await axios.get<Response>(SYNCROOM_API);
-    return RoomsConstructor(response.data.rooms);
+export const getApiData = async () => {
+    const response = await axios.get<Response>(SYNCROOM_API, {timeout: 5000});
+    return apiDataHandler(response.data.rooms);
 }
 
 export interface IconData {

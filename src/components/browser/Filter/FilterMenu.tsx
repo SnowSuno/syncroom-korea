@@ -1,12 +1,14 @@
 import React from "react";
+import classNames from "classnames";
 
 import FilterButton from "./FilterButton";
 
 import {FilterClassType} from "../../../modules/filter/types";
-import {CountryType, InstType, StatusType} from "../../../common/classes/types";
+import {CountryType, InstType, StatusType} from "../../../common/classes/properties";
+import {useSelector} from "react-redux";
+import {RootState} from "../../../modules";
 
 interface FilterMenuProps {
-    className: string;
     filterClass: FilterClassType;
     menuItems: MenuItemProps[];
     activeClass: FilterClassType | null;
@@ -18,12 +20,19 @@ export interface MenuItemProps {
     icon: JSX.Element;
 }
 
-function FilterMenu({className, filterClass, menuItems, activeClass, handleActiveClass}: FilterMenuProps) {
+function FilterMenu({filterClass, menuItems, activeClass, handleActiveClass}: FilterMenuProps) {
+    const current = useSelector((state: RootState) => state.filter[filterClass]);
+
     return (
-        <div className={`${className} filter-menu`}>
-            {menuItems.map(({filter, icon}) => (
+        <div className={classNames(
+            "FilterMenu",
+            {selected: current !== null}
+        )}>
+            {menuItems.map(({filter, icon}, index) => (
                 <FilterButton
+                    key={index}
                     filter={filter}
+                    current={current}
                     filterClass={filterClass}
                     icon={icon}
                     activeClass={activeClass}
@@ -34,4 +43,4 @@ function FilterMenu({className, filterClass, menuItems, activeClass, handleActiv
     )
 }
 
-export default FilterMenu;
+export default React.memo(FilterMenu);

@@ -1,5 +1,7 @@
 import React from "react";
-import "./MenuSidebar.css";
+import "./MenuSidebar.scss";
+
+import UserList from "../UserList";
 
 import {closeSidebar} from "../../../modules/sidebar";
 import {useDispatch} from "react-redux";
@@ -12,10 +14,6 @@ import {ReactComponent as Arrow} from "../../../resource/img/icon/left-arrow.svg
 function MenuSidebar() {
     const dispatch = useDispatch();
     const close = () => dispatch(closeSidebar());
-
-    const linkTo = (url: string) => () => {
-        window.open(url, '_blank')?.focus();
-    };
 
     return (
         <div className="menu sidebar">
@@ -37,10 +35,14 @@ function MenuSidebar() {
                     Original Website
                 </button>
             </div>
-            
+
+            <UserList />
         </div>
     );
 }
+const linkTo = (url: string) => () => {
+    window.open(url, '_blank')?.focus();
+};
 
 export default MenuSidebar;
 

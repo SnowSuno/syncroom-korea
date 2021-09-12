@@ -1,10 +1,10 @@
-import React, {useState} from "react";
-import "./style.css";
+import React, {useCallback, useState} from "react";
+import "./style.scss";
 
-import SearchInput from "./SearchInput";
+import SearchInput from "./SearchBar";
 import FilterMenu, {MenuItemProps} from "./FilterMenu";
 
-import {Country, Inst, Status} from "../../../common/classes/types";
+import {Country, Inst, Status} from "../../../common/classes/properties";
 
 import {FilterClass, FilterClassType} from "../../../modules/filter/types";
 
@@ -25,30 +25,7 @@ import {ReactComponent as Private} from "../../../resource/img/icon/private.svg"
 
 function Filter() {
     const [activeClass, setActiveClass] = useState<FilterClassType | null>(null);
-    const handleActiveClass = (state: FilterClassType | null) => {
-        setActiveClass(state);
-    };
-
-    const countryFilter: MenuItemProps[] = [
-        {filter: null, icon: <CountryIcon />},
-        {filter: Country.KOREA, icon: <Korea />},
-        {filter: Country.JAPAN, icon: <Japan />}
-    ];
-
-    const instFilter: MenuItemProps[] = [
-        {filter: null, icon: <InstIcon />},
-        {filter: Inst.VOCAL, icon: <Vocal />},
-        {filter: Inst.GUITAR, icon: <Guitar />},
-        {filter: Inst.BASS, icon: <Bass />},
-        {filter: Inst.KEYS, icon: <Keys />},
-        {filter: Inst.DRUMS, icon: <Drums />}
-    ];
-
-    const statusFilter: MenuItemProps[] = [
-        {filter: null, icon: <StatusIcon />},
-        {filter: Status.PUBLIC, icon: <Public />},
-        {filter: Status.PRIVATE, icon: <Private />}
-    ];
+    const handleActiveClass = useCallback((state: FilterClassType | null) => setActiveClass(state), []);
 
     return (
         <>
@@ -57,21 +34,18 @@ function Filter() {
                 handleActiveClass={handleActiveClass}
             />
             <FilterMenu
-                className="country"
                 filterClass={FilterClass.country}
                 activeClass={activeClass}
                 menuItems={countryFilter}
                 handleActiveClass={handleActiveClass}
             />
             <FilterMenu
-                className="inst"
                 filterClass={FilterClass.inst}
                 activeClass={activeClass}
                 menuItems={instFilter}
                 handleActiveClass={handleActiveClass}
             />
             <FilterMenu
-                className="status"
                 filterClass={FilterClass.status}
                 activeClass={activeClass}
                 menuItems={statusFilter}
@@ -80,5 +54,26 @@ function Filter() {
         </>
     )
 }
+
+const countryFilter: MenuItemProps[] = [
+    {filter: null, icon: <CountryIcon/>},
+    {filter: Country.KOREA, icon: <Korea/>},
+    {filter: Country.JAPAN, icon: <Japan/>}
+];
+
+const instFilter: MenuItemProps[] = [
+    {filter: null, icon: <InstIcon/>},
+    {filter: Inst.VOCAL, icon: <Vocal/>},
+    {filter: Inst.GUITAR, icon: <Guitar/>},
+    {filter: Inst.BASS, icon: <Bass/>},
+    {filter: Inst.KEYS, icon: <Keys/>},
+    {filter: Inst.DRUMS, icon: <Drums/>}
+];
+
+const statusFilter: MenuItemProps[] = [
+    {filter: null, icon: <StatusIcon/>},
+    {filter: Status.PUBLIC, icon: <Public/>},
+    {filter: Status.PRIVATE, icon: <Private/>}
+];
 
 export default Filter;

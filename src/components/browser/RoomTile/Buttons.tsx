@@ -1,6 +1,6 @@
 import React from "react";
 
-import {Status, StatusType} from "../../../common/classes/types";
+import {Status, StatusType} from "../../../common/classes/properties";
 
 import {joinRoom} from "../../../common/util/joinRoom";
 
@@ -39,15 +39,15 @@ function Buttons({name, status, isFull}: ButtonsProps) {
     )};
 
     return (
-        <div className="buttons">
-            <button className="share" onClick={share}>
+        <div className="Buttons">
+            <button className="shareBtn" onClick={share}>
                 <Share/>
                 <span>공유</span>
             </button>
             {
                 isFull
                     ? <div>
-                        <button className="noti">
+                        <button className="notiBtn">
                             <Notification />
                             <span>자리 나면 알림 받기</span>
                         </button>
@@ -56,7 +56,7 @@ function Buttons({name, status, isFull}: ButtonsProps) {
                         <button onClick={() => join(true)}>
                             <span>임시 참여</span>
                         </button>
-                        <button className="join" onClick={() => join(false)}>
+                        <button className="joinBtn" onClick={() => join(false)}>
                             <span>참여하기</span>
                         </button>
                     </div>
@@ -65,4 +65,4 @@ function Buttons({name, status, isFull}: ButtonsProps) {
     )
 }
 
-export default Buttons;
+export default React.memo(Buttons);

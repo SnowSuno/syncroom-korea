@@ -1,15 +1,15 @@
 import React from "react";
-import "./style.css"
+import "./style.scss"
 
 import RoomTile from "../RoomTile";
 
 import {CSSGrid} from 'react-stonecutter';
 import {useResponsiveCols} from "../../../common/hooks/useResponsiveCols";
 
-import Room from "../../../common/classes/Room";
+import RoomType from "../../../common/classes/Room";
 
 type RoomGridProps = {
-    rooms: Room[]
+    rooms: RoomType[]
 };
 
 function RoomGrid({rooms}: RoomGridProps) {
@@ -25,7 +25,7 @@ function RoomGrid({rooms}: RoomGridProps) {
     });
 
     return (
-        <div className="room-grid">
+        <div className="RoomGrid">
             <CSSGrid
                 component="ul"
                 columns={column}
@@ -37,7 +37,7 @@ function RoomGrid({rooms}: RoomGridProps) {
                 duration={300}
             >
                 {rooms.map(room => (
-                    <li key={room.name}>
+                    <li key={room.id}>
                         <RoomTile
                             room={room}
                             size={{
@@ -52,4 +52,4 @@ function RoomGrid({rooms}: RoomGridProps) {
     );
 }
 
-export default RoomGrid;
+export default React.memo(RoomGrid);

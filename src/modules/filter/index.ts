@@ -1,4 +1,4 @@
-import {CountryType, InstType, StatusType} from "../../common/classes/types";
+import {CountryType, InstType, StatusType} from "../../common/classes/properties";
 import {FilterClassType} from "./types";
 
 const SET_SEARCH = 'filter/SET_SEARCH' as const;

@@ -1,13 +1,18 @@
 import {createAsyncAction} from "typesafe-actions";
-import Room from "../../common/classes/Room";
+import RoomType from "../../common/classes/Room";
 import {AxiosError} from "axios";
 
-export const GET_ROOMS = 'syncroom/GET_ROOMS';
-export const GET_ROOMS_SUCCESS = 'syncroom/GET_ROOMS_SUCCESS';
-export const GET_ROOMS_ERROR = 'syncroom/GET_ROOMS_ERROR';
+export const GET_DATA = 'syncroom/GET_DATA';
+export const GET_DATA_SUCCESS = 'syncroom/GET_DATA_SUCCESS';
+export const GET_DATA_ERROR = 'syncroom/GET_DATA_ERROR';
 
-export const getRoomsAsync = createAsyncAction(
-    GET_ROOMS,
-    GET_ROOMS_SUCCESS,
-    GET_ROOMS_ERROR
-)<undefined, Room[], AxiosError>();
+interface successProps {
+    rooms: RoomType[];
+    users: {[name: string]: number};
+}
+
+export const getDataAsync = createAsyncAction(
+    GET_DATA,
+    GET_DATA_SUCCESS,
+    GET_DATA_ERROR
+)<undefined, successProps, AxiosError>();

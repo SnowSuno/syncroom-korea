@@ -1,0 +1,94 @@
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 100;
+  src: url("./resource/fonts/NotoSansKR-Thin.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 300;
+  src: url("./resource/fonts/NotoSansKR-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 400;
+  src: url("./resource/fonts/NotoSansKR-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 500;
+  src: url("./resource/fonts/NotoSansKR-Medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 700;
+  src: url("./resource/fonts/NotoSansKR-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 900;
+  src: url("./resource/fonts/NotoSansKR-Black.otf") format("opentype");
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans KR", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #ECEEF2;
+}
+
+#browser {
+  min-width: 57rem;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
+
+button {
+  cursor: pointer;
+  transition: background-color 50ms ease-out;
+  height: 2.3rem;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  border-radius: 1.15rem;
+  font: inherit;
+  background: #F0F0F0;
+  outline: none;
+
+  &:hover {
+    background: #E0E0E0;
+  }
+
+  &:active {
+    background: #D0D0D0;
+  }
+
+  > span {
+    display: inline-block;
+    height: 1.5rem;
+  }
+}
+
+input[type="text"] {
+  padding: 0;
+  border: 0;
+  background: #F0F0F0;
+  height: 2.3rem;
+  border-radius: 1.15rem;
+  font-size: 0.9rem;
+
+  &:focus {
+    outline: none;
+    background: #e7e7e7;
+  }
+}

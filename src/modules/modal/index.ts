@@ -1,5 +1,5 @@
 import {ModalClassType} from "./modalClass";
-import {Status, StatusType} from "../../common/classes/types";
+import {Status, StatusType} from "../../common/classes/properties";
 
 const OPEN = 'modal/OPEN' as const;
 const CLOSE = 'modal/CLOSE' as const;

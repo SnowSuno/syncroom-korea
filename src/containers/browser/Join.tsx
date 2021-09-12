@@ -1,5 +1,5 @@
 import React from "react";
-import "./Join.css";
+import "./Join.scss";
 import {Link} from "react-router-dom"
 
 import {decodeShareLink} from "../../common/util/shareLink";
@@ -7,6 +7,8 @@ import {joinRoom} from "../../common/util/joinRoom";
 
 import {ReactComponent as SyncroomLogo} from "../../resource/img/logo/syncroom.svg";
 import {ReactComponent as Lock} from "../../resource/img/icon/lock.svg";
+import {ReactComponent as Return} from "../../resource/img/icon/return.svg";
+
 import useInput from "../../common/hooks/useInput";
 
 interface JoinProps {
@@ -18,18 +20,9 @@ interface JoinInfoProps {
 
 function Join({location: {search}}: JoinProps) {
     return (
-        <div className="join-page">
+        <div className="Join">
             <Link to="/" className="return">
-                <svg viewBox="0 0 2 2" height="1.2rem">
-                    <polyline
-                        points="1,0.5 0.5,1 1,1.5"
-                        stroke="#686a6e"
-                        strokeWidth="0.01rem"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        fill="none"
-                    />
-                </svg>
+                <Return />
                 홈으로 돌아가기
             </Link>
             <div className="body">
@@ -41,10 +34,14 @@ function Join({location: {search}}: JoinProps) {
 }
 
 function JoinInfo({search}: JoinInfoProps) {
-    const inputPassword = useInput('');
+    const {input: inputPassword} = useInput('');
     const Install: JSX.Element = (
         <div className="install">
-            싱크룸이 설치되어 있지 않다면 <Link to="/" className="link">설치하기</Link>
+            싱크룸이 설치되어 있지 않다면 <a
+            href="https://syncroom.yamaha.com/play/dl/"
+            target="_blank"
+            rel="noreferrer"
+        >설치하기</a>
         </div>
     );
 
@@ -79,6 +76,9 @@ function JoinInfo({search}: JoinInfoProps) {
                             type="text"
                             placeholder="비밀번호를 입력하세요"
                             {...inputPassword}
+                            onKeyPress={(e) => {
+                                if (e.key === 'Enter') joinRoom(roomName, inputPassword.value, false)
+                            }}
                         />
                         <button
                             className="password"
