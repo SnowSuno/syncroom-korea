@@ -9,9 +9,12 @@ import ReduxThunk from "redux-thunk";
 import {persistStore} from "redux-persist";
 import {PersistGate} from "redux-persist/integration/react";
 
-import {BrowserView, MobileView} from "react-device-detect";
-import BrowserRoutes from "./routes/BrowserRoutes";
-import MobileRoutes from "./routes/MobileRoutes";
+import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
+import Home from "./routes/Home";
+import Join from "./routes/Join";
+import NotFound from "./routes/NotFound";
+import Modal from "./components/Modal";
+import Sidebar from "./components/Sidebar";
 
 const store = createStore(
     rootReducer,
@@ -23,16 +26,16 @@ ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
-                <BrowserView>
-                    <div id="browser">
-                        <BrowserRoutes />
-                    </div>
-                </BrowserView>
-                <MobileView>
-                    <div id="mobile">
-                        <MobileRoutes />
-                    </div>
-                </MobileView>
+                <Router>
+                    <Switch>
+                        <Route exact path="/" component={Home}/>
+                        <Route path='/join' component={Join}/>
+                        <Route exact path="/notfound" component={NotFound} />
+                        <Route component={() => <Redirect to="/notfound"/>}/>
+                    </Switch>
+                </Router>
+                <Modal />
+                <Sidebar />
             </PersistGate>
         </Provider>
     </React.StrictMode>,
