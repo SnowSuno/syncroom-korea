@@ -1,5 +1,6 @@
 import React, {useMemo} from "react";
 import "./style.scss";
+import classNames from "classnames";
 
 import SimpleBar from "simplebar-react";
 
@@ -10,7 +11,8 @@ import {ReactComponent as Lock} from "../../resource/img/icon/lock.svg";
 
 import RoomType from "../../common/classes/Room";
 import {Status} from "../../common/classes/properties";
-import classNames from "classnames/bind";
+
+import {useNotificationHandler} from "../../common/hooks/useNotificationHandler";
 
 interface Size {
     width: string;
@@ -25,6 +27,12 @@ interface RoomTileProps {
 function RoomTile({room, size}: RoomTileProps) {
     const isPublic: boolean = useMemo(() => room.status === Status.PUBLIC, [room.status]);
     const isFull: boolean = room.members.length === 5;
+
+    const [subsribeStatus, changeSubscibeStatus] = useNotificationHandler({
+        roomName: room.name,
+        isFull: isFull,
+    });
+
 
     return (
         <div
@@ -46,7 +54,13 @@ function RoomTile({room, size}: RoomTileProps) {
                 </div>
             </SimpleBar>
             <MemberDisplay members={room.members}/>
-            <Buttons name={room.name} status={room.status} isFull={isFull}/>
+            <Buttons
+              name={room.name}
+              status={room.status}
+              isFull={isFull}
+              changeSubscription={changeSubscibeStatus}
+              isSubscribed={subsribeStatus}
+            />
         </div>
     );
 }

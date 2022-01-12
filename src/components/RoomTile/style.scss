@@ -115,7 +115,7 @@ $private-color-full: #A7A7A7;
     }
 
     .wrap {
-      &-enter{
+      &-enter {
         height: 0;
 
         &-active {
@@ -123,6 +123,7 @@ $private-color-full: #A7A7A7;
           transition: height .2s ease;
         }
       }
+
       &-exit {
         height: 3.08rem;
 
@@ -188,7 +189,7 @@ $private-color-full: #A7A7A7;
       }
 
       &:active {
-        background: #3A4F92
+        background: #3A4F92;
       }
     }
 
@@ -201,6 +202,18 @@ $private-color-full: #A7A7A7;
 
       &:active {
         background: #747C9C;
+      }
+
+      &.subscibed {
+        background: $public-color;
+
+        &:hover {
+          background: #4A62AF;
+        }
+
+        &:active {
+          background: #3A4F92;
+        }
       }
     }
   }
@@ -218,11 +231,11 @@ $private-color-full: #A7A7A7;
       background: #191919;
 
       &:hover {
-        background: #454545
+        background: #454545;
       }
 
       &:active {
-        background: #363636
+        background: #363636;
       }
     }
 
@@ -235,6 +248,18 @@ $private-color-full: #A7A7A7;
 
       &:active {
         background: #7F7F7F;
+      }
+
+      &.subscibed {
+        background: $private-color;
+
+        &:hover {
+          background: #454545;
+        }
+
+        &:active {
+          background: #363636;
+        }
       }
     }
   }

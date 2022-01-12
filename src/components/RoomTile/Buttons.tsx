@@ -1,4 +1,5 @@
 import React from "react";
+import classNames from "classnames";
 
 import {Status, StatusType} from "../../common/classes/properties";
 
@@ -12,12 +13,14 @@ import {ReactComponent as Share} from "../../resource/img/icon/share.svg";
 import {ReactComponent as Notification} from "../../resource/img/icon/notification.svg";
 
 interface ButtonsProps {
-    name: string,
-    status: StatusType,
-    isFull: boolean
+    name: string;
+    status: StatusType;
+    isFull: boolean;
+    changeSubscription: () => void;
+    isSubscribed: boolean;
 }
 
-function Buttons({name, status, isFull}: ButtonsProps) {
+function Buttons({name, status, isFull, changeSubscription, isSubscribed}: ButtonsProps) {
     const dispatch = useDispatch();
     const join = (status === Status.PUBLIC)
         ? (temp: boolean) => {
@@ -47,9 +50,14 @@ function Buttons({name, status, isFull}: ButtonsProps) {
             {
                 isFull
                     ? <div>
-                        <button className="notiBtn">
+                        <button
+                          className={classNames("notiBtn", {"subscibed": isSubscribed})}
+                          onClick={changeSubscription}
+                        >
                             <Notification />
-                            <span>자리 나면 알림 받기</span>
+                            <span>{
+                              isSubscribed ? "알림 취소" : "자리 나면 알림 받기"
+                            }</span>
                         </button>
                     </div>
                     : <div>

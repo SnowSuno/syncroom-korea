@@ -1,6 +1,6 @@
 import React, {useEffect, useMemo, useRef} from 'react';
 
-import {BrowserView, MobileView} from "react-device-detect";
+// import {BrowserView, MobileView} from "react-device-detect";
 
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../modules";
