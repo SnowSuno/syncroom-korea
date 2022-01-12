@@ -34,7 +34,7 @@ function BetaNotiModal() {
                         <div style={{fontSize: "1.1rem", fontWeight: 500}}>업데이트 사항 (2021.09.14)</div>
                         <ul>
                             <li>"즐겨찾기 멤버" 기능 업데이트!</li>
-                            <li><strong>불쌍한 고3 개발자 입시하러 가서 당분간 업데이트 없습니다ㅠㅠ</strong></li>
+                            <li><strong>이젠 안불쌍한 고3 개발자 입시 끝났습니다!! 조만간 업데이트하도록 하겠습니다ㅎㅎㅎㅎ</strong></li>
                         </ul>
 
                     </div>
