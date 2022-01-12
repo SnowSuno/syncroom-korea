@@ -29,8 +29,7 @@ function RoomTile({room, size}: RoomTileProps) {
     const isFull: boolean = room.members.length === 5;
 
     const [subsribeStatus, changeSubscibeStatus] = useNotificationHandler({
-        roomName: room.name,
-        isFull: isFull,
+        room, isFull
     });
 
 
