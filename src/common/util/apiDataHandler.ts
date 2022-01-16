@@ -56,22 +56,24 @@ const apiDataHandler = (roomsData: RoomData[]): returnType => {
 
         const members: MemberType[] = Array.from(
             {length: roomData.num_members}, (_, i) => {
-                try {
-                    const member = roomData.members[i];
-                    if (member) users[member.trim()] = id;
+                const member = roomData.members[i];
+                const iconData = roomData.iconlist[i];
+
+                if (member === undefined || iconData === undefined) {
+                    return PrivateMember;
+                } else {
+                    users[member.trim()] = id;
 
                     const [type, nickname]: [MemberTypeType, string] = member
                         ? ["general", member.trim()]
                         : ["temp", "임시 참여 중"];
 
-                    const {icon: iconkey, iconurl} = roomData.iconlist[i];
-                    const icon: string = iconurl || iconkey;
+                    const {icon: iconkey, iconurl} = iconData;
+                    const icon: string = member ? (iconurl || iconkey) : "-1";
                     const inst: InstType = iconurl
                         ? Inst.OTHER
                         : instMap[iconkey];
-                    return {type, nickname, icon, inst};
-                } catch (e) {
-                    return PrivateMember;
+                    return {type, nickname, icon, inst}
                 }
             }
         )
