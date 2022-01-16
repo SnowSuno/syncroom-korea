@@ -26,11 +26,11 @@ const instMap: { [index: string]: InstType } = {
 
 interface returnType {
     rooms: RoomType[];
-    users: {[name: string]: number};
+    users: { [name: string]: number };
 }
 
 const apiDataHandler = (roomsData: RoomData[]): returnType => {
-    const users: {[name: string]: number} = {};
+    const users: { [name: string]: number } = {};
     const rooms: RoomType[] = roomsData.map(roomData => {
         const [date, time] = roomData.create_time.split(' ');
         const id = new Date(`${date}T${time}-00:00`)
@@ -57,6 +57,9 @@ const apiDataHandler = (roomsData: RoomData[]): returnType => {
         const members: MemberType[] = Array.from(
             {length: roomData.num_members}, (_, i) => {
                 const member = roomData.members[i];
+                if (roomData.iconlist === undefined) {
+                    return PrivateMember;
+                }
                 const iconData = roomData.iconlist[i];
 
                 if (member === undefined || iconData === undefined) {
