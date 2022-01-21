@@ -11,6 +11,9 @@ export const roomFilter = (
     if (!room.name.toLowerCase().includes(search.toLowerCase())
         && room.members.filter(
             (member: MemberType) => member.nickname.includes(search)
+        ).length === 0
+        && room.tags.filter(
+            (tag) => tag.toLowerCase().includes(search.toLowerCase())
         ).length === 0) return false;
     if (country && room.country !== country) return false;
     if (inst && room.members.filter(
