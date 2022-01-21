@@ -37,28 +37,33 @@ function RoomTile({room, size}: RoomTileProps) {
         <div
             id={room.id.toString()}
             className={classNames(
-            "RoomTile",
-            {"public": isPublic, "private": !isPublic},
-            {"full": isFull})}
-             style={size}
+                "RoomTile",
+                {"public": isPublic, "private": !isPublic},
+                {"full": isFull})}
+            style={size}
         >
             <div className="room-header">
-                <Flag country={room.country} />
+                <Flag country={room.country}/>
                 <span className='room-name'>{room.name}</span>
-                {isPublic ? <></> : <Lock />}
+                {isPublic ? <></> : <Lock/>}
             </div>
             <SimpleBar className="room-desc-wrap">
                 <div className="room-desc">
+                    <p>
+                        {room.tags.length > 0
+                            ? "#" + room.tags.join("   #") + "\n"
+                            : null}
+                    </p>
                     {room.desc ? room.desc.trim() : "방 설명이 없습니다."}
                 </div>
             </SimpleBar>
             <MemberDisplay members={room.members}/>
             <Buttons
-              name={room.name}
-              status={room.status}
-              isFull={isFull}
-              changeSubscription={changeSubscibeStatus}
-              isSubscribed={subsribeStatus}
+                name={room.name}
+                status={room.status}
+                isFull={isFull}
+                changeSubscription={changeSubscibeStatus}
+                isSubscribed={subsribeStatus}
             />
         </div>
     );

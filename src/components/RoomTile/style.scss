@@ -41,6 +41,11 @@ $private-color-full: #A7A7A7;
     .room-desc {
       word-break: break-all;
       white-space: pre-wrap;
+
+      > p {
+        margin: 0;
+        color: #2a44a3;
+      }
     }
   }
 
