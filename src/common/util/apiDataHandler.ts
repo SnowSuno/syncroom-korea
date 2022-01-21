@@ -2,6 +2,7 @@ import {RoomData} from "../api/syncroom";
 import RoomType from "../classes/Room";
 import {Country, CountryType, Inst, InstType, Status, StatusType} from "../classes/properties";
 import {MemberType, MemberTypeType, PrivateMember} from "../classes/Member";
+import {tagMaskDecoder} from "./tagMaskDecoder";
 
 
 const korean: RegExp = /[ㄱ-ㅎㅏ-ㅣ가-힣]/;
@@ -80,13 +81,17 @@ const apiDataHandler = (roomsData: RoomData[]): returnType => {
                 }
             }
         )
+
+        const tags = tagMaskDecoder(roomData.tag_mask, roomData.tag_orig);
+
         return {
             name: roomData.room_name,
             id: id,
             desc: roomData.room_desc,
             members: members,
             country: country,
-            status: status
+            status: status,
+            tags: tags,
         }
     });
     return {rooms, users};

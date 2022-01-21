@@ -8,6 +8,7 @@ export interface RoomType {
     members: MemberType[],
     country: CountryType,
     status: StatusType,
+    tags: string[],
 }
 
 
