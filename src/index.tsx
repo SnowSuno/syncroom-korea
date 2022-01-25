@@ -12,6 +12,8 @@ import {PersistGate} from "redux-persist/integration/react";
 import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
 import Home from "./routes/Home";
 import Join from "./routes/Join";
+import Notice from "./routes/Notice";
+import Donate from "./routes/Donate";
 import NotFound from "./routes/NotFound";
 import Modal from "./components/Modal";
 import Sidebar from "./components/Sidebar";
@@ -29,7 +31,9 @@ ReactDOM.render(
                 <Router>
                     <Switch>
                         <Route exact path="/" component={Home}/>
-                        <Route path='/join' component={Join}/>
+                        <Route path="/join" component={Join}/>
+                        <Route path="/notice" component={Notice}/>
+                        <Route path="/buymeacoffee" component={Donate}/>
                         <Route exact path="/notfound" component={NotFound} />
                         <Route component={() => <Redirect to="/notfound"/>}/>
                     </Switch>

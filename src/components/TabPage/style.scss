@@ -1,0 +1,40 @@
+.TabPage {
+  .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    background: #FFFFFF;
+    height: 4.6rem;
+    box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.15);
+
+    padding-inline: 1rem;
+    gap: 1rem;
+
+    font-size: 1.2rem;
+    font-weight: 500;
+
+    > button {
+      height: 3rem;
+      width: 3rem;
+      border-radius: 0.8rem;
+      background: #FFFFFF;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:hover {
+        background: #e0e1e7;
+      }
+
+      &:active {
+        background: #cfd0d7;
+      }
+
+      > svg {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+  }
+}
