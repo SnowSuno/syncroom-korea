@@ -1,6 +1,8 @@
 import React from "react";
 import "./SettingsSidebar.scss";
 
+import SettingsSidebarButton from "./SettingsSidebarButton";
+
 import {useDispatch} from "react-redux";
 import {closeSidebar} from "../../modules/sidebar";
 
@@ -23,7 +25,12 @@ function SettingsSidebar() {
                     <Arrow fill="#FFFFFF"/>
                 </button>
             </div>
-
+            <div className="body">
+                <SettingsSidebarButton href="/join" label="공지사항" />
+                <SettingsSidebarButton href="/qwer" label="문의하기" />
+                <SettingsSidebarButton href="/qwer" label="소스코드 보기" />
+                <SettingsSidebarButton href="/qwer" label="개발자에게 커피 사주기" />
+            </div>
         </div>
     );
 }

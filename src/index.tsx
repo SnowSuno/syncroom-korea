@@ -33,9 +33,10 @@ ReactDOM.render(
                         <Route exact path="/notfound" component={NotFound} />
                         <Route component={() => <Redirect to="/notfound"/>}/>
                     </Switch>
+                    <Modal />
+                    <Sidebar />
                 </Router>
-                <Modal />
-                <Sidebar />
+
             </PersistGate>
         </Provider>
     </React.StrictMode>,
