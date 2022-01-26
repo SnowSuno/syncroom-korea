@@ -14,14 +14,15 @@
   }
 
   .TabCard {
-    padding: 2rem 1rem 2rem;
+    padding: 2rem 1rem 2.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    > div {
+    > p {
       font-size: 1.1rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      line-height: 2.2rem;
     }
   }
 }
