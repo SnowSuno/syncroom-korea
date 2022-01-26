@@ -5,8 +5,6 @@ import classNames from "classnames";
 
 import useLink from "../../common/hooks/useLink";
 
-import TabCard from "../TabCard";
-
 import {ReactComponent as Arrow} from "../../resource/img/icon/left-arrow.svg";
 
 interface TabPageProps {
