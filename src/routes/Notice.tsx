@@ -3,6 +3,7 @@ import "./Notice.scss";
 
 
 import TabPage from "../components/TabPage";
+import TabCard from "../components/TabCard";
 
 
 function Notice() {
@@ -11,7 +12,9 @@ function Notice() {
             className="Notice"
             title="공지사항"
         >
-
+            <TabCard>공지공지</TabCard>
+            <TabCard>공지공지</TabCard>
+            <TabCard>공지공지</TabCard>
         </TabPage>
     )
 }

@@ -4,6 +4,9 @@ import "./style.scss";
 import classNames from "classnames";
 
 import useLink from "../../common/hooks/useLink";
+
+import TabCard from "../TabCard";
+
 import {ReactComponent as Arrow} from "../../resource/img/icon/left-arrow.svg";
 
 interface TabPageProps {
@@ -21,11 +24,13 @@ function TabPage({className, title, children}: TabPageProps) {
                 <button
                     onClick={link.to("/")}
                 >
-                    <Arrow />
+                    <Arrow/>
                 </button>
                 <p>{title}</p>
             </div>
-            {children}
+            <div className="body">
+                {children}
+            </div>
         </div>
     )
 }
