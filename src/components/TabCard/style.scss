@@ -1,0 +1,18 @@
+.TabCard {
+  background: #FFFFFF;
+  width: min(90%, 50rem);
+  box-sizing: border-box;
+  border-radius: 1rem;
+  box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);
+  padding: 1rem 1.5rem 1rem;
+
+  .tag {
+    color: #8f8f8f;
+    font-size: 0.8rem;
+  }
+
+  .title {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+}
