@@ -1,5 +1,9 @@
 .TabPage {
   .header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -42,7 +46,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-block: 1rem;
+    padding-top: 6rem;
+    padding-bottom: 5rem;
     gap: 1rem;
 
 
