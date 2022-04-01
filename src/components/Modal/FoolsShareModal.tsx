@@ -7,7 +7,6 @@ import useInput from "../../common/hooks/useInput";
 
 import {Status} from "../../common/classes/properties";
 
-import {encodeShareLink} from "../../common/util/shareLink";
 
 import {CopyToClipboard} from "react-copy-to-clipboard";
 
