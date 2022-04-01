@@ -7,6 +7,8 @@ import ModalRoute from "./ModalRoute";
 import PasswordModal from "./PasswordModal";
 import ShareModal from "./ShareModal";
 
+import FoolsShareModal from "./FoolsShareModal";
+
 function Modal() {
     return (
         <div className='ModalContainer'>
@@ -15,6 +17,9 @@ function Modal() {
             </ModalRoute>
             <ModalRoute route={ModalClass.SHARE}>
                 <ShareModal />
+            </ModalRoute>
+            <ModalRoute route={ModalClass.FOOLS}>
+                <FoolsShareModal/>
             </ModalRoute>
         </div>
     )

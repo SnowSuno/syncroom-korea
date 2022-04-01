@@ -18,6 +18,8 @@ import NotFound from "./routes/NotFound";
 import Modal from "./components/Modal";
 import Sidebar from "./components/Sidebar";
 
+import Fools from "./routes/Fools";
+
 const store = createStore(
     rootReducer,
     applyMiddleware(ReduxThunk)
@@ -34,6 +36,7 @@ ReactDOM.render(
                         <Route path="/join" component={Join}/>
                         <Route path="/notice" component={Notice}/>
                         <Route path="/buymeacoffee" component={Donate}/>
+                        <Route path="/developers-room" component={Fools}/>
                         <Route exact path="/notfound" component={NotFound} />
                         <Route component={() => <Redirect to="/notfound"/>}/>
                     </Switch>
