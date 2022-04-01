@@ -23,12 +23,7 @@ function ShareModal() {
     const checkedClass = checked ? 'checked' : 'unchecked';
     const onClick = () => setChecked(!checked);
 
-    const shareLink: string = encodeShareLink(
-        {
-            roomName: roomName,
-            password: checked ? password.value : undefined
-        }
-    );
+    const shareLink = "https://syncroom.kr/buymeacoffee"
     const handleFocus = (event: React.ChangeEvent<HTMLInputElement>) => event.target.select();
     const [copied, setCopied] = useState(false);
 
@@ -43,7 +38,7 @@ function ShareModal() {
             <div className="link">
                 <input
                     type="text"
-                    value={"https://syncroom.kr/buymeacoffee"}
+                    value={shareLink}
                     onFocus={handleFocus}
                     readOnly={true}
                 />
