@@ -9,6 +9,7 @@ const korean: RegExp = /[ㄱ-ㅎㅏ-ㅣ가-힣]/;
 const japanese: RegExp = /[ぁ-んァ-ン一-龯]/;
 
 const instMap: { [index: string]: InstType } = {
+    "-1": Inst.OTHER,
     "0": Inst.DRUMS,
     "1": Inst.DRUMS,
     "2": Inst.BASS,
@@ -58,27 +59,27 @@ const apiDataHandler = (roomsData: RoomData[]): returnType => {
         const members: MemberType[] = Array.from(
             {length: roomData.num_members}, (_, i) => {
                 const member = roomData.members[i];
-                if (roomData.iconlist === undefined) {
+                
+                if (!member) {
                     return PrivateMember;
                 }
-                const iconData = roomData.iconlist[i];
+                
+                const iconData = roomData?.iconlist?.[i];
+                
+                users[member.trim()] = id;
 
-                if (member === undefined || iconData === undefined) {
-                    return PrivateMember;
-                } else {
-                    users[member.trim()] = id;
-
-                    const [type, nickname]: [MemberTypeType, string] = member
-                        ? ["general", member.trim()]
-                        : ["temp", "임시 참여 중"];
-
-                    const {icon: iconkey, iconurl} = iconData;
-                    const icon: string = member ? (iconurl || iconkey) : "-1";
-                    const inst: InstType = iconurl
-                        ? Inst.OTHER
-                        : instMap[iconkey];
-                    return {type, nickname, icon, inst}
-                }
+                const [type, nickname]: [MemberTypeType, string] = member
+                    ? ["general", member.trim()]
+                    : ["temp", "임시 참여 중"];
+                
+                const iconKey = iconData?.icon || "-1";
+                const iconURL = iconData?.iconurl;
+                
+                const icon: string = member ? (iconURL || iconKey) : "-1";
+                const inst: InstType = iconURL
+                    ? Inst.OTHER
+                    : instMap[iconKey];
+                return {type, nickname, icon, inst}
             }
         )
 
