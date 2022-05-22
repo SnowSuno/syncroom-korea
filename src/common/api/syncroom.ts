@@ -24,7 +24,7 @@ export interface RoomData {
     creator_icon: IconData,
     num_members: number,
     members: string[],
-    iconlist: IconData[],
+    iconlist?: IconData[],
     tag_mask: string,
     tag_orig: string,
 }
