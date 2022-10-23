@@ -1,7 +1,7 @@
 import axios from "axios";
 import apiDataHandler from "../util/apiDataHandler";
 
-const SYNCROOM_API = "https://webapi.syncroom.appservice.yamaha.com/ndroom/room_list.json?pagesize=500&realm=4";
+const SYNCROOM_API = "https://webapi.syncroom.appservice.yamaha.com/comm/public/room_list?pagesize=500&realm=4";
 
 export const getApiData = async () => {
     const response = await axios.get<Response>(SYNCROOM_API, {timeout: 5000});
@@ -14,19 +14,32 @@ export interface IconData {
 }
 
 export interface RoomData {
-    index: number,
-    room_name: string,
-    room_desc: string,
-    need_passwd: boolean,
-    create_time: string,
-    creator_mid: string,
-    creator_nick: string,
-    creator_icon: IconData,
-    num_members: number,
-    members: string[],
-    iconlist?: IconData[],
-    tag_mask: string,
-    tag_orig: string,
+    realm: number;
+    index: number;
+    roomAttribute: {
+        language: "ja";
+    };
+    roomName: string;
+    roomDesc: string;
+    needPasswd: boolean;
+    creator: MemberData;
+    members: MemberData[];
+    numMembers: number;
+    tagMask: string;
+    tagOrig: string;
+    createTime: string;
+}
+
+interface MemberData {
+    userId: string;
+    nickname: string;
+    nsgmMemberId: string;
+    iconInfo: {
+        type: "preset" | "url";
+        preset: string;
+        url: string;
+    } | {};
+    favorite: boolean;
 }
 
 interface Response {

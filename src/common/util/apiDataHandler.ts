@@ -1,9 +1,8 @@
-import {RoomData} from "../api/syncroom";
+import { RoomData } from "../api/syncroom";
 import RoomType from "../classes/Room";
-import {Country, CountryType, Inst, InstType, Status, StatusType} from "../classes/properties";
-import {MemberType, MemberTypeType, PrivateMember} from "../classes/Member";
-import {tagMaskDecoder} from "./tagMaskDecoder";
-
+import { Country, CountryType, Inst, InstType, Status, StatusType } from "../classes/properties";
+import { MemberType } from "../classes/Member";
+import { tagMaskDecoder } from "./tagMaskDecoder";
 
 const korean: RegExp = /[ㄱ-ㅎㅏ-ㅣ가-힣]/;
 const japanese: RegExp = /[ぁ-んァ-ン一-龯]/;
@@ -23,7 +22,7 @@ const instMap: { [index: string]: InstType } = {
     "10": Inst.OTHER,
     "11": Inst.OTHER,
     "12": Inst.VOCAL,
-    "13": Inst.OTHER
+    "13": Inst.OTHER,
 };
 
 interface returnType {
@@ -32,18 +31,19 @@ interface returnType {
 }
 
 const apiDataHandler = (roomsData: RoomData[]): returnType => {
+    // console.log(roomsData)
     const users: { [name: string]: number } = {};
     const rooms: RoomType[] = roomsData.map(roomData => {
-        const [date, time] = roomData.create_time.split(' ');
+        const [date, time] = roomData.createTime.split(" ");
         const id = new Date(`${date}T${time}-00:00`)
                 .getTime() % 21600000 * 1000
-            + parseInt(roomData.creator_mid);
-
+            + parseInt(roomData.creator.nsgmMemberId);
+        
         let country: CountryType = Country.OTHER;
         [
-            roomData.creator_nick,
-            roomData.room_desc,
-            roomData.room_name
+            roomData.creator.nickname,
+            roomData.roomDesc,
+            roomData.roomName,
         ].forEach(text => {
             if (korean.test(text)) {
                 country = Country.KOREA;
@@ -51,51 +51,42 @@ const apiDataHandler = (roomsData: RoomData[]): returnType => {
                 country = Country.JAPAN;
             }
         });
-
-        const status: StatusType = roomData.need_passwd
+        
+        const status: StatusType = roomData.needPasswd
             ? Status.PRIVATE
             : Status.PUBLIC;
-
-        const members: MemberType[] = Array.from(
-            {length: roomData.num_members}, (_, i) => {
-                const member = roomData.members[i];
-                
-                if (!member) {
-                    return PrivateMember;
-                }
-                
-                const iconData = roomData?.iconlist?.[i];
-                
-                users[member.trim()] = id;
-
-                const [type, nickname]: [MemberTypeType, string] = member
-                    ? ["general", member.trim()]
-                    : ["temp", "임시 참여 중"];
-                
-                const iconKey = iconData?.icon || "-1";
-                const iconURL = iconData?.iconurl;
-                
-                const icon: string = member ? (iconURL || iconKey) : "-1";
-                const inst: InstType = iconURL
-                    ? Inst.OTHER
-                    : instMap[iconKey];
-                return {type, nickname, icon, inst}
-            }
-        )
-
-        const tags = tagMaskDecoder(roomData.tag_mask, roomData.tag_orig);
-
+        
+        const members: MemberType[] = roomData.members.map(member => {
+            if (member.nickname) users[member.nickname] = id;
+            
+            return {
+                type: !!member.nickname ? "general" : "temp",
+                nickname: member.nickname,
+                icon: "type" in member.iconInfo
+                    ? member.iconInfo.type === "preset"
+                        ? member.iconInfo.preset
+                        : member.iconInfo.url
+                    : "-1",
+                inst: "type" in member.iconInfo
+                    ? instMap[member.iconInfo.preset]
+                    : Inst.OTHER,
+            };
+        });
+        
+        const tags = tagMaskDecoder(roomData.tagMask, roomData.tagOrig);
+        
         return {
-            name: roomData.room_name,
+            name: roomData.roomName,
             id: id,
-            desc: roomData.room_desc,
+            desc: roomData.roomDesc,
             members: members,
             country: country,
             status: status,
             tags: tags,
-        }
+        };
     });
-    return {rooms, users};
-}
+    console.log(rooms)
+    return { rooms, users };
+};
 
 export default apiDataHandler;
