@@ -2,8 +2,8 @@ import React from "react";
 import "./Notice.scss";
 
 
-import TabPage from "../components/TabPage";
-import TabCard from "../components/TabCard";
+import TabPage from "../components.old/TabPage";
+import TabCard from "../components.old/TabCard";
 
 
 function Notice() {

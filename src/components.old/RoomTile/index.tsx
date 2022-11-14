@@ -43,9 +43,9 @@ function RoomTile({room, size}: RoomTileProps) {
             style={size}
         >
             <div className="room-header">
-                <Flag country={room.country}/>
-                <span className='room-name'>{room.name}</span>
+                {/*<Flag country={room.country}/>*/}
                 {isPublic ? <></> : <Lock/>}
+                <span className='room-name'>{room.name}</span>
             </div>
             <SimpleBar className="room-desc-wrap">
                 <div className="room-desc">

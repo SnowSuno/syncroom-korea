@@ -15,8 +15,8 @@ import Join from "./routes/Join";
 import Notice from "./routes/Notice";
 import Donate from "./routes/Donate";
 import NotFound from "./routes/NotFound";
-import Modal from "./components/Modal";
-import Sidebar from "./components/Sidebar";
+import Modal from "./components.old/Modal";
+import Sidebar from "./components.old/Sidebar";
 
 const store = createStore(
     rootReducer,

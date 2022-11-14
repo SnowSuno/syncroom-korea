@@ -5,16 +5,16 @@ import React, {useEffect, useMemo, useRef} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../modules";
 
-import Header from "../components/Header";
-import RoomGrid from "../components/RoomGrid";
-import Footer from "../components/Footer";
+import Header from "../components.old/Header";
+import RoomGrid from "../components.old/RoomGrid";
+import Footer from "../components.old/Footer";
 
 import {getRoomsThunk} from "../modules/syncroom";
 
 import {roomFilter} from "../common/util/roomFilter";
 
 // temp
-// import BetaNotiModal from "../components/temp/BetaNotiModal";
+// import BetaNotiModal from "../components.old/temp/BetaNotiModal";
 
 function Home() {
     const rooms = useSelector((state: RootState) => state.syncroom.rooms);

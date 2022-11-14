@@ -117,7 +117,7 @@ declare module 'react-stonecutter' {
          * The length unit used throughout.
          * Default: 'px'. Experimental.
          * You could try using 'em' or 'rem' and then adjust the font-size for a fluid layout,
-         * but it may not work well with the measureItems and makeResponsive higher-order components.
+         * but it may not work well with the measureItems and makeResponsive higher-order components.old.
          * `%` does not work well due to the way CSS transforms work.
          */
         lengthUnit?: LengthUnit | undefined;

@@ -1,8 +1,8 @@
 import React from "react";
 import "./Donate.scss";
 
-import TabPage from "../components/TabPage";
-import TabCard from "../components/TabCard";
+import TabPage from "../components.old/TabPage";
+import TabCard from "../components.old/TabCard";
 import useLink from "../common/hooks/useLink";
 
 

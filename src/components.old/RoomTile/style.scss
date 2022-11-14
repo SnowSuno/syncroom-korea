@@ -10,6 +10,10 @@ $private-color-full: #A7A7A7;
   overflow: hidden;
   background: #FFFFFF;
   box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);
+  border: 1px solid #dedede;
+
+  padding: 0.5rem;
+  box-sizing: border-box;
 
   & > div {
     margin-bottom: 0.85rem;
@@ -18,13 +22,13 @@ $private-color-full: #A7A7A7;
   .room-header {
     display: flex;
     height: 2.8rem;
-    color: #FFFFFF;
-    font-size: 1rem;
-    font-weight: 400;
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 500;
     align-items: center;
     padding-inline: 0.9rem;
     gap: 0.5rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.6rem;
   }
 
   .room-name {
@@ -55,7 +59,7 @@ $private-color-full: #A7A7A7;
 
   .MemberList {
     height: 15.4rem;
-    background: #F6F6F6;
+    //background: #F6F6F6;
     margin-inline: 0.85rem;
     border-radius: 1rem;
     position: relative;
@@ -71,7 +75,7 @@ $private-color-full: #A7A7A7;
 
       div {
         flex-grow: 1;
-        border-bottom: 0.1rem #dedede solid;
+        //border-bottom: 0.1rem #dedede solid;
 
         &:last-child {
           border-bottom: 0;
@@ -158,6 +162,7 @@ $private-color-full: #A7A7A7;
       border-radius: 1.15rem;
 
       > button {
+        background: none;
         flex-grow: 1;
         border-radius: 0;
       }
@@ -176,100 +181,100 @@ $private-color-full: #A7A7A7;
     }
 
     .joinBtn, .notiBtn {
-      color: #FFFFFF
+      //color:
     }
   }
 
 
-  &.public {
-    .room-header {
-      background: $public-color
-    }
-
-    &.full .room-header {
-      background: $public-color-full;
-    }
-
-    .joinBtn {
-      background: $public-color;
-
-      &:hover {
-        background: #4A62AF;
-      }
-
-      &:active {
-        background: #3A4F92;
-      }
-    }
-
-    .notiBtn {
-      background: $public-color-full;
-
-      &:hover {
-        background: #8A93B1;
-      }
-
-      &:active {
-        background: #747C9C;
-      }
-
-      &.subscibed {
-        background: $public-color;
-
-        &:hover {
-          background: #4A62AF;
-        }
-
-        &:active {
-          background: #3A4F92;
-        }
-      }
-    }
-  }
-
-  &.private {
-    .room-header {
-      background: $private-color
-    }
-
-    &.full .room-header {
-      background: $private-color-full;
-    }
-
-    .joinBtn {
-      background: #191919;
-
-      &:hover {
-        background: #454545;
-      }
-
-      &:active {
-        background: #363636;
-      }
-    }
-
-    .notiBtn {
-      background: $private-color-full;
-
-      &:hover {
-        background: #979797;
-      }
-
-      &:active {
-        background: #7F7F7F;
-      }
-
-      &.subscibed {
-        background: $private-color;
-
-        &:hover {
-          background: #454545;
-        }
-
-        &:active {
-          background: #363636;
-        }
-      }
-    }
-  }
+  //&.public {
+  //  .room-header {
+  //    background: $public-color
+  //  }
+  //
+  //  &.full .room-header {
+  //    background: $public-color-full;
+  //  }
+  //
+  //  .joinBtn {
+  //    background: $public-color;
+  //
+  //    &:hover {
+  //      background: #4A62AF;
+  //    }
+  //
+  //    &:active {
+  //      background: #3A4F92;
+  //    }
+  //  }
+  //
+  //  .notiBtn {
+  //    background: $public-color-full;
+  //
+  //    &:hover {
+  //      background: #8A93B1;
+  //    }
+  //
+  //    &:active {
+  //      background: #747C9C;
+  //    }
+  //
+  //    &.subscibed {
+  //      background: $public-color;
+  //
+  //      &:hover {
+  //        background: #4A62AF;
+  //      }
+  //
+  //      &:active {
+  //        background: #3A4F92;
+  //      }
+  //    }
+  //  }
+  //}
+  //
+  //&.private {
+  //  .room-header {
+  //    background: $private-color
+  //  }
+  //
+  //  &.full .room-header {
+  //    background: $private-color-full;
+  //  }
+  //
+  //  .joinBtn {
+  //    background: #191919;
+  //
+  //    &:hover {
+  //      background: #454545;
+  //    }
+  //
+  //    &:active {
+  //      background: #363636;
+  //    }
+  //  }
+  //
+  //  .notiBtn {
+  //    background: $private-color-full;
+  //
+  //    &:hover {
+  //      background: #979797;
+  //    }
+  //
+  //    &:active {
+  //      background: #7F7F7F;
+  //    }
+  //
+  //    &.subscibed {
+  //      background: $private-color;
+  //
+  //      &:hover {
+  //        background: #454545;
+  //      }
+  //
+  //      &:active {
+  //        background: #363636;
+  //      }
+  //    }
+  //  }
+  //}
 }
