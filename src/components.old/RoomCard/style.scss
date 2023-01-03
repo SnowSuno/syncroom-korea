@@ -24,7 +24,7 @@ $private-color-full: #A7A7A7;
     height: 2.8rem;
     color: #000;
     font-size: 1.2rem;
-    font-weight: 500;
+    font-weight: 700;
     align-items: center;
     padding-inline: 0.9rem;
     gap: 0.5rem;
@@ -47,6 +47,7 @@ $private-color-full: #A7A7A7;
     display: inline;
 
     .room-desc {
+      color: #727272;
       word-break: break-all;
       white-space: pre-wrap;
 
@@ -86,39 +87,40 @@ $private-color-full: #A7A7A7;
 
   .MemberContainer {
     position: absolute;
-    padding-inline: 1.3rem;
+    padding-inline: 0.8rem;
 
     .Member {
       position: relative;
       overflow: hidden;
       display: flex;
       flex-direction: row;
-      height: 3.08rem;
+      height: 2.4rem;
       align-items: center;
       gap: 0.65rem;
 
       .icon {
-        height: 1.9rem;
-        width: 1.9rem;
+        height: 1.6rem;
+        width: 1.6rem;
         overflow: hidden;
       }
 
       .nickname {
-        font-size: 0.85rem;
-        width: 13rem;
+        font-size: 0.8rem;
+        color: #727272;
+        width: 13.7rem;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
       }
 
       svg.star {
-        height: 1.1rem;
-        width: 1.1rem;
-        fill: #d2d2d2;
+        height: 1rem;
+        width: 1rem;
+        fill: #eeeeee;
         cursor: pointer;
 
         &:hover {
-          fill: #C3C3C3;
+          fill: #d3d3d3;
         }
 
         &.starred {
@@ -155,22 +157,27 @@ $private-color-full: #A7A7A7;
     font-size: 0.9rem;
     font-weight: 400;
 
+    button {
+      background: none;
+      height: 1.4rem;
+      font-size: 0.85rem;
+      padding-inline: 0.5rem;
+      border-radius: 0.2rem;
+    }
+
     > div {
       display: flex;
-      width: 12.5rem;
-      overflow: hidden;
-      border-radius: 1.15rem;
+      gap: 0.5rem;
 
       > button {
-        background: none;
-        flex-grow: 1;
-        border-radius: 0;
+        //background: red;
+
       }
     }
 
-    .shareBtn {
-      width: 5rem;
-    }
+    //.shareBtn {
+    //  width: 5rem;
+    //}
 
     .shareBtn, .notiBtn {
       display: flex;

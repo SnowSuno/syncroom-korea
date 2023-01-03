@@ -1,5 +1,5 @@
 import { RoomData } from "../api/syncroom";
-import RoomType from "../classes/Room";
+import IRoom from "../classes/Room";
 import { Country, CountryType, Inst, InstType, Status, StatusType } from "../classes/properties";
 import { MemberType } from "../classes/Member";
 import { tagMaskDecoder } from "./tagMaskDecoder";
@@ -26,14 +26,14 @@ const instMap: { [index: string]: InstType } = {
 };
 
 interface returnType {
-    rooms: RoomType[];
+    rooms: IRoom[];
     users: { [name: string]: number };
 }
 
 const apiDataHandler = (roomsData: RoomData[]): returnType => {
     // console.log(roomsData)
     const users: { [name: string]: number } = {};
-    const rooms: RoomType[] = roomsData.map(roomData => {
+    const rooms: IRoom[] = roomsData.map(roomData => {
         const [date, time] = roomData.createTime.split(" ");
         const id = new Date(`${date}T${time}-00:00`)
                 .getTime() % 21600000 * 1000

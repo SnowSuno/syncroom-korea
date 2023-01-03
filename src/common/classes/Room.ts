@@ -1,7 +1,7 @@
 import {MemberType} from "./Member";
 import {CountryType, StatusType} from "./properties";
 
-export interface RoomType {
+export interface IRoom {
     name: string,
     id: number,
     desc: string,
@@ -12,4 +12,4 @@ export interface RoomType {
 }
 
 
-export default RoomType;
+export default IRoom;

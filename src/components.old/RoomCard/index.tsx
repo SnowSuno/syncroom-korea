@@ -6,10 +6,10 @@ import SimpleBar from "simplebar-react";
 
 import MemberDisplay from "./MemberList";
 import Buttons from "./Buttons";
-import Flag from "../../resource/img/icon/Flag";
+// import Flag from "../../resource/img/icon/Flag";
 import {ReactComponent as Lock} from "../../resource/img/icon/lock.svg";
 
-import RoomType from "../../common/classes/Room";
+import IRoom from "../../common/classes/Room";
 import {Status} from "../../common/classes/properties";
 
 import {useNotificationHandler} from "../../common/hooks/useNotificationHandler";
@@ -20,7 +20,7 @@ interface Size {
 }
 
 interface RoomTileProps {
-    room: RoomType;
+    room: IRoom;
     size: Size;
 }
 

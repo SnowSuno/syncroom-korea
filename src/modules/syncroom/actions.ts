@@ -1,5 +1,5 @@
 import {createAsyncAction} from "typesafe-actions";
-import RoomType from "../../common/classes/Room";
+import IRoom from "../../common/classes/Room";
 import {AxiosError} from "axios";
 
 export const GET_DATA = 'syncroom/GET_DATA';
@@ -7,7 +7,7 @@ export const GET_DATA_SUCCESS = 'syncroom/GET_DATA_SUCCESS';
 export const GET_DATA_ERROR = 'syncroom/GET_DATA_ERROR';
 
 interface successProps {
-    rooms: RoomType[];
+    rooms: IRoom[];
     users: {[name: string]: number};
 }
 

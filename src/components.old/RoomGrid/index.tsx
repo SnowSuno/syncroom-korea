@@ -1,21 +1,21 @@
 import React from "react";
 import "./style.scss"
 
-import RoomTile from "../RoomTile";
+import RoomCard from "../RoomCard";
 
 import {CSSGrid} from 'react-stonecutter';
 import {useResponsiveCols} from "../../common/hooks/useResponsiveCols";
 
-import RoomType from "../../common/classes/Room";
+import IRoom from "../../common/classes/Room";
 
 type RoomGridProps = {
-    rooms: RoomType[]
+    rooms: IRoom[]
 };
 
 function RoomGrid({rooms}: RoomGridProps) {
     const style = {
         tileWidth: 21.5,   // rem
-        tileHeight: 26.3,  // rem
+        tileHeight: 20.3,  // rem
         gridWidth: 86,     // %
         gutter: 0.85,      // rem
     };
@@ -38,7 +38,7 @@ function RoomGrid({rooms}: RoomGridProps) {
             >
                 {rooms.map(room => (
                     <li key={room.id}>
-                        <RoomTile
+                        <RoomCard
                             room={room}
                             size={{
                                 width: `${style.tileWidth}rem`,

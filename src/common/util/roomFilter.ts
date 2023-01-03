@@ -1,4 +1,4 @@
-import RoomType from "../classes/Room";
+import IRoom from "../classes/Room";
 import {MemberType} from "../classes/Member";
 import {CountryType, InstType, StatusType} from "../classes/properties";
 
@@ -7,7 +7,7 @@ export const roomFilter = (
     country: CountryType | null,
     inst: InstType | null,
     status: StatusType | null
-) => (room: RoomType) => {
+) => (room: IRoom) => {
     const lowerSearch = search.toLowerCase();
     if (!room.name.toLowerCase().includes(lowerSearch)
         && room.members.filter(

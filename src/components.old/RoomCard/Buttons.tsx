@@ -65,7 +65,7 @@ function Buttons({name, status, isFull, changeSubscription, isSubscribed}: Butto
                             <span>임시 참여</span>
                         </button>
                         <button className="joinBtn" onClick={() => join(false)}>
-                            <span>참여하기</span>
+                            <span>참여</span>
                         </button>
                     </div>
             }

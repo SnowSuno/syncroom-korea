@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-import RoomType from "../classes/Room";
+import IRoom from "../classes/Room";
 import {scrollToRoom} from "../util/scrollToRoom";
 
 const checkNotificationPermission = async () => {
@@ -15,7 +15,7 @@ const onClickNotification = (roomId: number) => () => {
 }
 
 interface NotificationHandlerProps {
-    room: RoomType;
+    room: IRoom;
     isFull: boolean;
 }
 
