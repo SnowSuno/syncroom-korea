@@ -11,12 +11,22 @@ import React from "react";
 //   marginInline: props.margin,
 // }));
 
-
-export const Grid: React.FC = ({children}) => {
-    
-    return (
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(spacing.5,max-content))]">
-            {children}
-        </div>
-    )
+interface Props {
+  w?: number;
 }
+
+export const Grid: React.FC<Props> = ({ children, w = 80 }) => {
+  
+  return (
+    <div className={`
+      grid
+      grid-cols-[repeat(auto-fit,minmax(theme(spacing.${w}),max-content))]
+      justify-center
+      gap-2
+      mx-4
+      [&>*]:w-${w}
+    `}>
+      {children}
+    </div>
+  );
+};
