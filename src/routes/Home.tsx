@@ -12,6 +12,7 @@ import Footer from "../components.old/Footer";
 import {getRoomsThunk} from "../modules/syncroom";
 
 import {roomFilter} from "../common/util/roomFilter";
+import { Grid } from "../components/Grid";
 
 // temp
 // import BetaNotiModal from "../components.old/temp/BetaNotiModal";
@@ -42,7 +43,13 @@ function Home() {
     return (
         <>
             <Header />
-            <RoomGrid rooms={visibleData}/>
+            {/*<RoomGrid rooms={visibleData}/>*/}
+            
+            <div className="text-3xl font-black text-red-900">test</div>
+            
+            <Grid>
+                {visibleData.map((room) => <div>{room.name}</div>)}
+            </Grid>
             <Footer />
 
             {/*temp*/}
