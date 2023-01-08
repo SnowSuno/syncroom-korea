@@ -9,18 +9,21 @@ interface Props {
 export const Card: React.FC<Props> = ({ room }) => {
   
   return (
-    <div className="bg-white p-5 rounded-lg shadow-sm hover:shadow-2xl transition-shadow">
+    <div className="relative bg-white p-6 pb-10 rounded-xl shadow-sm hover:shadow-2xl transition-shadow">
       <h1 className="font-bold text-xl line-clamp-1">
         {room.roomName}
       </h1>
       <div className="mt-1 text-gray-400 text-sm break-all line-clamp-3">
-        {room.roomDesc || "방 설명이 없습니다."}
+        {room.roomDesc}
       </div>
       
       <div className="mt-3">
         {room.members.map(member => <Profile member={member}/> )}
       </div>
       
+      <div className="absolute bottom-4 text-sm text-gray-400">
+        {room.members.length} / 5
+      </div>
     </div>
   );
 };
