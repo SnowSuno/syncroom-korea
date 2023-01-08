@@ -1,25 +1,26 @@
-import React, { useEffect, useMemo, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 // import {BrowserView, MobileView} from "react-device-detect";
 
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../modules";
 
-import Header from "../components.old/Header";
+// import Header from "../components.old/Header";
 import Footer from "../components.old/Footer";
 
 import { getRoomsThunk } from "../modules/syncroom";
 
-import { roomFilter } from "../common/util/roomFilter";
+// import { roomFilter } from "../common/util/roomFilter";
 import { Card, Grid } from "../components";
+import { getRoomId } from "../common/api/interfaces";
 
 // temp
 // import BetaNotiModal from "../components.old/temp/BetaNotiModal";
 
 function Home() {
   const rooms = useSelector((state: RootState) => state.syncroom.rooms);
-  const { search, country, inst, status } = useSelector(
-    (state: RootState) => state.filter);
+  // const { search, country, inst, status } = useSelector(
+  //   (state: RootState) => state.filter);
   
   const dispatch = useDispatch();
   const timer = useRef<NodeJS.Timeout>();
@@ -35,18 +36,18 @@ function Home() {
     };
   }, [dispatch]);
   
-  const visibleData = useMemo(() => rooms.filter(
-    roomFilter(search, country, inst, status),
-  ), [rooms, search, country, inst, status]);
+  // const visibleData = useMemo(() => rooms.filter(
+  //   roomFilter(search, country, inst, status),
+  // ), [rooms, search, country, inst, status]);
   
   return (
     <>
-      <Header/>
+      {/*<Header/>*/}
       {/*<RoomGrid rooms={visibleData}/>*/}
       
       <Grid>
-        {visibleData.map(room =>
-          <Card key={room.id} room={room}/>
+        {rooms.map(room =>
+          <Card key={getRoomId(room)} room={room}/>
         )}
       </Grid>
       <Footer/>

@@ -11,20 +11,20 @@ import React from "react";
 //   marginInline: props.margin,
 // }));
 
-interface Props {
-  w?: number;
-}
 
-export const Grid: React.FC<Props> = ({ children, w = 80 }) => {
+
+export const Grid: React.FC = ({ children }) => {
   
+  // https://stackoverflow.com/questions/32802202/how-to-center-a-flex-container-but-left-align-flex-items
   return (
     <div className={`
       grid
-      grid-cols-[repeat(auto-fit,minmax(theme(spacing.${w}),max-content))]
+      grid-cols-[repeat(auto-fit,minmax(theme(spacing.80),max-content))]
       justify-center
-      gap-2
+      gap-3
       mx-4
-      [&>*]:w-${w}
+      [&>*]:w-80
+      mb-10
     `}>
       {children}
     </div>

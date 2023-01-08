@@ -92,7 +92,7 @@ interface handleUserReturn {
 
 const handleUsers = (
     userList: string[],
-    users: {[name: string]: number}
+    users: Record<string, string>
 ): handleUserReturn => {
     const onlineUsers: string[] = [];
     const offlineUsers: string[] = [];

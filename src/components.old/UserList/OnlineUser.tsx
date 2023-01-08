@@ -12,7 +12,7 @@ import {ReactComponent as Arrow} from "../../resource/img/icon/right-arrow.svg";
 
 interface OnlineUserProps {
     userName: string;
-    roomId: number;
+    roomId: string;
     isActive: boolean;
 }
 

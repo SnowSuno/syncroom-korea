@@ -1,4 +1,4 @@
-import { RoomData } from "../api/syncroom";
+import { Room } from "../api/interfaces";
 import RoomType from "../classes/Room";
 import { Country, CountryType, Inst, InstType, Status, StatusType } from "../classes/properties";
 import { MemberType } from "../classes/Member";
@@ -30,7 +30,7 @@ interface returnType {
     users: { [name: string]: number };
 }
 
-const apiDataHandler = (roomsData: RoomData[]): returnType => {
+const apiDataHandler = (roomsData: Room[]): returnType => {
     // console.log(roomsData)
     const users: { [name: string]: number } = {};
     const rooms: RoomType[] = roomsData.map(roomData => {

@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 
-import RoomType from "../classes/Room";
 import {scrollToRoom} from "../util/scrollToRoom";
+import { getRoomId, Room } from "../api/interfaces";
 
 const checkNotificationPermission = async () => {
     if (Notification.permission === "granted") return true;
@@ -9,20 +9,20 @@ const checkNotificationPermission = async () => {
     return permission === "granted";
 }
 
-const onClickNotification = (roomId: number) => () => {
+const onClickNotification = (roomId: string) => () => {
     window.focus();
     scrollToRoom(roomId)
 }
 
 interface NotificationHandlerProps {
-    room: RoomType;
+    room: Room;
     isFull: boolean;
 }
 
 const useNotificationHandler = ({room, isFull}: NotificationHandlerProps): [boolean, () => void] => {
     const [subscribeStatus, setSubscribeStatus] = useState<boolean>(false);
 
-    const changeSubscibeStatus = () => {
+    const changeSubscribeStatus = () => {
         checkNotificationPermission().then(() => {
             setSubscribeStatus(!subscribeStatus);
         })
@@ -30,16 +30,16 @@ const useNotificationHandler = ({room, isFull}: NotificationHandlerProps): [bool
 
     useEffect(() => {
         if (subscribeStatus && !isFull) {
-            const noti = new Notification("자리 나면 알림 받기", {
+            const notification = new Notification("자리 나면 알림 받기", {
                 icon: document.URL + "favicon.ico",
-                body: room.name,
+                body: room.roomName,
             });
-            noti.onclick = onClickNotification(room.id);
+            notification.onclick = onClickNotification(getRoomId(room));
             setSubscribeStatus(false);
         }
-    }, [isFull, subscribeStatus, room.name, room.id])
+    }, [isFull, subscribeStatus, room])
 
-    return [subscribeStatus, changeSubscibeStatus];
+    return [subscribeStatus, changeSubscribeStatus];
 }
 
 export {useNotificationHandler};
