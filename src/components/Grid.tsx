@@ -19,11 +19,11 @@ export const Grid: React.FC = ({ children }) => {
   return (
     <div className={`
       grid
-      grid-cols-[repeat(auto-fit,minmax(theme(spacing.80),max-content))]
+      grid-cols-[repeat(auto-fit,minmax(theme(spacing.96),max-content))]
       justify-center
       gap-3
       mx-4
-      [&>*]:w-80
+      [&>*]:w-96
       mb-10
     `}>
       {children}
