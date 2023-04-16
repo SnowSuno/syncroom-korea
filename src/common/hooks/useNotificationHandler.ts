@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 
 import {scrollToRoom} from "../util/scrollToRoom";
-import { getRoomId, Room } from "../api/interfaces";
+import { Room } from "../api/interfaces";
 
 const checkNotificationPermission = async () => {
     if (Notification.permission === "granted") return true;
@@ -34,7 +34,7 @@ const useNotificationHandler = ({room, isFull}: NotificationHandlerProps): [bool
                 icon: document.URL + "favicon.ico",
                 body: room.roomName,
             });
-            notification.onclick = onClickNotification(getRoomId(room));
+            notification.onclick = onClickNotification(Room.getId(room));
             setSubscribeStatus(false);
         }
     }, [isFull, subscribeStatus, room])

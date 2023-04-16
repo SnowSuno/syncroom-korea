@@ -21,7 +21,7 @@ export const Grid: React.FC = ({ children }) => {
       grid
       grid-cols-[repeat(auto-fit,minmax(theme(spacing.96),max-content))]
       justify-center
-      gap-3
+      gap-5
       mx-4
       [&>*]:w-96
       mb-10

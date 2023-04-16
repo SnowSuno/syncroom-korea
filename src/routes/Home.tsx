@@ -12,7 +12,7 @@ import { getRoomsThunk } from "../modules/syncroom";
 
 // import { roomFilter } from "../common/util/roomFilter";
 import { Card, Grid } from "../components";
-import { getRoomId } from "../common/api/interfaces";
+import { Room } from "../common/api/interfaces";
 
 // temp
 // import BetaNotiModal from "../components.old/temp/BetaNotiModal";
@@ -47,10 +47,13 @@ function Home() {
       
       <Grid>
         {rooms.map(room =>
-          <Card key={getRoomId(room)} room={room}/>
+          <Card key={Room.getId(room)} room={room}/>,
         )}
       </Grid>
+      
+      
       <Footer/>
+      
       
       {/*temp*/}
       {/*<BetaNotiModal />*/}
