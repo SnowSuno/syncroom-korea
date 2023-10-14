@@ -5,9 +5,9 @@ import {Link} from "react-router-dom"
 import {decodeShareLink} from "../common/util/shareLink";
 import {joinRoom} from "../common/util/joinRoom";
 
-import {ReactComponent as SyncroomLogo} from "../resource/img/logo/syncroom.svg";
-import {ReactComponent as Lock} from "../resource/img/icon/lock.svg";
-import {ReactComponent as Return} from "../resource/img/icon/return.svg";
+import SyncroomLogo from "../resource/img/logo/syncroom.svg?react";
+import Lock from "../resource/img/icon/lock.svg?react";
+import Return from "../resource/img/icon/return.svg?react";
 
 import useInput from "../common/hooks/useInput";
 
@@ -92,6 +92,7 @@ function JoinInfo({search}: JoinInfoProps) {
             );
         }
     } catch (e) {
+      console.log(e);
         return (
             <>
                 <div className="title">

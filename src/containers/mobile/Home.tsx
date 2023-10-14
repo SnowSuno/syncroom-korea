@@ -1,10 +1,8 @@
 import React from "react";
 import "./Home.css";
 
-import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../../modules";
 
-import {ReactComponent as Logo} from "../../resource/img/logo/syncroom.svg";
+import Logo from "../../resource/img/logo/syncroom.svg?react";
 
 
 function Home() {

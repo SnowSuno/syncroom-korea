@@ -11,7 +11,7 @@ import {encodeShareLink} from "../../common/util/shareLink";
 
 import {CopyToClipboard} from "react-copy-to-clipboard";
 
-import {ReactComponent as Link} from "../../resource/img/icon/link.svg";
+import Link from "../../resource/img/icon/link.svg?react";
 
 
 function ShareModal() {

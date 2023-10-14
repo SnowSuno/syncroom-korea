@@ -1,8 +1,8 @@
 import React from "react";
 
-import {ReactComponent as Logo} from "../../resource/img/logo/title.svg";
-import {ReactComponent as MenuIcon} from "../../resource/img/icon/menu.svg";
-import {ReactComponent as SettingsIcon} from "../../resource/img/icon/settings.svg";
+import Logo from "../../resource/img/logo/title.svg?react";
+import MenuIcon from "../../resource/img/icon/menu.svg?react";
+import SettingsIcon from "../../resource/img/icon/settings.svg?react";
 
 import {openSidebar} from "../../modules/sidebar";
 import {useDispatch} from "react-redux";

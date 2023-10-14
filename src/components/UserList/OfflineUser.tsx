@@ -3,7 +3,7 @@ import React, {useCallback} from "react";
 import {useDispatch} from "react-redux";
 import {deleteUser} from "../../modules/user";
 
-import {ReactComponent as Delete} from "../../resource/img/icon/x.svg";
+import Delete from "../../resource/img/icon/x.svg?react";
 
 interface OfflineUserProps {
     userName: string;

@@ -1,4 +1,5 @@
-const {base62_encode, base62_decode} = require('@samwen/base62-util');
+// import {encode, decode, BASE62} from "@hugov/shorter-string";
+import { compressToEncodedURIComponent, decompressFromEncodedURIComponent } from "lz-string";
 
 export interface roomInfoProps {
     roomName: string;
@@ -11,13 +12,13 @@ export const encodeShareLink = ({roomName, password}: roomInfoProps) => {
     const roomInfo: (string | number)[] = [roomName];
     if (payload) roomInfo.push(payload);
 
-    return (document.URL + "join?" + base62_encode(
-        JSON.stringify(roomInfo).slice(1, -1)
+    return (document.URL + "join?" + compressToEncodedURIComponent(
+        JSON.stringify(roomInfo).slice(1, -1),
     ));
 };
 
 export const decodeShareLink = (shareLink: string): roomInfoProps => {
-    const roomInfo = JSON.parse(`[${base62_decode(shareLink)}]`);
+    const roomInfo = JSON.parse(`[${decompressFromEncodedURIComponent(shareLink)}]`);
     if (![1, 2].includes(roomInfo.length)) {
         throw new Error("parse error");
     }

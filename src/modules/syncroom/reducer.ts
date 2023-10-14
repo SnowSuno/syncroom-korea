@@ -15,13 +15,13 @@ const syncroom = createReducer<SyncroomState, SyncroomAction>(initialState, {
         loading: true,
         error: null,
     }),
-    [GET_DATA_SUCCESS]: (state, action) => ({
+    [GET_DATA_SUCCESS]: (_, action) => ({
         loading: false,
         error: null,
         rooms: action.payload.rooms,
         users: action.payload.users
     }),
-    [GET_DATA_ERROR]: (state, action) => ({
+    [GET_DATA_ERROR]: (_, action) => ({
         loading: false,
         error: action.payload,
         rooms: [],
