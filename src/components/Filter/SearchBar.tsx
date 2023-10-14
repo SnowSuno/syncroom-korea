@@ -6,7 +6,7 @@ import {RootState} from "../../modules";
 import {setSearch} from "../../modules/filter";
 import {FilterClass, FilterClassType} from "../../modules/filter/types";
 
-import {ReactComponent as Search} from "../../resource/img/icon/search.svg";
+import Search from "../../resource/img/icon/search.svg?react";
 
 interface SearchBarProps {
     activeClass: FilterClassType | null;

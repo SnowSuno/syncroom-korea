@@ -1,9 +1,9 @@
 import React from "react";
 import {Country, CountryType} from "../../../../common/classes/properties";
 
-import {ReactComponent as KoreaFlag} from "./korea.svg";
-import {ReactComponent as JapanFlag} from "./japan.svg";
-import {ReactComponent as OtherFlag} from "./other.svg";
+import KoreaFlag from "./korea.svg?react";
+import JapanFlag from "./japan.svg?react";
+import OtherFlag from "./other.svg?react";
 
 interface FlagProps {
     country: CountryType

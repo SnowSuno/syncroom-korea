@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 import {getRoomsThunk} from "../../modules/syncroom";
 import {useDispatch, useSelector} from "react-redux";
 
-import {ReactComponent as Refresh} from "../../resource/img/graphics/reload.svg";
+import Refresh from "../../resource/img/graphics/reload.svg?react";
 import {RootState} from "../../modules";
 
 import Filter from "../Filter";

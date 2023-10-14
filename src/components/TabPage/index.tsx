@@ -5,7 +5,7 @@ import classNames from "classnames";
 
 import useLink from "../../common/hooks/useLink";
 
-import {ReactComponent as Arrow} from "../../resource/img/icon/left-arrow.svg";
+import Arrow from "../../resource/img/icon/left-arrow.svg?react";
 
 interface TabPageProps {
     className: string;

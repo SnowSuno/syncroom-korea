@@ -8,20 +8,20 @@ import {Country, Inst, Status} from "../../common/classes/properties";
 
 import {FilterClass, FilterClassType} from "../../modules/filter/types";
 
-import {ReactComponent as CountryIcon} from "../../resource/img/icon/country.svg";
-import {ReactComponent as Korea} from "../../resource/img/icon/Flag/korea-noborder.svg";
-import {ReactComponent as Japan} from "../../resource/img/icon/Flag/japan-noborder.svg";
+import CountryIcon from "../../resource/img/icon/country.svg?react";
+import Korea from "../../resource/img/icon/Flag/korea-noborder.svg?react";
+import Japan from "../../resource/img/icon/Flag/japan-noborder.svg?react";
 
-import {ReactComponent as InstIcon} from "../../resource/img/icon/instrument.svg";
-import {ReactComponent as Vocal} from "../../resource/img/icon/Profile/vocal.svg";
-import {ReactComponent as Guitar} from "../../resource/img/icon/Profile/electric.svg";
-import {ReactComponent as Bass} from "../../resource/img/icon/Profile/bass.svg";
-import {ReactComponent as Keys} from "../../resource/img/icon/Profile/keyboard.svg";
-import {ReactComponent as Drums} from "../../resource/img/icon/Profile/drums.svg";
+import InstIcon from "../../resource/img/icon/instrument.svg?react";
+import Vocal from "../../resource/img/icon/Profile/vocal.svg?react";
+import Guitar from "../../resource/img/icon/Profile/electric.svg?react";
+import Bass from "../../resource/img/icon/Profile/bass.svg?react";
+import Keys from "../../resource/img/icon/Profile/keyboard.svg?react";
+import Drums from "../../resource/img/icon/Profile/drums.svg?react";
 
-import {ReactComponent as StatusIcon} from "../../resource/img/icon/status.svg";
-import {ReactComponent as Public} from "../../resource/img/icon/public.svg";
-import {ReactComponent as Private} from "../../resource/img/icon/private.svg";
+import StatusIcon from "../../resource/img/icon/status.svg?react";
+import Public from "../../resource/img/icon/public.svg?react";
+import Private from "../../resource/img/icon/private.svg?react";
 
 function Filter() {
     const [activeClass, setActiveClass] = useState<FilterClassType | null>(null);

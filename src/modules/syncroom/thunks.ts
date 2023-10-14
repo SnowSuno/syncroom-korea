@@ -3,6 +3,7 @@ import {RootState} from "../index";
 import {SyncroomAction} from "./types";
 import {getApiData} from "../../common/api/syncroom";
 import {getDataAsync} from "./actions";
+import type { AxiosError } from "axios";
 
 export function getRoomsThunk(): ThunkAction<Promise<void>, RootState, null, SyncroomAction> {
     return async dispatch => {
@@ -12,7 +13,7 @@ export function getRoomsThunk(): ThunkAction<Promise<void>, RootState, null, Syn
             const data = await getApiData();
             dispatch(success(data));
         } catch (e) {
-            dispatch(failure(e));
+            dispatch(failure(e as AxiosError));
         }
     };
 }

@@ -6,8 +6,8 @@ import SettingsSidebarButton from "./SettingsSidebarButton";
 import {useDispatch} from "react-redux";
 import {closeSidebar} from "../../modules/sidebar";
 
-import {ReactComponent as Settings} from "../../resource/img/icon/settings.svg";
-import {ReactComponent as Arrow} from "../../resource/img/icon/right-arrow.svg";
+import Settings from "../../resource/img/icon/settings.svg?react";
+import Arrow from "../../resource/img/icon/right-arrow.svg?react";
 
 
 function SettingsSidebar() {

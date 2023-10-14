@@ -4,8 +4,8 @@ import {useDispatch} from "react-redux";
 import useInput from "../../common/hooks/useInput";
 import {addUser} from "../../modules/user";
 
-import {ReactComponent as Plus} from "../../resource/img/icon/plus.svg";
-import {ReactComponent as Return} from "../../resource/img/icon/return.svg";
+import Plus from "../../resource/img/icon/plus.svg?react";
+import Return from "../../resource/img/icon/return.svg?react";
 
 interface ManageProps {
     isActive: boolean;

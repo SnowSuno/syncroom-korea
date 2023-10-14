@@ -7,7 +7,7 @@ import {RootState} from "../../modules";
 import {MemberType} from "../../common/classes/Member";
 import Profile from "../../resource/img/icon/Profile";
 
-import {ReactComponent as Star} from "../../resource/img/icon/star.svg";
+import Star from "../../resource/img/icon/star.svg?react";
 import {addUser, deleteUser} from "../../modules/user";
 
 interface MemberProps {

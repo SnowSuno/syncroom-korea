@@ -6,8 +6,8 @@ import {deleteUser} from "../../modules/user";
 
 import {scrollToRoom} from "../../common/util/scrollToRoom";
 
-import {ReactComponent as Delete} from "../../resource/img/icon/x.svg";
-import {ReactComponent as Arrow} from "../../resource/img/icon/right-arrow.svg";
+import Delete from "../../resource/img/icon/x.svg?react";
+import Arrow from "../../resource/img/icon/right-arrow.svg?react";
 
 
 interface OnlineUserProps {

@@ -9,8 +9,8 @@ import {useDispatch} from "react-redux";
 import {openModal} from "../../modules/modal";
 import {ModalClass} from "../../modules/modal/modalClass";
 
-import {ReactComponent as Share} from "../../resource/img/icon/share.svg";
-import {ReactComponent as Notification} from "../../resource/img/icon/notification.svg";
+import Share from "../../resource/img/icon/share.svg?react";
+import Notification from "../../resource/img/icon/notification.svg?react";
 
 interface ButtonsProps {
     name: string;

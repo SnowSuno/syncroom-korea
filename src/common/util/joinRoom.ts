@@ -7,5 +7,5 @@ export const joinRoom = (name: string, password: string, temp: boolean) => {
     // };
     const mode = temp ? 3 : 2;
     const rawURI = `joingroup?mode=${mode}&pid=4&nickname=&groupname=${encodeURIComponent(name)}&password=${encodeURIComponent(password)}`;
-    window.location.href = 'syncroom:' + Buffer.from(rawURI, 'utf-8').toString('base64');
+    window.location.href = 'syncroom:' + btoa(rawURI);
 };
