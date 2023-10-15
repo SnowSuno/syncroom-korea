@@ -1,19 +1,6 @@
-# SYNCROOM KOREA
-SYNCROOM 방 참여 페이지의 한국 버전
-> Last update : **2021/07/31**
+# 🎼 Syncroom Korea
 
-```현재 SYNCROOM KOREA는 알파 테스트 중입니다. 모든 기능이 완전히 작동하지 않습니다.```
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c449f2e2-8942-4961-8ae2-7c6d94b093dc/deploy-status)](https://app.netlify.com/sites/syncroomkr/deploys)
 
-* * *
-### 현재 작동하는 기능
-> * 현재 열려있는 방 및 정보 표시
-> * 각각의 방의 멤버 표시
-> * 자동 방 새로고침
-> * 방 참여/임시 참여
-> * 방 링크 공유 기능
+> Syncroom의 여러 인터페이스를 한글로 제공하고 여러 편의 기능을 제공하는 사이트입니다.
 
-
-### 현재 작동하지 않는 기능
-> * 방 검색 / 필터 기능
-> * 페이지 메뉴, 설정
-> * 자리나면 알림받기 
