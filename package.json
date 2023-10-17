@@ -7,7 +7,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "deploy": "gh-pages -d build",
-    "predeploy": "yarn run build"
+    "predeploy": "yarn run build",
+    "lint": "prettier --write ."
   },
   "dependencies": {
     "axios": "^0.21.1",
