@@ -1,43 +1,43 @@
-import {SidebarClassType} from "./sidebarClass";
+import { SidebarClassType } from "./sidebarClass";
 
-const OPEN = 'sidebar/OPEN' as const;
-const CLOSE = 'sidebar/CLOSE' as const;
+const OPEN = "sidebar/OPEN" as const;
+const CLOSE = "sidebar/CLOSE" as const;
 
 type openSidebarProps = {
-    sidebarClass: SidebarClassType
+  sidebarClass: SidebarClassType;
 };
-export const openSidebar = ({sidebarClass}: openSidebarProps) => ({
-    type: OPEN,
-    payload: sidebarClass
+export const openSidebar = ({ sidebarClass }: openSidebarProps) => ({
+  type: OPEN,
+  payload: sidebarClass,
 });
 export const closeSidebar = () => ({
-    type: CLOSE
+  type: CLOSE,
 });
 
 type SidebarAction =
-    | ReturnType<typeof openSidebar>
-    | ReturnType<typeof closeSidebar>;
+  | ReturnType<typeof openSidebar>
+  | ReturnType<typeof closeSidebar>;
 
 type SidebarState = {
-    sidebarClass: SidebarClassType
+  sidebarClass: SidebarClassType;
 };
 
 const initialState: SidebarState = {
-    sidebarClass: null
+  sidebarClass: null,
 };
 
 function sidebar(
-    state: SidebarState = initialState,
-    action: SidebarAction
+  state: SidebarState = initialState,
+  action: SidebarAction,
 ): SidebarState {
-    switch (action.type) {
-        case OPEN:
-            return {sidebarClass: action.payload};
-        case CLOSE:
-            return {sidebarClass: null};
-        default:
-            return state;
-    }
+  switch (action.type) {
+    case OPEN:
+      return { sidebarClass: action.payload };
+    case CLOSE:
+      return { sidebarClass: null };
+    default:
+      return state;
+  }
 }
 
 export default sidebar;

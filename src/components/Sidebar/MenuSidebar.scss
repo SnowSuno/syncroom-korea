@@ -1,6 +1,6 @@
 .SidebarContainer .menu.sidebar {
   background: #dbdce2;
-  transition: left .2s cubic-bezier(0.2, 0.5, 0.2, 1);
+  transition: left 0.2s cubic-bezier(0.2, 0.5, 0.2, 1);
 
   .header-container {
     display: flex;
@@ -48,8 +48,8 @@
       flex-grow: 1;
 
       &:first-child {
-        background: #49C5B6;
-        color: #FFFFFF;
+        background: #49c5b6;
+        color: #ffffff;
 
         &:hover {
           background: #46bdaf;
@@ -70,5 +70,5 @@
 }
 
 .closed .menu.sidebar {
-  left: -35rem
+  left: -35rem;
 }

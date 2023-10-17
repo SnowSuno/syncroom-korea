@@ -14,7 +14,7 @@
     width: 9.5rem;
     margin: 1rem;
     padding-left: 1rem;
-    background: #DCE0E8;
+    background: #dce0e8;
     display: flex;
     align-items: center;
 
@@ -68,8 +68,8 @@
         height: 100%;
         border-radius: 0;
         width: 15rem;
-        background: #49C5B6;
-        color: #FFFFFF;
+        background: #49c5b6;
+        color: #ffffff;
 
         &:hover {
           background: #46bdaf;
@@ -93,10 +93,10 @@
         border-radius: 0;
         width: 20rem;
         padding-inline: 1rem;
-        background: #FFFFFF;
+        background: #ffffff;
 
         &::placeholder {
-          color: #AAAAAA;
+          color: #aaaaaa;
         }
 
         &:focus {
@@ -108,10 +108,10 @@
 
     .install {
       font-size: 0.9rem;
-      color: #BABBBF;
+      color: #babbbf;
 
       a {
-        color: #BABBBF;
+        color: #babbbf;
       }
     }
 

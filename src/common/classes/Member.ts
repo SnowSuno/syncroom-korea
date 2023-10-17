@@ -3,10 +3,10 @@ import { InstType } from "./properties";
 export type MemberTypeType = "general" | "private" | "temp";
 
 export interface MemberType {
-    type: MemberTypeType;
-    nickname: string,
-    icon: string,
-    inst: InstType
+  type: MemberTypeType;
+  nickname: string;
+  icon: string;
+  inst: InstType;
 }
 
 // export const PrivateMember: MemberType = {

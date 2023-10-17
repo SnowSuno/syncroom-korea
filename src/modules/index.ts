@@ -1,5 +1,5 @@
-import {combineReducers} from "redux";
-import {persistReducer} from "redux-persist";
+import { combineReducers } from "redux";
+import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 import syncroom from "./syncroom";
@@ -9,17 +9,17 @@ import filter from "./filter";
 import user from "./user";
 
 const persistConfig = {
-    key: "root",
-    storage,
-    whitelist: ["user"],
+  key: "root",
+  storage,
+  whitelist: ["user"],
 };
 
 const rootReducer = combineReducers({
-    syncroom,
-    modal,
-    sidebar,
-    filter,
-    user,
+  syncroom,
+  modal,
+  sidebar,
+  filter,
+  user,
 });
 
 export default persistReducer(persistConfig, rootReducer);

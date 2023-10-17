@@ -1,53 +1,46 @@
-import React, {useCallback} from "react";
+import React, { useCallback } from "react";
 
-import {useDispatch} from "react-redux";
-import {closeSidebar} from "../../modules/sidebar";
-import {deleteUser} from "../../modules/user";
+import { useDispatch } from "react-redux";
+import { closeSidebar } from "../../modules/sidebar";
+import { deleteUser } from "../../modules/user";
 
-import {scrollToRoom} from "../../common/util/scrollToRoom";
+import { scrollToRoom } from "../../common/util/scrollToRoom";
 
 import Delete from "../../resource/img/icon/x.svg?react";
 import Arrow from "../../resource/img/icon/right-arrow.svg?react";
 
-
 interface OnlineUserProps {
-    userName: string;
-    roomId: number;
-    isActive: boolean;
+  userName: string;
+  roomId: number;
+  isActive: boolean;
 }
 
+function OnlineUser({ userName, roomId, isActive }: OnlineUserProps) {
+  const dispatch = useDispatch();
 
-function OnlineUser({userName, roomId, isActive}: OnlineUserProps) {
-    const dispatch = useDispatch();
+  const findUserRoom = useCallback(() => {
+    if (!isActive) {
+      dispatch(closeSidebar());
+      scrollToRoom(roomId);
+    }
+  }, [roomId, dispatch, isActive]);
 
-    const findUserRoom = useCallback(() => {
-        if (!isActive) {
-            dispatch(closeSidebar());
-            scrollToRoom(roomId);
-        }
-    }, [roomId, dispatch, isActive]);
+  const deleteSelf = useCallback(() => {
+    dispatch(deleteUser(userName));
+  }, [dispatch, userName]);
 
-    const deleteSelf = useCallback(() => {
-        dispatch(deleteUser(userName));
-    }, [dispatch, userName]);
-
-
-    return (
-        <div className="Online User" onClick={findUserRoom}>
-            <svg className="indicator" viewBox="0 0 2 2">
-                <circle cx="1" cy="1" r="1"/>
-            </svg>
-            <span>{userName}</span>
-            <button
-                className="delete"
-                onClick={deleteSelf}
-                disabled={!isActive}
-            >
-                <Delete />
-            </button>
-            <Arrow className="arrow"/>
-        </div>
-    );
+  return (
+    <div className="Online User" onClick={findUserRoom}>
+      <svg className="indicator" viewBox="0 0 2 2">
+        <circle cx="1" cy="1" r="1" />
+      </svg>
+      <span>{userName}</span>
+      <button className="delete" onClick={deleteSelf} disabled={!isActive}>
+        <Delete />
+      </button>
+      <Arrow className="arrow" />
+    </div>
+  );
 }
 
 // const scrollToRoom = (roomId: number) => {
