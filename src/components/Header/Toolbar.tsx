@@ -8,7 +8,7 @@ import { useRooms } from "@/api/hooks";
 import { useQueryClient } from "react-query";
 
 function Toolbar() {
-  const { isLoading } = useRooms();
+  const { isFetching } = useRooms();
   const queryClient = useQueryClient();
 
   const getRooms = () => queryClient.invalidateQueries("rooms");
@@ -16,8 +16,8 @@ function Toolbar() {
   const [rotate, setRotate] = useState(false);
 
   useEffect(() => {
-    if (isLoading) setRotate(true);
-  }, [isLoading]);
+    if (isFetching) setRotate(true);
+  }, [isFetching]);
 
   return (
     <div className="Toolbar">
@@ -27,7 +27,7 @@ function Toolbar() {
           height={20}
           width={20}
           className={classNames({ rotate })}
-          onAnimationIteration={() => !isLoading && setRotate(false)}
+          onAnimationIteration={() => !isFetching && setRotate(false)}
         />
       </button>
     </div>
