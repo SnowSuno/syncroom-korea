@@ -6,8 +6,6 @@ import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import rootReducer from "./modules";
 import ReduxThunk from "redux-thunk";
-import { persistStore } from "redux-persist";
-import { PersistGate } from "redux-persist/integration/react";
 
 import {
   BrowserRouter as Router,
@@ -22,14 +20,16 @@ import Donate from "./routes/Donate";
 import NotFound from "./routes/NotFound";
 import Modal from "./components/Modal";
 import Sidebar from "./components/Sidebar";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
-const persistor = persistStore(store);
+
+const queryClient = new QueryClient();
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+    <QueryClientProvider client={queryClient}>
+      <Provider store={store}>
         <Router>
           <Switch>
             <Route exact path="/" component={Home} />
@@ -42,8 +42,8 @@ ReactDOM.render(
           <Modal />
           <Sidebar />
         </Router>
-      </PersistGate>
-    </Provider>
+      </Provider>
+    </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById("root"),
 );
