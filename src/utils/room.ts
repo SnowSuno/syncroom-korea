@@ -1,7 +1,7 @@
 import type { RoomSource } from "@/schema/room";
+import type { Language } from "@/schema/enums";
 
-export const getId = (roomSource: RoomSource) =>
-  `${roomSource.realm}-${roomSource.index}`;
+export const getId = (roomSource: RoomSource) => `${roomSource.creator.userId}`;
 
 export const getLanguage = (roomSource: RoomSource) =>
-  roomSource.creator.idProvider.split("-")[1] as "jp" | "kr";
+  roomSource.creator.idProvider.split("-")[1] as Language;
