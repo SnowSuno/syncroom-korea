@@ -2,21 +2,22 @@ import React, { useCallback } from "react";
 
 import { useDispatch } from "react-redux";
 import { closeSidebar } from "../../modules/sidebar";
-import { deleteUser } from "../../modules/user";
 
 import { scrollToRoom } from "../../common/util/scrollToRoom";
 
 import Delete from "../../resource/img/icon/x.svg?react";
 import Arrow from "../../resource/img/icon/right-arrow.svg?react";
+import { useUsersStore } from "@/store";
 
 interface OnlineUserProps {
   userName: string;
-  roomId: number;
+  roomId: string;
   isActive: boolean;
 }
 
 function OnlineUser({ userName, roomId, isActive }: OnlineUserProps) {
   const dispatch = useDispatch();
+  const deleteFavorite = useUsersStore(state => state.deleteFavoriteUser);
 
   const findUserRoom = useCallback(() => {
     if (!isActive) {
@@ -26,8 +27,8 @@ function OnlineUser({ userName, roomId, isActive }: OnlineUserProps) {
   }, [roomId, dispatch, isActive]);
 
   const deleteSelf = useCallback(() => {
-    dispatch(deleteUser(userName));
-  }, [dispatch, userName]);
+    deleteFavorite(userName);
+  }, [deleteFavorite, userName]);
 
   return (
     <div className="Online User" onClick={findUserRoom}>

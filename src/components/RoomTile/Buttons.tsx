@@ -1,8 +1,6 @@
 import React from "react";
 import classNames from "classnames";
 
-import { Status, StatusType } from "../../common/classes/properties";
-
 import { joinRoom } from "../../common/util/joinRoom";
 
 import { useDispatch } from "react-redux";
@@ -11,10 +9,11 @@ import { ModalClass } from "../../modules/modal/modalClass";
 
 import Share from "../../resource/img/icon/share.svg?react";
 import Notification from "../../resource/img/icon/notification.svg?react";
+import { Status } from "@/common/classes/properties";
 
 interface ButtonsProps {
   name: string;
-  status: StatusType;
+  isPublic: boolean;
   isFull: boolean;
   changeSubscription: () => void;
   isSubscribed: boolean;
@@ -22,32 +21,31 @@ interface ButtonsProps {
 
 function Buttons({
   name,
-  status,
+  isPublic,
   isFull,
   changeSubscription,
   isSubscribed,
 }: ButtonsProps) {
   const dispatch = useDispatch();
-  const join =
-    status === Status.PUBLIC
-      ? (temp: boolean) => {
-          joinRoom(name, "", temp);
-        }
-      : (temp: boolean) => {
-          dispatch(
-            openModal({
-              modalClass: ModalClass.PASSWORD,
-              roomName: name,
-              temp,
-            }),
-          );
-        };
+  const join = isPublic
+    ? (temp: boolean) => {
+        joinRoom(name, "", temp);
+      }
+    : (temp: boolean) => {
+        dispatch(
+          openModal({
+            modalClass: ModalClass.PASSWORD,
+            roomName: name,
+            temp,
+          }),
+        );
+      };
   const share = () => {
     dispatch(
       openModal({
         modalClass: ModalClass.SHARE,
         roomName: name,
-        status,
+        status: isPublic ? Status.PUBLIC : Status.PRIVATE,
       }),
     );
   };

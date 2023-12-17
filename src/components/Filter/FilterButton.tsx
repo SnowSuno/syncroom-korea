@@ -1,44 +1,37 @@
-import React, { useCallback } from "react";
+import React, { type ReactNode, useCallback } from "react";
 
-import { useDispatch } from "react-redux";
-import { setFilter } from "../../modules/filter";
+import { Filter, FilterType } from "@/schema";
+import { useFilterStore } from "@/store";
 
-import { FilterClassType } from "../../modules/filter/types";
-import {
-  CountryType,
-  InstType,
-  StatusType,
-} from "../../common/classes/properties";
-
-interface FilterButtonProps {
-  filter: CountryType | InstType | StatusType | null;
-  current: CountryType | InstType | StatusType | null;
-  filterClass: FilterClassType;
-  icon: JSX.Element;
-  activeClass: FilterClassType | null;
-  handleActiveClass: (state: FilterClassType | null) => void;
+interface FilterButtonProps<T extends FilterType> {
+  filter: Filter[T];
+  type: FilterType;
+  icon: ReactNode;
+  open: FilterType | null;
+  setOpen: (state: FilterType | null) => void;
 }
 
-function FilterButton({
+function FilterButton<T extends FilterType>({
   filter,
-  current,
-  filterClass,
+  type,
   icon,
-  activeClass,
-  handleActiveClass,
-}: FilterButtonProps) {
-  const dispatch = useDispatch();
-  const isActive: boolean = filterClass === activeClass;
-  const isSelected: boolean = filter === current;
+  open,
+  setOpen,
+}: FilterButtonProps<T>) {
+  const { isSelected, setFilter } = useFilterStore(state => ({
+    setFilter: state.setFilter,
+    isSelected: state.filter[type] === filter,
+  }));
+  const isActive: boolean = type === open;
 
   const onClick = useCallback(() => {
     if (isActive) {
-      if (!isSelected) dispatch(setFilter(filterClass, filter));
-      handleActiveClass(null);
+      if (!isSelected) setFilter(type, filter);
+      setOpen(null);
     } else {
-      handleActiveClass(filterClass);
+      setOpen(type);
     }
-  }, [dispatch, filter, filterClass, handleActiveClass, isActive, isSelected]);
+  }, [filter, type, setOpen, isActive, isSelected, setFilter]);
 
   return (
     <button

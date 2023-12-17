@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import "./style.scss";
 import classNames from "classnames";
 
@@ -9,10 +9,8 @@ import Buttons from "./Buttons";
 import Flag from "../../resource/img/icon/Flag";
 import Lock from "../../resource/img/icon/lock.svg?react";
 
-import RoomType from "../../common/classes/Room";
-import { Status } from "../../common/classes/properties";
-
 import { useNotificationHandler } from "../../common/hooks/useNotificationHandler";
+import type { Room } from "@/schema";
 
 interface Size {
   width: string;
@@ -20,18 +18,14 @@ interface Size {
 }
 
 interface RoomTileProps {
-  room: RoomType;
+  room: Room;
   size: Size;
 }
 
 function RoomTile({ room, size }: RoomTileProps) {
-  const isPublic: boolean = useMemo(
-    () => room.status === Status.PUBLIC,
-    [room.status],
-  );
   const isFull: boolean = room.members.length === 5;
 
-  const [subsribeStatus, changeSubscibeStatus] = useNotificationHandler({
+  const [subscribeStatus, changeSubscribeStatus] = useNotificationHandler({
     room,
     isFull,
   });
@@ -41,31 +35,31 @@ function RoomTile({ room, size }: RoomTileProps) {
       id={room.id.toString()}
       className={classNames(
         "RoomTile",
-        { public: isPublic, private: !isPublic },
+        room.needPasswd ? "private" : "public",
         { full: isFull },
       )}
       style={size}
     >
       <div className="room-header">
-        <Flag country={room.country} />
-        <span className="room-name">{room.name}</span>
-        {isPublic ? <></> : <Lock />}
+        <Flag lang={room.language} />
+        <span className="room-name">{room.roomName}</span>
+        {room.needPasswd && <Lock />}
       </div>
       <SimpleBar className="room-desc-wrap">
         <div className="room-desc">
           <p>
             {room.tags.length > 0 ? "#" + room.tags.join("   #") + "\n" : null}
           </p>
-          {room.desc ? room.desc.trim() : "방 설명이 없습니다."}
+          {room.roomDesc ? room.roomDesc.trim() : "방 설명이 없습니다."}
         </div>
       </SimpleBar>
       <MemberDisplay members={room.members} />
       <Buttons
-        name={room.name}
-        status={room.status}
+        name={room.roomName}
+        isPublic={!room.needPasswd}
         isFull={isFull}
-        changeSubscription={changeSubscibeStatus}
-        isSubscribed={subsribeStatus}
+        changeSubscription={changeSubscribeStatus}
+        isSubscribed={subscribeStatus}
       />
     </div>
   );

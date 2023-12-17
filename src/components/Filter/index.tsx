@@ -1,12 +1,8 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import "./style.scss";
 
 import SearchInput from "./SearchBar";
-import FilterMenu, { MenuItemProps } from "./FilterMenu";
-
-import { Country, Inst, Status } from "../../common/classes/properties";
-
-import { FilterClass, FilterClassType } from "../../modules/filter/types";
+import FilterMenu, { Option } from "./FilterMenu";
 
 import CountryIcon from "../../resource/img/icon/country.svg?react";
 import Korea from "../../resource/img/icon/Flag/korea-noborder.svg?react";
@@ -22,61 +18,55 @@ import Drums from "../../resource/img/icon/Profile/drums.svg?react";
 import StatusIcon from "../../resource/img/icon/status.svg?react";
 import Public from "../../resource/img/icon/public.svg?react";
 import Private from "../../resource/img/icon/private.svg?react";
+import type { FilterType } from "@/schema";
 
 function Filter() {
-  const [activeClass, setActiveClass] = useState<FilterClassType | null>(null);
-  const handleActiveClass = useCallback(
-    (state: FilterClassType | null) => setActiveClass(state),
-    [],
-  );
+  const [open, setOpen] = useState<FilterType | null>(null);
 
   return (
     <>
-      <SearchInput
-        activeClass={activeClass}
-        handleActiveClass={handleActiveClass}
+      <SearchInput open={open} setOpen={setOpen} />
+      <FilterMenu
+        type="language"
+        open={open}
+        options={countryFilter}
+        setOpen={setOpen}
       />
       <FilterMenu
-        filterClass={FilterClass.country}
-        activeClass={activeClass}
-        menuItems={countryFilter}
-        handleActiveClass={handleActiveClass}
+        type="instrument"
+        open={open}
+        options={instFilter}
+        setOpen={setOpen}
       />
       <FilterMenu
-        filterClass={FilterClass.inst}
-        activeClass={activeClass}
-        menuItems={instFilter}
-        handleActiveClass={handleActiveClass}
-      />
-      <FilterMenu
-        filterClass={FilterClass.status}
-        activeClass={activeClass}
-        menuItems={statusFilter}
-        handleActiveClass={handleActiveClass}
+        type="password"
+        open={open}
+        options={statusFilter}
+        setOpen={setOpen}
       />
     </>
   );
 }
 
-const countryFilter: MenuItemProps[] = [
-  { filter: null, icon: <CountryIcon /> },
-  { filter: Country.KOREA, icon: <Korea /> },
-  { filter: Country.JAPAN, icon: <Japan /> },
+const countryFilter: Option<"language">[] = [
+  { key: null, icon: <CountryIcon /> },
+  { key: "kr", icon: <Korea /> },
+  { key: "jp", icon: <Japan /> },
 ];
 
-const instFilter: MenuItemProps[] = [
-  { filter: null, icon: <InstIcon /> },
-  { filter: Inst.VOCAL, icon: <Vocal /> },
-  { filter: Inst.GUITAR, icon: <Guitar /> },
-  { filter: Inst.BASS, icon: <Bass /> },
-  { filter: Inst.KEYS, icon: <Keys /> },
-  { filter: Inst.DRUMS, icon: <Drums /> },
+const instFilter: Option<"instrument">[] = [
+  { key: null, icon: <InstIcon /> },
+  { key: "vocal", icon: <Vocal /> },
+  { key: "guitar", icon: <Guitar /> },
+  { key: "bass", icon: <Bass /> },
+  { key: "keyboard", icon: <Keys /> },
+  { key: "drum", icon: <Drums /> },
 ];
 
-const statusFilter: MenuItemProps[] = [
-  { filter: null, icon: <StatusIcon /> },
-  { filter: Status.PUBLIC, icon: <Public /> },
-  { filter: Status.PRIVATE, icon: <Private /> },
+const statusFilter: Option<"password">[] = [
+  { key: null, icon: <StatusIcon /> },
+  { key: false, icon: <Public /> },
+  { key: true, icon: <Private /> },
 ];
 
 export default Filter;

@@ -6,10 +6,10 @@ import RoomTile from "../RoomTile";
 import { CSSGrid } from "react-stonecutter";
 import { useResponsiveCols } from "../../common/hooks/useResponsiveCols";
 
-import RoomType from "../../common/classes/Room";
+import type { Room } from "@/schema";
 
 type RoomGridProps = {
-  rooms: RoomType[];
+  rooms: Room[];
 };
 
 function RoomGrid({ rooms }: RoomGridProps) {

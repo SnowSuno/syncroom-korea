@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-import RoomType from "../classes/Room";
 import { scrollToRoom } from "../util/scrollToRoom";
+import type { Room } from "@/schema";
 
 const checkNotificationPermission = async () => {
   if (Notification.permission === "granted") return true;
@@ -9,13 +9,13 @@ const checkNotificationPermission = async () => {
   return permission === "granted";
 };
 
-const onClickNotification = (roomId: number) => () => {
+const onClickNotification = (roomId: string) => () => {
   window.focus();
   scrollToRoom(roomId);
 };
 
 interface NotificationHandlerProps {
-  room: RoomType;
+  room: Room;
   isFull: boolean;
 }
 
@@ -35,12 +35,12 @@ const useNotificationHandler = ({
     if (subscribeStatus && !isFull) {
       const noti = new Notification("자리 나면 알림 받기", {
         icon: document.URL + "favicon.ico",
-        body: room.name,
+        body: room.roomName,
       });
       noti.onclick = onClickNotification(room.id);
       setSubscribeStatus(false);
     }
-  }, [isFull, subscribeStatus, room.name, room.id]);
+  }, [isFull, subscribeStatus, room.roomName, room.id]);
 
   return [subscribeStatus, changeSubscibeStatus];
 };

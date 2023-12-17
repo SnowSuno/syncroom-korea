@@ -1,4 +1,4 @@
-const scrollToRoom = (roomId: number) => {
+const scrollToRoom = (roomId: string) => {
   const keyFrames = (color: string) => [
     { boxShadow: "0 0 0.8rem rgba(127, 127, 127, 0.1)" },
     { boxShadow: `0 0 0.8rem ${color}`, offset: 0.1 },

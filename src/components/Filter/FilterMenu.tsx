@@ -1,48 +1,41 @@
-import React from "react";
+import React, { type ReactNode } from "react";
 import classNames from "classnames";
 
 import FilterButton from "./FilterButton";
 
-import { FilterClassType } from "../../modules/filter/types";
-import {
-  CountryType,
-  InstType,
-  StatusType,
-} from "../../common/classes/properties";
-import { useSelector } from "react-redux";
-import { RootState } from "../../modules";
+import type { Filter, FilterType } from "@/schema";
 
-interface FilterMenuProps {
-  filterClass: FilterClassType;
-  menuItems: MenuItemProps[];
-  activeClass: FilterClassType | null;
-  handleActiveClass: (state: FilterClassType | null) => void;
+interface FilterMenuProps<T extends FilterType> {
+  type: T;
+  options: Option<T>[];
+  open: FilterType | null;
+  setOpen: (state: FilterType | null) => void;
 }
 
-export interface MenuItemProps {
-  filter: CountryType | InstType | StatusType | null;
-  icon: JSX.Element;
+export interface Option<T extends FilterType> {
+  key: Filter[T] | null;
+  icon: ReactNode;
 }
 
-function FilterMenu({
-  filterClass,
-  menuItems,
-  activeClass,
-  handleActiveClass,
-}: FilterMenuProps) {
-  const current = useSelector((state: RootState) => state.filter[filterClass]);
+function FilterMenu<T extends FilterType>({
+  type,
+  options,
+  open,
+  setOpen,
+}: FilterMenuProps<T>) {
+  // const current = useSelector((state: RootState) => state.filter[type]);
+  // const filter = useFilterStore(state =>
 
   return (
-    <div className={classNames("FilterMenu", { selected: current !== null })}>
-      {menuItems.map(({ filter, icon }, index) => (
+    <div className={classNames("FilterMenu")}>
+      {options.map(({ key, icon }, index) => (
         <FilterButton
           key={index}
-          filter={filter}
-          current={current}
-          filterClass={filterClass}
+          filter={key}
+          type={type}
           icon={icon}
-          activeClass={activeClass}
-          handleActiveClass={handleActiveClass}
+          open={open}
+          setOpen={setOpen}
         />
       ))}
     </div>

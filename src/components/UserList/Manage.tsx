@@ -1,11 +1,10 @@
 import React, { useCallback, useRef } from "react";
 
-import { useDispatch } from "react-redux";
 import useInput from "../../common/hooks/useInput";
-import { addUser } from "../../modules/user";
 
 import Plus from "../../resource/img/icon/plus.svg?react";
 import Return from "../../resource/img/icon/return.svg?react";
+import { useUsersStore } from "@/store";
 
 interface ManageProps {
   isActive: boolean;
@@ -15,7 +14,7 @@ interface ManageProps {
 }
 
 function Manage({ isActive, handleActive, isAdd, handleAdd }: ManageProps) {
-  const dispatch = useDispatch();
+  const addFavorite = useUsersStore(state => state.addFavoriteUser);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const { input, setValue } = useInput("");
@@ -24,14 +23,14 @@ function Manage({ isActive, handleActive, isAdd, handleAdd }: ManageProps) {
     setValue("");
     if (isAdd) {
       if (input.value) {
-        dispatch(addUser(input.value.trim()));
+        addFavorite(input.value.trim());
         handleAdd(false);
       }
     } else {
       handleAdd(true);
       inputRef.current?.focus();
     }
-  }, [isAdd, handleAdd, dispatch, input.value, setValue]);
+  }, [isAdd, handleAdd, addFavorite, input.value, setValue]);
 
   const onKeyPress = useCallback(
     e => {

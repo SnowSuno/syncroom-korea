@@ -1,9 +1,7 @@
 import React, { useCallback } from "react";
 
-import { useDispatch } from "react-redux";
-import { deleteUser } from "../../modules/user";
-
 import Delete from "../../resource/img/icon/x.svg?react";
+import { useUsersStore } from "@/store";
 
 interface OfflineUserProps {
   userName: string;
@@ -11,11 +9,11 @@ interface OfflineUserProps {
 }
 
 function OfflineUser({ userName, isActive }: OfflineUserProps) {
-  const dispatch = useDispatch();
+  const deleteFavorite = useUsersStore(state => state.deleteFavoriteUser);
 
   const deleteSelf = useCallback(() => {
-    dispatch(deleteUser(userName));
-  }, [dispatch, userName]);
+    deleteFavorite(userName);
+  }, [deleteFavorite, userName]);
 
   return (
     <div className="Offline User">

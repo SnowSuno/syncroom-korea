@@ -14,10 +14,25 @@ import { SidebarClass } from "../../modules/sidebar/sidebarClass";
 import Manage from "./Manage";
 import OnlineUser from "./OnlineUser";
 import OfflineUser from "./OfflineUser";
+import { useUsersStore } from "@/store";
+import { useRooms } from "@/api/hooks";
 
 function UserList() {
-  const { userList } = useSelector((state: RootState) => state.user);
-  const { users } = useSelector((state: RootState) => state.syncroom);
+  const favoriteUsers = useUsersStore(state => state.favorites);
+  const rooms = useRooms();
+
+  const activeUsersMap = useMemo(
+    () =>
+      new Map<string, string>(
+        rooms.data
+          ?.map(room =>
+            room.members.map(member => [member.nickname, room.id] as const),
+          )
+          .flat() ?? [],
+      ),
+    [rooms.data],
+  );
+
   const { sidebarClass } = useSelector((state: RootState) => state.sidebar);
 
   const [isActive, setActive] = useState<boolean>(false);
@@ -30,19 +45,24 @@ function UserList() {
     }
   }, [sidebarClass]);
 
-  const handleActive = (state: boolean) => setActive(state);
-  const handleAdd = (state: boolean) => setAdd(state);
-
   const { onlineUsers, offlineUsers } = useMemo(
-    () => handleUsers(userList, users),
-    [userList, users],
+    () => ({
+      onlineUsers: favoriteUsers.filter(user => activeUsersMap.has(user)),
+      offlineUsers: favoriteUsers.filter(user => !activeUsersMap.has(user)),
+    }),
+    [favoriteUsers, activeUsersMap],
   );
 
   return (
     <div
       className={classNames("UserList", { active: isActive }, { add: isAdd })}
     >
-      <Manage {...{ isActive, handleActive, isAdd, handleAdd }} />
+      <Manage
+        isActive={isActive}
+        handleActive={setActive}
+        isAdd={isAdd}
+        handleAdd={setAdd}
+      />
 
       <SimpleBar className="users">
         <div className="status-tag">온라인 ― {onlineUsers.length}</div>
@@ -52,7 +72,7 @@ function UserList() {
             <CSSTransition key={userName} timeout={200} classNames="wrap">
               <OnlineUser
                 userName={userName}
-                roomId={users[userName]}
+                roomId={activeUsersMap.get(userName) ?? ""}
                 isActive={isActive}
               />
             </CSSTransition>
@@ -74,27 +94,5 @@ function UserList() {
     </div>
   );
 }
-
-interface handleUserReturn {
-  onlineUsers: string[];
-  offlineUsers: string[];
-}
-
-const handleUsers = (
-  userList: string[],
-  users: { [name: string]: number },
-): handleUserReturn => {
-  const onlineUsers: string[] = [];
-  const offlineUsers: string[] = [];
-
-  userList.forEach(user => {
-    if (users.hasOwnProperty(user)) {
-      onlineUsers.push(user);
-    } else {
-      offlineUsers.push(user);
-    }
-  });
-  return { onlineUsers, offlineUsers };
-};
 
 export default React.memo(UserList);

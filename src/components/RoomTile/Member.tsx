@@ -1,48 +1,42 @@
-import React, { useCallback, useMemo } from "react";
+import React, { useCallback } from "react";
 import classNames from "classnames";
 
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../modules";
-
-import { MemberType } from "../../common/classes/Member";
 import Profile from "../../resource/img/icon/Profile";
 
 import Star from "../../resource/img/icon/star.svg?react";
-import { addUser, deleteUser } from "../../modules/user";
+
+import { Member as IMember } from "@/schema";
+import { useUsersStore } from "@/store";
 
 interface MemberProps {
-  member: MemberType;
+  member: IMember;
 }
 
-function Member({ member: { type, icon, nickname } }: MemberProps) {
-  const userList = useSelector((state: RootState) => state.user.userList);
-  const dispatch = useDispatch();
-
-  const starred = useMemo(
-    () => userList.includes(nickname),
-    [nickname, userList],
-  );
+function Member({ member }: MemberProps) {
+  const { starred, addFavorite, deleteFavorite } = useUsersStore(state => ({
+    starred: state.favorites.includes(member.nickname),
+    addFavorite: state.addFavoriteUser,
+    deleteFavorite: state.deleteFavoriteUser,
+  }));
 
   const onClick = useCallback(() => {
-    if (starred) {
-      dispatch(deleteUser(nickname));
-    } else {
-      dispatch(addUser(nickname));
-    }
-  }, [starred, nickname, dispatch]);
+    starred ? deleteFavorite(member.nickname) : addFavorite(member.nickname);
+  }, [starred, member.nickname, addFavorite, deleteFavorite]);
 
   return (
     <div className="Member">
       <div className="icon">
-        <Profile icon={icon} />
+        <Profile icon={member.iconInfo} />
       </div>
-      <div className="nickname">{nickname}</div>
-      {type === "general" ? (
+      <div className="nickname">
+        {!!member.nickname ? member.nickname : "임시 입장 중"}
+      </div>
+      {!!member.userId && (
         <Star
           className={classNames("star", { starred: starred })}
           onClick={onClick}
         />
-      ) : null}
+      )}
     </div>
   );
 }

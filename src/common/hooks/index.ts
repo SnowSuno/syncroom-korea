@@ -1,1 +1,1 @@
-export * from "./useRooms";
+export * from "./useSearchInput";
