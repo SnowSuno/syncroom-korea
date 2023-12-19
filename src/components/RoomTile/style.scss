@@ -1,14 +1,14 @@
-$public-color: #233D99;
+$public-color: #233d99;
 $private-color: #191919;
-$public-color-full: #97A0BE;
-$private-color-full: #A7A7A7;
+$public-color-full: #97a0be;
+$private-color-full: #a7a7a7;
 
 .RoomTile {
   display: flex;
   flex-direction: column;
   border-radius: 1rem;
   overflow: hidden;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);
 
   & > div {
@@ -18,7 +18,7 @@ $private-color-full: #A7A7A7;
   .room-header {
     display: flex;
     height: 2.8rem;
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 1rem;
     font-weight: 400;
     align-items: center;
@@ -55,7 +55,7 @@ $private-color-full: #A7A7A7;
 
   .MemberList {
     height: 15.4rem;
-    background: #F6F6F6;
+    background: #f6f6f6;
     margin-inline: 0.85rem;
     border-radius: 1rem;
     position: relative;
@@ -114,11 +114,11 @@ $private-color-full: #A7A7A7;
         cursor: pointer;
 
         &:hover {
-          fill: #C3C3C3;
+          fill: #c3c3c3;
         }
 
         &.starred {
-          fill: #FFC107;
+          fill: #ffc107;
         }
       }
     }
@@ -129,7 +129,7 @@ $private-color-full: #A7A7A7;
 
         &-active {
           height: 3.08rem;
-          transition: height .2s ease;
+          transition: height 0.2s ease;
         }
       }
 
@@ -138,7 +138,7 @@ $private-color-full: #A7A7A7;
 
         &-active {
           height: 0;
-          transition: height .2s ease;
+          transition: height 0.2s ease;
         }
       }
     }
@@ -167,7 +167,8 @@ $private-color-full: #A7A7A7;
       width: 5rem;
     }
 
-    .shareBtn, .notiBtn {
+    .shareBtn,
+    .notiBtn {
       display: flex;
       flex-direction: row;
       justify-content: center;
@@ -175,15 +176,15 @@ $private-color-full: #A7A7A7;
       gap: 0.3rem;
     }
 
-    .joinBtn, .notiBtn {
-      color: #FFFFFF
+    .joinBtn,
+    .notiBtn {
+      color: #ffffff;
     }
   }
 
-
   &.public {
     .room-header {
-      background: $public-color
+      background: $public-color;
     }
 
     &.full .room-header {
@@ -194,11 +195,11 @@ $private-color-full: #A7A7A7;
       background: $public-color;
 
       &:hover {
-        background: #4A62AF;
+        background: #4a62af;
       }
 
       &:active {
-        background: #3A4F92;
+        background: #3a4f92;
       }
     }
 
@@ -206,22 +207,22 @@ $private-color-full: #A7A7A7;
       background: $public-color-full;
 
       &:hover {
-        background: #8A93B1;
+        background: #8a93b1;
       }
 
       &:active {
-        background: #747C9C;
+        background: #747c9c;
       }
 
       &.subscibed {
         background: $public-color;
 
         &:hover {
-          background: #4A62AF;
+          background: #4a62af;
         }
 
         &:active {
-          background: #3A4F92;
+          background: #3a4f92;
         }
       }
     }
@@ -229,7 +230,7 @@ $private-color-full: #A7A7A7;
 
   &.private {
     .room-header {
-      background: $private-color
+      background: $private-color;
     }
 
     &.full .room-header {
@@ -256,7 +257,7 @@ $private-color-full: #A7A7A7;
       }
 
       &:active {
-        background: #7F7F7F;
+        background: #7f7f7f;
       }
 
       &.subscibed {

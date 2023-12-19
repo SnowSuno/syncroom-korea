@@ -1,45 +1,47 @@
-import React, {useCallback} from "react";
+import React, { type ReactNode, useCallback } from "react";
 
-import {useDispatch} from "react-redux";
-import {setFilter} from "../../modules/filter";
+import { Filter, FilterType } from "@/schema";
+import { useFilterStore } from "@/store";
 
-import {FilterClassType} from "../../modules/filter/types";
-import {CountryType, InstType, StatusType} from "../../common/classes/properties";
-
-interface FilterButtonProps {
-    filter: CountryType | InstType | StatusType | null;
-    current: CountryType | InstType | StatusType | null;
-    filterClass: FilterClassType;
-    icon: JSX.Element;
-    activeClass: FilterClassType | null;
-    handleActiveClass: (state: FilterClassType | null) => void;
+interface FilterButtonProps<T extends FilterType> {
+  filter: Filter[T];
+  type: FilterType;
+  icon: ReactNode;
+  open: FilterType | null;
+  setOpen: (state: FilterType | null) => void;
 }
 
-function FilterButton(
-    {filter, current, filterClass, icon, activeClass, handleActiveClass}: FilterButtonProps) {
-    const dispatch = useDispatch();
-    const isActive: boolean = filterClass === activeClass;
-    const isSelected: boolean = filter === current;
+function FilterButton<T extends FilterType>({
+  filter,
+  type,
+  icon,
+  open,
+  setOpen,
+}: FilterButtonProps<T>) {
+  const { isSelected, setFilter } = useFilterStore(state => ({
+    setFilter: state.setFilter,
+    isSelected: state.filter[type] === filter,
+  }));
+  const isActive: boolean = type === open;
 
-    const onClick = useCallback(() => {
-        if (isActive) {
-            if (!isSelected) dispatch(setFilter(filterClass, filter));
-            handleActiveClass(null);
-        } else {
-            handleActiveClass(filterClass)
-        }
-    }, [dispatch, filter, filterClass, handleActiveClass, isActive, isSelected]);
+  const onClick = useCallback(() => {
+    if (isActive) {
+      if (!isSelected) setFilter(type, filter);
+      setOpen(null);
+    } else {
+      setOpen(type);
+    }
+  }, [filter, type, setOpen, isActive, isSelected, setFilter]);
 
-
-    return (
-        <button
-            className="FilterButton"
-            style={{width: isSelected || isActive ? "3.2rem" : "0"}}
-            onClick={onClick}
-        >
-            {icon}
-        </button>
-    )
+  return (
+    <button
+      className="FilterButton"
+      style={{ width: isSelected || isActive ? "3.2rem" : "0" }}
+      onClick={onClick}
+    >
+      {icon}
+    </button>
+  );
 }
 
 export default React.memo(FilterButton);

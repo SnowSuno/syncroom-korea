@@ -1,9 +1,10 @@
 .Toolbar {
-  .SearchBar, .FilterButton {
+  .SearchBar,
+  .FilterButton {
     height: 2.6rem;
-    background: #FFFFFF;
+    background: #ffffff;
     overflow: hidden;
-    transition: width ease .15s;
+    transition: width ease 0.15s;
 
     &:hover {
       background: #fafafe;
@@ -43,7 +44,7 @@
     flex-grow: 1;
     flex-shrink: 0;
     max-width: 18rem;
-    transition: max-width ease .15s;
+    transition: max-width ease 0.15s;
     display: flex;
     align-items: center;
 
@@ -53,7 +54,10 @@
       height: 2.6rem;
       padding-left: 0.3rem;
 
-      &, &:hover, &:active, &:focus {
+      &,
+      &:hover,
+      &:active,
+      &:focus {
         background: none;
       }
     }

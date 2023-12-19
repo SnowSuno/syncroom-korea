@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   z-index: 999;
-  transition: opacity .2s ease;
+  transition: opacity 0.2s ease;
 
   .overlay {
     position: fixed;
@@ -12,7 +12,7 @@
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.4);
-    transition: opacity .2s ease-out;
+    transition: opacity 0.2s ease-out;
   }
 
   .open .overlay {
@@ -36,4 +36,3 @@
     gap: 0.5rem;
   }
 }
-

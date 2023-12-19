@@ -1,110 +1,98 @@
-import React, {useEffect, useMemo, useState} from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import classNames from "classnames";
 import "./style.scss";
 
-import {TransitionGroup, CSSTransition} from "react-transition-group";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import SimpleBar from "simplebar-react";
 import "simplebar/dist/simplebar.min.css";
 
-import {useSelector} from "react-redux";
-import {RootState} from "../../modules";
-import {SidebarClass} from "../../modules/sidebar/sidebarClass";
+import { useSelector } from "react-redux";
+import { RootState } from "../../modules";
+import { SidebarClass } from "../../modules/sidebar/sidebarClass";
 
 import Manage from "./Manage";
 import OnlineUser from "./OnlineUser";
 import OfflineUser from "./OfflineUser";
-
+import { useUsersStore } from "@/store";
+import { useRooms } from "@/api/hooks";
 
 function UserList() {
-    const {userList} = useSelector((state: RootState) => state.user);
-    const {users} = useSelector((state: RootState) => state.syncroom)
-    const {sidebarClass} = useSelector((state: RootState) => state.sidebar)
+  const favoriteUsers = useUsersStore(state => state.favorites);
+  const rooms = useRooms();
 
-    const [isActive, setActive] = useState<boolean>(false);
-    const [isAdd, setAdd] = useState<boolean>(false);
+  const activeUsersMap = useMemo(
+    () =>
+      new Map<string, string>(
+        rooms.data
+          ?.map(room =>
+            room.members.map(member => [member.nickname, room.id] as const),
+          )
+          .flat() ?? [],
+      ),
+    [rooms.data],
+  );
 
-    useEffect(() => {
-        if (sidebarClass !== SidebarClass.MENU) {
-            setActive(false);
-            setAdd(false);
-        }
-    }, [sidebarClass])
+  const { sidebarClass } = useSelector((state: RootState) => state.sidebar);
 
-    const handleActive = (state: boolean) => setActive(state);
-    const handleAdd = (state: boolean) => setAdd(state);
+  const [isActive, setActive] = useState<boolean>(false);
+  const [isAdd, setAdd] = useState<boolean>(false);
 
+  useEffect(() => {
+    if (sidebarClass !== SidebarClass.MENU) {
+      setActive(false);
+      setAdd(false);
+    }
+  }, [sidebarClass]);
 
-    const {onlineUsers, offlineUsers} = useMemo(
-        () => handleUsers(userList, users),
-        [userList, users]);
+  const { onlineUsers, offlineUsers } = useMemo(
+    () => ({
+      onlineUsers: favoriteUsers.filter(user => activeUsersMap.has(user)),
+      offlineUsers: favoriteUsers.filter(user => !activeUsersMap.has(user)),
+    }),
+    [favoriteUsers, activeUsersMap],
+  );
 
-    return (
-        <div className={classNames(
-            "UserList",
-            {active: isActive},
-            {add: isAdd}
-        )}>
-            <Manage {...{isActive, handleActive, isAdd, handleAdd}}/>
+  return (
+    <div
+      className={classNames("UserList", { active: isActive }, { add: isAdd })}
+    >
+      <Manage
+        isActive={isActive}
+        handleActive={setActive}
+        isAdd={isAdd}
+        handleAdd={setAdd}
+      />
 
-            <SimpleBar className="users">
-                <div className="status-tag">
-                    온라인 ― {onlineUsers.length}
-                </div>
+      <SimpleBar className="users">
+        <div className="status-tag">온라인 ― {onlineUsers.length}</div>
 
-                <TransitionGroup component="div">
-                    {onlineUsers.map((userName) => (
-                        <CSSTransition key={userName} timeout={200} classNames="wrap">
-                            <OnlineUser
-                                userName={userName}
-                                roomId={users[userName]}
-                                isActive={isActive}
-                            />
-                        </CSSTransition>
-                    ))}
-                </TransitionGroup>
+        <TransitionGroup component="div">
+          {onlineUsers.map(userName => (
+            <CSSTransition key={userName} timeout={200} classNames="wrap">
+              <OnlineUser
+                userName={userName}
+                roomId={activeUsersMap.get(userName) ?? ""}
+                isActive={isActive}
+              />
+            </CSSTransition>
+          ))}
+        </TransitionGroup>
 
-                <div className="status-tag">
-                    오프라인 ― {offlineUsers.length}
-                </div>
+        <div className="status-tag">오프라인 ― {offlineUsers.length}</div>
 
-                <TransitionGroup component="div">
-                    {offlineUsers.map((userName) => (
-                        <CSSTransition key={userName} timeout={200} classNames="wrap">
-                            <OfflineUser
-                                userName={userName}
-                                isActive={isActive}
-                            />
-                        </CSSTransition>
-                    ))}
-                </TransitionGroup>
+        <TransitionGroup component="div">
+          {offlineUsers.map(userName => (
+            <CSSTransition key={userName} timeout={200} classNames="wrap">
+              <OfflineUser userName={userName} isActive={isActive} />
+            </CSSTransition>
+          ))}
+        </TransitionGroup>
 
-                <div className="padding" />
-            </SimpleBar>
-        </div>
-    );
-}
-
-interface handleUserReturn {
-    onlineUsers: string[];
-    offlineUsers: string[];
-}
-
-const handleUsers = (
-    userList: string[],
-    users: {[name: string]: number}
-): handleUserReturn => {
-    const onlineUsers: string[] = [];
-    const offlineUsers: string[] = [];
-
-    userList.forEach((user) => {
-        if (users.hasOwnProperty(user)) {
-            onlineUsers.push(user);
-        } else {
-            offlineUsers.push(user);
-        }
-    })
-    return {onlineUsers, offlineUsers};
+        <div className="padding" />
+      </SimpleBar>
+    </div>
+  );
 }
 
 export default React.memo(UserList);

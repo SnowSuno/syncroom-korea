@@ -1,48 +1,44 @@
-import React, {useCallback, useMemo} from "react";
+import React, { useCallback } from "react";
 import classNames from "classnames";
 
-import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../../modules";
-
-import {MemberType} from "../../common/classes/Member";
 import Profile from "../../resource/img/icon/Profile";
 
 import Star from "../../resource/img/icon/star.svg?react";
-import {addUser, deleteUser} from "../../modules/user";
+
+import { Member as IMember } from "@/schema";
+import { useUsersStore } from "@/store";
 
 interface MemberProps {
-    member: MemberType;
+  member: IMember;
 }
 
-function Member({member: {type, icon, nickname}}: MemberProps) {
-    const userList = useSelector((state: RootState) => state.user.userList);
-    const dispatch = useDispatch();
+function Member({ member }: MemberProps) {
+  const { starred, addFavorite, deleteFavorite } = useUsersStore(state => ({
+    starred: state.favorites.includes(member.nickname),
+    addFavorite: state.addFavoriteUser,
+    deleteFavorite: state.deleteFavoriteUser,
+  }));
 
-    const starred = useMemo(() => userList.includes(nickname), [nickname, userList]);
+  const onClick = useCallback(() => {
+    starred ? deleteFavorite(member.nickname) : addFavorite(member.nickname);
+  }, [starred, member.nickname, addFavorite, deleteFavorite]);
 
-    const onClick = useCallback(() => {
-        if (starred) {
-            dispatch(deleteUser(nickname));
-        } else {
-            dispatch(addUser(nickname));
-        }
-    }, [starred, nickname, dispatch]);
-
-
-    return (
-        <div className="Member">
-            <div className="icon"><Profile icon={icon}/></div>
-            <div className="nickname">{nickname}</div>
-            {type === "general" ? <Star
-                className={classNames(
-                    "star",
-                    {starred: starred}
-                )}
-                onClick={onClick}
-            /> : null
-            }
-        </div>
-    );
+  return (
+    <div className="Member">
+      <div className="icon">
+        <Profile icon={member.iconInfo} />
+      </div>
+      <div className="nickname">
+        {!!member.nickname ? member.nickname : "임시 입장 중"}
+      </div>
+      {!!member.userId && (
+        <Star
+          className={classNames("star", { starred: starred })}
+          onClick={onClick}
+        />
+      )}
+    </div>
+  );
 }
 
 export default React.memo(Member);

@@ -29,7 +29,7 @@
     padding-inline: 1rem;
 
     &::placeholder {
-      color: #AAAAAA
+      color: #aaaaaa;
     }
   }
 
@@ -46,7 +46,7 @@
     button {
       width: 5rem;
       border-radius: 0 1.15rem 1.15rem 0;
-      color: #FFFFFF;
+      color: #ffffff;
       background: #191919;
 
       &:hover {
@@ -58,7 +58,7 @@
       }
 
       &:disabled {
-        background: #A7A7A7;
+        background: #a7a7a7;
       }
     }
   }
@@ -69,13 +69,13 @@
     margin-left: 0.5rem;
     margin-top: 0.5rem;
 
-    color: #49C5B6;
+    color: #49c5b6;
     font-size: 0.8rem;
     line-height: 0.8rem;
     height: 1rem;
 
     overflow: hidden;
-    transition: height ease .15s;
+    transition: height ease 0.15s;
 
     &.hide {
       height: 0;
@@ -87,7 +87,7 @@
     flex-direction: row;
     align-items: center;
     gap: 0.3rem;
-    border-color: #9B9DA8;
+    border-color: #9b9da8;
     width: fit-content;
     margin-left: 0.5rem;
     margin-bottom: 0.5rem;
@@ -100,7 +100,7 @@
     svg {
       pointer-events: none;
       fill: none;
-      stroke: #FFFFFF;
+      stroke: #ffffff;
       stroke-width: 0.2rem;
       stroke-linecap: round;
       stroke-linejoin: round;
@@ -116,18 +116,18 @@
     border-radius: 0.2rem;
 
     line-height: 0.8rem;
-    transition: background-color .1s ease-out;
+    transition: background-color 0.1s ease-out;
 
     &.checked {
-      background: #233D99;
-      border-color: #233D99;
+      background: #233d99;
+      border-color: #233d99;
     }
   }
 
   .password {
     overflow: hidden;
     position: relative;
-    transition: height ease .3s;
+    transition: height ease 0.3s;
 
     input[type="text"] {
       height: 2.3rem;

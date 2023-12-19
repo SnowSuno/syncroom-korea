@@ -34,14 +34,13 @@
   src: url("./resource/fonts/NotoSansKR-Black.otf") format("opentype");
 }
 
-
 body {
   margin: 0;
   padding: 0;
   font-family: "Noto Sans KR", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #ECEEF2;
+  background: #eceef2;
 }
 
 #browser {
@@ -49,8 +48,8 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-  monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 button {
@@ -63,15 +62,15 @@ button {
   border-radius: 1.15rem;
   font: inherit;
   color: #000000;
-  background: #F0F0F0;
+  background: #f0f0f0;
   outline: none;
 
   &:hover {
-    background: #E0E0E0;
+    background: #e0e0e0;
   }
 
   &:active {
-    background: #D0D0D0;
+    background: #d0d0d0;
   }
 
   > span {
@@ -83,7 +82,7 @@ button {
 input[type="text"] {
   padding: 0;
   border: 0;
-  background: #F0F0F0;
+  background: #f0f0f0;
   height: 2.3rem;
   border-radius: 1.15rem;
   font-size: 0.9rem;

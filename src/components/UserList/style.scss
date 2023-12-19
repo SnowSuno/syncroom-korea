@@ -1,40 +1,39 @@
 .UserList {
   margin-top: 0.5rem;
 
-
   .Manage {
-    background: #CECFD8;
+    background: #cecfd8;
     height: 2.8rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     padding-inline: 1.5rem;
-    transition: height .2s ease;
+    transition: height 0.2s ease;
 
     span {
       font-size: 1.1rem;
       overflow: hidden;
       white-space: nowrap;
       width: 26rem;
-      transition: width .2s ease;
+      transition: width 0.2s ease;
     }
 
     button {
       height: 1.6rem;
       font-size: 0.9rem;
-      color: #85858B;
+      color: #85858b;
 
-      background: #DBDCE2;
+      background: #dbdce2;
 
       &.multi {
         width: 6rem;
-        transition: width .2s ease;
+        transition: width 0.2s ease;
         overflow: hidden;
         white-space: nowrap;
       }
 
       &.background {
-        background: #CECFD8;
+        background: #cecfd8;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -42,7 +41,6 @@
         &:hover {
           background: #bebfcb;
         }
-
       }
 
       &.return {
@@ -63,7 +61,12 @@
 
         overflow: hidden;
         justify-self: end;
-        transition: opacity .2s ease,  background .2s ease, width .2s ease, height .2s ease, margin-right .2s ease;
+        transition:
+          opacity 0.2s ease,
+          background 0.2s ease,
+          width 0.2s ease,
+          height 0.2s ease,
+          margin-right 0.2s ease;
 
         svg {
           width: 1rem;
@@ -77,7 +80,9 @@
       position: absolute;
       right: 4rem;
       width: 0;
-      transition: width .2s ease, padding-inline .2s ease;
+      transition:
+        width 0.2s ease,
+        padding-inline 0.2s ease;
       background: #dfe0e7;
       padding-inline: 0;
       box-sizing: border-box;
@@ -90,7 +95,10 @@
     .status-tag {
       padding: 1rem 1.5rem 0.5rem;
       overflow: hidden;
-      transition: height .2s ease, padding-top .2s ease, padding-bottom .2s ease;
+      transition:
+        height 0.2s ease,
+        padding-top 0.2s ease,
+        padding-bottom 0.2s ease;
     }
 
     .User {
@@ -103,14 +111,14 @@
       align-items: center;
       gap: 0.5rem;
       overflow: hidden;
-      transition: background-color .1s ease-out;
+      transition: background-color 0.1s ease-out;
 
       svg.indicator {
         height: 0.63rem;
         width: 0.63rem;
         margin-inline: 0.5rem;
         opacity: 1;
-        transition: opacity .2s ease;
+        transition: opacity 0.2s ease;
       }
 
       span {
@@ -124,7 +132,7 @@
         background: none;
         cursor: default;
         opacity: 0;
-        transition: opacity .1s ease;
+        transition: opacity 0.1s ease;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -141,7 +149,7 @@
           fill: #50be73;
         }
         &:hover {
-          background: #CECFD8;
+          background: #cecfd8;
           svg.arrow {
             opacity: 1;
             right: 1.5rem;
@@ -152,17 +160,19 @@
           right: 3rem;
           height: 1.8rem;
           width: 1.8rem;
-          fill: #9D9EA4;
+          fill: #9d9ea4;
           opacity: 0;
-          transition: opacity .1s ease-out, right .1s ease-out;
+          transition:
+            opacity 0.1s ease-out,
+            right 0.1s ease-out;
         }
       }
 
       &.Offline {
-        color: #A7A7A7;
+        color: #a7a7a7;
         cursor: default;
         svg.indicator {
-          fill: #BFBFBF;
+          fill: #bfbfbf;
         }
       }
     }
@@ -170,29 +180,26 @@
       height: 2rem;
     }
     .simplebar-scrollbar:before {
-      background: #9D9EA4;
+      background: #9d9ea4;
     }
 
     .wrap {
-      &-enter{
+      &-enter {
         height: 0;
         &-active {
           height: 3.5rem;
-          transition: height .2s ease;
+          transition: height 0.2s ease;
         }
       }
       &-exit {
         height: 3.5rem;
         &-active {
           height: 0;
-          transition: height .2s ease;
+          transition: height 0.2s ease;
         }
       }
     }
   }
-
-
-
 
   &.active {
     .Manage {
@@ -218,9 +225,9 @@
       }
       .User {
         color: #8c8c8c;
-        background: #E5E6EA;
+        background: #e5e6ea;
         &:hover {
-          background: #E5E6EA;
+          background: #e5e6ea;
         }
 
         svg.indicator {
@@ -232,7 +239,7 @@
           cursor: pointer;
 
           &:hover {
-            background: #DBDCE2;
+            background: #dbdce2;
           }
         }
 
@@ -245,7 +252,6 @@
         }
       }
     }
-
   }
 
   &.add {
@@ -275,7 +281,6 @@
       }
     }
   }
-
 }
 
 @keyframes enter {
