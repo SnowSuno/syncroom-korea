@@ -2,6 +2,7 @@ import { z } from "zod";
 import { creatorSchema, memberSchema } from "./member";
 import { parseTags } from "@/utils/tag";
 import { getId, getLanguage } from "@/utils/room";
+import moment from "moment";
 
 export const roomSourceSchema = z.object({
   realm: z.number(),
@@ -17,7 +18,7 @@ export const roomSourceSchema = z.object({
   numMembers: z.number(),
   tagMask: z.coerce.number(),
   tagOrig: z.string(),
-  createTime: z.coerce.date(),
+  createTime: z.string().transform(date => moment(date)),
 });
 
 export type RoomSource = z.infer<typeof roomSourceSchema>;
