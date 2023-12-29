@@ -22,6 +22,8 @@ import Modal from "./components/Modal";
 import Sidebar from "./components/Sidebar";
 import { QueryClient, QueryClientProvider } from "react-query";
 
+import { SignInPage } from "@/components/pages";
+
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 
 const queryClient = new QueryClient();
@@ -33,6 +35,7 @@ ReactDOM.render(
         <Router>
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route path="/login" component={SignInPage} />
             <Route path="/join" component={Join} />
             <Route path="/notice" component={Notice} />
             <Route path="/buymeacoffee" component={Donate} />
