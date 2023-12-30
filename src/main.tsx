@@ -20,7 +20,7 @@ import Donate from "./routes/Donate";
 import NotFound from "./routes/NotFound";
 import Modal from "./components/Modal";
 import Sidebar from "./components/Sidebar";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { SignInPage } from "@/components/pages";
 

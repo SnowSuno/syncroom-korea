@@ -1,6 +1,12 @@
-import { useQuery } from "react-query";
-
-import { getRooms } from "@/api/endpoints";
+import { yamaha } from "@/api/client/yamaha";
 
 export const useRooms = () =>
-  useQuery("rooms", getRooms, { refetchInterval: 5000 });
+  yamaha.useGetRooms(
+    {
+      queries: {
+        realm: 4,
+        pagesize: 500,
+      },
+    },
+    { refetchInterval: 5000 },
+  );

@@ -18,8 +18,8 @@ function Home() {
   const filter = useFilter();
 
   const filteredRooms = useMemo(
-    () => data && filterRooms(data, filter),
-    [data, filter],
+    () => data && filterRooms(data.rooms, filter),
+    [data?.rooms, filter],
   );
 
   return (

@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useAuthStore } from "@/store/auth";
 import { useAuth } from "@/api/hooks/auth";
 
 const signInSchema = z.object({
@@ -19,14 +18,16 @@ export const SignInPage: React.FC = () => {
     username: string;
     password: string;
   }>({ mode: "onTouched", resolver: zodResolver(signInSchema) });
-  const setTokens = useAuthStore(state => state.setTokens);
-  const { mutateAsync, data, isLoading } = useAuth();
+  const { login } = useAuth();
 
-  const onSubmit = handleSubmit(data => mutateAsync(data));
-
-  useEffect(() => {
-    if (data) setTokens(data);
-  }, [data, setTokens]);
+  const onSubmit = handleSubmit(async data => {
+    const success = await login(data);
+    if (success) {
+      alert("로그인 성공");
+    } else {
+      alert("로그인 실패");
+    }
+  });
 
   return (
     <main>
@@ -38,8 +39,7 @@ export const SignInPage: React.FC = () => {
         <input type="password" {...register("password")} />
         {errors.password && <span>비밀번호를 입력해 주세요</span>}
         <input type="submit" value="로그인" disabled={!isValid} />
-        {isLoading && <span>로딩중...</span>}
-        {isSubmitting && <span>제출중...</span>}
+        {isSubmitting && <span>로그인 중...</span>}
       </form>
     </main>
   );
