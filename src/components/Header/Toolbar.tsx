@@ -5,13 +5,11 @@ import Refresh from "../../resource/img/graphics/reload.svg?react";
 import Filter from "../Filter";
 import classNames from "classnames";
 import { useRooms } from "@/api/hooks";
-import { useQueryClient } from "react-query";
+import { yamaha } from "@/api/client/yamaha";
 
 function Toolbar() {
   const { isFetching } = useRooms();
-  const queryClient = useQueryClient();
-
-  const getRooms = () => queryClient.invalidateQueries("rooms");
+  const { invalidate } = yamaha.useGetRooms();
 
   const [rotate, setRotate] = useState(false);
 
@@ -22,7 +20,7 @@ function Toolbar() {
   return (
     <div className="Toolbar">
       <Filter />
-      <button className="refresh" onClick={getRooms}>
+      <button className="refresh" onClick={invalidate}>
         <Refresh
           height={20}
           width={20}

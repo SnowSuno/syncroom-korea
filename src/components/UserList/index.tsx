@@ -19,18 +19,18 @@ import { useRooms } from "@/api/hooks";
 
 function UserList() {
   const favoriteUsers = useUsersStore(state => state.favorites);
-  const rooms = useRooms();
+  const { data } = useRooms();
 
   const activeUsersMap = useMemo(
     () =>
       new Map<string, string>(
-        rooms.data
+        data?.rooms
           ?.map(room =>
             room.members.map(member => [member.nickname, room.id] as const),
           )
           .flat() ?? [],
       ),
-    [rooms.data],
+    [data?.rooms],
   );
 
   const { sidebarClass } = useSelector((state: RootState) => state.sidebar);
