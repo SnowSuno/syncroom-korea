@@ -7,6 +7,9 @@ import SidebarRoute from "./SidebarRoute";
 import MenuSidebar from "./MenuSidebar";
 import SettingsSidebar from "./SettingsSidebar";
 
+/**
+ * @deprecated
+ */
 function Sidebar() {
   return (
     <div className="SidebarContainer">
