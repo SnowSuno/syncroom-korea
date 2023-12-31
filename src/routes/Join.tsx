@@ -1,6 +1,6 @@
 import React from "react";
 import "./Join.scss";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { decodeShareLink } from "../common/util/shareLink";
 import { joinRoom } from "../common/util/joinRoom";
@@ -11,14 +11,13 @@ import Return from "../resource/img/icon/return.svg?react";
 
 import useInput from "../common/hooks/useInput";
 
-interface JoinProps {
-  location: JoinInfoProps;
-}
 interface JoinInfoProps {
   search: string;
 }
 
-function Join({ location: { search } }: JoinProps) {
+function Join() {
+  const { search } = useLocation();
+
   return (
     <div className="Join">
       <Link to="/" className="return">
