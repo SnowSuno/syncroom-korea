@@ -12,6 +12,13 @@ module.exports = {
       },
     },
     extend: {
+      colors: {
+        theme: "#6DC2B6",
+      },
+      spacing: {
+        fold: "theme(spacing[16])",
+        expand: "theme(spacing[80])",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -25,6 +32,9 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      gridTemplateColumns: {
+        "auto-fit": "repeat(auto-fit, minmax(theme(spacing[80]), 1fr))",
       },
     },
   },
