@@ -81,35 +81,7 @@
     }
   }
 
-  .Toolbar {
-    position: absolute;
-    width: auto;
 
-    margin: auto;
-    box-sizing: border-box;
-
-    padding-block: 1rem;
-    display: flex;
-
-    gap: 1rem;
-    justify-content: center;
-    transition:
-      left 0.2s ease-out,
-      right 0.2s ease-out,
-      top 0.2s ease-out;
-
-    button.refresh {
-      height: 2.6rem;
-      width: 2.6rem;
-      flex-shrink: 0;
-      border-radius: 1.3rem;
-      background: #ffffff;
-      box-shadow: 0 0 0.8rem rgba(127, 127, 127, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
 }
 
 .big.Header {

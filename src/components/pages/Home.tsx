@@ -1,15 +1,10 @@
 import React, { useMemo } from "react";
 
-// import {BrowserView, MobileView} from "react-device-detect";
-
-// import Header from "components/Header";
 import RoomGrid from "@/components/RoomGrid";
 
 import { useRooms } from "@/api/hooks/rooms";
 import { filterRooms } from "@/utils/filter";
 import { useFilter } from "@/common/hooks/useFilter";
-
-import { ScrollArea } from "@/components/ui/scroll-area";
 
 // temp
 // import BetaNotiModal from "../components/temp/BetaNotiModal";
@@ -24,8 +19,8 @@ export const Home: React.FC = () => {
   );
 
   return (
-    <ScrollArea className="flex-1">
+    <div className="px-5 pt-2">
       <RoomGrid rooms={filteredRooms ?? []} />
-    </ScrollArea>
+    </div>
   );
 };
