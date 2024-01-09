@@ -12,6 +12,9 @@ type RoomGridProps = {
   rooms: Room[];
 };
 
+/**
+ * @deprecated
+ */
 function RoomGrid({ rooms }: RoomGridProps) {
   const style = {
     tileWidth: 21.5, // rem

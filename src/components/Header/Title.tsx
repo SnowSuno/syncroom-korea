@@ -8,6 +8,9 @@ import { openSidebar } from "../../modules/sidebar";
 import { useDispatch } from "react-redux";
 import { SidebarClass } from "../../modules/sidebar/sidebarClass";
 
+/**
+ * @deprecated
+ */
 function Title() {
   const dispatch = useDispatch();
 

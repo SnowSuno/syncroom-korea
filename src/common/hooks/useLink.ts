@@ -1,14 +1,17 @@
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
+/**
+ * @deprecated
+ */
 const useLink = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const toExternal = (href: string) => () => {
     window.open(href, "_blank")?.focus();
   };
 
   const toInternal = (href: string) => () => {
-    history.push(href);
+    navigate(href);
   };
 
   const to = (href: string) =>

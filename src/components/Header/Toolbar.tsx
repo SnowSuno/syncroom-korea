@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./Toolbar.scss";
 
 import Refresh from "../../resource/img/graphics/reload.svg?react";
 
@@ -20,7 +21,7 @@ function Toolbar() {
   }, [isFetching]);
 
   return (
-    <div className="Toolbar">
+    <div className="Toolbar flex-1">
       <Filter />
       <button className="refresh" onClick={getRooms}>
         <Refresh
