@@ -1,10 +1,9 @@
 import React, { useMemo } from "react";
 
-import RoomGrid from "@/components/RoomGrid";
-
 import { useRooms } from "@/api/hooks/rooms";
 import { filterRooms } from "@/utils/filter";
 import { useFilter } from "@/common/hooks/useFilter";
+import { Room } from "@/components/organisms";
 
 // temp
 // import BetaNotiModal from "../components/temp/BetaNotiModal";
@@ -13,14 +12,17 @@ export const Home: React.FC = () => {
   const { data } = useRooms();
   const filter = useFilter();
 
-  const filteredRooms = useMemo(
+  const rooms = useMemo(
     () => data && filterRooms(data, filter),
     [data, filter],
   );
 
   return (
     <div className="px-5 pt-2">
-      <RoomGrid rooms={filteredRooms ?? []} />
+      <Room.List>
+        {rooms?.map(room => <Room.Card key={room.id} room={room} />)}
+      </Room.List>
+      {/*<RoomGrid rooms={rooms ?? []} />*/}
     </div>
   );
 };

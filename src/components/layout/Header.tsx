@@ -1,7 +1,5 @@
 import React from "react";
-import { Menu } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import { Logo } from "@/assets";
 import Toolbar from "@/components/Header/Toolbar";
 

@@ -22,7 +22,7 @@ export const SideBar: React.FC<Props> = () => {
         variant="ghost"
         size="icon"
         tw="m-3"
-        onClick={() => setOpen(!open)}
+        onClick={() => setOpen(open => !open)}
       >
         <Menu />
       </Button>
