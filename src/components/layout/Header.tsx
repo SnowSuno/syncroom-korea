@@ -16,9 +16,6 @@ export const Header: React.FC<Props> = () => {
         z-20
       "
     >
-      {/*<Button variant="ghost" size="icon" onClick={toggleSidebar}>*/}
-      {/*  <Menu />*/}
-      {/*</Button>*/}
       <span className="w-64">
         <Logo className="h-16" />
       </span>

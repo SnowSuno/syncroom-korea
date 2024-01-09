@@ -22,7 +22,6 @@ export const Home: React.FC = () => {
       <Room.List>
         {rooms?.map(room => <Room.Card key={room.id} room={room} />)}
       </Room.List>
-      {/*<RoomGrid rooms={rooms ?? []} />*/}
     </div>
   );
 };
