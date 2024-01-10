@@ -23,7 +23,7 @@ function MemberList({ members }: MemberListProps) {
       <div className="MemberContainer">
         <TransitionGroup>
           {members.map(member => (
-            <CSSTransition key={member.userId} timeout={200} classNames="wrap">
+            <CSSTransition key={member.id} timeout={200} classNames="wrap">
               <Member member={member} />
             </CSSTransition>
           ))}
