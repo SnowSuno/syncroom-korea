@@ -14,7 +14,7 @@ export const SideBar: React.FC<Props> = () => {
 
   return (
     <motion.section
-      className="bg-slate-200 overflow-hidden"
+      className="bg-gray-200 overflow-hidden"
       initial={false}
       animate={open ? tw`w-expand` : tw`w-fold`}
     >

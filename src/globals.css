@@ -1,7 +1,21 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 html, body, #root {
     height: 100%;
+}
+
+:root {
+    @apply bg-gray-100;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Spoqa Han Sans Neo", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

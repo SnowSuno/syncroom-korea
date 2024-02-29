@@ -1,4 +1,4 @@
-import type { Member, Instrument, Room } from "@/schema";
+import type { Room, Instrument } from "@/schema";
 
 const presetInstrumentMap: Record<number, Instrument> = {
   0: "drum",
@@ -17,8 +17,13 @@ const presetInstrumentMap: Record<number, Instrument> = {
   13: "other",
 };
 
-export const getInst = ({ iconInfo }: Member): Instrument =>
+export const getInst = (iconInfo: {
+  preset: number;
+  type: "preset" | "url";
+}): Instrument =>
   iconInfo.type === "preset" ? presetInstrumentMap[iconInfo.preset] : "other";
 
-export const doesNotIncludeInst = (room: Room, inst: Instrument) =>
-  room.members.every(member => getInst(member) !== inst);
+export const doesNotIncludeInst = (
+  room: Pick<Room, "members">,
+  inst: Instrument,
+) => room.members.every(member => member.iconInfo.inst !== inst);

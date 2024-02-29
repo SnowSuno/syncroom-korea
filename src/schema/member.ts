@@ -12,7 +12,7 @@ const baseMemberSchema = z.object({
   userId: z.string(),
   nickname: z.string(),
   nsgmMemberId: z.coerce.number(),
-  iconInfo: iconSchema.default({ preset: 0, type: "preset", url: "" }),
+  iconInfo: iconSchema,
   favorite: z.boolean(),
 });
 
